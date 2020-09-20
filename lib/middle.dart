@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/footer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MiddleScreen extends StatelessWidget {
@@ -9,10 +10,10 @@ class MiddleScreen extends StatelessWidget {
       child: Flex(
         direction: context.isMobile ? Axis.vertical : Axis.horizontal,
         children: [
-          "All Creative Works,\n"
+          "My Projects,\n"
               .richText
               .withTextSpanChildren([
-                "Selected Projects.".textSpan.yellow400.make(),
+                "Swipe left or right".textSpan.yellow400.make(),
               ])
               .xl4
               .white
@@ -21,12 +22,16 @@ class MiddleScreen extends StatelessWidget {
           Expanded(
               child: VxSwiper(
             items: [
-              ProjectWidget(title: "Front Wallet"),
-              ProjectWidget(title: "Front Wallet2"),
-              ProjectWidget(title: "Front Wallet3"),
-              ProjectWidget(title: "Front Wallet4"),
-              ProjectWidget(title: "Front Wallet5"),
-              ProjectWidget(title: "Front Wallet6"),
+              ProjectWidget(title: "Git-Workshop").mdClick(() {
+                launchURL('https://github.com/UttamkiniH/Git-Workshop');
+              }).make(),
+              ProjectWidget(title: "RPS game"),
+              ProjectWidget(title: "Health Check Up\nApp"),
+              ProjectWidget(title: "Portfolio").mdClick(() {
+                launchURL('https://github.com/UttamkiniH/Portfolio');
+              }).make(),
+              ProjectWidget(title: "Noter App"),
+              ProjectWidget(title: "Yet to be\nCreated"),
             ],
             height: 170,
             viewportFraction: context.isMobile ? 0.75 : 0.4,
