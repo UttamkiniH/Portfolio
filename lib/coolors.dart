@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'dart:ui';
-import 'package:velocity_x/velocity_x.dart';
 
 mixin Coolors {
   static const Color primaryColor = Color(0xff212121);

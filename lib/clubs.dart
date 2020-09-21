@@ -3,7 +3,6 @@ import 'package:portfolio/footer.dart';
 import 'coolors.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class ClubActivity extends StatelessWidget {
@@ -255,6 +254,7 @@ class dscClick extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class acmClick extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

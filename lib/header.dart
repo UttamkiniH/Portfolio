@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -90,7 +89,7 @@ class IntroductionWidget extends StatelessWidget {
           child: "Check my Resume".text.make(),
           color: Coolors.accentColor,
           shape: Vx.roundedSm,
-          hoverColor: Vx.purple700,
+          hoverColor: Color(0xff00bfa5),
         ).h(50),
       ],
       alignment: MainAxisAlignment.spaceEvenly,
