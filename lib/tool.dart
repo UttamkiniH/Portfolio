@@ -94,7 +94,7 @@ class ToolScreen extends StatelessWidget {
           .roundedLg
           .margin(Vx.m64)
           .neumorphic(
-              color: Coolors.primaryColor, curve: VxCurve.convex, elevation: 8)
+              color: Coolors.primaryColor, curve: VxCurve.concave, elevation: 8)
           .makeCentered(),
     );
   }

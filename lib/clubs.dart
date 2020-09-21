@@ -53,10 +53,8 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
             20.heightBox,
             VStack(
@@ -80,12 +78,10 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .makeCentered(),
-            10.heightBox,
+            20.heightBox,
             VStack(
               [
                 "ACM Sahyadri\nChapter"
@@ -111,10 +107,8 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
           ],
           crossAlignment: CrossAxisAlignment.center,
@@ -161,10 +155,8 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
             20.widthBox,
             VStack(
@@ -188,10 +180,8 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
             20.widthBox,
             VStack(
@@ -219,10 +209,8 @@ class ClubActivity extends StatelessWidget {
                 .width(250)
                 .height(300)
                 .roundedLg
-                .shadowLg
-                .neumorphic(
-                    color: Coolors.secondaryColor, curve: VxCurve.concave)
-                .color(Coolors.secondaryColor)
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make()
           ],
           alignment: MainAxisAlignment.spaceAround,

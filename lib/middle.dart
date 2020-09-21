@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/coolors.dart';
 import 'package:portfolio/footer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -6,14 +7,14 @@ class MiddleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Vx.purple700,
+      color: Coolors.myColor,
       child: Flex(
         direction: context.isMobile ? Axis.vertical : Axis.horizontal,
         children: [
           "My Projects,\n"
               .richText
               .withTextSpanChildren([
-                "Swipe left or right".textSpan.yellow400.make(),
+                "Swipe left or right".textSpan.color(Color(0xff00695c)).make(),
               ])
               .xl4
               .white
@@ -58,7 +59,7 @@ class ProjectWidget extends StatelessWidget {
         .roundedLg
         .alignCenter
         .square(200)
-        .neumorphic(color: Vx.purple700, elevation: 5.0, curve: VxCurve.flat)
+        .neumorphic(color: Coolors.myColor, elevation: 5.0, curve: VxCurve.flat)
         .make()
         .p16();
   }

@@ -24,7 +24,7 @@ class FooterScreen extends StatelessWidget {
                 child: "huttamkini23@gmail.com".text.semiBold.white.make(),
                 color: Coolors.accentColor,
                 shape: Vx.roundedSm,
-                hoverColor: Vx.purple500,
+                hoverColor: Color(0xff00bfa5),
                 elevation: 3.0,
               ),
             ],
@@ -37,6 +37,7 @@ class FooterScreen extends StatelessWidget {
                   .center
                   .white
                   .xl2
+                  .semiBold
                   .makeCentered()
                   .box
                   .make(),
@@ -48,7 +49,7 @@ class FooterScreen extends StatelessWidget {
                 child: "huttamkini23@gmail.com".text.semiBold.white.make(),
                 color: Coolors.accentColor,
                 shape: Vx.roundedSm,
-                hoverColor: Vx.purple500,
+                hoverColor: Color(0xff00bfa5),
                 elevation: 3.0,
               )
             ],

@@ -13,7 +13,7 @@ class HeaderScreen extends StatelessWidget {
     var nameWidget = "Uttam\nKini H"
         .text
         .white
-        .xl6
+        .xl5
         .lineHeight(1)
         .size(context.isMobile ? 15 : 20)
         .bold
@@ -28,11 +28,6 @@ class HeaderScreen extends StatelessWidget {
           Row(
             children: [
               VStack([
-                if (context.isMobile) 50.heightBox else 10.heightBox,
-                CustomAppBar().shimmer(
-                  showAnimation: true,
-                  primaryColor: Coolors.accentColor,
-                ),
                 30.heightBox,
                 nameWidget,
                 20.heightBox,
@@ -74,13 +69,13 @@ class IntroductionWidget extends StatelessWidget {
     return VStack(
       [
         [
-          " -  Introdution".text.gray500.sm.make(),
+          " -About".text.gray500.semiBold.make(),
           10.heightBox,
-          " @blah mwdi jfjq expert and dead\n public speaker dier facier and blogger kisser"
+          "Hey there ❕ \nI am a student in the light 🌕 and a developer at the night 🌙 \nGithub is my coffee ☕️ \nI'm currently Learning basics in Google cloud ☁️ I like to develop apps 📱 in  flutter and playing with the code 📝  in fundamentals of C and C++. \n ⎋ In my spare time I like to design apps or surfing through the web  to find some amazing tools 🛠.\nHappy coding  💫"
               .text
               .white
-              .xl3
-              .maxLines(5)
+              .xl2
+              .maxLines(20)
               .make()
               .w(context.isMobile
                   ? context.screenWidth
@@ -89,9 +84,10 @@ class IntroductionWidget extends StatelessWidget {
         ].vStack(),
         RaisedButton(
           onPressed: () {
-            launch("https://www.google.com");
+            launch(
+                "https://drive.google.com/file/d/1BbP_N0ebQywhiBsKm3OINWvALO8r-UKo/view?usp=sharing");
           },
-          child: "you are benchod".text.make(),
+          child: "Check my Resume".text.make(),
           color: Coolors.accentColor,
           shape: Vx.roundedSm,
           hoverColor: Vx.purple700,
@@ -111,6 +107,7 @@ class PictureWidget extends StatelessWidget {
       child: Image.asset(
         "assets/pic.png",
         fit: BoxFit.cover,
+        width: 750,
         height: context.percentHeight * 60,
       ),
     );
@@ -133,19 +130,19 @@ class SocialAccounts extends StatelessWidget {
   Widget build(BuildContext context) {
     return [
       Icon(AntDesign.linkedin_square, color: Colors.white).mdClick(() {
-        launch("https://twitter.com/login");
+        launch("https://www.linkedin.com/in/uttam-kini/");
       }).make(),
       20.widthBox,
       Icon(AntDesign.github, color: Colors.white).mdClick(() {
-        launch("https://twitter.com/login");
+        launch("https://github.com/UttamkiniH");
       }).make(),
       20.widthBox,
       Icon(AntDesign.twitter, color: Colors.white).mdClick(() {
-        launch("https://twitter.com/login");
+        launch("https://twitter.com/furore_04");
       }).make(),
       20.widthBox,
       Icon(AntDesign.medium_monogram, color: Colors.white).mdClick(() {
-        launch("https://twitter.com/login");
+        launch("https://medium.com/@huttamkini23");
       }).make(),
     ].hStack();
   }
