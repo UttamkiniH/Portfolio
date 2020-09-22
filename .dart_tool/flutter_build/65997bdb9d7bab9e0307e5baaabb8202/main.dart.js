@@ -44339,19 +44339,19 @@ m.c=H.c([C.de],p)
 return new X.mu(new F.cj(r,C.M,C.U,C.C,k),new F.cj(H.c([new F.em(q,C.M,C.V,C.C,k),new T.ap(k,20,k,k),T.c6(M.bR(new F.em(H.c([s,new T.ap(20,k,k,k),o,new T.ap(20,k,k,k),m.jh(C.aT,C.c_).X()],e),C.p7,C.V,C.C,k)).X(),k,k,k)],e),C.M,C.U,C.C,k),k)}}
 N.ue.prototype={
 I:function(a,b){var s=null
-return R.ww(!1,!0,T.c6(U.cv("sosc.png",C.a9,100,100),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.Wr(),s)}}
+return R.ww(!1,!0,T.c6(U.cv("assets/sosc.png",C.a9,100,100),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.Wr(),s)}}
 N.Wr.prototype={
 $0:function(){N.fN("https://sosc.org.in/team")},
 $S:0}
 N.ub.prototype={
 I:function(a,b){var s=null
-return R.ww(!1,!0,T.c6(U.cv("gdgd.png",C.a9,100,100),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.W3(),s)}}
+return R.ww(!1,!0,T.c6(U.cv("assets/gdgd.png",C.a9,100,100),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.W3(),s)}}
 N.W3.prototype={
 $0:function(){N.fN("https://dsc.community.dev/sahyadri-college-of-engineering-management/")},
 $S:0}
 N.u9.prototype={
 I:function(a,b){var s=null
-return R.ww(!1,!0,T.c6(U.cv("acm.png",C.a9,s,s),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.VP(),s)}}
+return R.ww(!1,!0,T.c6(U.cv("assets/acm.png",C.a9,s,s),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.VP(),s)}}
 N.VP.prototype={
 $0:function(){N.fN("https://sahyadri.acm.org/assets/team.html")},
 $S:0}
@@ -44395,7 +44395,7 @@ l=L.bt("Built in")
 m=l.aC$
 l.aw$=C.l8
 m=m.X()
-l=U.cv("flutter.png",C.a9,30,30)
+l=U.cv("assets/flutter.png",C.a9,30,30)
 j=L.bt("with ")
 i=j.aC$
 j.aw$=C.l8

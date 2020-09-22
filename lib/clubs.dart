@@ -228,7 +228,7 @@ class soscClick extends StatelessWidget {
           launchURL('https://sosc.org.in/team');
         },
         child: (Image.asset(
-          'sosc.png',
+          'assets/sosc.png',
           fit: BoxFit.contain,
           width: 100,
           height: 100,
@@ -246,7 +246,7 @@ class dscClick extends StatelessWidget {
               'https://dsc.community.dev/sahyadri-college-of-engineering-management/');
         },
         child: (Image.asset(
-          'gdgd.png',
+          'assets/gdgd.png',
           fit: BoxFit.contain,
           width: 100,
           height: 100,
@@ -263,7 +263,7 @@ class acmClick extends StatelessWidget {
           launchURL('https://sahyadri.acm.org/assets/team.html');
         },
         child: (Image.asset(
-          'acm.png',
+          'assets/acm.png',
           fit: BoxFit.contain,
         ).centered()));
   }

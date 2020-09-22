@@ -64,7 +64,7 @@ class FooterScreen extends StatelessWidget {
         10.heightBox,
         [
           "Built in".text.red400.make(),
-          Image.asset('flutter.png',
+          Image.asset('assets/flutter.png',
               height: 30, width: 30, fit: BoxFit.contain),
           2.widthBox,
           "with ".text.red400.make(),
