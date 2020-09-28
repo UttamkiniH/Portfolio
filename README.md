@@ -36,4 +36,4 @@ import "package:velocity_x/velocity_x.dart";
 Thats it you have imported the package :scroll:  and ready to use !
 </br>
 Make sure to check out the [document](https://velocityx.dev/docs/install) and [tutorial](https://www.youtube.com/watch?v=IOhJCN4T1V4&list=PLR2qQy0Zxs_UHLXSYbK50jEapx0ORmLYv) before using the package.
-Do check out for responsiveness of the code it is very difficult to make the page responsive. We have to check for each mobile screen sizes
+Do check out for responsiveness of the code it is very difficult to make the page responsive. We have to check for each mobile screen sizes and for each desktop size.
