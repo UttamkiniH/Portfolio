@@ -263,7 +263,7 @@ class acmClick extends StatelessWidget {
           launchURL('https://sahyadri.acm.org/assets/team.html');
         },
         child: (Image.asset(
-          'assets/acm.png',
+          'assets/ACM.png',
           fit: BoxFit.contain,
         ).centered()));
   }

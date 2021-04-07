@@ -3,9 +3,9 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "1825882697ae859ff702e2d402f97df9",
-"/": "1825882697ae859ff702e2d402f97df9",
-"main.dart.js": "db546cc2e0db4e8a0360daa042330013",
+  "index.html": "8365420078db6ff55648f3cbfdb98aea",
+"/": "8365420078db6ff55648f3cbfdb98aea",
+"main.dart.js": "f60ed0d8cbae93b7694c147188ddbdfc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
@@ -44,6 +44,7 @@ const RESOURCES = {
 "assets/assets/sosc.png": "e81da50afdaa27416c7b9d9676e73c74",
 "assets/assets/pic2.png": "e7c81ab00ae740a94702b008502aef9e",
 "assets/assets/logo.png": "f603287744d224cfd19c57e1f158fec2",
+"assets/assets/ACM.png": "f1a0380d4897fad98e89cf0f5846b10d",
 "assets/assets/cloud-engine.png": "b76e3a5e9cd9d2c30164ff9a87d9f8c2",
 "assets/assets/gihub-color.png": "f8765d646d4ea7e3c4401d2eddb7e115",
 "assets/assets/pic.png": "d74ba47b0ea0b4b2b4ebb1d3e334e769",

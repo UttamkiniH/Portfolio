@@ -44351,7 +44351,7 @@ $0:function(){N.fN("https://dsc.community.dev/sahyadri-college-of-engineering-ma
 $S:0}
 N.u9.prototype={
 I:function(a,b){var s=null
-return R.ww(!1,!0,T.c6(U.cv("assets/acm.png",C.a9,s,s),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.VP(),s)}}
+return R.ww(!1,!0,T.c6(U.cv("assets/ACM.png",C.a9,s,s),s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,s,new N.VP(),s)}}
 N.VP.prototype={
 $0:function(){N.fN("https://sahyadri.acm.org/assets/team.html")},
 $S:0}

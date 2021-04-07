@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:portfolio/header.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'coolors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+
+import 'coolors.dart';
 
 class FooterScreen extends StatelessWidget {
   @override
@@ -16,16 +17,19 @@ class FooterScreen extends StatelessWidget {
             [
               "Give me a Wink ! \n ".text.center.white.xl2.make(),
               10.widthBox,
-              RaisedButton(
-                onPressed: () {
-                  launchURL(
-                      'mailto:<huttamkini23@gmail.com>?subject=<Its a wink>&body=<body>');
-                },
-                child: "huttamkini23@gmail.com".text.semiBold.white.make(),
-                color: Coolors.accentColor,
-                shape: Vx.roundedSm,
-                hoverColor: Color(0xff00bfa5),
-                elevation: 3.0,
+              OutlinedButton.icon(
+                icon: Icon(Icons.email_rounded),
+                label: Text("huttamkini23@gmail.com"),
+                onPressed: () => launchURL(
+                    'mailto:<huttamkini23@gmail.com>?subject=<Its a wink>&body=<body>'),
+                style: ElevatedButton.styleFrom(
+                  //primary: Coolors.myColor,
+                  onPrimary: Colors.white,
+                  side: BorderSide(width: 2, color: Coolors.accentColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
               ),
             ],
             crossAlignment: CrossAxisAlignment.center,
@@ -41,17 +45,21 @@ class FooterScreen extends StatelessWidget {
                   .makeCentered()
                   .box
                   .make(),
-              5.widthBox,
-              RaisedButton(
-                onPressed: () {
-                  launchURL('https://www.google.com/intl/en-GB/gmail/about/#');
-                },
-                child: "huttamkini23@gmail.com".text.semiBold.white.make(),
-                color: Coolors.accentColor,
-                shape: Vx.roundedSm,
-                hoverColor: Color(0xff00bfa5),
-                elevation: 3.0,
-              )
+              2.widthBox,
+              OutlinedButton.icon(
+                icon: Icon(Icons.email_rounded),
+                label: Text("huttamkini23@gmail.com"),
+                onPressed: () => launchURL(
+                    'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox'),
+                style: ElevatedButton.styleFrom(
+                  // primary: Coolors.accentColor,
+                  onPrimary: Colors.white,
+                  side: BorderSide(width: 2, color: Coolors.accentColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
             ],
             alignment: MainAxisAlignment.spaceEvenly,
           ).w(context.safePercentWidth * 70).scale150().p16(),

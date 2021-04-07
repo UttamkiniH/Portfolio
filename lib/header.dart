@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/coolors.dart';
+import 'package:portfolio/footer.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -81,15 +82,19 @@ class IntroductionWidget extends StatelessWidget {
                   : context.percentWidth * 400),
           20.heightBox,
         ].vStack(),
-        RaisedButton(
-          onPressed: () {
-            launch(
-                "https://drive.google.com/file/d/1BbP_N0ebQywhiBsKm3OINWvALO8r-UKo/view?usp=sharing");
-          },
-          child: "Check my Resume".text.make(),
-          color: Coolors.accentColor,
-          shape: Vx.roundedSm,
-          hoverColor: Color(0xff00bfa5),
+        OutlinedButton.icon(
+          icon: Icon(Icons.eco_sharp),
+          label: Text("Check my Resume"),
+          onPressed: () => launchURL(
+              "https://drive.google.com/file/d/1BbP_N0ebQywhiBsKm3OINWvALO8r-UKo/view?usp=sharing"),
+          style: ElevatedButton.styleFrom(
+            primary: Coolors.myColor,
+            onPrimary: Colors.white,
+            side: BorderSide(width: 5.0, color: Coolors.myColor),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+          ),
         ).h(50),
       ],
       alignment: MainAxisAlignment.spaceEvenly,

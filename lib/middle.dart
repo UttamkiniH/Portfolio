@@ -26,13 +26,17 @@ class MiddleScreen extends StatelessWidget {
               ProjectWidget(title: "Git-Workshop").mdClick(() {
                 launchURL('https://github.com/UttamkiniH/Git-Workshop');
               }).make(),
-              ProjectWidget(title: "RPS game"),
+              ProjectWidget(title: "Flappy Bird (on Going)"),
               ProjectWidget(title: "Health Check Up\nApp"),
               ProjectWidget(title: "Portfolio").mdClick(() {
                 launchURL('https://github.com/UttamkiniH/Portfolio');
               }).make(),
-              ProjectWidget(title: "Noter App"),
-              ProjectWidget(title: "Yet to be\nCreated"),
+              ProjectWidget(title: "Task Management (on Going)").mdClick(() {
+                launchURL('https://github.com/UttamkiniH/TaskManagement');
+              }).make(),
+              ProjectWidget(title: "Flash Chat").mdClick(() {
+                launchURL('https://github.com/UttamkiniH/flashChat');
+              }).make(),
             ],
             height: 170,
             viewportFraction: context.isMobile ? 0.75 : 0.4,
