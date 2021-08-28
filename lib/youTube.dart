@@ -3,7 +3,6 @@ import 'package:portfolio/footer.dart';
 import 'coolors.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class YouActivity extends StatelessWidget {
   @override
@@ -56,6 +55,7 @@ class YouActivity extends StatelessWidget {
                 .gradientFromTo(from: Colors.tealAccent, to: Coolors.myColor)
                 .make(),
             20.heightBox,
+            
             VStack(
               [
                 "Android StudyJam Sessions"
@@ -85,7 +85,40 @@ class YouActivity extends StatelessWidget {
                 .roundedLg
                 .shadowSm
                 .gradientFromTo(from: Coolors.myColor, to: Colors.teal)
-                .make()
+                .make(),
+                20.heightBox,
+             VStack(
+              [
+                "GitHub Workshop Sessions"
+                    .text
+                    .semiBold
+                    .white
+                    .xl2
+                    .center
+                    .makeCentered(),
+                gitClick(),
+                // 30.heightBox,
+                /*    Image.asset(
+                  'assets/gdgd.png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ).centered(),*/
+                //25.heightBox,
+                "#loveGitHub".text.semiBold.xl2.white.makeCentered()
+              ],
+              alignment: MainAxisAlignment.spaceEvenly,
+            )
+                .box
+                .p24
+                .width(500)
+                .height(300)
+                .roundedLg
+                .shadowSm
+                .gradientFromTo(from: Coolors.myColor, to: Colors.teal)
+                .make(),
+            
+                
           ],
           crossAlignment: CrossAxisAlignment.center,
         )
@@ -167,6 +200,37 @@ class YouActivity extends StatelessWidget {
                 .gradientFromTo(from: Coolors.myColor, to: Colors.teal)
                 .make(),
             20.widthBox,
+            VStack(
+              [
+                "GitHub Workshop Sessions"
+                    .text
+                    .semiBold
+                    .white
+                    .xl2
+                    .center
+                    .makeCentered(),
+                gitClick(),
+                // 30.heightBox,
+                /*    Image.asset(
+                  'assets/gdgd.png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ).centered(),*/
+                //25.heightBox,
+                "#loveGitHub".text.semiBold.xl2.white.makeCentered()
+              ],
+              alignment: MainAxisAlignment.spaceEvenly,
+            )
+                .box
+                .p24
+                .width(500)
+                .height(300)
+                .roundedLg
+                .shadowSm
+                .gradientFromTo(from: Coolors.myColor, to: Colors.teal)
+                .make(),
+            20.widthBox,
           ],
           alignment: MainAxisAlignment.spaceAround,
         ).box.makeCentered()
@@ -204,6 +268,24 @@ class dscClick extends StatelessWidget {
         },
         child: (Image.asset(
           'assets/an96.png',
+          fit: BoxFit.contain,
+          width: 100,
+          height: 100,
+        ).centered()));
+  }
+}
+
+// ignore: camel_case_types
+class gitClick extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        onTap: () {
+          launchURL(
+              'https://www.youtube.com/watch?v=sRrQLCV6urQ');
+        },
+        child: (Image.asset(
+          'assets/gh.png',
           fit: BoxFit.contain,
           width: 100,
           height: 100,

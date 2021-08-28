@@ -71,7 +71,7 @@ class IntroductionWidget extends StatelessWidget {
         [
           " -About".text.gray500.semiBold.make(),
           10.heightBox,
-          "Hey there ❕ \nI am a student in the light 🌕 and a developer at the night 🌙 \nGithub is my coffee ☕️ \nI'm currently Learning basics in Google cloud ☁️ I like to develop apps 📱 in  flutter and playing with the code 📝  in fundamentals of C and C++. \n ⎋ In my spare time I like to design apps or surfing through the web  to find some amazing tools 🛠.\nHappy coding  💫"
+          "Hey there ❕ \nI am a student in the light 🌕 and a developer at the night 🌙 \nGithub is my coffee ☕️ \nI'm currently Learning basics in Google cloud ☁️ I like to develop apps 📱 in  flutter and playing with the code 📝 in fundamentals of C and C++. \n ⎋ In my spare time I like to design apps or surfing through the web  to find some amazing tools 🛠.\nHappy coding  💫"
               .text
               .white
               .xl2
@@ -86,7 +86,7 @@ class IntroductionWidget extends StatelessWidget {
           icon: Icon(Icons.eco_sharp),
           label: Text("Check my Resume"),
           onPressed: () => launchURL(
-              "https://drive.google.com/file/d/1BbP_N0ebQywhiBsKm3OINWvALO8r-UKo/view?usp=sharing"),
+              "https://drive.google.com/file/d/1BGdSdqIfW6U0XN6biBIyHUIVvaChD8rH/view?usp=sharing"),
           style: ElevatedButton.styleFrom(
             primary: Coolors.myColor,
             onPrimary: Colors.white,
@@ -109,9 +109,9 @@ class PictureWidget extends StatelessWidget {
       alignment: Alignment.center,
       transform: Matrix4.rotationY(pi),
       child: Image.asset(
-        "assets/pic.png",
+        "assets/bRprofile.png",
         fit: BoxFit.cover,
-        width: 750,
+        width: 600,
         height: context.percentHeight * 60,
       ),
     );

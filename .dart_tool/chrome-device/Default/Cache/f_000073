@@ -1,0 +1,741 @@
+define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/velocity_x/src/velocity_xx.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/foundation/key.dart'], (function load__packages__velocity_x__src__flutter__shimmer_dart(dart_sdk, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__painting__alignment$46dart, packages__velocity_x__src__velocity_xx$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__foundation__key$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const velocity_xx = packages__velocity_x__src__velocity_xx$46dart.src__velocity_xx;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  var shimmer$ = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
+    AnimationStatusTovoid: () => (T.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation.AnimationStatus])))(),
+    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndWidgetNTo_VxShimmer: () => (T.BuildContextAndWidgetNTo_VxShimmer = dart.constFn(dart.fnType(shimmer$._VxShimmer, [framework.BuildContext, T.WidgetN()])))(),
+    GradientN: () => (T.GradientN = dart.constFn(dart.nullable(gradient.Gradient)))(),
+    KeyN: () => (T.KeyN = dart.constFn(dart.nullable(key.Key)))(),
+    ColorN: () => (T.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    __ToWidget: () => (T.__ToWidget = dart.constFn(dart.fnType(framework.Widget, [], {count: core.int, duration: core.Duration, gradient: T.GradientN(), key: T.KeyN(), primaryColor: ui.Color, secondaryColor: T.ColorN(), showAnimation: core.bool, showGradient: core.bool}, {})))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1000000
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294638330.0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294309365.0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293848814.0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292927712.0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292269782.0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290624957.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288585374.0
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285887861.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284572001.0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282532418.0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281348144.0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280361249.0
+      });
+    },
+    get C2() {
+      return C[2] = dart.constMap(T.intL(), T.ColorL(), [50, C[3] || CT.C3, 100, C[4] || CT.C4, 200, C[5] || CT.C5, 300, C[6] || CT.C6, 350, C[7] || CT.C7, 400, C[8] || CT.C8, 500, C[9] || CT.C9, 600, C[10] || CT.C10, 700, C[11] || CT.C11, 800, C[12] || CT.C12, 850, C[13] || CT.C13, 900, C[14] || CT.C14]);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: colors.MaterialColor.prototype,
+        [Color_value]: 4288585374.0,
+        [ColorSwatch__swatch]: C[2] || CT.C2
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([0, 0.3, 0.5, 0.7, 1], T.doubleL());
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "gradient",
+        [_Location_column]: 11,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controllerValue",
+        [_Location_column]: 11,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "showShimmerEffect",
+        [_Location_column]: 11,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 59,
+        [_Location_line]: 109,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 9,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 9,
+        [_Location_line]: 254,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "count",
+        [_Location_column]: 9,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 9,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "gradient",
+        [_Location_column]: 9,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "primaryColor",
+        [_Location_column]: 9,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "secondaryColor",
+        [_Location_column]: 9,
+        [_Location_line]: 260,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "showAnimation",
+        [_Location_column]: 9,
+        [_Location_line]: 261,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "showGradient",
+        [_Location_column]: 9,
+        [_Location_line]: 262,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 253,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+      });
+    }
+  }, false);
+  var C = Array(38).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart",
+    "package:velocity_x/src/flutter/shimmer.dart"
+  ];
+  var child$ = dart.privateName(shimmer$, "VxShimmer.child");
+  var duration$ = dart.privateName(shimmer$, "VxShimmer.duration");
+  var gradient$ = dart.privateName(shimmer$, "VxShimmer.gradient");
+  var count$ = dart.privateName(shimmer$, "VxShimmer.count");
+  var showAnimation$ = dart.privateName(shimmer$, "VxShimmer.showAnimation");
+  var showGradient$ = dart.privateName(shimmer$, "VxShimmer.showGradient");
+  var primaryColor$ = dart.privateName(shimmer$, "VxShimmer.primaryColor");
+  var secondaryColor$ = dart.privateName(shimmer$, "VxShimmer.secondaryColor");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
+  shimmer$.VxShimmer = class VxShimmer extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get gradient() {
+      return this[gradient$];
+    }
+    set gradient(value) {
+      super.gradient = value;
+    }
+    get count() {
+      return this[count$];
+    }
+    set count(value) {
+      super.count = value;
+    }
+    get showAnimation() {
+      return this[showAnimation$];
+    }
+    set showAnimation(value) {
+      super.showAnimation = value;
+    }
+    get showGradient() {
+      return this[showGradient$];
+    }
+    set showGradient(value) {
+      super.showGradient = value;
+    }
+    get primaryColor() {
+      return this[primaryColor$];
+    }
+    set primaryColor(value) {
+      super.primaryColor = value;
+    }
+    get secondaryColor() {
+      return this[secondaryColor$];
+    }
+    set secondaryColor(value) {
+      super.secondaryColor = value;
+    }
+    createState() {
+      return new shimmer$._VxShimmerState.new();
+    }
+  };
+  (shimmer$.VxShimmer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 23, 19, "child");
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+    if (duration == null) dart.nullFailed(I[0], 25, 10, "duration");
+    let count = opts && 'count' in opts ? opts.count : 10000;
+    if (count == null) dart.nullFailed(I[0], 26, 10, "count");
+    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
+    if (showAnimation == null) dart.nullFailed(I[0], 27, 10, "showAnimation");
+    let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
+    if (showGradient == null) dart.nullFailed(I[0], 28, 10, "showGradient");
+    let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
+    if (primaryColor == null) dart.nullFailed(I[0], 29, 10, "primaryColor");
+    let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[gradient$] = gradient;
+    this[duration$] = duration;
+    this[count$] = count;
+    this[showAnimation$] = showAnimation;
+    this[showGradient$] = showGradient;
+    this[primaryColor$] = primaryColor;
+    this[secondaryColor$] = secondaryColor;
+    shimmer$.VxShimmer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = shimmer$.VxShimmer.prototype;
+  dart.addTypeTests(shimmer$.VxShimmer);
+  dart.addTypeCaches(shimmer$.VxShimmer);
+  dart.setMethodSignature(shimmer$.VxShimmer, () => ({
+    __proto__: dart.getMethods(shimmer$.VxShimmer.__proto__),
+    createState: dart.fnType(shimmer$._VxShimmerState, [])
+  }));
+  dart.setLibraryUri(shimmer$.VxShimmer, I[1]);
+  dart.setFieldSignature(shimmer$.VxShimmer, () => ({
+    __proto__: dart.getFields(shimmer$.VxShimmer.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    duration: dart.finalFieldType(core.Duration),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    count: dart.finalFieldType(core.int),
+    showAnimation: dart.finalFieldType(core.bool),
+    showGradient: dart.finalFieldType(core.bool),
+    primaryColor: dart.finalFieldType(ui.Color),
+    secondaryColor: dart.finalFieldType(dart.nullable(ui.Color))
+  }));
+  var ___VxShimmerState__controller = dart.privateName(shimmer$, "_#_VxShimmerState#_controller");
+  var ___VxShimmerState__controller_isSet = dart.privateName(shimmer$, "_#_VxShimmerState#_controller#isSet");
+  var _count = dart.privateName(shimmer$, "_count");
+  var _controller = dart.privateName(shimmer$, "_controller");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(shimmer$.VxShimmer) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(shimmer$.VxShimmer)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(shimmer$.VxShimmer));
+  shimmer$._VxShimmerState = class _VxShimmerState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___VxShimmerState__controller_isSet]) ? (t0 = this[___VxShimmerState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 71, 28, "null");
+      this[___VxShimmerState__controller_isSet] = true;
+      this[___VxShimmerState__controller] = t0;
+    }
+    initState() {
+      let t1;
+      super.initState();
+      this[_count] = 0;
+      this[_controller] = (t1 = new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}), (() => {
+        t1.addStatusListener(dart.fn(status => {
+          if (status == null) dart.nullFailed(I[0], 79, 44, "status");
+          if (status != animation.AnimationStatus.completed) {
+            return;
+          }
+          this[_count] = dart.nullCheck(this[_count]) + 1;
+          if (dart.notNull(this.widget.count) <= 0) {
+            this[_controller].repeat();
+          } else if (dart.nullCheck(this[_count]) < dart.notNull(this.widget.count)) {
+            this[_controller].forward({from: 0.0});
+          }
+        }, T.AnimationStatusTovoid()));
+        return t1;
+      })());
+      if (dart.test(this.widget.showAnimation)) {
+        this[_controller].forward();
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      shimmer$.VxShimmer.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 96, 34, "oldWidget");
+      if (dart.test(this.widget.showAnimation)) {
+        this[_controller].forward();
+      } else {
+        this[_controller].stop();
+      }
+      super.didUpdateWidget(oldWidget);
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 106, 29, "context");
+      return new transitions.AnimatedBuilder.new({animation: this[_controller], child: this.widget.child, builder: dart.fn((context, child) => {
+          let t1;
+          if (context == null) dart.nullFailed(I[0], 109, 32, "context");
+          return new shimmer$._VxShimmer.new({child: child, gradient: dart.test(this.widget.showGradient) ? this.widget.gradient : new gradient.LinearGradient.new({begin: alignment.Alignment.topLeft, end: alignment.Alignment.centerRight, colors: T.JSArrayOfColor().of([this.widget.primaryColor, this.widget.primaryColor, (t1 = this.widget.secondaryColor, t1 == null ? velocity_xx.Vx.gray200 : t1), this.widget.primaryColor, this.widget.primaryColor]), stops: C[15] || CT.C15}), controllerValue: this[_controller].value, showShimmerEffect: this.widget.showAnimation, $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+        }, T.BuildContextAndWidgetNTo_VxShimmer()), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22});
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+  };
+  (shimmer$._VxShimmerState.new = function() {
+    this[___VxShimmerState__controller] = null;
+    this[___VxShimmerState__controller_isSet] = false;
+    this[_count] = null;
+    shimmer$._VxShimmerState.__proto__.new.call(this);
+    ;
+  }).prototype = shimmer$._VxShimmerState.prototype;
+  dart.addTypeTests(shimmer$._VxShimmerState);
+  dart.addTypeCaches(shimmer$._VxShimmerState);
+  dart.setMethodSignature(shimmer$._VxShimmerState, () => ({
+    __proto__: dart.getMethods(shimmer$._VxShimmerState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(shimmer$._VxShimmerState, () => ({
+    __proto__: dart.getGetters(shimmer$._VxShimmerState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(shimmer$._VxShimmerState, () => ({
+    __proto__: dart.getSetters(shimmer$._VxShimmerState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(shimmer$._VxShimmerState, I[1]);
+  dart.setFieldSignature(shimmer$._VxShimmerState, () => ({
+    __proto__: dart.getFields(shimmer$._VxShimmerState.__proto__),
+    [___VxShimmerState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___VxShimmerState__controller_isSet]: dart.fieldType(core.bool),
+    [_count]: dart.fieldType(dart.nullable(core.int))
+  }));
+  var controllerValue$ = dart.privateName(shimmer$, "_VxShimmer.controllerValue");
+  var gradient$0 = dart.privateName(shimmer$, "_VxShimmer.gradient");
+  var showShimmerEffect$ = dart.privateName(shimmer$, "_VxShimmer.showShimmerEffect");
+  shimmer$._VxShimmer = class _VxShimmer extends framework.SingleChildRenderObjectWidget {
+    get controllerValue() {
+      return this[controllerValue$];
+    }
+    set controllerValue(value) {
+      super.controllerValue = value;
+    }
+    get gradient() {
+      return this[gradient$0];
+    }
+    set gradient(value) {
+      super.gradient = value;
+    }
+    get showShimmerEffect() {
+      return this[showShimmerEffect$];
+    }
+    set showShimmerEffect(value) {
+      super.showShimmerEffect = value;
+    }
+    createRenderObject(context) {
+      if (context == null) dart.nullFailed(I[0], 161, 52, "context");
+      return new shimmer$._VxShimmerFilter.new({value: this.controllerValue, gradient: this.gradient, showAnimation: this.showShimmerEffect});
+    }
+    updateRenderObject(context, shimmer) {
+      if (context == null) dart.nullFailed(I[0], 167, 40, "context");
+      shimmer$._VxShimmerFilter.as(shimmer);
+      if (shimmer == null) dart.nullFailed(I[0], 167, 66, "shimmer");
+      shimmer.controllerValue = this.controllerValue;
+      shimmer.showAnimation = this.showShimmerEffect;
+    }
+  };
+  (shimmer$._VxShimmer.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let controllerValue = opts && 'controllerValue' in opts ? opts.controllerValue : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let showShimmerEffect = opts && 'showShimmerEffect' in opts ? opts.showShimmerEffect : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controllerValue$] = controllerValue;
+    this[gradient$0] = gradient;
+    this[showShimmerEffect$] = showShimmerEffect;
+    shimmer$._VxShimmer.__proto__.new.call(this, {child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = shimmer$._VxShimmer.prototype;
+  dart.addTypeTests(shimmer$._VxShimmer);
+  dart.addTypeCaches(shimmer$._VxShimmer);
+  dart.setMethodSignature(shimmer$._VxShimmer, () => ({
+    __proto__: dart.getMethods(shimmer$._VxShimmer.__proto__),
+    createRenderObject: dart.fnType(shimmer$._VxShimmerFilter, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(shimmer$._VxShimmer, I[1]);
+  dart.setFieldSignature(shimmer$._VxShimmer, () => ({
+    __proto__: dart.getFields(shimmer$._VxShimmer.__proto__),
+    controllerValue: dart.finalFieldType(dart.nullable(core.double)),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    showShimmerEffect: dart.finalFieldType(dart.nullable(core.bool))
+  }));
+  var _rect = dart.privateName(shimmer$, "_rect");
+  var _offset = dart.privateName(shimmer$, "_offset");
+  shimmer$._VxShimmerFilter = class _VxShimmerFilter extends proxy_box.RenderProxyBox {
+    get alwaysNeedsCompositing() {
+      return this.child != null;
+    }
+    get controllerValue() {
+      return this.value;
+    }
+    set controllerValue(newValue) {
+      if (newValue == this.value) {
+        return;
+      }
+      this.value = newValue;
+      this.markNeedsPaint();
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 209, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 209, 46, "offset");
+      if (this.child == null) {
+        return;
+      }
+      if (!dart.test(this.needsCompositing)) dart.assertFailed(null, I[0], 213, 12, "needsCompositing");
+      context.canvas.saveLayer(offset['&'](dart.nullCheck(this.child).size), this.initialPaint);
+      context.paintChild(dart.nullCheck(this.child), offset);
+      let rect = null;
+      let dx = null;
+      let dy = null;
+      let width = dart.nullCheck(this.child).size.width;
+      let height = dart.nullCheck(this.child).size.height;
+      dx = this[_offset](-dart.notNull(width), width, dart.nullCheck(this.value));
+      dy = 0.0;
+      rect = new ui.Rect.fromLTWH(dart.notNull(offset.dx) - dart.notNull(width), offset.dy, 3 * dart.notNull(width), height);
+      if (!dart.equals(this[_rect], rect)) {
+        this.gradientPaint.shader = dart.nullCheck(this.gradient).createShader(rect);
+        this[_rect] = rect;
+      }
+      context.canvas.translate(dx, dy);
+      context.canvas.drawRect(rect, this.gradientPaint);
+      context.canvas.restore();
+    }
+    [_offset](start, end, controllerValue) {
+      if (start == null) dart.nullFailed(I[0], 234, 25, "start");
+      if (end == null) dart.nullFailed(I[0], 234, 39, "end");
+      if (controllerValue == null) dart.nullFailed(I[0], 234, 51, "controllerValue");
+      return dart.notNull(start) + (dart.notNull(end) - dart.notNull(start)) * dart.notNull(controllerValue);
+    }
+  };
+  (shimmer$._VxShimmerFilter.new = function(opts) {
+    let t1;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : null;
+    this.initialPaint = ui.Paint.new();
+    this[_rect] = null;
+    this.value = value;
+    this.gradient = gradient;
+    this.showAnimation = showAnimation;
+    this.gradientPaint = (t1 = ui.Paint.new(), (() => {
+      t1.blendMode = ui.BlendMode.srcIn;
+      return t1;
+    })());
+    shimmer$._VxShimmerFilter.__proto__.new.call(this);
+    ;
+  }).prototype = shimmer$._VxShimmerFilter.prototype;
+  dart.addTypeTests(shimmer$._VxShimmerFilter);
+  dart.addTypeCaches(shimmer$._VxShimmerFilter);
+  dart.setMethodSignature(shimmer$._VxShimmerFilter, () => ({
+    __proto__: dart.getMethods(shimmer$._VxShimmerFilter.__proto__),
+    [_offset]: dart.fnType(core.double, [core.double, core.double, core.double])
+  }));
+  dart.setGetterSignature(shimmer$._VxShimmerFilter, () => ({
+    __proto__: dart.getGetters(shimmer$._VxShimmerFilter.__proto__),
+    controllerValue: dart.nullable(core.double)
+  }));
+  dart.setSetterSignature(shimmer$._VxShimmerFilter, () => ({
+    __proto__: dart.getSetters(shimmer$._VxShimmerFilter.__proto__),
+    controllerValue: dart.nullable(core.double)
+  }));
+  dart.setLibraryUri(shimmer$._VxShimmerFilter, I[1]);
+  dart.setFieldSignature(shimmer$._VxShimmerFilter, () => ({
+    __proto__: dart.getFields(shimmer$._VxShimmerFilter.__proto__),
+    initialPaint: dart.finalFieldType(ui.Paint),
+    gradientPaint: dart.finalFieldType(ui.Paint),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    showAnimation: dart.fieldType(dart.nullable(core.bool)),
+    value: dart.fieldType(dart.nullable(core.double)),
+    [_rect]: dart.fieldType(dart.nullable(ui.Rect))
+  }));
+  shimmer$['ShimmerExtension|shimmer'] = function ShimmerExtension$124shimmer($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 243, 10, "#this");
+    let key = opts && 'key' in opts ? opts.key : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+    if (duration == null) dart.nullFailed(I[0], 246, 14, "duration");
+    let count = opts && 'count' in opts ? opts.count : 10000;
+    if (count == null) dart.nullFailed(I[0], 247, 9, "count");
+    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
+    if (showAnimation == null) dart.nullFailed(I[0], 248, 10, "showAnimation");
+    let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
+    if (showGradient == null) dart.nullFailed(I[0], 249, 10, "showGradient");
+    let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
+    if (primaryColor == null) dart.nullFailed(I[0], 250, 11, "primaryColor");
+    let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
+    return new shimmer$.VxShimmer.new({key: key, child: $this, count: count, duration: duration, gradient: gradient, primaryColor: primaryColor, secondaryColor: secondaryColor, showAnimation: showAnimation, showGradient: showGradient, $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+  };
+  shimmer$['ShimmerExtension|get#shimmer'] = function ShimmerExtension$124get$35shimmer($this) {
+    if ($this == null) dart.nullFailed(I[0], 243, 10, "#this");
+    return dart.fn(opts => {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+      let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+      if (duration == null) dart.nullFailed(I[0], 246, 14, "duration");
+      let count = opts && 'count' in opts ? opts.count : 10000;
+      if (count == null) dart.nullFailed(I[0], 247, 9, "count");
+      let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
+      if (showAnimation == null) dart.nullFailed(I[0], 248, 10, "showAnimation");
+      let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
+      if (showGradient == null) dart.nullFailed(I[0], 249, 10, "showGradient");
+      let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
+      if (primaryColor == null) dart.nullFailed(I[0], 250, 11, "primaryColor");
+      let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
+      return shimmer$['ShimmerExtension|shimmer']($this, {key: key, gradient: gradient, duration: duration, count: count, showAnimation: showAnimation, showGradient: showGradient, primaryColor: primaryColor, secondaryColor: secondaryColor});
+    }, T.__ToWidget());
+  };
+  dart.trackLibraries("packages/velocity_x/src/flutter/shimmer.dart", {
+    "package:velocity_x/src/flutter/shimmer.dart": shimmer$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["shimmer.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/shimmer.dart.lib.js"}');
+  // Exports:
+  return {
+    src__flutter__shimmer: shimmer$
+  };
+}));
+
+//# sourceMappingURL=shimmer.dart.lib.js.map

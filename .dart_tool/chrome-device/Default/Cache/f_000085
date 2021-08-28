@@ -1,0 +1,585 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/page.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/synchronous_future.dart', 'packages/flutter/src/foundation/change_notifier.dart'], (function load__packages__velocity_x__src__nav__vx_nav_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__page$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__synchronous_future$46dart, packages__flutter__src__foundation__change_notifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const collection = dart_sdk.collection;
+  const _internal = dart_sdk._internal;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const router = packages__flutter__src__widgets__widget_span$46dart.src__widgets__router;
+  const heroes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__heroes;
+  const page$ = packages__flutter__src__material__page$46dart.src__material__page;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const synchronous_future = packages__flutter__src__foundation__synchronous_future$46dart.src__foundation__synchronous_future;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  var vx_nav = Object.create(dart.library);
+  var vx_delegate = Object.create(dart.library);
+  var $length = dartx.length;
+  var $keys = dartx.keys;
+  var $elementAt = dartx.elementAt;
+  var $contains = dartx.contains;
+  var $indexOf = dartx.indexOf;
+  var $removeLast = dartx.removeLast;
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $clear = dartx.clear;
+  var $removeAt = dartx.removeAt;
+  var $removeRange = dartx.removeRange;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $last = dartx.last;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    JSArrayOfPage: () => (T.JSArrayOfPage = dart.constFn(_interceptors.JSArray$(navigator.Page)))(),
+    JSArrayOfUri: () => (T.JSArrayOfUri = dart.constFn(_interceptors.JSArray$(core.Uri)))(),
+    UnmodifiableListViewOfPage: () => (T.UnmodifiableListViewOfPage = dart.constFn(collection.UnmodifiableListView$(navigator.Page)))(),
+    UnmodifiableListViewOfUri: () => (T.UnmodifiableListViewOfUri = dart.constFn(collection.UnmodifiableListView$(core.Uri)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    SynchronousFutureOfvoid: () => (T.SynchronousFutureOfvoid = dart.constFn(synchronous_future.SynchronousFuture$(dart.void)))(),
+    GlobalKeyOfNavigatorState: () => (T.GlobalKeyOfNavigatorState = dart.constFn(framework.GlobalKey$(navigator.NavigatorState)))(),
+    RouteAnddynamicTobool: () => (T.RouteAnddynamicTobool = dart.constFn(dart.fnType(core.bool, [navigator.Route, dart.dynamic])))(),
+    JSArrayOfNavigatorObserver: () => (T.JSArrayOfNavigatorObserver = dart.constFn(_interceptors.JSArray$(navigator.NavigatorObserver)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], T._LocationL());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_nav.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_nav.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: text.Text.prototype,
+        [Widget__location]: C[5] || CT.C5,
+        [Widget_key]: null,
+        [Text_textHeightBehavior]: null,
+        [Text_textWidthBasis]: null,
+        [Text_semanticsLabel]: null,
+        [Text_maxLines]: null,
+        [Text_textScaleFactor]: null,
+        [Text_overflow]: null,
+        [Text_softWrap]: null,
+        [Text_locale]: null,
+        [Text_textDirection]: null,
+        [Text_textAlign]: null,
+        [Text_strutStyle]: null,
+        [Text_style]: null,
+        [Text_textSpan]: null,
+        [Text_data]: "Page not found"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: basic.Center.prototype,
+        [Widget__location]: C[1] || CT.C1,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: C[4] || CT.C4,
+        [Align_heightFactor]: null,
+        [Align_widthFactor]: null,
+        [Align_alignment]: C[8] || CT.C8
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_nav.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 11,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_nav.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "pages",
+        [_Location_column]: 7,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPopPage",
+        [_Location_column]: 7,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "observers",
+        [_Location_column]: 7,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_delegate.dart"
+      });
+    }
+  }, false);
+  var C = Array(21).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_nav.dart",
+    "package:velocity_x/src/nav/vx_nav.dart",
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/nav/vx_delegate.dart",
+    "package:velocity_x/src/nav/vx_delegate.dart"
+  ];
+  var routes$ = dart.privateName(vx_nav, "VxNavConfig.routes");
+  var pageNotFound$ = dart.privateName(vx_nav, "VxNavConfig.pageNotFound");
+  var _pages = dart.privateName(vx_nav, "_pages");
+  var _uris = dart.privateName(vx_nav, "_uris");
+  var __VxNavConfig__boolResultCompleter = dart.privateName(vx_nav, "_#VxNavConfig#_boolResultCompleter");
+  var __VxNavConfig__boolResultCompleter_isSet = dart.privateName(vx_nav, "_#VxNavConfig#_boolResultCompleter#isSet");
+  var _boolResultCompleter = dart.privateName(vx_nav, "_boolResultCompleter");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var Text_textHeightBehavior = dart.privateName(text, "Text.textHeightBehavior");
+  var Text_textWidthBasis = dart.privateName(text, "Text.textWidthBasis");
+  var Text_semanticsLabel = dart.privateName(text, "Text.semanticsLabel");
+  var Text_maxLines = dart.privateName(text, "Text.maxLines");
+  var Text_textScaleFactor = dart.privateName(text, "Text.textScaleFactor");
+  var Text_overflow = dart.privateName(text, "Text.overflow");
+  var Text_softWrap = dart.privateName(text, "Text.softWrap");
+  var Text_locale = dart.privateName(text, "Text.locale");
+  var Text_textDirection = dart.privateName(text, "Text.textDirection");
+  var Text_textAlign = dart.privateName(text, "Text.textAlign");
+  var Text_strutStyle = dart.privateName(text, "Text.strutStyle");
+  var Text_style = dart.privateName(text, "Text.style");
+  var Text_textSpan = dart.privateName(text, "Text.textSpan");
+  var Text_data = dart.privateName(text, "Text.data");
+  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
+  var Align_heightFactor = dart.privateName(basic, "Align.heightFactor");
+  var Align_widthFactor = dart.privateName(basic, "Align.widthFactor");
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var Align_alignment = dart.privateName(basic, "Align.alignment");
+  var _setNewRoutePath = dart.privateName(vx_nav, "_setNewRoutePath");
+  vx_nav.VxNavConfig = class VxNavConfig extends change_notifier.ChangeNotifier {
+    get routes() {
+      return this[routes$];
+    }
+    set routes(value) {
+      super.routes = value;
+    }
+    get pageNotFound() {
+      return this[pageNotFound$];
+    }
+    set pageNotFound(value) {
+      super.pageNotFound = value;
+    }
+    get pages() {
+      return new (T.UnmodifiableListViewOfPage()).new(this[_pages]);
+    }
+    get uris() {
+      return new (T.UnmodifiableListViewOfUri()).new(this[_uris]);
+    }
+    get [_boolResultCompleter]() {
+      let t0;
+      return dart.test(this[__VxNavConfig__boolResultCompleter_isSet]) ? (t0 = this[__VxNavConfig__boolResultCompleter], t0) : dart.throw(new _internal.LateError.fieldNI("_boolResultCompleter"));
+    }
+    set [_boolResultCompleter](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 25, 27, "null");
+      this[__VxNavConfig__boolResultCompleter_isSet] = true;
+      this[__VxNavConfig__boolResultCompleter] = t0;
+    }
+    [_setNewRoutePath](uri, params) {
+      let t1;
+      if (uri == null) dart.nullFailed(I[0], 27, 37, "uri");
+      let _findRoute = false;
+      for (let i = 0; i < dart.notNull(this.routes[$keys][$length]); i = i + 1) {
+        let key = this.routes[$keys][$elementAt](i);
+        if (key == uri.path) {
+          if (dart.test(this[_uris][$contains](uri))) {
+            let position = this[_uris][$indexOf](uri);
+            let _urisLengh = this[_uris][$length];
+            for (let start = position; dart.notNull(start) < dart.notNull(_urisLengh) - 1; start = dart.notNull(start) + 1) {
+              this[_pages][$removeLast]();
+              this[_uris][$removeLast]();
+            }
+            _findRoute = true;
+            break;
+          }
+          this[_pages][$add](dart.nullCheck(this.routes[$_get](key))(uri, params));
+          this[_uris][$add](uri);
+          _findRoute = true;
+          break;
+        }
+      }
+      if (!_findRoute) {
+        let page = (t1 = this.pageNotFound, t1 == null ? null : t1(uri, params));
+        page == null ? page = new page$.MaterialPage.new({child: new scaffold.Scaffold.new({body: new container.Container.new({child: C[0] || CT.C0, $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12})}) : null;
+        this[_pages][$add](page);
+        this[_uris][$add](uri);
+      }
+      this.notifyListeners();
+      return new (T.SynchronousFutureOfvoid()).new(null);
+    }
+    push(uri, opts) {
+      if (uri == null) dart.nullFailed(I[0], 69, 25, "uri");
+      let params = opts && 'params' in opts ? opts.params : null;
+      return this[_setNewRoutePath](uri, params);
+    }
+    replace(uri, opts) {
+      if (uri == null) dart.nullFailed(I[0], 72, 28, "uri");
+      let params = opts && 'params' in opts ? opts.params : null;
+      this[_pages][$removeLast]();
+      this[_uris][$removeLast]();
+      return this.push(uri, {params: params});
+    }
+    pop() {
+      if (dart.notNull(this[_pages][$length]) > 1) {
+        this.removeLastUri();
+      } else {
+        core.print("Cannot pop");
+      }
+    }
+    clearAndPush(uri, opts) {
+      if (uri == null) dart.nullFailed(I[0], 88, 33, "uri");
+      let params = opts && 'params' in opts ? opts.params : null;
+      this[_pages][$clear]();
+      this[_uris][$clear]();
+      return this.push(uri, {params: params});
+    }
+    pushAll(uris, opts) {
+      if (uris == null) dart.nullFailed(I[0], 95, 34, "uris");
+      let params = opts && 'params' in opts ? opts.params : null;
+      if (params == null) dart.nullFailed(I[0], 95, 64, "params");
+      return async.async(dart.void, (function* pushAll() {
+        let index = 0;
+        for (let uri of uris) {
+          if (core.List.is(params)) {
+            yield this.push(uri, {params: params[$_get](index)});
+          } else {
+            yield this.push(uri);
+          }
+          index = index + 1;
+        }
+      }).bind(this));
+    }
+    clearAndPushAll(uris, opts) {
+      if (uris == null) dart.nullFailed(I[0], 108, 42, "uris");
+      let params = opts && 'params' in opts ? opts.params : null;
+      if (params == null) dart.nullFailed(I[0], 109, 31, "params");
+      this[_pages][$clear]();
+      this[_uris][$clear]();
+      return this.pushAll(uris, {params: params});
+    }
+    removeUri(uri) {
+      if (uri == null) dart.nullFailed(I[0], 116, 22, "uri");
+      let index = this[_uris][$indexOf](uri);
+      this[_pages][$removeAt](index);
+      this[_uris][$removeAt](index);
+      this.notifyListeners();
+    }
+    removeLastUri() {
+      this[_pages][$removeLast]();
+      this[_uris][$removeLast]();
+      this.notifyListeners();
+    }
+    waitAndPush(uri, opts) {
+      if (uri == null) dart.nullFailed(I[0], 132, 35, "uri");
+      let params = opts && 'params' in opts ? opts.params : null;
+      return async.async(dart.dynamic, (function* waitAndPush() {
+        this[_boolResultCompleter] = async.Completer.new();
+        yield this.push(uri, {params: params});
+        this.notifyListeners();
+        return this[_boolResultCompleter].future;
+      }).bind(this));
+    }
+    returnAndPush(value) {
+      this[_pages][$removeLast]();
+      this[_uris][$removeLast]();
+      this[_boolResultCompleter].complete(value);
+      this.notifyListeners();
+    }
+    popToRoot() {
+      this[_pages][$removeRange](1, this[_pages][$length]);
+      this[_uris][$removeRange](1, this[_uris][$length]);
+      this.notifyListeners();
+    }
+  };
+  (vx_nav.VxNavConfig.new = function(opts) {
+    let routes = opts && 'routes' in opts ? opts.routes : null;
+    if (routes == null) dart.nullFailed(I[0], 10, 30, "routes");
+    let pageNotFound = opts && 'pageNotFound' in opts ? opts.pageNotFound : null;
+    this[_pages] = T.JSArrayOfPage().of([]);
+    this[_uris] = T.JSArrayOfUri().of([]);
+    this[__VxNavConfig__boolResultCompleter] = null;
+    this[__VxNavConfig__boolResultCompleter_isSet] = false;
+    this[routes$] = routes;
+    this[pageNotFound$] = pageNotFound;
+    vx_nav.VxNavConfig.__proto__.new.call(this);
+    ;
+  }).prototype = vx_nav.VxNavConfig.prototype;
+  dart.addTypeTests(vx_nav.VxNavConfig);
+  dart.addTypeCaches(vx_nav.VxNavConfig);
+  dart.setMethodSignature(vx_nav.VxNavConfig, () => ({
+    __proto__: dart.getMethods(vx_nav.VxNavConfig.__proto__),
+    [_setNewRoutePath]: dart.fnType(async.Future$(dart.void), [core.Uri, dart.dynamic]),
+    push: dart.fnType(async.Future$(dart.void), [core.Uri], {params: dart.dynamic}, {}),
+    replace: dart.fnType(async.Future$(dart.void), [core.Uri], {params: dart.dynamic}, {}),
+    pop: dart.fnType(dart.void, []),
+    clearAndPush: dart.fnType(async.Future$(dart.void), [core.Uri], {params: dart.dynamic}, {}),
+    pushAll: dart.fnType(async.Future$(dart.void), [core.List$(core.Uri)], {}, {params: core.List}),
+    clearAndPushAll: dart.fnType(async.Future$(dart.void), [core.List$(core.Uri)], {}, {params: core.List}),
+    removeUri: dart.fnType(dart.void, [core.Uri]),
+    removeLastUri: dart.fnType(dart.void, []),
+    waitAndPush: dart.fnType(async.Future, [core.Uri], {params: dart.dynamic}, {}),
+    returnAndPush: dart.fnType(dart.void, [dart.dynamic]),
+    popToRoot: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(vx_nav.VxNavConfig, () => ({
+    __proto__: dart.getGetters(vx_nav.VxNavConfig.__proto__),
+    pages: core.List$(navigator.Page),
+    uris: core.List$(core.Uri),
+    [_boolResultCompleter]: async.Completer
+  }));
+  dart.setSetterSignature(vx_nav.VxNavConfig, () => ({
+    __proto__: dart.getSetters(vx_nav.VxNavConfig.__proto__),
+    [_boolResultCompleter]: async.Completer
+  }));
+  dart.setLibraryUri(vx_nav.VxNavConfig, I[1]);
+  dart.setFieldSignature(vx_nav.VxNavConfig, () => ({
+    __proto__: dart.getFields(vx_nav.VxNavConfig.__proto__),
+    routes: dart.finalFieldType(core.Map$(core.String, dart.fnType(navigator.Page, [core.Uri, dart.dynamic]))),
+    pageNotFound: dart.finalFieldType(dart.nullable(dart.fnType(navigator.Page, [core.Uri, dart.dynamic]))),
+    [_pages]: dart.finalFieldType(core.List$(navigator.Page)),
+    [_uris]: dart.finalFieldType(core.List$(core.Uri)),
+    [__VxNavConfig__boolResultCompleter]: dart.fieldType(dart.nullable(async.Completer)),
+    [__VxNavConfig__boolResultCompleter_isSet]: dart.fieldType(core.bool)
+  }));
+  var navigatorKey = dart.privateName(vx_delegate, "VxNavigator.navigatorKey");
+  var __VxNavigator_routeManager = dart.privateName(vx_delegate, "_#VxNavigator#routeManager");
+  var __VxNavigator_routeManager_isSet = dart.privateName(vx_delegate, "_#VxNavigator#routeManager#isSet");
+  const RouterDelegate_ChangeNotifier$36 = class RouterDelegate_ChangeNotifier extends router.RouterDelegate$(core.Uri) {};
+  (RouterDelegate_ChangeNotifier$36.new = function() {
+    change_notifier.ChangeNotifier.new.call(this);
+    RouterDelegate_ChangeNotifier$36.__proto__.new.call(this);
+  }).prototype = RouterDelegate_ChangeNotifier$36.prototype;
+  dart.applyMixin(RouterDelegate_ChangeNotifier$36, change_notifier.ChangeNotifier);
+  const RouterDelegate_PopNavigatorRouterDelegateMixin$36 = class RouterDelegate_PopNavigatorRouterDelegateMixin extends RouterDelegate_ChangeNotifier$36 {};
+  (RouterDelegate_PopNavigatorRouterDelegateMixin$36.new = function() {
+    RouterDelegate_PopNavigatorRouterDelegateMixin$36.__proto__.new.call(this);
+  }).prototype = RouterDelegate_PopNavigatorRouterDelegateMixin$36.prototype;
+  dart.applyMixin(RouterDelegate_PopNavigatorRouterDelegateMixin$36, router.PopNavigatorRouterDelegateMixin$(core.Uri));
+  vx_delegate.VxNavigator = class VxNavigator extends RouterDelegate_PopNavigatorRouterDelegateMixin$36 {
+    get navigatorKey() {
+      return this[navigatorKey];
+    }
+    set navigatorKey(value) {
+      super.navigatorKey = value;
+    }
+    static of(context) {
+      if (context == null) dart.nullFailed(I[2], 8, 38, "context");
+      return vx_delegate.VxNavigator.as(router.Router.of(context).routerDelegate).routeManager;
+    }
+    get routeManager() {
+      let t1;
+      return dart.test(this[__VxNavigator_routeManager_isSet]) ? (t1 = this[__VxNavigator_routeManager], t1) : dart.throw(new _internal.LateError.fieldNI("routeManager"));
+    }
+    set routeManager(t1) {
+      if (t1 == null) dart.nullFailed(I[2], 14, 20, "null");
+      this[__VxNavigator_routeManager_isSet] = true;
+      this[__VxNavigator_routeManager] = t1;
+    }
+    get currentConfiguration() {
+      return dart.test(this.routeManager.uris[$isNotEmpty]) ? this.routeManager.uris[$last] : null;
+    }
+    setNewRoutePath(uri) {
+      core.Uri.as(uri);
+      if (uri == null) dart.nullFailed(I[2], 38, 36, "uri");
+      return this.routeManager.push(uri);
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[2], 42, 29, "context");
+      return new navigator.Navigator.new({key: this.navigatorKey, pages: (() => {
+          let t2 = T.JSArrayOfPage().of([]);
+          for (let page of this.routeManager.pages)
+            t2[$add](page);
+          return t2;
+        })(), onPopPage: dart.fn((route, result) => {
+          if (route == null) dart.nullFailed(I[2], 48, 19, "route");
+          if (!dart.test(route.didPop(result))) {
+            return false;
+          }
+          if (dart.test(this.routeManager.routes[$isNotEmpty])) {
+            this.routeManager.removeLastUri();
+            return true;
+          }
+          return false;
+        }, T.RouteAnddynamicTobool()), observers: T.JSArrayOfNavigatorObserver().of([new heroes.HeroController.new()]), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15});
+    }
+  };
+  (vx_delegate.VxNavigator.new = function(opts) {
+    let routes = opts && 'routes' in opts ? opts.routes : null;
+    if (routes == null) dart.nullFailed(I[2], 16, 44, "routes");
+    let notFoundPage = opts && 'notFoundPage' in opts ? opts.notFoundPage : null;
+    this[navigatorKey] = T.GlobalKeyOfNavigatorState().new();
+    this[__VxNavigator_routeManager] = null;
+    this[__VxNavigator_routeManager_isSet] = false;
+    vx_delegate.VxNavigator.__proto__.new.call(this);
+    this.routeManager = new vx_nav.VxNavConfig.new({routes: routes, pageNotFound: notFoundPage});
+    this.routeManager.addListener(dart.bind(this, 'notifyListeners'));
+    for (let uri of T.JSArrayOfUri().of([core._Uri.new({path: "/"})])) {
+      this.routeManager.push(uri);
+    }
+  }).prototype = vx_delegate.VxNavigator.prototype;
+  dart.addTypeTests(vx_delegate.VxNavigator);
+  dart.addTypeCaches(vx_delegate.VxNavigator);
+  dart.setMethodSignature(vx_delegate.VxNavigator, () => ({
+    __proto__: dart.getMethods(vx_delegate.VxNavigator.__proto__),
+    setNewRoutePath: dart.fnType(async.Future$(dart.void), [dart.nullable(core.Object)]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(vx_delegate.VxNavigator, () => ({
+    __proto__: dart.getGetters(vx_delegate.VxNavigator.__proto__),
+    routeManager: vx_nav.VxNavConfig
+  }));
+  dart.setSetterSignature(vx_delegate.VxNavigator, () => ({
+    __proto__: dart.getSetters(vx_delegate.VxNavigator.__proto__),
+    routeManager: vx_nav.VxNavConfig
+  }));
+  dart.setLibraryUri(vx_delegate.VxNavigator, I[3]);
+  dart.setFieldSignature(vx_delegate.VxNavigator, () => ({
+    __proto__: dart.getFields(vx_delegate.VxNavigator.__proto__),
+    navigatorKey: dart.finalFieldType(dart.nullable(framework.GlobalKey$(navigator.NavigatorState))),
+    [__VxNavigator_routeManager]: dart.fieldType(dart.nullable(vx_nav.VxNavConfig)),
+    [__VxNavigator_routeManager_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/velocity_x/src/nav/vx_nav.dart", {
+    "package:velocity_x/src/nav/vx_nav.dart": vx_nav,
+    "package:velocity_x/src/nav/vx_delegate.dart": vx_delegate
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["vx_nav.dart","vx_delegate.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/nav/vx_nav.dart.lib.js"}');
+  // Exports:
+  return {
+    src__nav__vx_nav: vx_nav,
+    src__nav__vx_delegate: vx_delegate
+  };
+}));
+
+//# sourceMappingURL=vx_nav.dart.lib.js.map

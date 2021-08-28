@@ -26,7 +26,33 @@ class ClubActivity extends StatelessWidget {
           [
             VStack(
               [
-                "Sahyari Open Source Community"
+                "Google Developer Student Clubs".text.semiBold.white.xl2.center.make(),
+                // 30.heightBox,
+                dscClick(),
+                /*   Image.asset(
+                  'assets/gdgd.png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ).centered(),*/
+                //25.heightBox,
+                "Community Lead".text.semiBold.xl2.white.makeCentered(),
+                "2020-Present".text.semiBold.xl2.white.makeCentered()
+              ],
+              alignment: MainAxisAlignment.spaceEvenly,
+            )
+                .box
+                .p24
+                .width(300)
+                .height(400)
+                .roundedLg
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
+                .makeCentered(),
+            20.heightBox,
+            VStack(
+              [
+                "Sahyadri Open Source Community"
                     .text
                     .semiBold
                     .white
@@ -43,44 +69,21 @@ class ClubActivity extends StatelessWidget {
                 ).centered(),*/
 
                 //10.heightBox,
-                "2020".text.semiBold.xl2.white.makeCentered()
+                "Core Member".text.semiBold.xl2.white.makeCentered(),
+                "2020-Present".text.semiBold.xl2.white.makeCentered()
               ],
               alignment: MainAxisAlignment.spaceEvenly,
             )
                 .box
                 .p24
-                .width(250)
-                .height(300)
+                .width(300)
+                .height(400)
                 .roundedLg
                 .shadowSm
                 .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
             20.heightBox,
-            VStack(
-              [
-                "Developers Student Club".text.semiBold.white.xl2.center.make(),
-                // 30.heightBox,
-                dscClick(),
-                /*   Image.asset(
-                  'assets/gdgd.png',
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.contain,
-                ).centered(),*/
-                //25.heightBox,
-                "2020".text.semiBold.xl2.white.makeCentered()
-              ],
-              alignment: MainAxisAlignment.spaceEvenly,
-            )
-                .box
-                .p24
-                .width(250)
-                .height(300)
-                .roundedLg
-                .shadowSm
-                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
-                .makeCentered(),
-            20.heightBox,
+            
             VStack(
               [
                 "ACM Sahyadri\nChapter"
@@ -97,14 +100,15 @@ class ClubActivity extends StatelessWidget {
                   fit: BoxFit.contain,
                 ).centered(),*/
                 // 10.heightBox,
-                "2019".text.semiBold.xl2.white.makeCentered()
+                "Technical Head".text.semiBold.xl2.white.makeCentered(),
+                "2019-Present".text.semiBold.xl2.white.makeCentered()
               ],
               alignment: MainAxisAlignment.spaceEvenly,
             )
                 .box
                 .p24
-                .width(250)
-                .height(300)
+                .width(300)
+                .height(400)
                 .roundedLg
                 .shadowSm
                 .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
@@ -129,7 +133,33 @@ class ClubActivity extends StatelessWidget {
           [
             VStack(
               [
-                "Sahyari Open Source Community"
+                "Google Developer Student Clubs".text.semiBold.white.xl2.center.make(),
+                dscClick(),
+                // 30.heightBox,
+                /*    Image.asset(
+                  'assets/gdgd.png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ).centered(),*/
+                //25.heightBox,
+                "Community Lead".text.semiBold.xl2.white.makeCentered(),
+                "2020-Present".text.semiBold.xl2.white.makeCentered()
+              ],
+              alignment: MainAxisAlignment.spaceEvenly,
+            )
+                .box
+                .p24
+                .width(300)
+                .height(400)
+                .roundedLg
+                .shadowSm
+                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
+                .make(),
+            20.widthBox,
+            VStack(
+              [
+                "Sahyadri Open Source Community"
                     .text
                     .semiBold
                     .white
@@ -145,44 +175,21 @@ class ClubActivity extends StatelessWidget {
                   height: 100,
                 ).centered(),*/
                 //10.heightBox,
-                "2020".text.semiBold.xl2.white.makeCentered()
+                "Core Member".text.semiBold.xl2.white.makeCentered(),
+                "2020-Present".text.semiBold.xl2.white.makeCentered()
               ],
               alignment: MainAxisAlignment.spaceEvenly,
             )
                 .box
                 .p24
-                .width(250)
-                .height(300)
+                .width(300)
+                .height(400)
                 .roundedLg
                 .shadowSm
                 .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
                 .make(),
             20.widthBox,
-            VStack(
-              [
-                "Developers Student Club".text.semiBold.white.xl2.center.make(),
-                dscClick(),
-                // 30.heightBox,
-                /*    Image.asset(
-                  'assets/gdgd.png',
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.contain,
-                ).centered(),*/
-                //25.heightBox,
-                "2020".text.semiBold.xl2.white.makeCentered()
-              ],
-              alignment: MainAxisAlignment.spaceEvenly,
-            )
-                .box
-                .p24
-                .width(250)
-                .height(300)
-                .roundedLg
-                .shadowSm
-                .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
-                .make(),
-            20.widthBox,
+            
             VStack(
               [
                 "ACM Sahyadri\nChapter"
@@ -199,14 +206,15 @@ class ClubActivity extends StatelessWidget {
                   fit: BoxFit.contain,
                 ).centered(),*/
                 // 10.heightBox,
-                "2019".text.semiBold.xl2.white.makeCentered()
+                "Technical Head".text.semiBold.xl2.white.makeCentered(),
+                "2019-Present".text.semiBold.xl2.white.makeCentered()
               ],
               alignment: MainAxisAlignment.spaceEvenly,
             )
                 .box
                 .p24
-                .width(250)
-                .height(300)
+                .width(300)
+                .height(400)
                 .roundedLg
                 .shadowSm
                 .neumorphic(color: Coolors.primaryColor, curve: VxCurve.concave)
@@ -243,7 +251,7 @@ class dscClick extends StatelessWidget {
     return InkWell(
         onTap: () {
           launchURL(
-              'https://dsc.community.dev/sahyadri-college-of-engineering-management/');
+              'https://gdsc.community.dev/sahyadri-college-of-engineering-management-mangaluru/');
         },
         child: (Image.asset(
           'assets/gdgd.png',
@@ -265,6 +273,7 @@ class acmClick extends StatelessWidget {
         child: (Image.asset(
           'assets/ACM.png',
           fit: BoxFit.contain,
+          width: 200,
         ).centered()));
   }
 }

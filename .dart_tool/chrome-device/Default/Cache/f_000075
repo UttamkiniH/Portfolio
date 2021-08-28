@@ -1,0 +1,3223 @@
+define(['dart_sdk', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/material/colors.dart'], (function load__packages__velocity_x__src__velocity_xx_dart(dart_sdk, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__material__colors$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const developer = dart_sdk.developer;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  var velocity_xx = Object.create(dart.library);
+  var $substring = dartx.substring;
+  var $toUpperCase = dartx.toUpperCase;
+  var $replaceAll = dartx.replaceAll;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294638330.0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294243573.0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293190887.0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292138200.0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288782762.0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285624698.0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283585115.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282335046.0
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280756010.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279769115.0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294507260.0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294047225.0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293060848.0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291548641.0
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287931320.0
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284773515.0
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282865001.0
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281549141.0
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280166715.0
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279179050.0
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294572795.0
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294178038.0
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293257195.0
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291941851.0
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288455599.0
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285231744.0
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283127139.0
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280232247.0
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279310375.0
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294309365.0
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293256677.0
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292138196.0
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288914339.0
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285756275.0
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283585106.0
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282400832.0
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280690214.0
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279703319.0
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294638329.0
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294309364.0
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293387748.0
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292269009.0
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289241758.0
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286083436.0
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283913038.0
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282662972.0
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280886564.0
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280031511.0
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294898418.0
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294894306.0
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294888138.0
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294747557.0
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294472049.0
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293870660.0
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292617766.0
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290321436.0
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288224027.0
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286520605.0
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294965229.0
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294962645.0
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294891434.0
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294818420.0
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294677052.0
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294538006.0
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293548044.0
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290920716.0
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288295954.0
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286328082.0
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294966251.0
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294898631.0
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294829706.0
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294759245.0
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294688548.0
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294286859.0
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292441862.0
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290007817.0
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287774734.0
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286067983.0
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294900968.0
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294900163.0
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294897802.0
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294828103.0
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294626325.0
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293571336.0
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291463684.0
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288766471.0
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286926094.0
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285611794.0
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294442727.0
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293721291.0
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292475293.0
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290703972.0
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288931381.0
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286893078.0
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284850957.0
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283268111.0
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282343954.0
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281750292.0
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293983732.0
+      });
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292672743.0
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290508752.0
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287033260.0
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283096704.0
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280468830.0
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279673674.0
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279599165.0
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279657780.0
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279522093.0
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293721589.0
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291951333.0
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289197008.0
+      });
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285458359.0
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281652121.0
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279286145.0
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278556265.0
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278483031.0
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278607686.0
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278603323.0
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293983738.0
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291623921.0
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288280292.0
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284410580.0
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281193663.0
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279548070.0
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279080072.0
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279203438.0
+      });
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279328345.0
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279455306.0
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293721855.0
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291820286.0
+      });
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289065980.0
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284999929.0
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280472558.0
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278630100.0
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278751666.0
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279137424.0
+      });
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279590517.0
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279651939.0
+      });
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293982719.0
+      });
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292932350.0
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290438909.0
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286436348.0
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281908728.0
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279150057.0
+      });
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278355143.0
+      });
+    },
+    get C147() {
+      return C[147] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278413729.0
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278671749.0
+      });
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278995566.0
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293916415.0
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292602622.0
+      });
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290763774.0
+      });
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287874557.0
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284524026.0
+      });
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282090230.0
+      });
+    },
+    get C156() {
+      return C[156] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280640491.0
+      });
+    },
+    get C157() {
+      return C[157] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280110808.0
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280172719.0
+      });
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280171146.0
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293849855.0
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292929535.0
+      });
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291285758.0
+      });
+    },
+    get C163() {
+      return C[163] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289049852.0
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286680312.0
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284704497.0
+      });
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283385573.0
+      });
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282595530.0
+      });
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281807011.0
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281413249.0
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294308863.0
+      });
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293782014.0
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292728574.0
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291081725.0
+      });
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289170426.0
+      });
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287323382.0
+      });
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286331629.0
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285343961.0
+      });
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284162486.0
+      });
+    },
+    get C179() {
+      return C[179] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283178389.0
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294637055.0
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294174975.0
+      });
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293514751.0
+      });
+    },
+    get C183() {
+      return C[183] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292392190.0
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290807036.0
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289222135.0
+      });
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287837162.0
+      });
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286456526.0
+      });
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285211048.0
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283964551.0
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294833407.0
+      });
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294633727.0
+      });
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294299902.0
+      });
+    },
+    get C193() {
+      return C[193] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293962748.0
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293425657.0
+      });
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292429551.0
+      });
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290782931.0
+      });
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288814255.0
+      });
+    },
+    get C198() {
+      return C[198] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286978447.0
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285536885.0
+      });
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294832888.0
+      });
+    },
+    get C201() {
+      return C[201] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294764531.0
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294692840.0
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294551764.0
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294210230.0
+      });
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293675161.0
+      });
+    },
+    get C206() {
+      return C[206] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292552567.0
+      });
+    },
+    get C207() {
+      return C[207] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290648157.0
+      });
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288485197.0
+      });
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286781507.0
+      });
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294963698.0
+      });
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294960358.0
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294888915.0
+      });
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294812847.0
+      });
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294668677.0
+      });
+    },
+    get C215() {
+      return C[215] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294197086.0
+      });
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292943176.0
+      });
+    },
+    get C217() {
+      return C[217] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290646588.0
+      });
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288614969.0
+      });
+    },
+    get C219() {
+      return C[219] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287107895.0
+      });
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 1,
+        [EdgeInsets_right]: 1,
+        [EdgeInsets_top]: 1,
+        [EdgeInsets_left]: 1
+      });
+    },
+    get C221() {
+      return C[221] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 2,
+        [EdgeInsets_right]: 2,
+        [EdgeInsets_top]: 2,
+        [EdgeInsets_left]: 2
+      });
+    },
+    get C222() {
+      return C[222] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 4,
+        [EdgeInsets_right]: 4,
+        [EdgeInsets_top]: 4,
+        [EdgeInsets_left]: 4
+      });
+    },
+    get C223() {
+      return C[223] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C224() {
+      return C[224] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 12,
+        [EdgeInsets_right]: 12,
+        [EdgeInsets_top]: 12,
+        [EdgeInsets_left]: 12
+      });
+    },
+    get C225() {
+      return C[225] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 16,
+        [EdgeInsets_right]: 16,
+        [EdgeInsets_top]: 16,
+        [EdgeInsets_left]: 16
+      });
+    },
+    get C226() {
+      return C[226] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 20,
+        [EdgeInsets_right]: 20,
+        [EdgeInsets_top]: 20,
+        [EdgeInsets_left]: 20
+      });
+    },
+    get C227() {
+      return C[227] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 24,
+        [EdgeInsets_right]: 24,
+        [EdgeInsets_top]: 24,
+        [EdgeInsets_left]: 24
+      });
+    },
+    get C228() {
+      return C[228] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 32,
+        [EdgeInsets_right]: 32,
+        [EdgeInsets_top]: 32,
+        [EdgeInsets_left]: 32
+      });
+    },
+    get C229() {
+      return C[229] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 64,
+        [EdgeInsets_right]: 64,
+        [EdgeInsets_top]: 64,
+        [EdgeInsets_left]: 64
+      });
+    },
+    get C230() {
+      return C[230] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C231() {
+      return C[231] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 1,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 1,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C232() {
+      return C[232] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 1,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 1
+      });
+    },
+    get C233() {
+      return C[233] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 2,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 2,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C234() {
+      return C[234] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 2,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 2
+      });
+    },
+    get C235() {
+      return C[235] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 4,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 4,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C236() {
+      return C[236] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 4,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 4
+      });
+    },
+    get C237() {
+      return C[237] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C238() {
+      return C[238] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C239() {
+      return C[239] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 12,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 12
+      });
+    },
+    get C240() {
+      return C[240] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 12,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 12,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C241() {
+      return C[241] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 16,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 16,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C242() {
+      return C[242] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 16,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 16
+      });
+    },
+    get C243() {
+      return C[243] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 20,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 20,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C244() {
+      return C[244] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 20,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 20
+      });
+    },
+    get C245() {
+      return C[245] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 24,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 24,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C246() {
+      return C[246] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 24,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 24
+      });
+    },
+    get C247() {
+      return C[247] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 32,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 32
+      });
+    }
+  }, false);
+  var C = Array(248).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/velocity_xx.dart",
+    "package:velocity_x/src/velocity_xx.dart"
+  ];
+  var Color_value = dart.privateName(ui, "Color.value");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  velocity_xx.Vx = class Vx extends core.Object {
+    static mLTRB(left, top, right, bottom) {
+      if (left == null) dart.nullFailed(I[0], 596, 12, "left");
+      if (top == null) dart.nullFailed(I[0], 597, 12, "top");
+      if (right == null) dart.nullFailed(I[0], 598, 12, "right");
+      if (bottom == null) dart.nullFailed(I[0], 599, 12, "bottom");
+      return new edge_insets.EdgeInsets.fromLTRB(left, top, right, bottom);
+    }
+    static mSymmetric(opts) {
+      let v = opts && 'v' in opts ? opts.v : 0;
+      if (v == null) dart.nullFailed(I[0], 604, 40, "v");
+      let h = opts && 'h' in opts ? opts.h : 0;
+      if (h == null) dart.nullFailed(I[0], 604, 56, "h");
+      return new edge_insets.EdgeInsets.symmetric({vertical: v, horizontal: h});
+    }
+    static mOnly(opts) {
+      let left = opts && 'left' in opts ? opts.left : 0;
+      if (left == null) dart.nullFailed(I[0], 612, 19, "left");
+      let right = opts && 'right' in opts ? opts.right : 0;
+      if (right == null) dart.nullFailed(I[0], 613, 18, "right");
+      let top = opts && 'top' in opts ? opts.top : 0;
+      if (top == null) dart.nullFailed(I[0], 614, 18, "top");
+      let bottom = opts && 'bottom' in opts ? opts.bottom : 0;
+      if (bottom == null) dart.nullFailed(I[0], 615, 18, "bottom");
+      return new edge_insets.EdgeInsets.only({left: left, right: right, top: top, bottom: bottom});
+    }
+    static withRounded(radius) {
+      if (radius == null) dart.nullFailed(I[0], 631, 41, "radius");
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(radius)});
+    }
+    static log(message, opts) {
+      if (message == null) dart.nullFailed(I[0], 648, 26, "message");
+      let time = opts && 'time' in opts ? opts.time : null;
+      let sequenceNumber = opts && 'sequenceNumber' in opts ? opts.sequenceNumber : null;
+      let level = opts && 'level' in opts ? opts.level : 0;
+      if (level == null) dart.nullFailed(I[0], 651, 15, "level");
+      let name = opts && 'name' in opts ? opts.name : "";
+      if (name == null) dart.nullFailed(I[0], 652, 18, "name");
+      let zone = opts && 'zone' in opts ? opts.zone : null;
+      let error = opts && 'error' in opts ? opts.error : null;
+      let stackTrace = opts && 'stackTrace' in opts ? opts.stackTrace : null;
+      return developer.log(message, {error: error, level: level, name: name, sequenceNumber: sequenceNumber, stackTrace: stackTrace, time: time, zone: zone});
+    }
+    static inspect(object) {
+      if (object == null) dart.nullFailed(I[0], 668, 30, "object");
+      return developer.inspect(object);
+    }
+    static get isReleaseMode() {
+      return false;
+    }
+    static get isDebugMode() {
+      return true;
+    }
+    static get isProfileMode() {
+      return false;
+    }
+    static get isWeb() {
+      return true;
+    }
+    static get isAndroid() {
+      return platform.defaultTargetPlatform == platform.TargetPlatform.android;
+    }
+    static hexToColor(code) {
+      if (code == null) dart.nullFailed(I[0], 686, 34, "code");
+      return new ui.Color.new(dart.notNull(core.int.parse(code[$substring](1, 7), {radix: 16})) + 4278190080);
+    }
+    static getColorFromHex(hexColor) {
+      if (hexColor == null) dart.nullFailed(I[0], 691, 37, "hexColor");
+      hexColor = hexColor[$toUpperCase]()[$replaceAll]("#", "");
+      hexColor = hexColor[$replaceAll]("0X", "");
+      if (hexColor.length === 6) {
+        hexColor = "FF" + dart.notNull(hexColor);
+      }
+      return core.int.parse(hexColor, {radix: 16});
+    }
+    static get randomOpaqueColor() {
+      return new ui.Color.new(math.Random.new().nextInt(4294967295)).withAlpha(255);
+    }
+    static get randomPrimaryColor() {
+      return colors.Colors.primaries[$_get](math.Random.new().nextInt(colors.Colors.primaries[$length]));
+    }
+    static get randomColor() {
+      return new ui.Color.fromARGB(100, math.Random.new().nextInt(255), math.Random.new().nextInt(255), math.Random.new().nextInt(255));
+    }
+  };
+  velocity_xx.Vx[dart.mixinOn] = Object => class Vx extends Object {};
+  (velocity_xx.Vx[dart.mixinNew] = function() {
+  }).prototype = velocity_xx.Vx.prototype;
+  dart.addTypeTests(velocity_xx.Vx);
+  dart.addTypeCaches(velocity_xx.Vx);
+  velocity_xx.Vx[dart.implements] = () => [core.Object];
+  dart.setLibraryUri(velocity_xx.Vx, I[1]);
+  dart.defineLazy(velocity_xx.Vx, {
+    /*velocity_xx.Vx.dp0*/get dp0() {
+      return 0;
+    },
+    /*velocity_xx.Vx.dp1*/get dp1() {
+      return 1;
+    },
+    /*velocity_xx.Vx.dp2*/get dp2() {
+      return 2;
+    },
+    /*velocity_xx.Vx.dp3*/get dp3() {
+      return 3;
+    },
+    /*velocity_xx.Vx.dp4*/get dp4() {
+      return 4;
+    },
+    /*velocity_xx.Vx.dp5*/get dp5() {
+      return 5;
+    },
+    /*velocity_xx.Vx.dp6*/get dp6() {
+      return 6;
+    },
+    /*velocity_xx.Vx.dp8*/get dp8() {
+      return 8;
+    },
+    /*velocity_xx.Vx.dp10*/get dp10() {
+      return 10;
+    },
+    /*velocity_xx.Vx.dp12*/get dp12() {
+      return 12;
+    },
+    /*velocity_xx.Vx.dp14*/get dp14() {
+      return 14;
+    },
+    /*velocity_xx.Vx.dp16*/get dp16() {
+      return 16;
+    },
+    /*velocity_xx.Vx.dp20*/get dp20() {
+      return 20;
+    },
+    /*velocity_xx.Vx.dp24*/get dp24() {
+      return 24;
+    },
+    /*velocity_xx.Vx.dp32*/get dp32() {
+      return 32;
+    },
+    /*velocity_xx.Vx.dp40*/get dp40() {
+      return 40;
+    },
+    /*velocity_xx.Vx.dp48*/get dp48() {
+      return 48;
+    },
+    /*velocity_xx.Vx.dp56*/get dp56() {
+      return 56;
+    },
+    /*velocity_xx.Vx.dp64*/get dp64() {
+      return 64;
+    },
+    /*velocity_xx.Vx.blackHex*/get blackHex() {
+      return "#000000";
+    },
+    /*velocity_xx.Vx.whiteHex*/get whiteHex() {
+      return "#ffffff";
+    },
+    /*velocity_xx.Vx.black*/get black() {
+      return C[0] || CT.C0;
+    },
+    /*velocity_xx.Vx.white*/get white() {
+      return C[1] || CT.C1;
+    },
+    /*velocity_xx.Vx.grayHex50*/get grayHex50() {
+      return "#FAFAFA";
+    },
+    /*velocity_xx.Vx.grayHex100*/get grayHex100() {
+      return "#F4F4F5";
+    },
+    /*velocity_xx.Vx.grayHex200*/get grayHex200() {
+      return "#E4E4E7";
+    },
+    /*velocity_xx.Vx.grayHex300*/get grayHex300() {
+      return "#D4D4D8";
+    },
+    /*velocity_xx.Vx.grayHex400*/get grayHex400() {
+      return "#A1A1AA";
+    },
+    /*velocity_xx.Vx.grayHex500*/get grayHex500() {
+      return "#71717A";
+    },
+    /*velocity_xx.Vx.grayHex600*/get grayHex600() {
+      return "#52525B";
+    },
+    /*velocity_xx.Vx.grayHex700*/get grayHex700() {
+      return "#3F3F46";
+    },
+    /*velocity_xx.Vx.grayHex800*/get grayHex800() {
+      return "#27272A";
+    },
+    /*velocity_xx.Vx.grayHex900*/get grayHex900() {
+      return "#18181B";
+    },
+    /*velocity_xx.Vx.gray50*/get gray50() {
+      return C[2] || CT.C2;
+    },
+    /*velocity_xx.Vx.gray100*/get gray100() {
+      return C[3] || CT.C3;
+    },
+    /*velocity_xx.Vx.gray200*/get gray200() {
+      return C[4] || CT.C4;
+    },
+    /*velocity_xx.Vx.gray300*/get gray300() {
+      return C[5] || CT.C5;
+    },
+    /*velocity_xx.Vx.gray400*/get gray400() {
+      return C[6] || CT.C6;
+    },
+    /*velocity_xx.Vx.gray500*/get gray500() {
+      return C[7] || CT.C7;
+    },
+    /*velocity_xx.Vx.gray600*/get gray600() {
+      return C[8] || CT.C8;
+    },
+    /*velocity_xx.Vx.gray700*/get gray700() {
+      return C[9] || CT.C9;
+    },
+    /*velocity_xx.Vx.gray800*/get gray800() {
+      return C[10] || CT.C10;
+    },
+    /*velocity_xx.Vx.gray900*/get gray900() {
+      return C[11] || CT.C11;
+    },
+    /*velocity_xx.Vx.blueGrayHex50*/get blueGrayHex50() {
+      return "#F8FAFC";
+    },
+    /*velocity_xx.Vx.blueGrayHex100*/get blueGrayHex100() {
+      return "#F1F5F9";
+    },
+    /*velocity_xx.Vx.blueGrayHex200*/get blueGrayHex200() {
+      return "#E2E8F0";
+    },
+    /*velocity_xx.Vx.blueGrayHex300*/get blueGrayHex300() {
+      return "#CBD5E1";
+    },
+    /*velocity_xx.Vx.blueGrayHex400*/get blueGrayHex400() {
+      return "#94A3B8";
+    },
+    /*velocity_xx.Vx.blueGrayHex500*/get blueGrayHex500() {
+      return "#64748B";
+    },
+    /*velocity_xx.Vx.blueGrayHex600*/get blueGrayHex600() {
+      return "#475569";
+    },
+    /*velocity_xx.Vx.blueGrayHex700*/get blueGrayHex700() {
+      return "#334155";
+    },
+    /*velocity_xx.Vx.blueGrayHex800*/get blueGrayHex800() {
+      return "#1E293B";
+    },
+    /*velocity_xx.Vx.blueGrayHex900*/get blueGrayHex900() {
+      return "#0F172A";
+    },
+    /*velocity_xx.Vx.blueGray50*/get blueGray50() {
+      return C[12] || CT.C12;
+    },
+    /*velocity_xx.Vx.blueGray100*/get blueGray100() {
+      return C[13] || CT.C13;
+    },
+    /*velocity_xx.Vx.blueGray200*/get blueGray200() {
+      return C[14] || CT.C14;
+    },
+    /*velocity_xx.Vx.blueGray300*/get blueGray300() {
+      return C[15] || CT.C15;
+    },
+    /*velocity_xx.Vx.blueGray400*/get blueGray400() {
+      return C[16] || CT.C16;
+    },
+    /*velocity_xx.Vx.blueGray500*/get blueGray500() {
+      return C[17] || CT.C17;
+    },
+    /*velocity_xx.Vx.blueGray600*/get blueGray600() {
+      return C[18] || CT.C18;
+    },
+    /*velocity_xx.Vx.blueGray700*/get blueGray700() {
+      return C[19] || CT.C19;
+    },
+    /*velocity_xx.Vx.blueGray800*/get blueGray800() {
+      return C[20] || CT.C20;
+    },
+    /*velocity_xx.Vx.blueGray900*/get blueGray900() {
+      return C[21] || CT.C21;
+    },
+    /*velocity_xx.Vx.coolGrayHex50*/get coolGrayHex50() {
+      return "#F9FAFB";
+    },
+    /*velocity_xx.Vx.coolGrayHex100*/get coolGrayHex100() {
+      return "#F3F4F6";
+    },
+    /*velocity_xx.Vx.coolGrayHex200*/get coolGrayHex200() {
+      return "#E5E7EB";
+    },
+    /*velocity_xx.Vx.coolGrayHex300*/get coolGrayHex300() {
+      return "#D1D5DB";
+    },
+    /*velocity_xx.Vx.coolGrayHex400*/get coolGrayHex400() {
+      return "#9CA3AF";
+    },
+    /*velocity_xx.Vx.coolGrayHex500*/get coolGrayHex500() {
+      return "#6B7280";
+    },
+    /*velocity_xx.Vx.coolGrayHex600*/get coolGrayHex600() {
+      return "#4B5563";
+    },
+    /*velocity_xx.Vx.coolGrayHex700*/get coolGrayHex700() {
+      return "#4B5563";
+    },
+    /*velocity_xx.Vx.coolGrayHex800*/get coolGrayHex800() {
+      return "#1F2937";
+    },
+    /*velocity_xx.Vx.coolGrayHex900*/get coolGrayHex900() {
+      return "#111827";
+    },
+    /*velocity_xx.Vx.coolGray50*/get coolGray50() {
+      return C[22] || CT.C22;
+    },
+    /*velocity_xx.Vx.coolGray100*/get coolGray100() {
+      return C[23] || CT.C23;
+    },
+    /*velocity_xx.Vx.coolGray200*/get coolGray200() {
+      return C[24] || CT.C24;
+    },
+    /*velocity_xx.Vx.coolGray300*/get coolGray300() {
+      return C[25] || CT.C25;
+    },
+    /*velocity_xx.Vx.coolGray400*/get coolGray400() {
+      return C[26] || CT.C26;
+    },
+    /*velocity_xx.Vx.coolGray500*/get coolGray500() {
+      return C[27] || CT.C27;
+    },
+    /*velocity_xx.Vx.coolGray600*/get coolGray600() {
+      return C[28] || CT.C28;
+    },
+    /*velocity_xx.Vx.coolGray700*/get coolGray700() {
+      return C[28] || CT.C28;
+    },
+    /*velocity_xx.Vx.coolGray800*/get coolGray800() {
+      return C[29] || CT.C29;
+    },
+    /*velocity_xx.Vx.coolGray900*/get coolGray900() {
+      return C[30] || CT.C30;
+    },
+    /*velocity_xx.Vx.trueGrayHex50*/get trueGrayHex50() {
+      return "#FAFAFA";
+    },
+    /*velocity_xx.Vx.trueGrayHex100*/get trueGrayHex100() {
+      return "#F5F5F5";
+    },
+    /*velocity_xx.Vx.trueGrayHex200*/get trueGrayHex200() {
+      return "#E5E5E5";
+    },
+    /*velocity_xx.Vx.trueGrayHex300*/get trueGrayHex300() {
+      return "#D4D4D4";
+    },
+    /*velocity_xx.Vx.trueGrayHex400*/get trueGrayHex400() {
+      return "#A3A3A3";
+    },
+    /*velocity_xx.Vx.trueGrayHex500*/get trueGrayHex500() {
+      return "#737373";
+    },
+    /*velocity_xx.Vx.trueGrayHex600*/get trueGrayHex600() {
+      return "#525252";
+    },
+    /*velocity_xx.Vx.trueGrayHex700*/get trueGrayHex700() {
+      return "#404040";
+    },
+    /*velocity_xx.Vx.trueGrayHex800*/get trueGrayHex800() {
+      return "#262626";
+    },
+    /*velocity_xx.Vx.trueGrayHex900*/get trueGrayHex900() {
+      return "#171717";
+    },
+    /*velocity_xx.Vx.trueGray50*/get trueGray50() {
+      return C[2] || CT.C2;
+    },
+    /*velocity_xx.Vx.trueGray100*/get trueGray100() {
+      return C[31] || CT.C31;
+    },
+    /*velocity_xx.Vx.trueGray200*/get trueGray200() {
+      return C[32] || CT.C32;
+    },
+    /*velocity_xx.Vx.trueGray300*/get trueGray300() {
+      return C[33] || CT.C33;
+    },
+    /*velocity_xx.Vx.trueGray400*/get trueGray400() {
+      return C[34] || CT.C34;
+    },
+    /*velocity_xx.Vx.trueGray500*/get trueGray500() {
+      return C[35] || CT.C35;
+    },
+    /*velocity_xx.Vx.trueGray600*/get trueGray600() {
+      return C[36] || CT.C36;
+    },
+    /*velocity_xx.Vx.trueGray700*/get trueGray700() {
+      return C[37] || CT.C37;
+    },
+    /*velocity_xx.Vx.trueGray800*/get trueGray800() {
+      return C[38] || CT.C38;
+    },
+    /*velocity_xx.Vx.trueGray900*/get trueGray900() {
+      return C[39] || CT.C39;
+    },
+    /*velocity_xx.Vx.warmGrayHex50*/get warmGrayHex50() {
+      return "#FAFAF9";
+    },
+    /*velocity_xx.Vx.warmGrayHex100*/get warmGrayHex100() {
+      return "#F5F5F4";
+    },
+    /*velocity_xx.Vx.warmGrayHex200*/get warmGrayHex200() {
+      return "#E7E5E4";
+    },
+    /*velocity_xx.Vx.warmGrayHex300*/get warmGrayHex300() {
+      return "#D6D3D1";
+    },
+    /*velocity_xx.Vx.warmGrayHex400*/get warmGrayHex400() {
+      return "#A8A29E";
+    },
+    /*velocity_xx.Vx.warmGrayHex500*/get warmGrayHex500() {
+      return "#78716C";
+    },
+    /*velocity_xx.Vx.warmGrayHex600*/get warmGrayHex600() {
+      return "#57534E";
+    },
+    /*velocity_xx.Vx.warmGrayHex700*/get warmGrayHex700() {
+      return "#44403C";
+    },
+    /*velocity_xx.Vx.warmGrayHex800*/get warmGrayHex800() {
+      return "#292524";
+    },
+    /*velocity_xx.Vx.warmGrayHex900*/get warmGrayHex900() {
+      return "#1C1917";
+    },
+    /*velocity_xx.Vx.warmGray50*/get warmGray50() {
+      return C[40] || CT.C40;
+    },
+    /*velocity_xx.Vx.warmGray100*/get warmGray100() {
+      return C[41] || CT.C41;
+    },
+    /*velocity_xx.Vx.warmGray200*/get warmGray200() {
+      return C[42] || CT.C42;
+    },
+    /*velocity_xx.Vx.warmGray300*/get warmGray300() {
+      return C[43] || CT.C43;
+    },
+    /*velocity_xx.Vx.warmGray400*/get warmGray400() {
+      return C[44] || CT.C44;
+    },
+    /*velocity_xx.Vx.warmGray500*/get warmGray500() {
+      return C[45] || CT.C45;
+    },
+    /*velocity_xx.Vx.warmGray600*/get warmGray600() {
+      return C[46] || CT.C46;
+    },
+    /*velocity_xx.Vx.warmGray700*/get warmGray700() {
+      return C[47] || CT.C47;
+    },
+    /*velocity_xx.Vx.warmGray800*/get warmGray800() {
+      return C[48] || CT.C48;
+    },
+    /*velocity_xx.Vx.warmGray900*/get warmGray900() {
+      return C[49] || CT.C49;
+    },
+    /*velocity_xx.Vx.redHex50*/get redHex50() {
+      return "#FEF2F2";
+    },
+    /*velocity_xx.Vx.redHex100*/get redHex100() {
+      return "#FEE2E2";
+    },
+    /*velocity_xx.Vx.redHex200*/get redHex200() {
+      return "#FECACA";
+    },
+    /*velocity_xx.Vx.redHex300*/get redHex300() {
+      return "#FCA5A5";
+    },
+    /*velocity_xx.Vx.redHex400*/get redHex400() {
+      return "#F87171";
+    },
+    /*velocity_xx.Vx.redHex500*/get redHex500() {
+      return "#EF4444";
+    },
+    /*velocity_xx.Vx.redHex600*/get redHex600() {
+      return "#DC2626";
+    },
+    /*velocity_xx.Vx.redHex700*/get redHex700() {
+      return "#B91C1C";
+    },
+    /*velocity_xx.Vx.redHex800*/get redHex800() {
+      return "#991B1B";
+    },
+    /*velocity_xx.Vx.redHex900*/get redHex900() {
+      return "#7F1D1D";
+    },
+    /*velocity_xx.Vx.red50*/get red50() {
+      return C[50] || CT.C50;
+    },
+    /*velocity_xx.Vx.red100*/get red100() {
+      return C[51] || CT.C51;
+    },
+    /*velocity_xx.Vx.red200*/get red200() {
+      return C[52] || CT.C52;
+    },
+    /*velocity_xx.Vx.red300*/get red300() {
+      return C[53] || CT.C53;
+    },
+    /*velocity_xx.Vx.red400*/get red400() {
+      return C[54] || CT.C54;
+    },
+    /*velocity_xx.Vx.red500*/get red500() {
+      return C[55] || CT.C55;
+    },
+    /*velocity_xx.Vx.red600*/get red600() {
+      return C[56] || CT.C56;
+    },
+    /*velocity_xx.Vx.red700*/get red700() {
+      return C[57] || CT.C57;
+    },
+    /*velocity_xx.Vx.red800*/get red800() {
+      return C[58] || CT.C58;
+    },
+    /*velocity_xx.Vx.red900*/get red900() {
+      return C[59] || CT.C59;
+    },
+    /*velocity_xx.Vx.orangeHex50*/get orangeHex50() {
+      return "#FFF7ED";
+    },
+    /*velocity_xx.Vx.orangeHex100*/get orangeHex100() {
+      return "#FFEDD5";
+    },
+    /*velocity_xx.Vx.orangeHex200*/get orangeHex200() {
+      return "#FED7AA";
+    },
+    /*velocity_xx.Vx.orangeHex300*/get orangeHex300() {
+      return "#FDBA74";
+    },
+    /*velocity_xx.Vx.orangeHex400*/get orangeHex400() {
+      return "#FB923C";
+    },
+    /*velocity_xx.Vx.orangeHex500*/get orangeHex500() {
+      return "#F97316";
+    },
+    /*velocity_xx.Vx.orangeHex600*/get orangeHex600() {
+      return "#EA580C";
+    },
+    /*velocity_xx.Vx.orangeHex700*/get orangeHex700() {
+      return "#C2410C";
+    },
+    /*velocity_xx.Vx.orangeHex800*/get orangeHex800() {
+      return "#9A3412";
+    },
+    /*velocity_xx.Vx.orangeHex900*/get orangeHex900() {
+      return "#7C2D12";
+    },
+    /*velocity_xx.Vx.orange50*/get orange50() {
+      return C[60] || CT.C60;
+    },
+    /*velocity_xx.Vx.orange100*/get orange100() {
+      return C[61] || CT.C61;
+    },
+    /*velocity_xx.Vx.orange200*/get orange200() {
+      return C[62] || CT.C62;
+    },
+    /*velocity_xx.Vx.orange300*/get orange300() {
+      return C[63] || CT.C63;
+    },
+    /*velocity_xx.Vx.orange400*/get orange400() {
+      return C[64] || CT.C64;
+    },
+    /*velocity_xx.Vx.orange500*/get orange500() {
+      return C[65] || CT.C65;
+    },
+    /*velocity_xx.Vx.orange600*/get orange600() {
+      return C[66] || CT.C66;
+    },
+    /*velocity_xx.Vx.orange700*/get orange700() {
+      return C[67] || CT.C67;
+    },
+    /*velocity_xx.Vx.orange800*/get orange800() {
+      return C[68] || CT.C68;
+    },
+    /*velocity_xx.Vx.orange900*/get orange900() {
+      return C[69] || CT.C69;
+    },
+    /*velocity_xx.Vx.amberHex50*/get amberHex50() {
+      return "#FFFBEB";
+    },
+    /*velocity_xx.Vx.amberHex100*/get amberHex100() {
+      return "#FEF3C7";
+    },
+    /*velocity_xx.Vx.amberHex200*/get amberHex200() {
+      return "#FDE68A";
+    },
+    /*velocity_xx.Vx.amberHex300*/get amberHex300() {
+      return "#FCD34D";
+    },
+    /*velocity_xx.Vx.amberHex400*/get amberHex400() {
+      return "#FBBF24";
+    },
+    /*velocity_xx.Vx.amberHex500*/get amberHex500() {
+      return "#F59E0B";
+    },
+    /*velocity_xx.Vx.amberHex600*/get amberHex600() {
+      return "#D97706";
+    },
+    /*velocity_xx.Vx.amberHex700*/get amberHex700() {
+      return "#B45309";
+    },
+    /*velocity_xx.Vx.amberHex800*/get amberHex800() {
+      return "#92400E";
+    },
+    /*velocity_xx.Vx.amberHex900*/get amberHex900() {
+      return "#78350F";
+    },
+    /*velocity_xx.Vx.amber50*/get amber50() {
+      return C[70] || CT.C70;
+    },
+    /*velocity_xx.Vx.amber100*/get amber100() {
+      return C[71] || CT.C71;
+    },
+    /*velocity_xx.Vx.amber200*/get amber200() {
+      return C[72] || CT.C72;
+    },
+    /*velocity_xx.Vx.amber300*/get amber300() {
+      return C[73] || CT.C73;
+    },
+    /*velocity_xx.Vx.amber400*/get amber400() {
+      return C[74] || CT.C74;
+    },
+    /*velocity_xx.Vx.amber500*/get amber500() {
+      return C[75] || CT.C75;
+    },
+    /*velocity_xx.Vx.amber600*/get amber600() {
+      return C[76] || CT.C76;
+    },
+    /*velocity_xx.Vx.amber700*/get amber700() {
+      return C[77] || CT.C77;
+    },
+    /*velocity_xx.Vx.amber800*/get amber800() {
+      return C[78] || CT.C78;
+    },
+    /*velocity_xx.Vx.amber900*/get amber900() {
+      return C[79] || CT.C79;
+    },
+    /*velocity_xx.Vx.yellowHex50*/get yellowHex50() {
+      return "#FEFCE8";
+    },
+    /*velocity_xx.Vx.yellowHex100*/get yellowHex100() {
+      return "#FEF9C3";
+    },
+    /*velocity_xx.Vx.yellowHex200*/get yellowHex200() {
+      return "#FEF08A";
+    },
+    /*velocity_xx.Vx.yellowHex300*/get yellowHex300() {
+      return "#FDE047";
+    },
+    /*velocity_xx.Vx.yellowHex400*/get yellowHex400() {
+      return "#FACC15";
+    },
+    /*velocity_xx.Vx.yellowHex500*/get yellowHex500() {
+      return "#EAB308";
+    },
+    /*velocity_xx.Vx.yellowHex600*/get yellowHex600() {
+      return "#CA8A04";
+    },
+    /*velocity_xx.Vx.yellowHex700*/get yellowHex700() {
+      return "#A16207";
+    },
+    /*velocity_xx.Vx.yellowHex800*/get yellowHex800() {
+      return "#854D0E";
+    },
+    /*velocity_xx.Vx.yellowHex900*/get yellowHex900() {
+      return "#713F12";
+    },
+    /*velocity_xx.Vx.yellow50*/get yellow50() {
+      return C[80] || CT.C80;
+    },
+    /*velocity_xx.Vx.yellow100*/get yellow100() {
+      return C[81] || CT.C81;
+    },
+    /*velocity_xx.Vx.yellow200*/get yellow200() {
+      return C[82] || CT.C82;
+    },
+    /*velocity_xx.Vx.yellow300*/get yellow300() {
+      return C[83] || CT.C83;
+    },
+    /*velocity_xx.Vx.yellow400*/get yellow400() {
+      return C[84] || CT.C84;
+    },
+    /*velocity_xx.Vx.yellow500*/get yellow500() {
+      return C[85] || CT.C85;
+    },
+    /*velocity_xx.Vx.yellow600*/get yellow600() {
+      return C[86] || CT.C86;
+    },
+    /*velocity_xx.Vx.yellow700*/get yellow700() {
+      return C[87] || CT.C87;
+    },
+    /*velocity_xx.Vx.yellow800*/get yellow800() {
+      return C[88] || CT.C88;
+    },
+    /*velocity_xx.Vx.yellow900*/get yellow900() {
+      return C[89] || CT.C89;
+    },
+    /*velocity_xx.Vx.limeHex50*/get limeHex50() {
+      return "#F7FEE7";
+    },
+    /*velocity_xx.Vx.limeHex100*/get limeHex100() {
+      return "#ECFCCB";
+    },
+    /*velocity_xx.Vx.limeHex200*/get limeHex200() {
+      return "#D9F99D";
+    },
+    /*velocity_xx.Vx.limeHex300*/get limeHex300() {
+      return "#BEF264";
+    },
+    /*velocity_xx.Vx.limeHex400*/get limeHex400() {
+      return "#A3E635";
+    },
+    /*velocity_xx.Vx.limeHex500*/get limeHex500() {
+      return "#84CC16";
+    },
+    /*velocity_xx.Vx.limeHex600*/get limeHex600() {
+      return "#65A30D";
+    },
+    /*velocity_xx.Vx.limeHex700*/get limeHex700() {
+      return "#4D7C0F";
+    },
+    /*velocity_xx.Vx.limeHex800*/get limeHex800() {
+      return "#3F6212";
+    },
+    /*velocity_xx.Vx.limeHex900*/get limeHex900() {
+      return "#365314";
+    },
+    /*velocity_xx.Vx.lime50*/get lime50() {
+      return C[90] || CT.C90;
+    },
+    /*velocity_xx.Vx.lime100*/get lime100() {
+      return C[91] || CT.C91;
+    },
+    /*velocity_xx.Vx.lime200*/get lime200() {
+      return C[92] || CT.C92;
+    },
+    /*velocity_xx.Vx.lime300*/get lime300() {
+      return C[93] || CT.C93;
+    },
+    /*velocity_xx.Vx.lime400*/get lime400() {
+      return C[94] || CT.C94;
+    },
+    /*velocity_xx.Vx.lime500*/get lime500() {
+      return C[95] || CT.C95;
+    },
+    /*velocity_xx.Vx.lime600*/get lime600() {
+      return C[96] || CT.C96;
+    },
+    /*velocity_xx.Vx.lime700*/get lime700() {
+      return C[97] || CT.C97;
+    },
+    /*velocity_xx.Vx.lime800*/get lime800() {
+      return C[98] || CT.C98;
+    },
+    /*velocity_xx.Vx.lime900*/get lime900() {
+      return C[99] || CT.C99;
+    },
+    /*velocity_xx.Vx.greenHex50*/get greenHex50() {
+      return "#F0FDF4";
+    },
+    /*velocity_xx.Vx.greenHex100*/get greenHex100() {
+      return "#DCFCE7";
+    },
+    /*velocity_xx.Vx.greenHex200*/get greenHex200() {
+      return "#BBF7D0";
+    },
+    /*velocity_xx.Vx.greenHex300*/get greenHex300() {
+      return "#86EFAC";
+    },
+    /*velocity_xx.Vx.greenHex400*/get greenHex400() {
+      return "#4ADE80";
+    },
+    /*velocity_xx.Vx.greenHex500*/get greenHex500() {
+      return "#22C55E";
+    },
+    /*velocity_xx.Vx.greenHex600*/get greenHex600() {
+      return "#16A34A";
+    },
+    /*velocity_xx.Vx.greenHex700*/get greenHex700() {
+      return "#15803D";
+    },
+    /*velocity_xx.Vx.greenHex800*/get greenHex800() {
+      return "#166534";
+    },
+    /*velocity_xx.Vx.greenHex900*/get greenHex900() {
+      return "#14532D";
+    },
+    /*velocity_xx.Vx.green50*/get green50() {
+      return C[100] || CT.C100;
+    },
+    /*velocity_xx.Vx.green100*/get green100() {
+      return C[101] || CT.C101;
+    },
+    /*velocity_xx.Vx.green200*/get green200() {
+      return C[102] || CT.C102;
+    },
+    /*velocity_xx.Vx.green300*/get green300() {
+      return C[103] || CT.C103;
+    },
+    /*velocity_xx.Vx.green400*/get green400() {
+      return C[104] || CT.C104;
+    },
+    /*velocity_xx.Vx.green500*/get green500() {
+      return C[105] || CT.C105;
+    },
+    /*velocity_xx.Vx.green600*/get green600() {
+      return C[106] || CT.C106;
+    },
+    /*velocity_xx.Vx.green700*/get green700() {
+      return C[107] || CT.C107;
+    },
+    /*velocity_xx.Vx.green800*/get green800() {
+      return C[108] || CT.C108;
+    },
+    /*velocity_xx.Vx.green900*/get green900() {
+      return C[109] || CT.C109;
+    },
+    /*velocity_xx.Vx.emeraldHex50*/get emeraldHex50() {
+      return "#ECFDF5";
+    },
+    /*velocity_xx.Vx.emeraldHex100*/get emeraldHex100() {
+      return "#D1FAE5";
+    },
+    /*velocity_xx.Vx.emeraldHex200*/get emeraldHex200() {
+      return "#A7F3D0";
+    },
+    /*velocity_xx.Vx.emeraldHex300*/get emeraldHex300() {
+      return "#6EE7B7";
+    },
+    /*velocity_xx.Vx.emeraldHex400*/get emeraldHex400() {
+      return "#34D399";
+    },
+    /*velocity_xx.Vx.emeraldHex500*/get emeraldHex500() {
+      return "#10B981";
+    },
+    /*velocity_xx.Vx.emeraldHex600*/get emeraldHex600() {
+      return "#059669";
+    },
+    /*velocity_xx.Vx.emeraldHex700*/get emeraldHex700() {
+      return "#047857";
+    },
+    /*velocity_xx.Vx.emeraldHex800*/get emeraldHex800() {
+      return "#065F46";
+    },
+    /*velocity_xx.Vx.emeraldHex900*/get emeraldHex900() {
+      return "#064E3B";
+    },
+    /*velocity_xx.Vx.emerald50*/get emerald50() {
+      return C[110] || CT.C110;
+    },
+    /*velocity_xx.Vx.emerald100*/get emerald100() {
+      return C[111] || CT.C111;
+    },
+    /*velocity_xx.Vx.emerald200*/get emerald200() {
+      return C[112] || CT.C112;
+    },
+    /*velocity_xx.Vx.emerald300*/get emerald300() {
+      return C[113] || CT.C113;
+    },
+    /*velocity_xx.Vx.emerald400*/get emerald400() {
+      return C[114] || CT.C114;
+    },
+    /*velocity_xx.Vx.emerald500*/get emerald500() {
+      return C[115] || CT.C115;
+    },
+    /*velocity_xx.Vx.emerald600*/get emerald600() {
+      return C[116] || CT.C116;
+    },
+    /*velocity_xx.Vx.emerald700*/get emerald700() {
+      return C[117] || CT.C117;
+    },
+    /*velocity_xx.Vx.emerald800*/get emerald800() {
+      return C[118] || CT.C118;
+    },
+    /*velocity_xx.Vx.emerald900*/get emerald900() {
+      return C[119] || CT.C119;
+    },
+    /*velocity_xx.Vx.tealHex50*/get tealHex50() {
+      return "#F0FDFA";
+    },
+    /*velocity_xx.Vx.tealHex100*/get tealHex100() {
+      return "#CCFBF1";
+    },
+    /*velocity_xx.Vx.tealHex200*/get tealHex200() {
+      return "#99F6E4";
+    },
+    /*velocity_xx.Vx.tealHex300*/get tealHex300() {
+      return "#5EEAD4";
+    },
+    /*velocity_xx.Vx.tealHex400*/get tealHex400() {
+      return "#2DD4BF";
+    },
+    /*velocity_xx.Vx.tealHex500*/get tealHex500() {
+      return "#14B8A6";
+    },
+    /*velocity_xx.Vx.tealHex600*/get tealHex600() {
+      return "#0D9488";
+    },
+    /*velocity_xx.Vx.tealHex700*/get tealHex700() {
+      return "#0F766E";
+    },
+    /*velocity_xx.Vx.tealHex800*/get tealHex800() {
+      return "#115E59";
+    },
+    /*velocity_xx.Vx.tealHex900*/get tealHex900() {
+      return "#134E4A";
+    },
+    /*velocity_xx.Vx.teal50*/get teal50() {
+      return C[120] || CT.C120;
+    },
+    /*velocity_xx.Vx.teal100*/get teal100() {
+      return C[121] || CT.C121;
+    },
+    /*velocity_xx.Vx.teal200*/get teal200() {
+      return C[122] || CT.C122;
+    },
+    /*velocity_xx.Vx.teal300*/get teal300() {
+      return C[123] || CT.C123;
+    },
+    /*velocity_xx.Vx.teal400*/get teal400() {
+      return C[124] || CT.C124;
+    },
+    /*velocity_xx.Vx.teal500*/get teal500() {
+      return C[125] || CT.C125;
+    },
+    /*velocity_xx.Vx.teal600*/get teal600() {
+      return C[126] || CT.C126;
+    },
+    /*velocity_xx.Vx.teal700*/get teal700() {
+      return C[127] || CT.C127;
+    },
+    /*velocity_xx.Vx.teal800*/get teal800() {
+      return C[128] || CT.C128;
+    },
+    /*velocity_xx.Vx.teal900*/get teal900() {
+      return C[129] || CT.C129;
+    },
+    /*velocity_xx.Vx.cyanHex50*/get cyanHex50() {
+      return "#ECFEFF";
+    },
+    /*velocity_xx.Vx.cyanHex100*/get cyanHex100() {
+      return "#CFFAFE";
+    },
+    /*velocity_xx.Vx.cyanHex200*/get cyanHex200() {
+      return "#A5F3FC";
+    },
+    /*velocity_xx.Vx.cyanHex300*/get cyanHex300() {
+      return "#67E8F9";
+    },
+    /*velocity_xx.Vx.cyanHex400*/get cyanHex400() {
+      return "#22D3EE";
+    },
+    /*velocity_xx.Vx.cyanHex500*/get cyanHex500() {
+      return "#06B6D4";
+    },
+    /*velocity_xx.Vx.cyanHex600*/get cyanHex600() {
+      return "#0891B2";
+    },
+    /*velocity_xx.Vx.cyanHex700*/get cyanHex700() {
+      return "#0E7490";
+    },
+    /*velocity_xx.Vx.cyanHex800*/get cyanHex800() {
+      return "#155E75";
+    },
+    /*velocity_xx.Vx.cyanHex900*/get cyanHex900() {
+      return "#164E63";
+    },
+    /*velocity_xx.Vx.cyan50*/get cyan50() {
+      return C[130] || CT.C130;
+    },
+    /*velocity_xx.Vx.cyan100*/get cyan100() {
+      return C[131] || CT.C131;
+    },
+    /*velocity_xx.Vx.cyan200*/get cyan200() {
+      return C[132] || CT.C132;
+    },
+    /*velocity_xx.Vx.cyan300*/get cyan300() {
+      return C[133] || CT.C133;
+    },
+    /*velocity_xx.Vx.cyan400*/get cyan400() {
+      return C[134] || CT.C134;
+    },
+    /*velocity_xx.Vx.cyan500*/get cyan500() {
+      return C[135] || CT.C135;
+    },
+    /*velocity_xx.Vx.cyan600*/get cyan600() {
+      return C[136] || CT.C136;
+    },
+    /*velocity_xx.Vx.cyan700*/get cyan700() {
+      return C[137] || CT.C137;
+    },
+    /*velocity_xx.Vx.cyan800*/get cyan800() {
+      return C[138] || CT.C138;
+    },
+    /*velocity_xx.Vx.cyan900*/get cyan900() {
+      return C[139] || CT.C139;
+    },
+    /*velocity_xx.Vx.lightBlueHex50*/get lightBlueHex50() {
+      return "#F0F9FF";
+    },
+    /*velocity_xx.Vx.lightBlueHex100*/get lightBlueHex100() {
+      return "#E0F2FE";
+    },
+    /*velocity_xx.Vx.lightBlueHex200*/get lightBlueHex200() {
+      return "#BAE6FD";
+    },
+    /*velocity_xx.Vx.lightBlueHex300*/get lightBlueHex300() {
+      return "#7DD3FC";
+    },
+    /*velocity_xx.Vx.lightBlueHex400*/get lightBlueHex400() {
+      return "#38BDF8";
+    },
+    /*velocity_xx.Vx.lightBlueHex500*/get lightBlueHex500() {
+      return "#0EA5E9";
+    },
+    /*velocity_xx.Vx.lightBlueHex600*/get lightBlueHex600() {
+      return "#0284C7";
+    },
+    /*velocity_xx.Vx.lightBlueHex700*/get lightBlueHex700() {
+      return "#0369A1";
+    },
+    /*velocity_xx.Vx.lightBlueHex800*/get lightBlueHex800() {
+      return "#075985";
+    },
+    /*velocity_xx.Vx.lightBlueHex900*/get lightBlueHex900() {
+      return "#0C4A6E";
+    },
+    /*velocity_xx.Vx.lightBlue50*/get lightBlue50() {
+      return C[140] || CT.C140;
+    },
+    /*velocity_xx.Vx.lightBlue100*/get lightBlue100() {
+      return C[141] || CT.C141;
+    },
+    /*velocity_xx.Vx.lightBlue200*/get lightBlue200() {
+      return C[142] || CT.C142;
+    },
+    /*velocity_xx.Vx.lightBlue300*/get lightBlue300() {
+      return C[143] || CT.C143;
+    },
+    /*velocity_xx.Vx.lightBlue400*/get lightBlue400() {
+      return C[144] || CT.C144;
+    },
+    /*velocity_xx.Vx.lightBlue500*/get lightBlue500() {
+      return C[145] || CT.C145;
+    },
+    /*velocity_xx.Vx.lightBlue600*/get lightBlue600() {
+      return C[146] || CT.C146;
+    },
+    /*velocity_xx.Vx.lightBlue700*/get lightBlue700() {
+      return C[147] || CT.C147;
+    },
+    /*velocity_xx.Vx.lightBlue800*/get lightBlue800() {
+      return C[148] || CT.C148;
+    },
+    /*velocity_xx.Vx.lightBlue900*/get lightBlue900() {
+      return C[149] || CT.C149;
+    },
+    /*velocity_xx.Vx.blueHex50*/get blueHex50() {
+      return "#EFF6FF";
+    },
+    /*velocity_xx.Vx.blueHex100*/get blueHex100() {
+      return "#DBEAFE";
+    },
+    /*velocity_xx.Vx.blueHex200*/get blueHex200() {
+      return "#BFDBFE";
+    },
+    /*velocity_xx.Vx.blueHex300*/get blueHex300() {
+      return "#93C5FD";
+    },
+    /*velocity_xx.Vx.blueHex400*/get blueHex400() {
+      return "#60A5FA";
+    },
+    /*velocity_xx.Vx.blueHex500*/get blueHex500() {
+      return "#3B82F6";
+    },
+    /*velocity_xx.Vx.blueHex600*/get blueHex600() {
+      return "#2563EB";
+    },
+    /*velocity_xx.Vx.blueHex700*/get blueHex700() {
+      return "#1D4ED8";
+    },
+    /*velocity_xx.Vx.blueHex800*/get blueHex800() {
+      return "#1E40AF";
+    },
+    /*velocity_xx.Vx.blueHex900*/get blueHex900() {
+      return "#1E3A8A";
+    },
+    /*velocity_xx.Vx.blue50*/get blue50() {
+      return C[150] || CT.C150;
+    },
+    /*velocity_xx.Vx.blue100*/get blue100() {
+      return C[151] || CT.C151;
+    },
+    /*velocity_xx.Vx.blue200*/get blue200() {
+      return C[152] || CT.C152;
+    },
+    /*velocity_xx.Vx.blue300*/get blue300() {
+      return C[153] || CT.C153;
+    },
+    /*velocity_xx.Vx.blue400*/get blue400() {
+      return C[154] || CT.C154;
+    },
+    /*velocity_xx.Vx.blue500*/get blue500() {
+      return C[155] || CT.C155;
+    },
+    /*velocity_xx.Vx.blue600*/get blue600() {
+      return C[156] || CT.C156;
+    },
+    /*velocity_xx.Vx.blue700*/get blue700() {
+      return C[157] || CT.C157;
+    },
+    /*velocity_xx.Vx.blue800*/get blue800() {
+      return C[158] || CT.C158;
+    },
+    /*velocity_xx.Vx.blue900*/get blue900() {
+      return C[159] || CT.C159;
+    },
+    /*velocity_xx.Vx.indigoHex50*/get indigoHex50() {
+      return "#EEF2FF";
+    },
+    /*velocity_xx.Vx.indigoHex100*/get indigoHex100() {
+      return "#E0E7FF";
+    },
+    /*velocity_xx.Vx.indigoHex200*/get indigoHex200() {
+      return "#C7D2FE";
+    },
+    /*velocity_xx.Vx.indigoHex300*/get indigoHex300() {
+      return "#A5B4FC";
+    },
+    /*velocity_xx.Vx.indigoHex400*/get indigoHex400() {
+      return "#818CF8";
+    },
+    /*velocity_xx.Vx.indigoHex500*/get indigoHex500() {
+      return "#6366F1";
+    },
+    /*velocity_xx.Vx.indigoHex600*/get indigoHex600() {
+      return "#4F46E5";
+    },
+    /*velocity_xx.Vx.indigoHex700*/get indigoHex700() {
+      return "#4338CA";
+    },
+    /*velocity_xx.Vx.indigoHex800*/get indigoHex800() {
+      return "#3730A3";
+    },
+    /*velocity_xx.Vx.indigoHex900*/get indigoHex900() {
+      return "#312E81";
+    },
+    /*velocity_xx.Vx.indigo50*/get indigo50() {
+      return C[160] || CT.C160;
+    },
+    /*velocity_xx.Vx.indigo100*/get indigo100() {
+      return C[161] || CT.C161;
+    },
+    /*velocity_xx.Vx.indigo200*/get indigo200() {
+      return C[162] || CT.C162;
+    },
+    /*velocity_xx.Vx.indigo300*/get indigo300() {
+      return C[163] || CT.C163;
+    },
+    /*velocity_xx.Vx.indigo400*/get indigo400() {
+      return C[164] || CT.C164;
+    },
+    /*velocity_xx.Vx.indigo500*/get indigo500() {
+      return C[165] || CT.C165;
+    },
+    /*velocity_xx.Vx.indigo600*/get indigo600() {
+      return C[166] || CT.C166;
+    },
+    /*velocity_xx.Vx.indigo700*/get indigo700() {
+      return C[167] || CT.C167;
+    },
+    /*velocity_xx.Vx.indigo800*/get indigo800() {
+      return C[168] || CT.C168;
+    },
+    /*velocity_xx.Vx.indigo900*/get indigo900() {
+      return C[169] || CT.C169;
+    },
+    /*velocity_xx.Vx.violetHex50*/get violetHex50() {
+      return "#F5F3FF";
+    },
+    /*velocity_xx.Vx.violetHex100*/get violetHex100() {
+      return "#EDE9FE";
+    },
+    /*velocity_xx.Vx.violetHex200*/get violetHex200() {
+      return "#DDD6FE";
+    },
+    /*velocity_xx.Vx.violetHex300*/get violetHex300() {
+      return "#C4B5FD";
+    },
+    /*velocity_xx.Vx.violetHex400*/get violetHex400() {
+      return "#A78BFA";
+    },
+    /*velocity_xx.Vx.violetHex500*/get violetHex500() {
+      return "#8B5CF6";
+    },
+    /*velocity_xx.Vx.violetHex600*/get violetHex600() {
+      return "#7C3AED";
+    },
+    /*velocity_xx.Vx.violetHex700*/get violetHex700() {
+      return "#6D28D9";
+    },
+    /*velocity_xx.Vx.violetHex800*/get violetHex800() {
+      return "#5B21B6";
+    },
+    /*velocity_xx.Vx.violetHex900*/get violetHex900() {
+      return "#4C1D95";
+    },
+    /*velocity_xx.Vx.violet50*/get violet50() {
+      return C[170] || CT.C170;
+    },
+    /*velocity_xx.Vx.violet100*/get violet100() {
+      return C[171] || CT.C171;
+    },
+    /*velocity_xx.Vx.violet200*/get violet200() {
+      return C[172] || CT.C172;
+    },
+    /*velocity_xx.Vx.violet300*/get violet300() {
+      return C[173] || CT.C173;
+    },
+    /*velocity_xx.Vx.violet400*/get violet400() {
+      return C[174] || CT.C174;
+    },
+    /*velocity_xx.Vx.violet500*/get violet500() {
+      return C[175] || CT.C175;
+    },
+    /*velocity_xx.Vx.violet600*/get violet600() {
+      return C[176] || CT.C176;
+    },
+    /*velocity_xx.Vx.violet700*/get violet700() {
+      return C[177] || CT.C177;
+    },
+    /*velocity_xx.Vx.violet800*/get violet800() {
+      return C[178] || CT.C178;
+    },
+    /*velocity_xx.Vx.violet900*/get violet900() {
+      return C[179] || CT.C179;
+    },
+    /*velocity_xx.Vx.purpleHex50*/get purpleHex50() {
+      return "#FAF5FF";
+    },
+    /*velocity_xx.Vx.purpleHex100*/get purpleHex100() {
+      return "#F3E8FF";
+    },
+    /*velocity_xx.Vx.purpleHex200*/get purpleHex200() {
+      return "#E9D5FF";
+    },
+    /*velocity_xx.Vx.purpleHex300*/get purpleHex300() {
+      return "#D8B4FE";
+    },
+    /*velocity_xx.Vx.purpleHex400*/get purpleHex400() {
+      return "#C084FC";
+    },
+    /*velocity_xx.Vx.purpleHex500*/get purpleHex500() {
+      return "#A855F7";
+    },
+    /*velocity_xx.Vx.purpleHex600*/get purpleHex600() {
+      return "#9333EA";
+    },
+    /*velocity_xx.Vx.purpleHex700*/get purpleHex700() {
+      return "#7E22CE";
+    },
+    /*velocity_xx.Vx.purpleHex800*/get purpleHex800() {
+      return "#6B21A8";
+    },
+    /*velocity_xx.Vx.purpleHex900*/get purpleHex900() {
+      return "#581C87";
+    },
+    /*velocity_xx.Vx.purple50*/get purple50() {
+      return C[180] || CT.C180;
+    },
+    /*velocity_xx.Vx.purple100*/get purple100() {
+      return C[181] || CT.C181;
+    },
+    /*velocity_xx.Vx.purple200*/get purple200() {
+      return C[182] || CT.C182;
+    },
+    /*velocity_xx.Vx.purple300*/get purple300() {
+      return C[183] || CT.C183;
+    },
+    /*velocity_xx.Vx.purple400*/get purple400() {
+      return C[184] || CT.C184;
+    },
+    /*velocity_xx.Vx.purple500*/get purple500() {
+      return C[185] || CT.C185;
+    },
+    /*velocity_xx.Vx.purple600*/get purple600() {
+      return C[186] || CT.C186;
+    },
+    /*velocity_xx.Vx.purple700*/get purple700() {
+      return C[187] || CT.C187;
+    },
+    /*velocity_xx.Vx.purple800*/get purple800() {
+      return C[188] || CT.C188;
+    },
+    /*velocity_xx.Vx.purple900*/get purple900() {
+      return C[189] || CT.C189;
+    },
+    /*velocity_xx.Vx.fuchsiaHex50*/get fuchsiaHex50() {
+      return "#FDF4FF";
+    },
+    /*velocity_xx.Vx.fuchsiaHex100*/get fuchsiaHex100() {
+      return "#FAE8FF";
+    },
+    /*velocity_xx.Vx.fuchsiaHex200*/get fuchsiaHex200() {
+      return "#F5D0FE";
+    },
+    /*velocity_xx.Vx.fuchsiaHex300*/get fuchsiaHex300() {
+      return "#F0ABFC";
+    },
+    /*velocity_xx.Vx.fuchsiaHex400*/get fuchsiaHex400() {
+      return "#E879F9";
+    },
+    /*velocity_xx.Vx.fuchsiaHex500*/get fuchsiaHex500() {
+      return "#D946EF";
+    },
+    /*velocity_xx.Vx.fuchsiaHex600*/get fuchsiaHex600() {
+      return "#C026D3";
+    },
+    /*velocity_xx.Vx.fuchsiaHex700*/get fuchsiaHex700() {
+      return "#A21CAF";
+    },
+    /*velocity_xx.Vx.fuchsiaHex800*/get fuchsiaHex800() {
+      return "#86198F";
+    },
+    /*velocity_xx.Vx.fuchsiaHex900*/get fuchsiaHex900() {
+      return "#701A75";
+    },
+    /*velocity_xx.Vx.fuchsia50*/get fuchsia50() {
+      return C[190] || CT.C190;
+    },
+    /*velocity_xx.Vx.fuchsia100*/get fuchsia100() {
+      return C[191] || CT.C191;
+    },
+    /*velocity_xx.Vx.fuchsia200*/get fuchsia200() {
+      return C[192] || CT.C192;
+    },
+    /*velocity_xx.Vx.fuchsia300*/get fuchsia300() {
+      return C[193] || CT.C193;
+    },
+    /*velocity_xx.Vx.fuchsia400*/get fuchsia400() {
+      return C[194] || CT.C194;
+    },
+    /*velocity_xx.Vx.fuchsia500*/get fuchsia500() {
+      return C[195] || CT.C195;
+    },
+    /*velocity_xx.Vx.fuchsia600*/get fuchsia600() {
+      return C[196] || CT.C196;
+    },
+    /*velocity_xx.Vx.fuchsia700*/get fuchsia700() {
+      return C[197] || CT.C197;
+    },
+    /*velocity_xx.Vx.fuchsia800*/get fuchsia800() {
+      return C[198] || CT.C198;
+    },
+    /*velocity_xx.Vx.fuchsia900*/get fuchsia900() {
+      return C[199] || CT.C199;
+    },
+    /*velocity_xx.Vx.pinkHex50*/get pinkHex50() {
+      return "#FDF2F8";
+    },
+    /*velocity_xx.Vx.pinkHex100*/get pinkHex100() {
+      return "#FCE7F3";
+    },
+    /*velocity_xx.Vx.pinkHex200*/get pinkHex200() {
+      return "#FBCFE8";
+    },
+    /*velocity_xx.Vx.pinkHex300*/get pinkHex300() {
+      return "#F9A8D4";
+    },
+    /*velocity_xx.Vx.pinkHex400*/get pinkHex400() {
+      return "#F472B6";
+    },
+    /*velocity_xx.Vx.pinkHex500*/get pinkHex500() {
+      return "#EC4899";
+    },
+    /*velocity_xx.Vx.pinkHex600*/get pinkHex600() {
+      return "#DB2777";
+    },
+    /*velocity_xx.Vx.pinkHex700*/get pinkHex700() {
+      return "#BE185D";
+    },
+    /*velocity_xx.Vx.pinkHex800*/get pinkHex800() {
+      return "#9D174D";
+    },
+    /*velocity_xx.Vx.pinkHex900*/get pinkHex900() {
+      return "#831843";
+    },
+    /*velocity_xx.Vx.pink50*/get pink50() {
+      return C[200] || CT.C200;
+    },
+    /*velocity_xx.Vx.pink100*/get pink100() {
+      return C[201] || CT.C201;
+    },
+    /*velocity_xx.Vx.pink200*/get pink200() {
+      return C[202] || CT.C202;
+    },
+    /*velocity_xx.Vx.pink300*/get pink300() {
+      return C[203] || CT.C203;
+    },
+    /*velocity_xx.Vx.pink400*/get pink400() {
+      return C[204] || CT.C204;
+    },
+    /*velocity_xx.Vx.pink500*/get pink500() {
+      return C[205] || CT.C205;
+    },
+    /*velocity_xx.Vx.pink600*/get pink600() {
+      return C[206] || CT.C206;
+    },
+    /*velocity_xx.Vx.pink700*/get pink700() {
+      return C[207] || CT.C207;
+    },
+    /*velocity_xx.Vx.pink800*/get pink800() {
+      return C[208] || CT.C208;
+    },
+    /*velocity_xx.Vx.pink900*/get pink900() {
+      return C[209] || CT.C209;
+    },
+    /*velocity_xx.Vx.roseHex50*/get roseHex50() {
+      return "#FFF1F2";
+    },
+    /*velocity_xx.Vx.roseHex100*/get roseHex100() {
+      return "#FFE4E6";
+    },
+    /*velocity_xx.Vx.roseHex200*/get roseHex200() {
+      return "#FECDD3";
+    },
+    /*velocity_xx.Vx.roseHex300*/get roseHex300() {
+      return "#FDA4AF";
+    },
+    /*velocity_xx.Vx.roseHex400*/get roseHex400() {
+      return "#FB7185";
+    },
+    /*velocity_xx.Vx.roseHex500*/get roseHex500() {
+      return "#F43F5E";
+    },
+    /*velocity_xx.Vx.roseHex600*/get roseHex600() {
+      return "#E11D48";
+    },
+    /*velocity_xx.Vx.roseHex700*/get roseHex700() {
+      return "#BE123C";
+    },
+    /*velocity_xx.Vx.roseHex800*/get roseHex800() {
+      return "#9F1239";
+    },
+    /*velocity_xx.Vx.roseHex900*/get roseHex900() {
+      return "#881337";
+    },
+    /*velocity_xx.Vx.rose50*/get rose50() {
+      return C[210] || CT.C210;
+    },
+    /*velocity_xx.Vx.rose100*/get rose100() {
+      return C[211] || CT.C211;
+    },
+    /*velocity_xx.Vx.rose200*/get rose200() {
+      return C[212] || CT.C212;
+    },
+    /*velocity_xx.Vx.rose300*/get rose300() {
+      return C[213] || CT.C213;
+    },
+    /*velocity_xx.Vx.rose400*/get rose400() {
+      return C[214] || CT.C214;
+    },
+    /*velocity_xx.Vx.rose500*/get rose500() {
+      return C[215] || CT.C215;
+    },
+    /*velocity_xx.Vx.rose600*/get rose600() {
+      return C[216] || CT.C216;
+    },
+    /*velocity_xx.Vx.rose700*/get rose700() {
+      return C[217] || CT.C217;
+    },
+    /*velocity_xx.Vx.rose800*/get rose800() {
+      return C[218] || CT.C218;
+    },
+    /*velocity_xx.Vx.rose900*/get rose900() {
+      return C[219] || CT.C219;
+    },
+    /*velocity_xx.Vx.m0*/get m0() {
+      return edge_insets.EdgeInsets.zero;
+    },
+    set m0(_) {},
+    /*velocity_xx.Vx.m1*/get m1() {
+      return C[220] || CT.C220;
+    },
+    set m1(_) {},
+    /*velocity_xx.Vx.m2*/get m2() {
+      return C[221] || CT.C221;
+    },
+    set m2(_) {},
+    /*velocity_xx.Vx.m4*/get m4() {
+      return C[222] || CT.C222;
+    },
+    set m4(_) {},
+    /*velocity_xx.Vx.m8*/get m8() {
+      return C[223] || CT.C223;
+    },
+    set m8(_) {},
+    /*velocity_xx.Vx.m12*/get m12() {
+      return C[224] || CT.C224;
+    },
+    set m12(_) {},
+    /*velocity_xx.Vx.m16*/get m16() {
+      return C[225] || CT.C225;
+    },
+    set m16(_) {},
+    /*velocity_xx.Vx.m20*/get m20() {
+      return C[226] || CT.C226;
+    },
+    set m20(_) {},
+    /*velocity_xx.Vx.m24*/get m24() {
+      return C[227] || CT.C227;
+    },
+    set m24(_) {},
+    /*velocity_xx.Vx.m32*/get m32() {
+      return C[228] || CT.C228;
+    },
+    set m32(_) {},
+    /*velocity_xx.Vx.m64*/get m64() {
+      return C[229] || CT.C229;
+    },
+    set m64(_) {},
+    /*velocity_xx.Vx.mV0*/get mV0() {
+      return C[230] || CT.C230;
+    },
+    /*velocity_xx.Vx.mH0*/get mH0() {
+      return C[230] || CT.C230;
+    },
+    /*velocity_xx.Vx.mV1*/get mV1() {
+      return C[231] || CT.C231;
+    },
+    /*velocity_xx.Vx.mH1*/get mH1() {
+      return C[232] || CT.C232;
+    },
+    /*velocity_xx.Vx.mV2*/get mV2() {
+      return C[233] || CT.C233;
+    },
+    /*velocity_xx.Vx.mH2*/get mH2() {
+      return C[234] || CT.C234;
+    },
+    /*velocity_xx.Vx.mV4*/get mV4() {
+      return C[235] || CT.C235;
+    },
+    /*velocity_xx.Vx.mH4*/get mH4() {
+      return C[236] || CT.C236;
+    },
+    /*velocity_xx.Vx.mV8*/get mV8() {
+      return C[237] || CT.C237;
+    },
+    /*velocity_xx.Vx.mH8*/get mH8() {
+      return C[238] || CT.C238;
+    },
+    /*velocity_xx.Vx.mH12*/get mH12() {
+      return C[239] || CT.C239;
+    },
+    /*velocity_xx.Vx.mV12*/get mV12() {
+      return C[240] || CT.C240;
+    },
+    /*velocity_xx.Vx.mV16*/get mV16() {
+      return C[241] || CT.C241;
+    },
+    /*velocity_xx.Vx.mH16*/get mH16() {
+      return C[242] || CT.C242;
+    },
+    /*velocity_xx.Vx.mV20*/get mV20() {
+      return C[243] || CT.C243;
+    },
+    /*velocity_xx.Vx.mH20*/get mH20() {
+      return C[244] || CT.C244;
+    },
+    /*velocity_xx.Vx.mV24*/get mV24() {
+      return C[245] || CT.C245;
+    },
+    /*velocity_xx.Vx.mH24*/get mH24() {
+      return C[246] || CT.C246;
+    },
+    /*velocity_xx.Vx.mV32*/get mV32() {
+      return C[245] || CT.C245;
+    },
+    /*velocity_xx.Vx.mH32*/get mH32() {
+      return C[247] || CT.C247;
+    },
+    /*velocity_xx.Vx.mV64*/get mV64() {
+      return C[245] || CT.C245;
+    },
+    /*velocity_xx.Vx.mH64*/get mH64() {
+      return C[247] || CT.C247;
+    },
+    /*velocity_xx.Vx.roundedSm*/get roundedSm() {
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(7.5)});
+    },
+    set roundedSm(_) {},
+    /*velocity_xx.Vx.rounded*/get rounded() {
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(15.0)});
+    },
+    set rounded(_) {},
+    /*velocity_xx.Vx.roundedLg*/get roundedLg() {
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(30.0)});
+    },
+    set roundedLg(_) {}
+  }, false);
+  dart.trackLibraries("packages/velocity_x/src/velocity_xx.dart", {
+    "package:velocity_x/src/velocity_xx.dart": velocity_xx
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["velocity_xx.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../../../D:/packages/velocity_x/src/velocity_xx.dart.lib.js"}');
+  // Exports:
+  return {
+    src__velocity_xx: velocity_xx
+  };
+}));
+
+//# sourceMappingURL=velocity_xx.dart.lib.js.map

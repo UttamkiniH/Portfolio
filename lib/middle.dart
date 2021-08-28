@@ -4,6 +4,8 @@ import 'package:portfolio/footer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MiddleScreen extends StatelessWidget {
+
+  
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -23,16 +25,17 @@ class MiddleScreen extends StatelessWidget {
           Expanded(
               child: VxSwiper(
             items: [
+              ProjectWidget(title: "AllSafe\n Check this out").mdClick(() {
+                 launchURL('https://github.com/UttamkiniH/Allsafe');
+              }).make(),
               ProjectWidget(title: "Git-Workshop").mdClick(() {
                 launchURL('https://github.com/UttamkiniH/Git-Workshop');
               }).make(),
-              ProjectWidget(title: "Flappy Bird (on Going)"),
-              ProjectWidget(title: "Health Check Up\nApp"),
+              ProjectWidget(title: "Ghost Bird").mdClick(() {
+                 launchURL('https://github.com/UttamkiniH/GhostBird');
+              }).make(),
               ProjectWidget(title: "Portfolio").mdClick(() {
                 launchURL('https://github.com/UttamkiniH/Portfolio');
-              }).make(),
-              ProjectWidget(title: "Task Management (on Going)").mdClick(() {
-                launchURL('https://github.com/UttamkiniH/TaskManagement');
               }).make(),
               ProjectWidget(title: "Flash Chat").mdClick(() {
                 launchURL('https://github.com/UttamkiniH/flashChat');
