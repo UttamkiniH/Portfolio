@@ -1,670 +1,447 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
+define(['dart_sdk', 'packages/collection/src/utils.dart'], (function load__packages__collection__src__priority_queue_dart(dart_sdk, packages__collection__src__utils$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
   const collection = dart_sdk.collection;
-  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  var form = Object.create(dart.library);
-  var $any = dartx.any;
+  const utils = packages__collection__src__utils$46dart.src__utils;
+  var priority_queue = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $take = dartx.take;
+  var $cast = dartx.cast;
+  var $sort = dartx.sort;
+  var $add = dartx.add;
+  var $toString = dartx.toString;
+  var $length = dartx.length;
+  var $isOdd = dartx.isOdd;
+  var $rightShift = dartx['>>'];
+  var $_set = dartx._set;
+  var $truncate = dartx.truncate;
+  var $setRange = dartx.setRange;
+  var $iterator = dartx.iterator;
   dart._checkModuleNullSafetyMode(false);
-  var T$ = {
-    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
-    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    _LocationL: () => (T$._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))(),
-    AutovalidateModeL: () => (T$.AutovalidateModeL = dart.constFn(dart.legacy(form.AutovalidateMode)))()
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    ObjectNAndObjectNToint: () => (T.ObjectNAndObjectNToint = dart.constFn(dart.fnType(core.int, [T.ObjectN(), T.ObjectN()])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.always",
-        index: 1
-      });
+      return C[0] = dart.fn(utils.defaultCompare, T.ObjectNAndObjectNToint());
     },
     get C1() {
-      return C[1] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.onUserInteraction",
-        index: 2
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.disabled",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "formState",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "generation",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], T$._LocationL());
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 208,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/widgets/form.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 7,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T$._LocationL());
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 206,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/widgets/form.dart"
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], T$.AutovalidateModeL());
+      return C[1] = dart.constList([], core.Null);
     }
   }, false);
-  var C = Array(13).fill(void 0);
+  var C = Array(2).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/widgets/form.dart",
-    "package:flutter/src/widgets/form.dart"
+    "package:collection/src/priority_queue.dart",
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/src/priority_queue.dart"
   ];
-  var child$ = dart.privateName(form, "Form.child");
-  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
-  var onChanged$ = dart.privateName(form, "Form.onChanged");
-  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
-  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
-  var _formState = dart.privateName(form, "_formState");
-  form.Form = class Form extends framework.StatefulWidget {
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    get onWillPop() {
-      return this[onWillPop$];
-    }
-    set onWillPop(value) {
-      super.onWillPop = value;
-    }
-    get onChanged() {
-      return this[onChanged$];
-    }
-    set onChanged(value) {
-      super.onChanged = value;
-    }
-    get autovalidateMode() {
-      return this[autovalidateMode$];
-    }
-    set autovalidateMode(value) {
-      super.autovalidateMode = value;
-    }
-    get autovalidate() {
-      return this[autovalidate$];
-    }
-    set autovalidate(value) {
-      super.autovalidate = value;
-    }
-    static of(context) {
-      let t0;
-      if (context == null) dart.nullFailed(I[0], 107, 37, "context");
-      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
-      t0 = scope;
-      return t0 == null ? null : t0[_formState];
-    }
-    createState() {
-      return new form.FormState.new();
-    }
-  };
-  (form.Form.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 78, 19, "child");
-    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-    if (autovalidate == null) dart.nullFailed(I[0], 84, 10, "autovalidate");
-    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
-    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
-    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$] = child;
-    this[autovalidate$] = autovalidate;
-    this[onWillPop$] = onWillPop;
-    this[onChanged$] = onChanged;
-    if (!(child != null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
-    if (!(autovalidate != null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
-    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
-    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? dart.test(autovalidate) ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = form.Form.prototype;
-  dart.addTypeTests(form.Form);
-  dart.addTypeCaches(form.Form);
-  dart.setMethodSignature(form.Form, () => ({
-    __proto__: dart.getMethods(form.Form.__proto__),
-    createState: dart.fnType(form.FormState, [])
-  }));
-  dart.setLibraryUri(form.Form, I[1]);
-  dart.setFieldSignature(form.Form, () => ({
-    __proto__: dart.getFields(form.Form.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
-    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-    autovalidate: dart.finalFieldType(core.bool)
-  }));
-  var _generation = dart.privateName(form, "_generation");
-  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
-  var _fields = dart.privateName(form, "_fields");
-  var _forceRebuild = dart.privateName(form, "_forceRebuild");
-  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
-  var _register = dart.privateName(form, "_register");
-  var _unregister = dart.privateName(form, "_unregister");
-  var _validate = dart.privateName(form, "_validate");
-  var _name$ = dart.privateName(form, "_name");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  form.FormState = class FormState extends framework.State$(form.Form) {
-    [_fieldDidChange]() {
-      let t0;
-      t0 = this.widget.onChanged;
-      t0 == null ? null : t0();
-      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => {
-        if (field == null) dart.nullFailed(I[0], 173, 39, "field");
-        return field[_hasInteractedByUser];
-      }, T$.FormFieldStateTobool()));
-      this[_forceRebuild]();
-    }
-    [_forceRebuild]() {
-      this.setState(dart.fn(() => {
-        this[_generation] = dart.notNull(this[_generation]) + 1;
-      }, T$.VoidTovoid()));
-    }
-    [_register](field) {
-      if (field == null) dart.nullFailed(I[0], 183, 42, "field");
-      this[_fields].add(field);
-    }
-    [_unregister](field) {
-      if (field == null) dart.nullFailed(I[0], 187, 44, "field");
-      this[_fields].remove(field);
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 192, 29, "context");
-      switch (this.widget.autovalidateMode) {
-        case C[0] || CT.C0:
-        {
-          this[_validate]();
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          if (dart.test(this[_hasInteractedByUser])) {
-            this[_validate]();
-          }
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          break;
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
-    }
-    save() {
-      for (let field of this[_fields])
-        field.save();
-    }
-    reset() {
-      for (let field of this[_fields])
-        field.reset();
-      this[_hasInteractedByUser] = false;
-      this[_fieldDidChange]();
-    }
-    validate() {
-      this[_hasInteractedByUser] = true;
-      this[_forceRebuild]();
-      return this[_validate]();
-    }
-    [_validate]() {
-      let hasError = false;
-      for (let field of this[_fields])
-        hasError = !dart.test(field.validate()) || hasError;
-      return !hasError;
-    }
-  };
-  (form.FormState.new = function() {
-    this[_generation] = 0;
-    this[_hasInteractedByUser] = false;
-    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
-    form.FormState.__proto__.new.call(this);
-    ;
-  }).prototype = form.FormState.prototype;
-  dart.addTypeTests(form.FormState);
-  dart.addTypeCaches(form.FormState);
-  dart.setMethodSignature(form.FormState, () => ({
-    __proto__: dart.getMethods(form.FormState.__proto__),
-    [_fieldDidChange]: dart.fnType(dart.void, []),
-    [_forceRebuild]: dart.fnType(dart.void, []),
-    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
-    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    save: dart.fnType(dart.void, []),
-    reset: dart.fnType(dart.void, []),
-    validate: dart.fnType(core.bool, []),
-    [_validate]: dart.fnType(core.bool, [])
-  }));
-  dart.setLibraryUri(form.FormState, I[1]);
-  dart.setFieldSignature(form.FormState, () => ({
-    __proto__: dart.getFields(form.FormState.__proto__),
-    [_generation]: dart.fieldType(core.int),
-    [_hasInteractedByUser]: dart.fieldType(core.bool),
-    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
-  }));
-  var _formState$ = dart.privateName(form, "_FormScope._formState");
-  var _generation$ = dart.privateName(form, "_FormScope._generation");
-  form._FormScope = class _FormScope extends framework.InheritedWidget {
-    get [_formState]() {
-      return this[_formState$];
-    }
-    set [_formState](value) {
-      super[_formState] = value;
-    }
-    get [_generation]() {
-      return this[_generation$];
-    }
-    set [_generation](value) {
-      super[_generation] = value;
-    }
-    get form() {
-      return this[_formState].widget;
-    }
-    updateShouldNotify(old) {
-      form._FormScope.as(old);
-      if (old == null) dart.nullFailed(I[0], 274, 38, "old");
-      return this[_generation] != old[_generation];
-    }
-  };
-  (form._FormScope.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 257, 21, "child");
-    let formState = opts && 'formState' in opts ? opts.formState : null;
-    if (formState == null) dart.nullFailed(I[0], 258, 24, "formState");
-    let generation = opts && 'generation' in opts ? opts.generation : null;
-    if (generation == null) dart.nullFailed(I[0], 259, 18, "generation");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_formState$] = formState;
-    this[_generation$] = generation;
-    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = form._FormScope.prototype;
-  dart.addTypeTests(form._FormScope);
-  dart.addTypeCaches(form._FormScope);
-  dart.setMethodSignature(form._FormScope, () => ({
-    __proto__: dart.getMethods(form._FormScope.__proto__),
-    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setGetterSignature(form._FormScope, () => ({
-    __proto__: dart.getGetters(form._FormScope.__proto__),
-    form: form.Form
-  }));
-  dart.setLibraryUri(form._FormScope, I[1]);
-  dart.setFieldSignature(form._FormScope, () => ({
-    __proto__: dart.getFields(form._FormScope.__proto__),
-    [_formState]: dart.finalFieldType(form.FormState),
-    [_generation]: dart.finalFieldType(core.int)
-  }));
-  var onSaved$ = dart.privateName(form, "FormField.onSaved");
-  var validator$ = dart.privateName(form, "FormField.validator");
-  var builder$ = dart.privateName(form, "FormField.builder");
-  var initialValue$ = dart.privateName(form, "FormField.initialValue");
-  var enabled$ = dart.privateName(form, "FormField.enabled");
-  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
-  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
-  const _is_FormField_default = Symbol('_is_FormField_default');
-  form.FormField$ = dart.generic(T => {
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    class FormField extends framework.StatefulWidget {
-      get onSaved() {
-        return this[onSaved$];
-      }
-      set onSaved(value) {
-        super.onSaved = value;
-      }
-      get validator() {
-        return this[validator$];
-      }
-      set validator(value) {
-        super.validator = value;
-      }
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get initialValue() {
-        return this[initialValue$];
-      }
-      set initialValue(value) {
-        super.initialValue = value;
-      }
-      get enabled() {
-        return this[enabled$];
-      }
-      set enabled(value) {
-        super.enabled = value;
-      }
-      get autovalidateMode() {
-        return this[autovalidateMode$0];
-      }
-      set autovalidateMode(value) {
-        super.autovalidateMode = value;
-      }
-      get autovalidate() {
-        return this[autovalidate$0];
-      }
-      set autovalidate(value) {
-        super.autovalidate = value;
-      }
-      createState() {
-        return new (FormFieldStateOfT()).new();
-      }
-    }
-    (FormField.new = function(opts) {
-      let t0;
-      let key = opts && 'key' in opts ? opts.key : null;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      if (builder == null) dart.nullFailed(I[0], 322, 19, "builder");
-      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
-      let validator = opts && 'validator' in opts ? opts.validator : null;
-      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
-      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-      if (autovalidate == null) dart.nullFailed(I[0], 331, 10, "autovalidate");
-      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
-      if (enabled == null) dart.nullFailed(I[0], 332, 10, "enabled");
-      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[builder$] = builder;
-      this[onSaved$] = onSaved;
-      this[validator$] = validator;
-      this[initialValue$] = initialValue;
-      this[autovalidate$0] = autovalidate;
-      this[enabled$] = enabled;
-      if (!(builder != null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
-      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
-      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? dart.test(autovalidate) ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = FormField.prototype;
-    dart.addTypeTests(FormField);
-    FormField.prototype[_is_FormField_default] = true;
-    dart.addTypeCaches(FormField);
-    dart.setMethodSignature(FormField, () => ({
-      __proto__: dart.getMethods(FormField.__proto__),
-      createState: dart.fnType(form.FormFieldState$(T), [])
-    }));
-    dart.setLibraryUri(FormField, I[1]);
-    dart.setFieldSignature(FormField, () => ({
-      __proto__: dart.getFields(FormField.__proto__),
-      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
-      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
-      initialValue: dart.finalFieldType(dart.nullable(T)),
-      enabled: dart.finalFieldType(core.bool),
-      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-      autovalidate: dart.finalFieldType(core.bool)
-    }));
-    return FormField;
+  const _is_PriorityQueue_default = Symbol('_is_PriorityQueue_default');
+  priority_queue.PriorityQueue$ = dart.generic(E => {
+    class PriorityQueue extends core.Object {}
+    (PriorityQueue[dart.mixinNew] = function() {
+    }).prototype = PriorityQueue.prototype;
+    dart.addTypeTests(PriorityQueue);
+    PriorityQueue.prototype[_is_PriorityQueue_default] = true;
+    dart.addTypeCaches(PriorityQueue);
+    dart.setLibraryUri(PriorityQueue, I[0]);
+    return PriorityQueue;
   });
-  form.FormField = form.FormField$();
-  dart.addTypeTests(form.FormField, _is_FormField_default);
-  var _value = dart.privateName(form, "_value");
-  var _errorText = dart.privateName(form, "_errorText");
-  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
-  form.FormFieldState$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
-    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
-    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
-    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
-    class FormFieldState extends framework.State$(form.FormField$(T)) {
-      get value() {
-        return this[_value];
+  priority_queue.PriorityQueue = priority_queue.PriorityQueue$();
+  dart.addTypeTests(priority_queue.PriorityQueue, _is_PriorityQueue_default);
+  var comparison$ = dart.privateName(priority_queue, "HeapPriorityQueue.comparison");
+  var _queue$ = dart.privateName(priority_queue, "_queue");
+  var _length = dart.privateName(priority_queue, "_length");
+  var _modificationCount = dart.privateName(priority_queue, "_modificationCount");
+  var _elementAt = dart.privateName(priority_queue, "_elementAt");
+  var _add = dart.privateName(priority_queue, "_add");
+  var _locate = dart.privateName(priority_queue, "_locate");
+  var _removeLast = dart.privateName(priority_queue, "_removeLast");
+  var _bubbleUp = dart.privateName(priority_queue, "_bubbleUp");
+  var _bubbleDown = dart.privateName(priority_queue, "_bubbleDown");
+  var _toUnorderedList = dart.privateName(priority_queue, "_toUnorderedList");
+  var _grow = dart.privateName(priority_queue, "_grow");
+  const _is_HeapPriorityQueue_default = Symbol('_is_HeapPriorityQueue_default');
+  priority_queue.HeapPriorityQueue$ = dart.generic(E => {
+    var EN = () => (EN = dart.constFn(dart.nullable(E)))();
+    var ListOfEN = () => (ListOfEN = dart.constFn(core.List$(EN())))();
+    var IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
+    var _UnorderedElementsIterableOfE = () => (_UnorderedElementsIterableOfE = dart.constFn(priority_queue._UnorderedElementsIterable$(E)))();
+    var SplayTreeSetOfE = () => (SplayTreeSetOfE = dart.constFn(collection.SplayTreeSet$(E)))();
+    var JSArrayOfE = () => (JSArrayOfE = dart.constFn(_interceptors.JSArray$(E)))();
+    class HeapPriorityQueue extends core.Object {
+      get comparison() {
+        return this[comparison$];
       }
-      get errorText() {
-        return this[_errorText];
+      set comparison(value) {
+        super.comparison = value;
       }
-      get hasError() {
-        return this[_errorText] != null;
-      }
-      get isValid() {
+      [_elementAt](index) {
         let t0;
-        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
+        if (index == null) dart.nullFailed(I[1], 207, 20, "index");
+        t0 = this[_queue$][$_get](index);
+        return t0 == null ? E.as(null) : t0;
       }
-      save() {
-        let t0;
-        t0 = TNToNvoid().as(this.widget.onSaved);
-        t0 == null ? null : t0(this.value);
+      add(element) {
+        E.as(element);
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + 1;
+        this[_add](element);
       }
-      reset() {
-        let t0;
-        this.setState(dart.fn(() => {
-          this[_value] = this.widget.initialValue;
-          this[_hasInteractedByUser] = false;
-          this[_errorText] = null;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
+      addAll(elements) {
+        IterableOfE().as(elements);
+        if (elements == null) dart.nullFailed(I[1], 216, 27, "elements");
+        let modified = 0;
+        for (let element of elements) {
+          modified = 1;
+          this[_add](element);
+        }
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + modified;
       }
-      validate() {
-        this.setState(dart.fn(() => {
-          this[_validate]();
-        }, T$.VoidTovoid()));
-        return !dart.test(this.hasError);
+      clear() {
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + 1;
+        this[_queue$] = C[1] || CT.C1;
+        this[_length] = 0;
       }
-      [_validate]() {
-        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
+      contains(object) {
+        E.as(object);
+        return dart.notNull(this[_locate](object)) >= 0;
       }
-      didChange(value) {
-        let t0;
-        TN().as(value);
-        this.setState(dart.fn(() => {
-          this[_value] = value;
-          this[_hasInteractedByUser] = true;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
+      get unorderedElements() {
+        return new (_UnorderedElementsIterableOfE()).new(this);
       }
-      setValue(value) {
-        TN().as(value);
-        this[_value] = value;
+      get first() {
+        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
+        return this[_elementAt](0);
       }
-      initState() {
-        super.initState();
-        this[_value] = this.widget.initialValue;
+      get isEmpty() {
+        return this[_length] === 0;
       }
-      deactivate() {
-        let t0;
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_unregister](this);
-        super.deactivate();
+      get isNotEmpty() {
+        return this[_length] !== 0;
       }
-      build(context) {
-        let t0, t0$;
-        if (context == null) dart.nullFailed(I[0], 507, 29, "context");
-        if (dart.test(this.widget.enabled)) {
-          switch (this.widget.autovalidateMode) {
-            case C[0] || CT.C0:
-            {
-              this[_validate]();
-              break;
-            }
-            case C[1] || CT.C1:
-            {
-              if (dart.test(this[_hasInteractedByUser])) {
-                this[_validate]();
-              }
-              break;
-            }
-            case C[2] || CT.C2:
-            {
-              break;
-            }
-            default:
-            {
-              dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-            }
+      get length() {
+        return this[_length];
+      }
+      remove(element) {
+        let t1, t0;
+        E.as(element);
+        let index = this[_locate](element);
+        if (dart.notNull(index) < 0) return false;
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + 1;
+        let last = this[_removeLast]();
+        if (dart.notNull(index) < dart.notNull(this[_length])) {
+          let comp = (t0 = last, t1 = element, this.comparison(t0, t1));
+          if (dart.notNull(comp) <= 0) {
+            this[_bubbleUp](last, index);
+          } else {
+            this[_bubbleDown](last, index);
           }
         }
-        t0 = form.Form.of(context);
-        t0 == null ? null : t0[_register](this);
-        t0$ = this.widget;
-        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
+        return true;
+      }
+      removeAll() {
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + 1;
+        let result = this[_queue$];
+        let length = this[_length];
+        this[_queue$] = C[1] || CT.C1;
+        this[_length] = 0;
+        return result[$take](length)[$cast](E);
+      }
+      removeFirst() {
+        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
+        this[_modificationCount] = dart.notNull(this[_modificationCount]) + 1;
+        let result = this[_elementAt](0);
+        let last = this[_removeLast]();
+        if (dart.notNull(this[_length]) > 0) {
+          this[_bubbleDown](last, 0);
+        }
+        return result;
+      }
+      toList() {
+        let t0;
+        t0 = this[_toUnorderedList]();
+        return (() => {
+          t0[$sort](this.comparison);
+          return t0;
+        })();
+      }
+      toSet() {
+        let set = new (SplayTreeSetOfE()).new(this.comparison);
+        for (let i = 0; i < dart.notNull(this[_length]); i = i + 1) {
+          set.add(this[_elementAt](i));
+        }
+        return set;
+      }
+      toUnorderedList() {
+        return this[_toUnorderedList]();
+      }
+      [_toUnorderedList]() {
+        return (() => {
+          let t0 = JSArrayOfE().of([]);
+          for (let i = 0; i < dart.notNull(this[_length]); i = i + 1)
+            t0[$add](this[_elementAt](i));
+          return t0;
+        })();
+      }
+      toString() {
+        return dart.toString(this[_queue$][$take](this[_length]));
+      }
+      [_add](element) {
+        let t1;
+        if (this[_length] == this[_queue$][$length]) this[_grow]();
+        this[_bubbleUp](element, (t1 = this[_length], this[_length] = dart.notNull(t1) + 1, t1));
+      }
+      [_locate](object) {
+        let t2, t1;
+        if (this[_length] === 0) return -1;
+        let position = 1;
+        do {
+          let index = position - 1;
+          let element = this[_elementAt](index);
+          let comp = (t1 = element, t2 = object, this.comparison(t1, t2));
+          if (dart.notNull(comp) <= 0) {
+            if (comp === 0 && dart.equals(element, object)) return index;
+            let leftChildPosition = position * 2;
+            if (leftChildPosition <= dart.notNull(this[_length])) {
+              position = leftChildPosition;
+              continue;
+            }
+          }
+          do {
+            while (position[$isOdd]) {
+              position = position[$rightShift](1);
+            }
+            position = position + 1;
+          } while (position > dart.notNull(this[_length]));
+        } while (position !== 1);
+        return -1;
+      }
+      [_removeLast]() {
+        let newLength = dart.notNull(this[_length]) - 1;
+        let last = this[_elementAt](newLength);
+        this[_queue$][$_set](newLength, null);
+        this[_length] = newLength;
+        return last;
+      }
+      [_bubbleUp](element, index) {
+        let t2, t1;
+        if (index == null) dart.nullFailed(I[1], 396, 33, "index");
+        while (dart.notNull(index) > 0) {
+          let parentIndex = ((dart.notNull(index) - 1) / 2)[$truncate]();
+          let parent = this[_elementAt](parentIndex);
+          if (dart.notNull((t1 = element, t2 = parent, this.comparison(t1, t2))) > 0) break;
+          this[_queue$][$_set](index, parent);
+          index = parentIndex;
+        }
+        this[_queue$][$_set](index, element);
+      }
+      [_bubbleDown](element, index) {
+        let t2, t1, t2$, t1$, t2$0, t1$0;
+        if (index == null) dart.nullFailed(I[1], 412, 35, "index");
+        let rightChildIndex = dart.notNull(index) * 2 + 2;
+        while (rightChildIndex < dart.notNull(this[_length])) {
+          let leftChildIndex = rightChildIndex - 1;
+          let leftChild = this[_elementAt](leftChildIndex);
+          let rightChild = this[_elementAt](rightChildIndex);
+          let comp = (t1 = leftChild, t2 = rightChild, this.comparison(t1, t2));
+          let minChildIndex = null;
+          let minChild = null;
+          if (dart.notNull(comp) < 0) {
+            minChild = leftChild;
+            minChildIndex = leftChildIndex;
+          } else {
+            minChild = rightChild;
+            minChildIndex = rightChildIndex;
+          }
+          comp = (t1$ = element, t2$ = minChild, this.comparison(t1$, t2$));
+          if (dart.notNull(comp) <= 0) {
+            this[_queue$][$_set](index, element);
+            return;
+          }
+          this[_queue$][$_set](index, minChild);
+          index = minChildIndex;
+          rightChildIndex = dart.notNull(index) * 2 + 2;
+        }
+        let leftChildIndex = rightChildIndex - 1;
+        if (leftChildIndex < dart.notNull(this[_length])) {
+          let child = this[_elementAt](leftChildIndex);
+          let comp = (t1$0 = element, t2$0 = child, this.comparison(t1$0, t2$0));
+          if (dart.notNull(comp) > 0) {
+            this[_queue$][$_set](index, child);
+            index = leftChildIndex;
+          }
+        }
+        this[_queue$][$_set](index, element);
+      }
+      [_grow]() {
+        let newCapacity = dart.notNull(this[_queue$][$length]) * 2 + 1;
+        if (newCapacity < 7) newCapacity = 7;
+        let newQueue = ListOfEN().filled(newCapacity, null);
+        newQueue[$setRange](0, this[_length], this[_queue$]);
+        this[_queue$] = newQueue;
       }
     }
-    (FormFieldState.new = function() {
-      this[_value] = null;
-      this[_errorText] = null;
-      this[_hasInteractedByUser] = false;
-      FormFieldState.__proto__.new.call(this);
+    (HeapPriorityQueue.new = function(comparison = null) {
+      let t0;
+      this[_queue$] = ListOfEN().filled(7, null);
+      this[_length] = 0;
+      this[_modificationCount] = 0;
+      this[comparison$] = (t0 = comparison, t0 == null ? C[0] || CT.C0 : t0);
       ;
-    }).prototype = FormFieldState.prototype;
-    dart.addTypeTests(FormFieldState);
-    FormFieldState.prototype[_is_FormFieldState_default] = true;
-    dart.addTypeCaches(FormFieldState);
-    dart.setMethodSignature(FormFieldState, () => ({
-      __proto__: dart.getMethods(FormFieldState.__proto__),
-      save: dart.fnType(dart.void, []),
-      reset: dart.fnType(dart.void, []),
-      validate: dart.fnType(core.bool, []),
-      [_validate]: dart.fnType(dart.void, []),
-      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
+    }).prototype = HeapPriorityQueue.prototype;
+    dart.addTypeTests(HeapPriorityQueue);
+    HeapPriorityQueue.prototype[_is_HeapPriorityQueue_default] = true;
+    dart.addTypeCaches(HeapPriorityQueue);
+    HeapPriorityQueue[dart.implements] = () => [priority_queue.PriorityQueue$(E)];
+    dart.setMethodSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getMethods(HeapPriorityQueue.__proto__),
+      [_elementAt]: dart.fnType(E, [core.int]),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      clear: dart.fnType(dart.void, []),
+      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      remove: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      removeAll: dart.fnType(core.Iterable$(E), []),
+      removeFirst: dart.fnType(E, []),
+      toList: dart.fnType(core.List$(E), []),
+      toSet: dart.fnType(core.Set$(E), []),
+      toUnorderedList: dart.fnType(core.List$(E), []),
+      [_toUnorderedList]: dart.fnType(core.List$(E), []),
+      [_add]: dart.fnType(dart.void, [E]),
+      [_locate]: dart.fnType(core.int, [E]),
+      [_removeLast]: dart.fnType(E, []),
+      [_bubbleUp]: dart.fnType(dart.void, [E, core.int]),
+      [_bubbleDown]: dart.fnType(dart.void, [E, core.int]),
+      [_grow]: dart.fnType(dart.void, [])
     }));
-    dart.setGetterSignature(FormFieldState, () => ({
-      __proto__: dart.getGetters(FormFieldState.__proto__),
-      value: dart.nullable(T),
-      errorText: dart.nullable(core.String),
-      hasError: core.bool,
-      isValid: core.bool
+    dart.setGetterSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getGetters(HeapPriorityQueue.__proto__),
+      unorderedElements: core.Iterable$(E),
+      first: E,
+      isEmpty: core.bool,
+      isNotEmpty: core.bool,
+      length: core.int
     }));
-    dart.setLibraryUri(FormFieldState, I[1]);
-    dart.setFieldSignature(FormFieldState, () => ({
-      __proto__: dart.getFields(FormFieldState.__proto__),
-      [_value]: dart.fieldType(dart.nullable(T)),
-      [_errorText]: dart.fieldType(dart.nullable(core.String)),
-      [_hasInteractedByUser]: dart.fieldType(core.bool)
+    dart.setLibraryUri(HeapPriorityQueue, I[0]);
+    dart.setFieldSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getFields(HeapPriorityQueue.__proto__),
+      comparison: dart.finalFieldType(dart.fnType(core.int, [E, E])),
+      [_queue$]: dart.fieldType(core.List$(dart.nullable(E))),
+      [_length]: dart.fieldType(core.int),
+      [_modificationCount]: dart.fieldType(core.int)
     }));
-    return FormFieldState;
+    dart.defineExtensionMethods(HeapPriorityQueue, ['toString']);
+    return HeapPriorityQueue;
   });
-  form.FormFieldState = form.FormFieldState$();
-  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
-  form.AutovalidateMode = class AutovalidateMode extends core.Object {
-    toString() {
-      return this[_name$];
+  priority_queue.HeapPriorityQueue = priority_queue.HeapPriorityQueue$();
+  dart.defineLazy(priority_queue.HeapPriorityQueue, {
+    /*priority_queue.HeapPriorityQueue._INITIAL_CAPACITY*/get _INITIAL_CAPACITY() {
+      return 7;
     }
-  };
-  (form.AutovalidateMode.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 528, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 528, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = form.AutovalidateMode.prototype;
-  dart.addTypeTests(form.AutovalidateMode);
-  dart.addTypeCaches(form.AutovalidateMode);
-  dart.setLibraryUri(form.AutovalidateMode, I[1]);
-  dart.setFieldSignature(form.AutovalidateMode, () => ({
-    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
-  form.AutovalidateMode.disabled = C[2] || CT.C2;
-  form.AutovalidateMode.always = C[0] || CT.C0;
-  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
-  form.AutovalidateMode.values = C[12] || CT.C12;
-  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
-    "package:flutter/src/widgets/form.dart": form
+  }, false);
+  dart.addTypeTests(priority_queue.HeapPriorityQueue, _is_HeapPriorityQueue_default);
+  const _is__UnorderedElementsIterable_default = Symbol('_is__UnorderedElementsIterable_default');
+  priority_queue._UnorderedElementsIterable$ = dart.generic(E => {
+    var _UnorderedElementsIteratorOfE = () => (_UnorderedElementsIteratorOfE = dart.constFn(priority_queue._UnorderedElementsIterator$(E)))();
+    class _UnorderedElementsIterable extends core.Iterable$(E) {
+      get iterator() {
+        return new (_UnorderedElementsIteratorOfE()).new(this[_queue$]);
+      }
+    }
+    (_UnorderedElementsIterable.new = function(_queue) {
+      if (_queue == null) dart.nullFailed(I[1], 464, 35, "_queue");
+      this[_queue$] = _queue;
+      _UnorderedElementsIterable.__proto__.new.call(this);
+      ;
+    }).prototype = _UnorderedElementsIterable.prototype;
+    dart.addTypeTests(_UnorderedElementsIterable);
+    _UnorderedElementsIterable.prototype[_is__UnorderedElementsIterable_default] = true;
+    dart.addTypeCaches(_UnorderedElementsIterable);
+    dart.setGetterSignature(_UnorderedElementsIterable, () => ({
+      __proto__: dart.getGetters(_UnorderedElementsIterable.__proto__),
+      iterator: core.Iterator$(E),
+      [$iterator]: core.Iterator$(E)
+    }));
+    dart.setLibraryUri(_UnorderedElementsIterable, I[0]);
+    dart.setFieldSignature(_UnorderedElementsIterable, () => ({
+      __proto__: dart.getFields(_UnorderedElementsIterable.__proto__),
+      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E))
+    }));
+    dart.defineExtensionAccessors(_UnorderedElementsIterable, ['iterator']);
+    return _UnorderedElementsIterable;
+  });
+  priority_queue._UnorderedElementsIterable = priority_queue._UnorderedElementsIterable$();
+  dart.addTypeTests(priority_queue._UnorderedElementsIterable, _is__UnorderedElementsIterable_default);
+  var _current = dart.privateName(priority_queue, "_current");
+  var _index = dart.privateName(priority_queue, "_index");
+  var _initialModificationCount = dart.privateName(priority_queue, "_initialModificationCount");
+  const _is__UnorderedElementsIterator_default = Symbol('_is__UnorderedElementsIterator_default');
+  priority_queue._UnorderedElementsIterator$ = dart.generic(E => {
+    class _UnorderedElementsIterator extends core.Object {
+      moveNext() {
+        if (this[_initialModificationCount] != this[_queue$][_modificationCount]) {
+          dart.throw(new core.ConcurrentModificationError.new(this[_queue$]));
+        }
+        let nextIndex = dart.notNull(this[_index]) + 1;
+        if (0 <= nextIndex && nextIndex < dart.notNull(this[_queue$].length)) {
+          this[_current] = this[_queue$][_queue$][$_get](nextIndex);
+          this[_index] = nextIndex;
+          return true;
+        }
+        this[_current] = null;
+        this[_index] = -2;
+        return false;
+      }
+      get current() {
+        let t1;
+        return dart.notNull(this[_index]) < 0 ? dart.throw(new core.StateError.new("No element")) : (t1 = this[_current], t1 == null ? E.as(null) : t1);
+      }
+    }
+    (_UnorderedElementsIterator.new = function(_queue) {
+      if (_queue == null) dart.nullFailed(I[1], 475, 35, "_queue");
+      this[_current] = null;
+      this[_index] = -1;
+      this[_queue$] = _queue;
+      this[_initialModificationCount] = _queue[_modificationCount];
+      ;
+    }).prototype = _UnorderedElementsIterator.prototype;
+    dart.addTypeTests(_UnorderedElementsIterator);
+    _UnorderedElementsIterator.prototype[_is__UnorderedElementsIterator_default] = true;
+    dart.addTypeCaches(_UnorderedElementsIterator);
+    _UnorderedElementsIterator[dart.implements] = () => [core.Iterator$(E)];
+    dart.setMethodSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getMethods(_UnorderedElementsIterator.__proto__),
+      moveNext: dart.fnType(core.bool, [])
+    }));
+    dart.setGetterSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getGetters(_UnorderedElementsIterator.__proto__),
+      current: E
+    }));
+    dart.setLibraryUri(_UnorderedElementsIterator, I[0]);
+    dart.setFieldSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getFields(_UnorderedElementsIterator.__proto__),
+      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E)),
+      [_initialModificationCount]: dart.finalFieldType(core.int),
+      [_current]: dart.fieldType(dart.nullable(E)),
+      [_index]: dart.fieldType(core.int)
+    }));
+    return _UnorderedElementsIterator;
+  });
+  priority_queue._UnorderedElementsIterator = priority_queue._UnorderedElementsIterator$();
+  dart.addTypeTests(priority_queue._UnorderedElementsIterator, _is__UnorderedElementsIterator_default);
+  dart.trackLibraries("packages/collection/src/priority_queue.dart", {
+    "package:collection/src/priority_queue.dart": priority_queue
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/widgets/form.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["priority_queue.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAmLsB;;;;;;mBA2BH;;;AAAU,aAAA,AAAM,qBAAC,KAAK;cAAN,cAAiB,KAAL;MAAU;;aAG5C;AACW,QAApB,2BAAkB,aAAlB,4BAAkB;AACL,QAAb,WAAK,OAAO;MACd;;yBAGwB;;AAClB,uBAAW;AACf,iBAAS,UAAW,SAAQ;AACd,UAAZ,WAAW;AACE,UAAb,WAAK,OAAO;;AAEgB,QAA9B,2BAAmB,aAAnB,4BAAsB,QAAQ;MAChC;;AAIsB,QAApB,2BAAkB,aAAlB,4BAAkB;AACD,QAAjB;AACW,QAAX,gBAAU;MACZ;;aAGgB;AAAW,cAAgB,cAAhB,cAAQ,MAAM,MAAK;MAAC;;AAUV,yDAA8B;MAAK;;AAItE,YAAI,AAAQ,kBAAG,GAAG,AAA8B,WAAxB,wBAAW;AACnC,cAAO,kBAAW;MACpB;;AAGoB,cAAA,AAAQ,mBAAG;MAAC;;AAGT,cAAA,AAAQ,mBAAG;MAAC;;AAGjB;MAAO;aAGX;;;AACR,oBAAQ,cAAQ,OAAO;AAC3B,YAAU,aAAN,KAAK,IAAG,GAAG,MAAO;AACF,QAApB,2BAAkB,aAAlB,4BAAkB;AACd,mBAAO;AACX,YAAU,aAAN,KAAK,iBAAG;AACN,2BAAkB,IAAI,OAAE,OAAO,EAAxB,AAAU;AACrB,cAAS,aAAL,IAAI,KAAI;AACY,YAAtB,gBAAU,IAAI,EAAE,KAAK;;AAEG,YAAxB,kBAAY,IAAI,EAAE,KAAK;;;AAG3B,cAAO;MACT;;AAUsB,QAApB,2BAAkB,aAAlB,4BAAkB;AACd,qBAAS;AACT,qBAAS;AACI,QAAjB;AACW,QAAX,gBAAU;AACV,cAAO,AAAO,AAAa,OAAd,QAAM,MAAM;MAC3B;;AAIE,YAAI,AAAQ,kBAAG,GAAG,AAA8B,WAAxB,wBAAW;AACf,QAApB,2BAAkB,aAAlB,4BAAkB;AACd,qBAAS,iBAAW;AACpB,mBAAO;AACX,YAAY,aAAR,iBAAU;AACQ,UAApB,kBAAY,IAAI,EAAE;;AAEpB,cAAO,OAAM;MACf;;;AAGoB;;AAAoB,oBAAK;;;MAAW;;AAIlD,kBAAM,4BAAgB;AAC1B,iBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,gBAAS,IAAA,AAAC,CAAA;AACN,UAAtB,AAAI,GAAD,KAAK,iBAAW,CAAC;;AAEtB,cAAO,IAAG;MACZ;;AAG6B;MAAkB;;AAG3C;;AAAC,mBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,gBAAS,IAAA,AAAC,CAAA;AAAI,sCAAW,CAAC;;;MAAE;;AAOnD,cAA4B,eAArB,AAAO,qBAAK;MACrB;aAKY;;AACV,YAAI,AAAQ,iBAAG,AAAO,wBAAQ,AAAO;AACR,QAA7B,gBAAU,OAAO,GAAS,oBAAP,mCAAO;MAC5B;gBAQc;;AACZ,YAAI,AAAQ,kBAAG,GAAG,MAAO,EAAC;AAMtB,uBAAW;AAIf;AACM,sBAAQ,AAAS,QAAD,GAAG;AACnB,wBAAU,iBAAW,KAAK;AAC1B,2BAAkB,OAAO,OAAE,MAAM,EAA1B,AAAU;AACrB,cAAS,aAAL,IAAI,KAAI;AACV,gBAAI,AAAK,IAAD,KAAI,KAAa,YAAR,OAAO,EAAI,MAAM,GAAE,MAAO,MAAK;AAG5C,oCAAoB,AAAS,QAAD,GAAG;AACnC,gBAAI,AAAkB,iBAAD,iBAAI;AACK,cAA5B,WAAW,iBAAiB;AAC5B;;;AAIJ;AACE,mBAAO,AAAS,QAAD;AAEC,cAAd,WAAA,AAAS,QAAD,cAAK;;AAGF,YAAb,WAAA,AAAS,QAAD,GAAI;mBACL,AAAS,QAAD,gBAAG;iBACb,QAAQ,KAAI;AACrB,cAAO,EAAC;MACV;;AAGM,wBAAoB,aAAR,iBAAU;AACtB,mBAAO,iBAAW,SAAS;AACP,QAAxB,AAAM,qBAAC,SAAS,EAAI;AACD,QAAnB,gBAAU,SAAS;AACnB,cAAO,KAAI;MACb;kBAOiB,SAAa;;;AAC5B,eAAa,aAAN,KAAK,IAAG;AACT,4BAA0B,EAAL,aAAN,KAAK,IAAG,KAAM;AAC7B,uBAAS,iBAAW,WAAW;AACnC,cAAgC,mBAAjB,OAAO,OAAE,MAAM,EAA1B,AAAU,4BAAoB,GAAG;AACf,UAAtB,AAAM,qBAAC,KAAK,EAAI,MAAM;AACH,UAAnB,QAAQ,WAAW;;AAEE,QAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;MACzB;oBAOmB,SAAa;;;AAC1B,8BAAwB,AAAI,aAAV,KAAK,IAAG,IAAI;AAClC,eAAO,AAAgB,eAAD,gBAAG;AACnB,+BAAiB,AAAgB,eAAD,GAAG;AACnC,0BAAY,iBAAW,cAAc;AACrC,2BAAa,iBAAW,eAAe;AACvC,2BAAkB,SAAS,OAAE,UAAU,EAAhC,AAAU;AACjB;AACF;AACF,cAAS,aAAL,IAAI,IAAG;AACW,YAApB,WAAW,SAAS;AACU,YAA9B,gBAAgB,cAAc;;AAET,YAArB,WAAW,UAAU;AACU,YAA/B,gBAAgB,eAAe;;AAEG,UAApC,cAAkB,OAAO,QAAE,QAAQ,EAA5B,AAAU;AACjB,cAAS,aAAL,IAAI,KAAI;AACa,YAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;AACvB;;AAEsB,UAAxB,AAAM,qBAAC,KAAK,EAAI,QAAQ;AACH,UAArB,QAAQ,aAAa;AACU,UAA/B,kBAAwB,AAAI,aAAV,KAAK,IAAG,IAAI;;AAE5B,6BAAiB,AAAgB,eAAD,GAAG;AACvC,YAAI,AAAe,cAAD,gBAAG;AACf,sBAAQ,iBAAW,cAAc;AACjC,6BAAkB,OAAO,SAAE,KAAK,EAAzB,AAAU;AACrB,cAAS,aAAL,IAAI,IAAG;AACY,YAArB,AAAM,qBAAC,KAAK,EAAI,KAAK;AACC,YAAtB,QAAQ,cAAc;;;AAGH,QAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;MACzB;;AAMM,0BAA4B,AAAI,aAAlB,AAAO,0BAAS,IAAI;AACtC,YAAI,AAAY,WAAD,MAAsB,AAA+B;AAChE,uBAAW,kBAAgB,WAAW,EAAE;AACP,QAArC,AAAS,QAAD,YAAU,GAAG,eAAS;AACb,QAAjB,gBAAS,QAAQ;MACnB;;sCA9PuC;;MArB9B,gBAAS,qBAAmC;MAKjD,gBAAU;MAKV,2BAAqB;MAYR,qBAAa,KAAX,UAAU,EAAV;;IAA4B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA5B9B,kDAAiB;;;;;;;;;;AAiSN,yDAA8B;MAAO;;;UAFjC;;AAAhC;;IAAuC;;;;;;;;;;;;;;;;;;;;;;;;;;AAgBrC,YAAI,mCAA6B,AAAO;AACG,UAAzC,WAAM,yCAA4B;;AAEhC,wBAAmB,aAAP,gBAAS;AACzB,YAAI,AAAE,KAAG,SAAS,IAAI,AAAU,SAAD,gBAAG,AAAO;AACJ,UAAnC,iBAAW,AAAO,AAAM,8BAAC,SAAS;AAChB,UAAlB,eAAS,SAAS;AAClB,gBAAO;;AAEM,QAAf,iBAAW;AACA,QAAX,eAAS,CAAC;AACV,cAAO;MACT;;;AAII,cAAO,cAAP,gBAAS,IAAI,WAAM,wBAAW,kBAA0B,qBAAT,aAAiB,KAAL;MAAU;;;UArBzC;MAH7B;MACC,eAAS,CAAC;MAEkB;MACA,kCAAE,AAAO,MAAD;;IAAmB","file":"../../../../../../../../../../D:/packages/collection/src/priority_queue.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__form: form
+    src__priority_queue: priority_queue
   };
 }));
 
-//# sourceMappingURL=form.dart.lib.js.map
+//# sourceMappingURL=priority_queue.dart.lib.js.map

@@ -1,37 +1,49 @@
-define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/material/constants.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/flex.dart'], (function load__packages__flutter__src__material__elevated_button_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__material__constants$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__flex$46dart) {
+define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/widgets/page_view.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/drag_details.dart'], (function load__packages__velocity_x__src__flutter__swiper_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__widgets__page_view$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__drag_details$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const math = dart_sdk.math;
-  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const button_style = packages__flutter__src__material__icon_button$46dart.src__material__button_style;
-  const button_style_button = packages__flutter__src__material__icon_button$46dart.src__material__button_style_button;
-  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const ink_ripple = packages__flutter__src__material__icon_button$46dart.src__material__ink_ripple;
-  const elevated_button_theme = packages__flutter__src__material__icon_button$46dart.src__material__elevated_button_theme;
-  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const page_view = packages__flutter__src__widgets__page_view$46dart.src__widgets__page_view;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
   const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
-  const constants = packages__flutter__src__material__constants$46dart.src__material__constants;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  var elevated_button = Object.create(dart.library);
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const page_storage = packages__flutter__src__widgets__widget_span$46dart.src__widgets__page_storage;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  var swiper = Object.create(dart.library);
+  var $length = dartx.length;
+  var $toInt = dartx.toInt;
+  var $isFinite = dartx.isFinite;
+  var $round = dartx.round;
+  var $_get = dartx._get;
+  var $toDouble = dartx.toDouble;
+  var $abs = dartx.abs;
+  var $clamp = dartx.clamp;
+  var $modulo = dartx['%'];
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    TextStyleN: () => (T.TextStyleN = dart.constFn(dart.nullable(text_style.TextStyle)))(),
+    TimerTovoid: () => (T.TimerTovoid = dart.constFn(dart.fnType(dart.void, [async.Timer])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))(),
+    PointerMoveEventTovoid: () => (T.PointerMoveEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerMoveEvent])))(),
     _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+    DragDownDetailsTovoid: () => (T.DragDownDetailsTovoid = dart.constFn(dart.fnType(dart.void, [drag_details.DragDownDetails])))(),
+    intTovoid: () => (T.intTovoid = dart.constFn(dart.fnType(dart.void, [core.int])))(),
+    doubleN: () => (T.doubleN = dart.constFn(dart.nullable(core.double)))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndWidgetNToCenter: () => (T.BuildContextAndWidgetNToCenter = dart.constFn(dart.fnType(basic.Center, [framework.BuildContext, T.WidgetN()])))(),
+    BuildContextAndintToAnimatedBuilder: () => (T.BuildContextAndintToAnimatedBuilder = dart.constFn(dart.fnType(transitions.AnimatedBuilder, [framework.BuildContext, core.int])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -39,530 +51,928 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name]: "Clip.none",
-        index: 0
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 5000000
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 16,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 16
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 800000
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 8,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 8
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.2,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.4
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 4,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 4
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: 36,
-        [OffsetBase__dx]: 64
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 400000
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: borders.BorderStyle.prototype,
-        [_name$]: "BorderStyle.none",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPointerMove",
+        [_Location_column]: 9,
+        [_Location_line]: 260,
+        [_Location_file]: null
       });
     },
     get C8() {
       return C[8] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 281,
+        [_Location_file]: null
       });
     },
     get C6() {
-      return C[6] = dart.const({
-        __proto__: borders.BorderSide.prototype,
-        [BorderSide_style]: C[7] || CT.C7,
-        [BorderSide_width]: 0,
-        [BorderSide_color]: C[8] || CT.C8
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: ui.Radius.prototype,
-        [Radius_y]: 4,
-        [Radius_x]: 4
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: border_radius.BorderRadius.prototype,
-        [BorderRadius_bottomRight]: C[10] || CT.C10,
-        [BorderRadius_bottomLeft]: C[10] || CT.C10,
-        [BorderRadius_topRight]: C[10] || CT.C10,
-        [BorderRadius_topLeft]: C[10] || CT.C10
-      });
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8], T._LocationL());
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: rounded_rectangle_border.RoundedRectangleBorder.prototype,
-        [OutlinedBorder_side]: C[6] || CT.C6,
-        [RoundedRectangleBorder_borderRadius]: C[9] || CT.C9
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 46,
-        [_Location_line]: 441,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 259,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
       });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "label",
-        [_Location_column]: 58,
-        [_Location_line]: 441,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], T._LocationL());
     },
     get C11() {
       return C[11] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 40,
+        [_Location_line]: 286,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 63,
+        [_Location_line]: 286,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
         [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 441,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/elevated_button.dart"
+        [_Location_column]: 30,
+        [_Location_line]: 286,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
       });
     },
     get C15() {
       return C[15] = dart.const({
-        __proto__: edge_insets.EdgeInsetsDirectional.prototype,
-        [EdgeInsetsDirectional_bottom]: 0,
-        [EdgeInsetsDirectional_end]: 16,
-        [EdgeInsetsDirectional_top]: 0,
-        [EdgeInsetsDirectional_start]: 12
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "aspectRatio",
+        [_Location_column]: 23,
+        [_Location_line]: 294,
+        [_Location_file]: null
       });
     },
     get C16() {
       return C[16] = dart.const({
-        __proto__: edge_insets.EdgeInsetsDirectional.prototype,
-        [EdgeInsetsDirectional_bottom]: 0,
-        [EdgeInsetsDirectional_end]: 4,
-        [EdgeInsetsDirectional_top]: 0,
-        [EdgeInsetsDirectional_start]: 8
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 56,
+        [_Location_line]: 294,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 294,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
       });
     },
     get C19() {
       return C[19] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 41,
-        [_Location_line]: 470,
+        [_Location_name]: "onPanDown",
+        [_Location_column]: 23,
+        [_Location_line]: 304,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 57,
+        [_Location_line]: 304,
         [_Location_file]: null
       });
     },
     get C18() {
-      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
     },
     get C17() {
       return C[17] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[18] || CT.C18,
         [_Location_name]: null,
-        [_Location_column]: 32,
-        [_Location_line]: 470,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/elevated_button.dart"
+        [_Location_column]: 7,
+        [_Location_line]: 304,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
       });
     },
-    get C22() {
-      return C[22] = dart.const({
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: scroll_physics.ClampingScrollPhysics.prototype,
+        [ScrollPhysics_parent]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 7,
-        [_Location_line]: 469,
+        [_Location_name]: "height",
+        [_Location_column]: 32,
+        [_Location_line]: 373,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 66,
+        [_Location_line]: 373,
         [_Location_file]: null
       });
     },
     get C23() {
-      return C[23] = dart.const({
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 373,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 470,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 372,
         [_Location_file]: null
       });
     },
-    get C21() {
-      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28], T._LocationL());
     },
-    get C20() {
-      return C[20] = dart.const({
+    get C26() {
+      return C[26] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_parameterLocations]: C[27] || CT.C27,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 468,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/elevated_button.dart"
+        [_Location_column]: 22,
+        [_Location_line]: 371,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 23,
+        [_Location_line]: 377,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 379,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], T._LocationL());
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 376,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 376,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 375,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 11,
+        [_Location_line]: 336,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 337,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 340,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 335,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 7,
+        [_Location_line]: 315,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 318,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 7,
+        [_Location_line]: 319,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "reverse",
+        [_Location_column]: 7,
+        [_Location_line]: 320,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 7,
+        [_Location_line]: 321,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPageChanged",
+        [_Location_column]: 7,
+        [_Location_line]: 322,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 331,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 314,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart"
       });
     }
   }, false);
-  var C = Array(24).fill(void 0);
+  var C = Array(50).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/elevated_button.dart",
-    "package:flutter/src/material/elevated_button.dart"
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/swiper.dart",
+    "package:velocity_x/src/flutter/swiper.dart"
   ];
-  var _name = dart.privateName(ui, "_name");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  var _name$ = dart.privateName(borders, "_name");
-  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
-  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
-  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
-  var Radius_y = dart.privateName(ui, "Radius.y");
-  var Radius_x = dart.privateName(ui, "Radius.x");
-  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-  var RoundedRectangleBorder_borderRadius = dart.privateName(rounded_rectangle_border, "RoundedRectangleBorder.borderRadius");
-  elevated_button.ElevatedButton = class ElevatedButton extends button_style_button.ButtonStyleButton {
-    static styleFrom(opts) {
-      let primary = opts && 'primary' in opts ? opts.primary : null;
-      let onPrimary = opts && 'onPrimary' in opts ? opts.onPrimary : null;
-      let onSurface = opts && 'onSurface' in opts ? opts.onSurface : null;
-      let shadowColor = opts && 'shadowColor' in opts ? opts.shadowColor : null;
-      let elevation = opts && 'elevation' in opts ? opts.elevation : null;
-      let textStyle = opts && 'textStyle' in opts ? opts.textStyle : null;
-      let padding = opts && 'padding' in opts ? opts.padding : null;
-      let minimumSize = opts && 'minimumSize' in opts ? opts.minimumSize : null;
-      let fixedSize = opts && 'fixedSize' in opts ? opts.fixedSize : null;
-      let side = opts && 'side' in opts ? opts.side : null;
-      let shape = opts && 'shape' in opts ? opts.shape : null;
-      let enabledMouseCursor = opts && 'enabledMouseCursor' in opts ? opts.enabledMouseCursor : null;
-      let disabledMouseCursor = opts && 'disabledMouseCursor' in opts ? opts.disabledMouseCursor : null;
-      let visualDensity = opts && 'visualDensity' in opts ? opts.visualDensity : null;
-      let tapTargetSize = opts && 'tapTargetSize' in opts ? opts.tapTargetSize : null;
-      let animationDuration = opts && 'animationDuration' in opts ? opts.animationDuration : null;
-      let enableFeedback = opts && 'enableFeedback' in opts ? opts.enableFeedback : null;
-      let alignment = opts && 'alignment' in opts ? opts.alignment : null;
-      let splashFactory = opts && 'splashFactory' in opts ? opts.splashFactory : null;
-      let backgroundColor = onSurface == null && primary == null ? null : new elevated_button._ElevatedButtonDefaultBackground.new(primary, onSurface);
-      let foregroundColor = onSurface == null && onPrimary == null ? null : new elevated_button._ElevatedButtonDefaultForeground.new(onPrimary, onSurface);
-      let overlayColor = onPrimary == null ? null : new elevated_button._ElevatedButtonDefaultOverlay.new(onPrimary);
-      let elevationValue = elevation == null ? null : new elevated_button._ElevatedButtonDefaultElevation.new(elevation);
-      let mouseCursor = enabledMouseCursor == null && disabledMouseCursor == null ? null : new elevated_button._ElevatedButtonDefaultMouseCursor.new(enabledMouseCursor, disabledMouseCursor);
-      return new button_style.ButtonStyle.new({textStyle: material_state.MaterialStateProperty.all(T.TextStyleN(), textStyle), backgroundColor: backgroundColor, foregroundColor: foregroundColor, overlayColor: overlayColor, shadowColor: button_style_button.ButtonStyleButton.allOrNull(ui.Color, shadowColor), elevation: elevationValue, padding: button_style_button.ButtonStyleButton.allOrNull(edge_insets.EdgeInsetsGeometry, padding), minimumSize: button_style_button.ButtonStyleButton.allOrNull(ui.Size, minimumSize), fixedSize: button_style_button.ButtonStyleButton.allOrNull(ui.Size, fixedSize), side: button_style_button.ButtonStyleButton.allOrNull(borders.BorderSide, side), shape: button_style_button.ButtonStyleButton.allOrNull(borders.OutlinedBorder, shape), mouseCursor: mouseCursor, visualDensity: visualDensity, tapTargetSize: tapTargetSize, animationDuration: animationDuration, enableFeedback: enableFeedback, alignment: alignment, splashFactory: splashFactory});
+  var items$ = dart.privateName(swiper, "VxSwiper.items");
+  var itemBuilder$ = dart.privateName(swiper, "VxSwiper.itemBuilder");
+  var itemCount$ = dart.privateName(swiper, "VxSwiper.itemCount");
+  var height$ = dart.privateName(swiper, "VxSwiper.height");
+  var aspectRatio$ = dart.privateName(swiper, "VxSwiper.aspectRatio");
+  var viewportFraction$ = dart.privateName(swiper, "VxSwiper.viewportFraction");
+  var initialPage$ = dart.privateName(swiper, "VxSwiper.initialPage");
+  var realPage$ = dart.privateName(swiper, "VxSwiper.realPage");
+  var enableInfiniteScroll$ = dart.privateName(swiper, "VxSwiper.enableInfiniteScroll");
+  var reverse$ = dart.privateName(swiper, "VxSwiper.reverse");
+  var autoPlay$ = dart.privateName(swiper, "VxSwiper.autoPlay");
+  var autoPlayInterval$ = dart.privateName(swiper, "VxSwiper.autoPlayInterval");
+  var autoPlayAnimationDuration$ = dart.privateName(swiper, "VxSwiper.autoPlayAnimationDuration");
+  var autoPlayCurve$ = dart.privateName(swiper, "VxSwiper.autoPlayCurve");
+  var pauseAutoPlayOnTouch$ = dart.privateName(swiper, "VxSwiper.pauseAutoPlayOnTouch");
+  var enlargeCenterPage$ = dart.privateName(swiper, "VxSwiper.enlargeCenterPage");
+  var scrollDirection$ = dart.privateName(swiper, "VxSwiper.scrollDirection");
+  var onPageChanged$ = dart.privateName(swiper, "VxSwiper.onPageChanged");
+  var scrollPhysics$ = dart.privateName(swiper, "VxSwiper.scrollPhysics");
+  var pageController = dart.privateName(swiper, "VxSwiper.pageController");
+  var isFastScrollingEnabled$ = dart.privateName(swiper, "VxSwiper.isFastScrollingEnabled");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var _name = dart.privateName(basic_types, "_name");
+  swiper.VxSwiper = class VxSwiper extends framework.StatefulWidget {
+    get items() {
+      return this[items$];
     }
-    defaultStyleOf(context) {
-      let t0, t0$;
-      if (context == null) dart.nullFailed(I[0], 298, 43, "context");
-      let theme = theme$.Theme.of(context);
-      let colorScheme = theme.colorScheme;
-      let scaledPadding = button_style_button.ButtonStyleButton.scaledPadding(C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, (t0$ = (t0 = media_query.MediaQuery.maybeOf(context), t0 == null ? null : t0.textScaleFactor), t0$ == null ? 1.0 : t0$));
-      return elevated_button.ElevatedButton.styleFrom({primary: colorScheme.primary, onPrimary: colorScheme.onPrimary, onSurface: colorScheme.onSurface, shadowColor: theme.shadowColor, elevation: 2.0, textStyle: theme.textTheme.button, padding: scaledPadding, minimumSize: C[4] || CT.C4, side: null, shape: C[5] || CT.C5, enabledMouseCursor: mouse_cursor.SystemMouseCursors.click, disabledMouseCursor: mouse_cursor.SystemMouseCursors.forbidden, visualDensity: theme.visualDensity, tapTargetSize: theme.materialTapTargetSize, animationDuration: constants.kThemeChangeDuration, enableFeedback: true, alignment: alignment.Alignment.center, splashFactory: ink_ripple.InkRipple.splashFactory});
+    set items(value) {
+      super.items = value;
     }
-    themeStyleOf(context) {
-      if (context == null) dart.nullFailed(I[0], 334, 42, "context");
-      return elevated_button_theme.ElevatedButtonTheme.of(context).style;
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get itemCount() {
+      return this[itemCount$];
+    }
+    set itemCount(value) {
+      super.itemCount = value;
+    }
+    get height() {
+      return this[height$];
+    }
+    set height(value) {
+      super.height = value;
+    }
+    get aspectRatio() {
+      return this[aspectRatio$];
+    }
+    set aspectRatio(value) {
+      super.aspectRatio = value;
+    }
+    get viewportFraction() {
+      return this[viewportFraction$];
+    }
+    set viewportFraction(value) {
+      super.viewportFraction = value;
+    }
+    get initialPage() {
+      return this[initialPage$];
+    }
+    set initialPage(value) {
+      super.initialPage = value;
+    }
+    get realPage() {
+      return this[realPage$];
+    }
+    set realPage(value) {
+      super.realPage = value;
+    }
+    get enableInfiniteScroll() {
+      return this[enableInfiniteScroll$];
+    }
+    set enableInfiniteScroll(value) {
+      super.enableInfiniteScroll = value;
+    }
+    get reverse() {
+      return this[reverse$];
+    }
+    set reverse(value) {
+      super.reverse = value;
+    }
+    get autoPlay() {
+      return this[autoPlay$];
+    }
+    set autoPlay(value) {
+      super.autoPlay = value;
+    }
+    get autoPlayInterval() {
+      return this[autoPlayInterval$];
+    }
+    set autoPlayInterval(value) {
+      super.autoPlayInterval = value;
+    }
+    get autoPlayAnimationDuration() {
+      return this[autoPlayAnimationDuration$];
+    }
+    set autoPlayAnimationDuration(value) {
+      super.autoPlayAnimationDuration = value;
+    }
+    get autoPlayCurve() {
+      return this[autoPlayCurve$];
+    }
+    set autoPlayCurve(value) {
+      super.autoPlayCurve = value;
+    }
+    get pauseAutoPlayOnTouch() {
+      return this[pauseAutoPlayOnTouch$];
+    }
+    set pauseAutoPlayOnTouch(value) {
+      super.pauseAutoPlayOnTouch = value;
+    }
+    get enlargeCenterPage() {
+      return this[enlargeCenterPage$];
+    }
+    set enlargeCenterPage(value) {
+      super.enlargeCenterPage = value;
+    }
+    get scrollDirection() {
+      return this[scrollDirection$];
+    }
+    set scrollDirection(value) {
+      super.scrollDirection = value;
+    }
+    get onPageChanged() {
+      return this[onPageChanged$];
+    }
+    set onPageChanged(value) {
+      super.onPageChanged = value;
+    }
+    get scrollPhysics() {
+      return this[scrollPhysics$];
+    }
+    set scrollPhysics(value) {
+      super.scrollPhysics = value;
+    }
+    get pageController() {
+      return this[pageController];
+    }
+    set pageController(value) {
+      super.pageController = value;
+    }
+    get isFastScrollingEnabled() {
+      return this[isFastScrollingEnabled$];
+    }
+    set isFastScrollingEnabled(value) {
+      super.isFastScrollingEnabled = value;
+    }
+    nextPage(opts) {
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 188, 44, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 188, 69, "curve");
+      return this.pageController.nextPage({duration: duration, curve: curve});
+    }
+    previousPage(opts) {
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 197, 26, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 197, 51, "curve");
+      return this.pageController.previousPage({duration: duration, curve: curve});
+    }
+    jumpToPage(page) {
+      if (page == null) dart.nullFailed(I[0], 205, 23, "page");
+      let index = swiper._getRealIndex(dart.nullCheck(this.pageController.page)[$toInt](), dart.asInt(dart.notNull(this.realPage) - dart.notNull(this.initialPage)), this.itemCount);
+      return this.pageController.jumpToPage(dart.nullCheck(this.pageController.page)[$toInt]() + dart.notNull(page) - dart.notNull(index));
+    }
+    animateToPage(page, opts) {
+      if (page == null) dart.nullFailed(I[0], 216, 34, "page");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 217, 26, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 217, 51, "curve");
+      let index = swiper._getRealIndex(dart.nullCheck(this.pageController.page)[$toInt](), dart.asInt(dart.notNull(this.realPage) - dart.notNull(this.initialPage)), this.itemCount);
+      return this.pageController.animateToPage(dart.nullCheck(this.pageController.page)[$toInt]() + dart.notNull(page) - dart.notNull(index), {duration: duration, curve: curve});
+    }
+    createState() {
+      return new swiper._VxSwiperState.new();
     }
   };
-  (elevated_button.ElevatedButton.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let onLongPress = opts && 'onLongPress' in opts ? opts.onLongPress : null;
-    let style = opts && 'style' in opts ? opts.style : null;
-    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
-    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
-    if (autofocus == null) dart.nullFailed(I[0], 97, 10, "autofocus");
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[0] || CT.C0;
-    if (clipBehavior == null) dart.nullFailed(I[0], 98, 10, "clipBehavior");
-    let child = opts && 'child' in opts ? opts.child : null;
+  (swiper.VxSwiper.new = function(opts) {
+    let items = opts && 'items' in opts ? opts.items : null;
+    if (items == null) dart.nullFailed(I[0], 22, 35, "items");
+    let height = opts && 'height' in opts ? opts.height : null;
+    let aspectRatio = opts && 'aspectRatio' in opts ? opts.aspectRatio : 1.7777777777777777;
+    if (aspectRatio == null) dart.nullFailed(I[0], 24, 12, "aspectRatio");
+    let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : 0.8;
+    if (viewportFraction == null) dart.nullFailed(I[0], 25, 12, "viewportFraction");
+    let initialPage = opts && 'initialPage' in opts ? opts.initialPage : 0;
+    if (initialPage == null) dart.nullFailed(I[0], 26, 12, "initialPage");
+    let realPage = opts && 'realPage' in opts ? opts.realPage : 10000;
+    if (realPage == null) dart.nullFailed(I[0], 27, 11, "realPage");
+    let enableInfiniteScroll = opts && 'enableInfiniteScroll' in opts ? opts.enableInfiniteScroll : true;
+    if (enableInfiniteScroll == null) dart.nullFailed(I[0], 28, 12, "enableInfiniteScroll");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 29, 12, "reverse");
+    let autoPlay = opts && 'autoPlay' in opts ? opts.autoPlay : false;
+    if (autoPlay == null) dart.nullFailed(I[0], 30, 12, "autoPlay");
+    let autoPlayInterval = opts && 'autoPlayInterval' in opts ? opts.autoPlayInterval : C[0] || CT.C0;
+    if (autoPlayInterval == null) dart.nullFailed(I[0], 31, 12, "autoPlayInterval");
+    let autoPlayAnimationDuration = opts && 'autoPlayAnimationDuration' in opts ? opts.autoPlayAnimationDuration : C[1] || CT.C1;
+    if (autoPlayAnimationDuration == null) dart.nullFailed(I[0], 32, 12, "autoPlayAnimationDuration");
+    let autoPlayCurve = opts && 'autoPlayCurve' in opts ? opts.autoPlayCurve : C[2] || CT.C2;
+    if (autoPlayCurve == null) dart.nullFailed(I[0], 33, 12, "autoPlayCurve");
+    let pauseAutoPlayOnTouch = opts && 'pauseAutoPlayOnTouch' in opts ? opts.pauseAutoPlayOnTouch : null;
+    let enlargeCenterPage = opts && 'enlargeCenterPage' in opts ? opts.enlargeCenterPage : false;
+    let onPageChanged = opts && 'onPageChanged' in opts ? opts.onPageChanged : null;
+    let scrollPhysics = opts && 'scrollPhysics' in opts ? opts.scrollPhysics : null;
+    let isFastScrollingEnabled = opts && 'isFastScrollingEnabled' in opts ? opts.isFastScrollingEnabled : false;
+    if (isFastScrollingEnabled == null) dart.nullFailed(I[0], 38, 12, "isFastScrollingEnabled");
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 39, 12, "scrollDirection");
     let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    elevated_button.ElevatedButton.__proto__.new.call(this, {key: key, onPressed: onPressed, onLongPress: onLongPress, style: style, focusNode: focusNode, autofocus: autofocus, clipBehavior: clipBehavior, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    this[items$] = items;
+    this[height$] = height;
+    this[aspectRatio$] = aspectRatio;
+    this[viewportFraction$] = viewportFraction;
+    this[initialPage$] = initialPage;
+    this[enableInfiniteScroll$] = enableInfiniteScroll;
+    this[reverse$] = reverse;
+    this[autoPlay$] = autoPlay;
+    this[autoPlayInterval$] = autoPlayInterval;
+    this[autoPlayAnimationDuration$] = autoPlayAnimationDuration;
+    this[autoPlayCurve$] = autoPlayCurve;
+    this[pauseAutoPlayOnTouch$] = pauseAutoPlayOnTouch;
+    this[enlargeCenterPage$] = enlargeCenterPage;
+    this[onPageChanged$] = onPageChanged;
+    this[scrollPhysics$] = scrollPhysics;
+    this[isFastScrollingEnabled$] = isFastScrollingEnabled;
+    this[scrollDirection$] = scrollDirection;
+    this[realPage$] = dart.test(enableInfiniteScroll) ? dart.notNull(realPage) + dart.notNull(initialPage) : initialPage;
+    this[itemCount$] = items[$length];
+    this[itemBuilder$] = null;
+    this[pageController] = new page_view.PageController.new({viewportFraction: viewportFraction, initialPage: dart.test(enableInfiniteScroll) ? dart.notNull(realPage) + dart.notNull(dart.asInt(initialPage)) : dart.asInt(initialPage)});
+    swiper.VxSwiper.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = elevated_button.ElevatedButton.prototype;
-  dart.addTypeTests(elevated_button.ElevatedButton);
-  dart.addTypeCaches(elevated_button.ElevatedButton);
-  dart.setMethodSignature(elevated_button.ElevatedButton, () => ({
-    __proto__: dart.getMethods(elevated_button.ElevatedButton.__proto__),
-    defaultStyleOf: dart.fnType(button_style.ButtonStyle, [framework.BuildContext]),
-    themeStyleOf: dart.fnType(dart.nullable(button_style.ButtonStyle), [framework.BuildContext])
-  }));
-  dart.setLibraryUri(elevated_button.ElevatedButton, I[1]);
-  const MaterialStateProperty_Diagnosticable$36 = class MaterialStateProperty_Diagnosticable extends material_state.MaterialStateProperty$(dart.nullable(ui.Color)) {};
-  (MaterialStateProperty_Diagnosticable$36.new = function() {
-  }).prototype = MaterialStateProperty_Diagnosticable$36.prototype;
-  dart.applyMixin(MaterialStateProperty_Diagnosticable$36, diagnostics.Diagnosticable);
-  elevated_button._ElevatedButtonDefaultBackground = class _ElevatedButtonDefaultBackground extends MaterialStateProperty_Diagnosticable$36 {
-    resolve(states) {
-      let t0;
-      if (states == null) dart.nullFailed(I[0], 347, 37, "states");
-      if (dart.test(states.contains(material_state.MaterialState.disabled))) {
-        t0 = this.onSurface;
-        return t0 == null ? null : t0.withOpacity(0.12);
-      }
-      return this.primary;
-    }
-  };
-  (elevated_button._ElevatedButtonDefaultBackground.new = function(primary, onSurface) {
-    this.primary = primary;
-    this.onSurface = onSurface;
+  }).prototype = swiper.VxSwiper.prototype;
+  (swiper.VxSwiper.builder = function(opts) {
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    if (itemCount == null) dart.nullFailed(I[0], 51, 22, "itemCount");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let height = opts && 'height' in opts ? opts.height : null;
+    let aspectRatio = opts && 'aspectRatio' in opts ? opts.aspectRatio : 1.7777777777777777;
+    if (aspectRatio == null) dart.nullFailed(I[0], 54, 12, "aspectRatio");
+    let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : 0.8;
+    if (viewportFraction == null) dart.nullFailed(I[0], 55, 12, "viewportFraction");
+    let initialPage = opts && 'initialPage' in opts ? opts.initialPage : 0;
+    if (initialPage == null) dart.nullFailed(I[0], 56, 12, "initialPage");
+    let realPage = opts && 'realPage' in opts ? opts.realPage : 10000;
+    if (realPage == null) dart.nullFailed(I[0], 57, 11, "realPage");
+    let enableInfiniteScroll = opts && 'enableInfiniteScroll' in opts ? opts.enableInfiniteScroll : true;
+    if (enableInfiniteScroll == null) dart.nullFailed(I[0], 58, 12, "enableInfiniteScroll");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 59, 12, "reverse");
+    let autoPlay = opts && 'autoPlay' in opts ? opts.autoPlay : false;
+    if (autoPlay == null) dart.nullFailed(I[0], 60, 12, "autoPlay");
+    let autoPlayInterval = opts && 'autoPlayInterval' in opts ? opts.autoPlayInterval : C[0] || CT.C0;
+    if (autoPlayInterval == null) dart.nullFailed(I[0], 61, 12, "autoPlayInterval");
+    let autoPlayAnimationDuration = opts && 'autoPlayAnimationDuration' in opts ? opts.autoPlayAnimationDuration : C[1] || CT.C1;
+    if (autoPlayAnimationDuration == null) dart.nullFailed(I[0], 62, 12, "autoPlayAnimationDuration");
+    let autoPlayCurve = opts && 'autoPlayCurve' in opts ? opts.autoPlayCurve : C[2] || CT.C2;
+    if (autoPlayCurve == null) dart.nullFailed(I[0], 63, 12, "autoPlayCurve");
+    let pauseAutoPlayOnTouch = opts && 'pauseAutoPlayOnTouch' in opts ? opts.pauseAutoPlayOnTouch : null;
+    let enlargeCenterPage = opts && 'enlargeCenterPage' in opts ? opts.enlargeCenterPage : false;
+    let onPageChanged = opts && 'onPageChanged' in opts ? opts.onPageChanged : null;
+    let scrollPhysics = opts && 'scrollPhysics' in opts ? opts.scrollPhysics : null;
+    let isFastScrollingEnabled = opts && 'isFastScrollingEnabled' in opts ? opts.isFastScrollingEnabled : false;
+    if (isFastScrollingEnabled == null) dart.nullFailed(I[0], 68, 12, "isFastScrollingEnabled");
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 69, 12, "scrollDirection");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[itemCount$] = itemCount;
+    this[itemBuilder$] = itemBuilder;
+    this[height$] = height;
+    this[aspectRatio$] = aspectRatio;
+    this[viewportFraction$] = viewportFraction;
+    this[initialPage$] = initialPage;
+    this[enableInfiniteScroll$] = enableInfiniteScroll;
+    this[reverse$] = reverse;
+    this[autoPlay$] = autoPlay;
+    this[autoPlayInterval$] = autoPlayInterval;
+    this[autoPlayAnimationDuration$] = autoPlayAnimationDuration;
+    this[autoPlayCurve$] = autoPlayCurve;
+    this[pauseAutoPlayOnTouch$] = pauseAutoPlayOnTouch;
+    this[enlargeCenterPage$] = enlargeCenterPage;
+    this[onPageChanged$] = onPageChanged;
+    this[scrollPhysics$] = scrollPhysics;
+    this[isFastScrollingEnabled$] = isFastScrollingEnabled;
+    this[scrollDirection$] = scrollDirection;
+    this[realPage$] = dart.test(enableInfiniteScroll) ? dart.notNull(realPage) + dart.notNull(initialPage) : initialPage;
+    this[items$] = null;
+    this[pageController] = new page_view.PageController.new({viewportFraction: viewportFraction, initialPage: dart.test(enableInfiniteScroll) ? dart.notNull(realPage) + dart.notNull(dart.asInt(initialPage)) : dart.asInt(initialPage)});
+    swiper.VxSwiper.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = elevated_button._ElevatedButtonDefaultBackground.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonDefaultBackground);
-  dart.addTypeCaches(elevated_button._ElevatedButtonDefaultBackground);
-  dart.setMethodSignature(elevated_button._ElevatedButtonDefaultBackground, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonDefaultBackground.__proto__),
-    resolve: dart.fnType(dart.nullable(ui.Color), [core.Set$(material_state.MaterialState)])
+  }).prototype = swiper.VxSwiper.prototype;
+  dart.addTypeTests(swiper.VxSwiper);
+  dart.addTypeCaches(swiper.VxSwiper);
+  dart.setMethodSignature(swiper.VxSwiper, () => ({
+    __proto__: dart.getMethods(swiper.VxSwiper.__proto__),
+    nextPage: dart.fnType(async.Future$(dart.void), [], {}, {curve: curves.Curve, duration: core.Duration}),
+    previousPage: dart.fnType(async.Future$(dart.void), [], {}, {curve: curves.Curve, duration: core.Duration}),
+    jumpToPage: dart.fnType(dart.void, [core.int]),
+    animateToPage: dart.fnType(async.Future$(dart.void), [core.int], {}, {curve: curves.Curve, duration: core.Duration}),
+    createState: dart.fnType(swiper._VxSwiperState, [])
   }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonDefaultBackground, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonDefaultBackground, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonDefaultBackground.__proto__),
-    primary: dart.finalFieldType(dart.nullable(ui.Color)),
-    onSurface: dart.finalFieldType(dart.nullable(ui.Color))
-  }));
-  const MaterialStateProperty_Diagnosticable$36$ = class MaterialStateProperty_Diagnosticable extends material_state.MaterialStateProperty$(dart.nullable(ui.Color)) {};
-  (MaterialStateProperty_Diagnosticable$36$.new = function() {
-  }).prototype = MaterialStateProperty_Diagnosticable$36$.prototype;
-  dart.applyMixin(MaterialStateProperty_Diagnosticable$36$, diagnostics.Diagnosticable);
-  elevated_button._ElevatedButtonDefaultForeground = class _ElevatedButtonDefaultForeground extends MaterialStateProperty_Diagnosticable$36$ {
-    resolve(states) {
-      let t0;
-      if (states == null) dart.nullFailed(I[0], 362, 37, "states");
-      if (dart.test(states.contains(material_state.MaterialState.disabled))) {
-        t0 = this.onSurface;
-        return t0 == null ? null : t0.withOpacity(0.38);
-      }
-      return this.onPrimary;
-    }
-  };
-  (elevated_button._ElevatedButtonDefaultForeground.new = function(onPrimary, onSurface) {
-    this.onPrimary = onPrimary;
-    this.onSurface = onSurface;
-    ;
-  }).prototype = elevated_button._ElevatedButtonDefaultForeground.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonDefaultForeground);
-  dart.addTypeCaches(elevated_button._ElevatedButtonDefaultForeground);
-  dart.setMethodSignature(elevated_button._ElevatedButtonDefaultForeground, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonDefaultForeground.__proto__),
-    resolve: dart.fnType(dart.nullable(ui.Color), [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonDefaultForeground, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonDefaultForeground, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonDefaultForeground.__proto__),
-    onPrimary: dart.finalFieldType(dart.nullable(ui.Color)),
-    onSurface: dart.finalFieldType(dart.nullable(ui.Color))
-  }));
-  const MaterialStateProperty_Diagnosticable$36$0 = class MaterialStateProperty_Diagnosticable extends material_state.MaterialStateProperty$(dart.nullable(ui.Color)) {};
-  (MaterialStateProperty_Diagnosticable$36$0.new = function() {
-  }).prototype = MaterialStateProperty_Diagnosticable$36$0.prototype;
-  dart.applyMixin(MaterialStateProperty_Diagnosticable$36$0, diagnostics.Diagnosticable);
-  elevated_button._ElevatedButtonDefaultOverlay = class _ElevatedButtonDefaultOverlay extends MaterialStateProperty_Diagnosticable$36$0 {
-    resolve(states) {
-      if (states == null) dart.nullFailed(I[0], 376, 37, "states");
-      if (dart.test(states.contains(material_state.MaterialState.hovered))) return this.onPrimary.withOpacity(0.08);
-      if (dart.test(states.contains(material_state.MaterialState.focused)) || dart.test(states.contains(material_state.MaterialState.pressed))) return this.onPrimary.withOpacity(0.24);
-      return null;
-    }
-  };
-  (elevated_button._ElevatedButtonDefaultOverlay.new = function(onPrimary) {
-    if (onPrimary == null) dart.nullFailed(I[0], 371, 38, "onPrimary");
-    this.onPrimary = onPrimary;
-    ;
-  }).prototype = elevated_button._ElevatedButtonDefaultOverlay.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonDefaultOverlay);
-  dart.addTypeCaches(elevated_button._ElevatedButtonDefaultOverlay);
-  dart.setMethodSignature(elevated_button._ElevatedButtonDefaultOverlay, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonDefaultOverlay.__proto__),
-    resolve: dart.fnType(dart.nullable(ui.Color), [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonDefaultOverlay, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonDefaultOverlay, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonDefaultOverlay.__proto__),
-    onPrimary: dart.finalFieldType(ui.Color)
-  }));
-  const MaterialStateProperty_Diagnosticable$36$1 = class MaterialStateProperty_Diagnosticable extends material_state.MaterialStateProperty$(core.double) {};
-  (MaterialStateProperty_Diagnosticable$36$1.new = function() {
-  }).prototype = MaterialStateProperty_Diagnosticable$36$1.prototype;
-  dart.applyMixin(MaterialStateProperty_Diagnosticable$36$1, diagnostics.Diagnosticable);
-  elevated_button._ElevatedButtonDefaultElevation = class _ElevatedButtonDefaultElevation extends MaterialStateProperty_Diagnosticable$36$1 {
-    resolve(states) {
-      if (states == null) dart.nullFailed(I[0], 392, 37, "states");
-      if (dart.test(states.contains(material_state.MaterialState.disabled))) return 0.0;
-      if (dart.test(states.contains(material_state.MaterialState.hovered))) return dart.notNull(this.elevation) + 2;
-      if (dart.test(states.contains(material_state.MaterialState.focused))) return dart.notNull(this.elevation) + 2;
-      if (dart.test(states.contains(material_state.MaterialState.pressed))) return dart.notNull(this.elevation) + 6;
-      return this.elevation;
-    }
-  };
-  (elevated_button._ElevatedButtonDefaultElevation.new = function(elevation) {
-    if (elevation == null) dart.nullFailed(I[0], 387, 40, "elevation");
-    this.elevation = elevation;
-    ;
-  }).prototype = elevated_button._ElevatedButtonDefaultElevation.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonDefaultElevation);
-  dart.addTypeCaches(elevated_button._ElevatedButtonDefaultElevation);
-  dart.setMethodSignature(elevated_button._ElevatedButtonDefaultElevation, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonDefaultElevation.__proto__),
-    resolve: dart.fnType(core.double, [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonDefaultElevation, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonDefaultElevation, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonDefaultElevation.__proto__),
-    elevation: dart.finalFieldType(core.double)
-  }));
-  const MaterialStateProperty_Diagnosticable$36$2 = class MaterialStateProperty_Diagnosticable extends material_state.MaterialStateProperty$(dart.nullable(mouse_cursor.MouseCursor)) {};
-  (MaterialStateProperty_Diagnosticable$36$2.new = function() {
-  }).prototype = MaterialStateProperty_Diagnosticable$36$2.prototype;
-  dart.applyMixin(MaterialStateProperty_Diagnosticable$36$2, diagnostics.Diagnosticable);
-  elevated_button._ElevatedButtonDefaultMouseCursor = class _ElevatedButtonDefaultMouseCursor extends MaterialStateProperty_Diagnosticable$36$2 {
-    resolve(states) {
-      if (states == null) dart.nullFailed(I[0], 413, 43, "states");
-      if (dart.test(states.contains(material_state.MaterialState.disabled))) return this.disabledCursor;
-      return this.enabledCursor;
-    }
-  };
-  (elevated_button._ElevatedButtonDefaultMouseCursor.new = function(enabledCursor, disabledCursor) {
-    this.enabledCursor = enabledCursor;
-    this.disabledCursor = disabledCursor;
-    ;
-  }).prototype = elevated_button._ElevatedButtonDefaultMouseCursor.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonDefaultMouseCursor);
-  dart.addTypeCaches(elevated_button._ElevatedButtonDefaultMouseCursor);
-  dart.setMethodSignature(elevated_button._ElevatedButtonDefaultMouseCursor, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonDefaultMouseCursor.__proto__),
-    resolve: dart.fnType(dart.nullable(mouse_cursor.MouseCursor), [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonDefaultMouseCursor, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonDefaultMouseCursor, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonDefaultMouseCursor.__proto__),
-    enabledCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
-    disabledCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor))
+  dart.setLibraryUri(swiper.VxSwiper, I[1]);
+  dart.setFieldSignature(swiper.VxSwiper, () => ({
+    __proto__: dart.getFields(swiper.VxSwiper.__proto__),
+    items: dart.finalFieldType(dart.nullable(core.List$(framework.Widget))),
+    itemBuilder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))),
+    itemCount: dart.finalFieldType(core.int),
+    height: dart.finalFieldType(dart.nullable(core.double)),
+    aspectRatio: dart.finalFieldType(core.double),
+    viewportFraction: dart.finalFieldType(core.num),
+    initialPage: dart.finalFieldType(core.num),
+    realPage: dart.finalFieldType(core.num),
+    enableInfiniteScroll: dart.finalFieldType(core.bool),
+    reverse: dart.finalFieldType(core.bool),
+    autoPlay: dart.finalFieldType(core.bool),
+    autoPlayInterval: dart.finalFieldType(core.Duration),
+    autoPlayAnimationDuration: dart.finalFieldType(core.Duration),
+    autoPlayCurve: dart.finalFieldType(curves.Curve),
+    pauseAutoPlayOnTouch: dart.finalFieldType(dart.nullable(core.Duration)),
+    enlargeCenterPage: dart.finalFieldType(dart.nullable(core.bool)),
+    scrollDirection: dart.finalFieldType(basic_types.Axis),
+    onPageChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.dynamic, [core.int]))),
+    scrollPhysics: dart.finalFieldType(dart.nullable(scroll_physics.ScrollPhysics)),
+    pageController: dart.finalFieldType(page_view.PageController),
+    isFastScrollingEnabled: dart.finalFieldType(core.bool)
   }));
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var EdgeInsetsDirectional_bottom = dart.privateName(edge_insets, "EdgeInsetsDirectional.bottom");
-  var EdgeInsetsDirectional_end = dart.privateName(edge_insets, "EdgeInsetsDirectional.end");
-  var EdgeInsetsDirectional_top = dart.privateName(edge_insets, "EdgeInsetsDirectional.top");
-  var EdgeInsetsDirectional_start = dart.privateName(edge_insets, "EdgeInsetsDirectional.start");
-  elevated_button._ElevatedButtonWithIcon = class _ElevatedButtonWithIcon extends elevated_button.ElevatedButton {
-    defaultStyleOf(context) {
-      let t0, t0$;
-      if (context == null) dart.nullFailed(I[0], 445, 43, "context");
-      let scaledPadding = button_style_button.ButtonStyleButton.scaledPadding(C[15] || CT.C15, C[2] || CT.C2, C[16] || CT.C16, (t0$ = (t0 = media_query.MediaQuery.maybeOf(context), t0 == null ? null : t0.textScaleFactor), t0$ == null ? 1.0 : t0$));
-      return super.defaultStyleOf(context).copyWith({padding: material_state.MaterialStateProperty.all(edge_insets.EdgeInsetsGeometry, scaledPadding)});
+  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(swiper.VxSwiper) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(swiper.VxSwiper)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(swiper.VxSwiper));
+  swiper._VxSwiperState = class _VxSwiperState extends State_TickerProviderStateMixin$36 {
+    initState() {
+      super.initState();
+      this.timer = this.getTimer();
     }
-  };
-  (elevated_button._ElevatedButtonWithIcon.new = function(opts) {
-    let t0, t0$;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let onLongPress = opts && 'onLongPress' in opts ? opts.onLongPress : null;
-    let style = opts && 'style' in opts ? opts.style : null;
-    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
-    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : null;
-    let icon = opts && 'icon' in opts ? opts.icon : null;
-    if (icon == null) dart.nullFailed(I[0], 429, 21, "icon");
-    let label = opts && 'label' in opts ? opts.label : null;
-    if (label == null) dart.nullFailed(I[0], 430, 21, "label");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    if (!(icon != null)) dart.assertFailed(null, I[0], 431, 15, "icon != null");
-    if (!(label != null)) dart.assertFailed(null, I[0], 432, 15, "label != null");
-    elevated_button._ElevatedButtonWithIcon.__proto__.new.call(this, {key: key, onPressed: onPressed, onLongPress: onLongPress, style: style, focusNode: focusNode, autofocus: (t0 = autofocus, t0 == null ? false : t0), clipBehavior: (t0$ = clipBehavior, t0$ == null ? ui.Clip.none : t0$), child: new elevated_button._ElevatedButtonWithIconChild.new({icon: icon, label: label, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = elevated_button._ElevatedButtonWithIcon.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonWithIcon);
-  dart.addTypeCaches(elevated_button._ElevatedButtonWithIcon);
-  dart.setLibraryUri(elevated_button._ElevatedButtonWithIcon, I[1]);
-  var label$ = dart.privateName(elevated_button, "_ElevatedButtonWithIconChild.label");
-  var icon$ = dart.privateName(elevated_button, "_ElevatedButtonWithIconChild.icon");
-  elevated_button._ElevatedButtonWithIconChild = class _ElevatedButtonWithIconChild extends framework.StatelessWidget {
-    get label() {
-      return this[label$];
+    getTimer() {
+      return dart.test(this.widget.autoPlay) ? async.Timer.periodic(this.widget.autoPlayInterval, dart.fn(_ => {
+        if (_ == null) dart.nullFailed(I[0], 241, 52, "_");
+        this.widget.pageController.nextPage({duration: this.widget.autoPlayAnimationDuration, curve: this.widget.autoPlayCurve});
+      }, T.TimerTovoid())) : null;
     }
-    set label(value) {
-      super.label = value;
+    pauseOnTouch() {
+      dart.nullCheck(this.timer).cancel();
+      this.timer = async.Timer.new(dart.nullCheck(this.widget.pauseAutoPlayOnTouch), dart.fn(() => {
+        this.timer = this.getTimer();
+      }, T.VoidTovoid()));
     }
-    get icon() {
-      return this[icon$];
+    fastScrollWidget(child) {
+      if (child == null) dart.nullFailed(I[0], 256, 34, "child");
+      let t = null;
+      let p = null;
+      let p$35isSet = false;
+      function p$35get() {
+        return p$35isSet ? p : dart.throw(new _internal.LateError.localNI("p"));
+      }
+      dart.fn(p$35get, T.VoidTodouble());
+      function p$35set(t3) {
+        if (t3 == null) dart.nullFailed(I[0], 258, 17, "null");
+        p$35isSet = true;
+        return p = t3;
+      }
+      dart.fn(p$35set, T.doubleTodynamic());
+      return new basic.Listener.new({onPointerMove: dart.fn(pos => {
+          if (pos == null) dart.nullFailed(I[0], 260, 25, "pos");
+          if (t == null || dart.notNull(new core.DateTime.now().millisecondsSinceEpoch) - dart.nullCheck(t) > 100) {
+            t = new core.DateTime.now().millisecondsSinceEpoch;
+            p$35set(pos.position.dx);
+          } else {
+            let v = (dart.notNull(p$35get()) - dart.notNull(pos.position.dx)) / (dart.notNull(new core.DateTime.now().millisecondsSinceEpoch) - dart.nullCheck(t));
+            if (v < -2 || v > 2) {
+              let vx = (v * 1.2)[$isFinite] ? (v * 1.2)[$round]() : 0;
+              this.widget.pageController.animateToPage(dart.nullCheck(this.widget.pageController.page)[$toInt]() + vx, {duration: C[4] || CT.C4, curve: curves.Curves.easeOutCubic});
+            }
+          }
+        }, T.PointerMoveEventTovoid()), child: child, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
     }
-    set icon(value) {
-      super.icon = value;
+    getWrapper(child) {
+      if (child == null) dart.nullFailed(I[0], 284, 28, "child");
+      if (this.widget.height != null) {
+        let wrapper = new container.Container.new({height: this.widget.height, child: child, $creationLocationd_0dea112b090073317d4: C[9] || CT.C9});
+        return dart.test(this.widget.autoPlay) && this.widget.pauseAutoPlayOnTouch != null ? this.addGestureDetection(wrapper) : dart.test(this.widget.isFastScrollingEnabled) ? this.fastScrollWidget(wrapper) : wrapper;
+      } else {
+        let wrapper = new basic.AspectRatio.new({aspectRatio: this.widget.aspectRatio, child: child, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+        return dart.test(this.widget.autoPlay) && this.widget.pauseAutoPlayOnTouch != null ? this.addGestureDetection(wrapper) : dart.test(this.widget.isFastScrollingEnabled) ? this.fastScrollWidget(wrapper) : wrapper;
+      }
+    }
+    addGestureDetection(child) {
+      if (child == null) dart.nullFailed(I[0], 303, 37, "child");
+      return new gesture_detector.GestureDetector.new({onPanDown: dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[0], 304, 35, "_");
+          return this.pauseOnTouch();
+        }, T.DragDownDetailsTovoid()), child: child, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+    }
+    dispose() {
+      let t5;
+      super.dispose();
+      t5 = this.timer;
+      t5 == null ? null : t5.cancel();
     }
     build(context) {
-      let t0, t0$;
-      if (context == null) dart.nullFailed(I[0], 465, 29, "context");
-      let scale = (t0$ = (t0 = media_query.MediaQuery.maybeOf(context), t0 == null ? null : t0.textScaleFactor), t0$ == null ? 1.0 : t0$);
-      let gap = dart.notNull(scale) <= 1 ? 8.0 : dart.nullCheck(ui.lerpDouble(8, 4, math.min(core.double, dart.notNull(scale) - 1, 1.0)));
-      return new basic.Row.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([this.icon, new basic.SizedBox.new({width: gap, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), this.label]), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20});
+      if (context == null) dart.nullFailed(I[0], 313, 29, "context");
+      return this.getWrapper(new page_view.PageView.builder({physics: dart.test(this.widget.isFastScrollingEnabled) ? C[21] || CT.C21 : this.widget.scrollPhysics, scrollDirection: this.widget.scrollDirection, controller: this.widget.pageController, reverse: this.widget.reverse, itemCount: dart.test(this.widget.enableInfiniteScroll) ? null : this.widget.itemCount, onPageChanged: dart.fn(index => {
+          if (index == null) dart.nullFailed(I[0], 322, 27, "index");
+          let currentPage = swiper._getRealIndex(dart.notNull(index) + dart.notNull(dart.asInt(this.widget.initialPage)), dart.asInt(this.widget.realPage), this.widget.itemCount);
+          if (this.widget.onPageChanged != null) {
+            dart.nullCheck(this.widget.onPageChanged)(currentPage);
+          }
+        }, T.intTovoid()), itemBuilder: dart.fn((context, i) => {
+          if (context == null) dart.nullFailed(I[0], 331, 34, "context");
+          if (i == null) dart.nullFailed(I[0], 331, 47, "i");
+          let index = swiper._getRealIndex(dart.notNull(i) + dart.notNull(dart.asInt(this.widget.initialPage)), dart.asInt(this.widget.realPage), this.widget.itemCount);
+          return new transitions.AnimatedBuilder.new({animation: this.widget.pageController, child: this.widget.items != null ? dart.nullCheck(this.widget.items)[$_get](index) : dart.nullCheck(this.widget.itemBuilder)(context, index), builder: dart.fn((context, child) => {
+              let t6, t6$;
+              if (context == null) dart.nullFailed(I[0], 340, 34, "context");
+              let distortionValue = 1.0;
+              if (this.widget.enlargeCenterPage != null && this.widget.enlargeCenterPage === true) {
+                let itemOffset = null;
+                try {
+                  itemOffset = dart.nullCheck(this.widget.pageController.page) - dart.notNull(i);
+                } catch (e$) {
+                  let e = dart.getThrown(e$);
+                  if (core.Object.is(e)) {
+                    let storageContext = this.widget.pageController.position.context.storageContext;
+                    let previousSavedPosition = T.doubleN().as((t6 = page_storage.PageStorage.of(storageContext), t6 == null ? null : t6.readState(storageContext)));
+                    if (previousSavedPosition != null) {
+                      itemOffset = dart.notNull(previousSavedPosition) - i[$toDouble]();
+                    } else {
+                      itemOffset = this.widget.realPage[$toDouble]() - i[$toDouble]();
+                    }
+                  } else
+                    throw e$;
+                }
+                let distortionRatio = (1 - itemOffset[$abs]() * 0.3)[$clamp](0.0, 1.0);
+                distortionValue = curves.Curves.easeOut.transform(distortionRatio);
+              }
+              let height = (t6$ = this.widget.height, t6$ == null ? dart.notNull(media_query.MediaQuery.of(context).size.width) * (1 / dart.notNull(this.widget.aspectRatio)) : t6$);
+              if (this.widget.scrollDirection == basic_types.Axis.horizontal) {
+                return new basic.Center.new({child: new basic.SizedBox.new({height: dart.notNull(distortionValue) * dart.notNull(height), child: child, $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+              } else {
+                return new basic.Center.new({child: new basic.SizedBox.new({width: dart.notNull(distortionValue) * dart.notNull(media_query.MediaQuery.of(context).size.width), child: child, $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33});
+              }
+            }, T.BuildContextAndWidgetNToCenter()), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36});
+        }, T.BuildContextAndintToAnimatedBuilder()), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}));
     }
   };
-  (elevated_button._ElevatedButtonWithIconChild.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let label = opts && 'label' in opts ? opts.label : null;
-    if (label == null) dart.nullFailed(I[0], 459, 64, "label");
-    let icon = opts && 'icon' in opts ? opts.icon : null;
-    if (icon == null) dart.nullFailed(I[0], 459, 85, "icon");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[label$] = label;
-    this[icon$] = icon;
-    elevated_button._ElevatedButtonWithIconChild.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (swiper._VxSwiperState.new = function() {
+    this.timer = null;
+    swiper._VxSwiperState.__proto__.new.call(this);
     ;
-  }).prototype = elevated_button._ElevatedButtonWithIconChild.prototype;
-  dart.addTypeTests(elevated_button._ElevatedButtonWithIconChild);
-  dart.addTypeCaches(elevated_button._ElevatedButtonWithIconChild);
-  dart.setMethodSignature(elevated_button._ElevatedButtonWithIconChild, () => ({
-    __proto__: dart.getMethods(elevated_button._ElevatedButtonWithIconChild.__proto__),
+  }).prototype = swiper._VxSwiperState.prototype;
+  dart.addTypeTests(swiper._VxSwiperState);
+  dart.addTypeCaches(swiper._VxSwiperState);
+  dart.setMethodSignature(swiper._VxSwiperState, () => ({
+    __proto__: dart.getMethods(swiper._VxSwiperState.__proto__),
+    getTimer: dart.fnType(dart.nullable(async.Timer), []),
+    pauseOnTouch: dart.fnType(dart.void, []),
+    fastScrollWidget: dart.fnType(framework.Widget, [framework.Widget]),
+    getWrapper: dart.fnType(framework.Widget, [framework.Widget]),
+    addGestureDetection: dart.fnType(framework.Widget, [framework.Widget]),
     build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(elevated_button._ElevatedButtonWithIconChild, I[1]);
-  dart.setFieldSignature(elevated_button._ElevatedButtonWithIconChild, () => ({
-    __proto__: dart.getFields(elevated_button._ElevatedButtonWithIconChild.__proto__),
-    label: dart.finalFieldType(framework.Widget),
-    icon: dart.finalFieldType(framework.Widget)
+  dart.setLibraryUri(swiper._VxSwiperState, I[1]);
+  dart.setFieldSignature(swiper._VxSwiperState, () => ({
+    __proto__: dart.getFields(swiper._VxSwiperState.__proto__),
+    timer: dart.fieldType(dart.nullable(async.Timer))
   }));
-  dart.trackLibraries("packages/flutter/src/material/elevated_button.dart", {
-    "package:flutter/src/material/elevated_button.dart": elevated_button
+  swiper._getRealIndex = function _getRealIndex(position, base, length) {
+    if (position == null) dart.nullFailed(I[0], 399, 23, "position");
+    if (base == null) dart.nullFailed(I[0], 399, 37, "base");
+    if (length == null) dart.nullFailed(I[0], 399, 47, "length");
+    let offset = dart.notNull(position) - dart.notNull(base);
+    return swiper._remainder(offset, length);
+  };
+  swiper._remainder = function _remainder(input, source) {
+    if (input == null) dart.nullFailed(I[0], 406, 20, "input");
+    if (source == null) dart.nullFailed(I[0], 406, 31, "source");
+    if (source === 0) {
+      return 0;
+    }
+    let result = input[$modulo](source);
+    return result < 0 ? dart.notNull(source) + result : result;
+  };
+  dart.trackLibraries("packages/velocity_x/src/flutter/swiper.dart", {
+    "package:velocity_x/src/flutter/swiper.dart": swiper
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["elevated_button.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/material/elevated_button.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["swiper.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/swiper.dart.lib.js"}');
   // Exports:
   return {
-    src__material__elevated_button: elevated_button
+    src__flutter__swiper: swiper
   };
 }));
 
-//# sourceMappingURL=elevated_button.dart.lib.js.map
+//# sourceMappingURL=swiper.dart.lib.js.map

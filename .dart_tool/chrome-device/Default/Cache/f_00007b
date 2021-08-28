@@ -1,283 +1,284 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/will_pop_scope.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/rendering/custom_layout.dart'], (function load__packages__velocity_x__src__flutter__popup_menu_dart(dart_sdk, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__will_pop_scope$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__rendering__custom_layout$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/velocity_x/src/flutter/timeline/timeline_painter.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/velocity_x/src/dart/timeline.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__velocity_x__src__flutter__timeline__timeline_view_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__velocity_x__src__flutter__timeline__timeline_painter$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__icon_button$46dart, packages__velocity_x__src__dart__timeline$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
   const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const overlay = packages__flutter__src__widgets__widget_span$46dart.src__widgets__overlay;
-  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
-  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const timeline_painter = packages__velocity_x__src__flutter__timeline__timeline_painter$46dart.src__flutter__timeline__timeline_painter;
   const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
   const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
-  const custom_layout = packages__flutter__src__rendering__custom_layout$46dart.src__rendering__custom_layout;
-  var popup_menu = Object.create(dart.library);
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const timeline = packages__velocity_x__src__dart__timeline$46dart.src__dart__timeline;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var timeline_view = Object.create(dart.library);
+  var $substring = dartx.substring;
   var $add = dartx.add;
-  var $indexOf = dartx.indexOf;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    VxClickTypeL: () => (T.VxClickTypeL = dart.constFn(dart.legacy(popup_menu.VxClickType)))(),
     _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    BuildContextToStack: () => (T.BuildContextToStack = dart.constFn(dart.fnType(basic.Stack, [framework.BuildContext])))(),
-    RenderBoxN: () => (T.RenderBoxN = dart.constFn(dart.nullable(box.RenderBox)))(),
-    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))(),
-    FutureOfbool: () => (T.FutureOfbool = dart.constFn(async.Future$(core.bool)))(),
-    VoidToFutureOfbool: () => (T.VoidToFutureOfbool = dart.constFn(dart.fnType(T.FutureOfbool(), [])))(),
-    _MenuLayoutIdL: () => (T._MenuLayoutIdL = dart.constFn(dart.legacy(popup_menu._MenuLayoutId)))(),
-    _MenuPositionL: () => (T._MenuPositionL = dart.constFn(dart.legacy(popup_menu._MenuPosition)))(),
-    CustomClipperOfPath: () => (T.CustomClipperOfPath = dart.constFn(proxy_box.CustomClipper$(ui.Path)))()
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: popup_menu.VxClickType.prototype,
-        [_name$]: "VxClickType.longClick",
-        index: 0
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 49,
+        [_Location_file]: null
       });
     },
     get C1() {
-      return C[1] = dart.const({
-        __proto__: popup_menu.VxClickType.prototype,
-        [_name$]: "VxClickType.singleClick",
-        index: 1
-      });
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
     },
-    get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.VxClickTypeL());
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283190348.0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 520093696
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
+    get C0() {
+      return C[0] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 9,
-        [_Location_line]: 95,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 9,
-        [_Location_line]: 96,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 9,
-        [_Location_line]: 97,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
     },
     get C5() {
       return C[5] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[6] || CT.C6,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 94,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 47,
+        [_Location_file]: null
       });
     },
-    get C12() {
-      return C[12] = dart.const({
+    get C6() {
+      return C[6] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 7,
-        [_Location_line]: 94,
+        [_Location_line]: 48,
         [_Location_file]: null
       });
     },
-    get C13() {
-      return C[13] = dart.const({
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipper",
-        [_Location_column]: 7,
-        [_Location_line]: 99,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
     },
-    get C11() {
-      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 0
+      });
     },
     get C10() {
       return C[10] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[11] || CT.C11,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 93,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
+        [_Location_name]: "data",
         [_Location_column]: 17,
-        [_Location_line]: 110,
+        [_Location_line]: 68,
         [_Location_file]: null
       });
     },
-    get C15() {
-      return C[15] = dart.constList([C[16] || CT.C16], T._LocationL());
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
     },
     get C14() {
       return C[14] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 11,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
         [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 109,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 9,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 17,
+        [_Location_line]: 79,
+        [_Location_file]: null
       });
     },
     get C19() {
       return C[19] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 15,
-        [_Location_line]: 108,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 82,
         [_Location_file]: null
       });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22], T._LocationL());
     },
     get C20() {
       return C[20] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 109,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_parameterLocations]: C[21] || CT.C21,
         [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 107,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 9,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
     },
-    get C23() {
-      return C[23] = dart.const({
+    get C25() {
+      return C[25] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 25,
-        [_Location_line]: 131,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 7,
+        [_Location_line]: 61,
         [_Location_file]: null
       });
     },
-    get C24() {
-      return C[24] = dart.const({
+    get C26() {
+      return C[26] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 25,
-        [_Location_line]: 132,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 7,
+        [_Location_line]: 62,
         [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24], T._LocationL());
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
-        [_Location_name]: null,
-        [_Location_column]: 23,
-        [_Location_line]: 130,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
       });
     },
     get C27() {
       return C[27] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 27,
-        [_Location_line]: 138,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 63,
         [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
     },
     get C28() {
       return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 27,
-        [_Location_line]: 139,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[26] || CT.C26,
-        [_Location_name]: null,
-        [_Location_column]: 42,
-        [_Location_line]: 137,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 12,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 12
       });
     },
     get C31() {
       return C[31] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 25,
-        [_Location_line]: 136,
+        [_Location_name]: "builder",
+        [_Location_column]: 15,
+        [_Location_line]: 101,
         [_Location_file]: null
       });
     },
@@ -285,9 +286,9 @@ define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'pac
       return C[32] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 25,
-        [_Location_line]: 137,
+        [_Location_name]: "animation",
+        [_Location_column]: 15,
+        [_Location_line]: 102,
         [_Location_file]: null
       });
     },
@@ -299,9 +300,9 @@ define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'pac
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[30] || CT.C30,
         [_Location_name]: null,
-        [_Location_column]: 23,
-        [_Location_line]: 135,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 13,
+        [_Location_line]: 100,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
     },
     get C35() {
@@ -309,107 +310,107 @@ define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'pac
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 29,
-        [_Location_line]: 148,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 29,
-        [_Location_line]: 149,
+        [_Location_column]: 15,
+        [_Location_line]: 105,
         [_Location_file]: null
       });
     },
     get C34() {
-      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], T._LocationL());
+      return C[34] = dart.constList([C[35] || CT.C35], T._LocationL());
     },
     get C33() {
       return C[33] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[34] || CT.C34,
         [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 147,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 13,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 25,
+        [_Location_line]: 112,
+        [_Location_file]: null
       });
     },
     get C39() {
       return C[39] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 25,
-        [_Location_line]: 145,
+        [_Location_name]: "color",
+        [_Location_column]: 19,
+        [_Location_line]: 113,
         [_Location_file]: null
       });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 25,
-        [_Location_line]: 146,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], T._LocationL());
     },
     get C37() {
-      return C[37] = dart.const({
+      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_parameterLocations]: C[37] || CT.C37,
         [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 144,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 17,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 11,
+        [_Location_line]: 98,
+        [_Location_file]: null
       });
     },
     get C43() {
       return C[43] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 23,
-        [_Location_line]: 143,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 99,
         [_Location_file]: null
       });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 23,
-        [_Location_line]: 144,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], T._LocationL());
     },
     get C41() {
-      return C[41] = dart.const({
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
+    },
+    get C40() {
+      return C[40] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_parameterLocations]: C[41] || CT.C41,
         [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 142,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
+        [_Location_column]: 14,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 94,
+        [_Location_file]: null
       });
     },
     get C47() {
       return C[47] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 19,
-        [_Location_line]: 121,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 95,
         [_Location_file]: null
       });
     },
@@ -417,412 +418,93 @@ define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'pac
       return C[48] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 19,
-        [_Location_line]: 128,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 96,
         [_Location_file]: null
       });
-    },
-    get C46() {
-      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48], T._LocationL());
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[46] || CT.C46,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 120,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "constraints",
-        [_Location_column]: 17,
-        [_Location_line]: 115,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 120,
-        [_Location_file]: null
-      });
-    },
-    get C50() {
-      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52], T._LocationL());
     },
     get C49() {
       return C[49] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[50] || CT.C50,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 114,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C54() {
-      return C[54] = dart.constList([C[55] || CT.C55], T._LocationL());
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[54] || CT.C54,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 113,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 11,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 106,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], T._LocationL());
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[57] || CT.C57,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 104,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "behavior",
-        [_Location_column]: 9,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onLongPress",
-        [_Location_column]: 9,
-        [_Location_line]: 215,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], T._LocationL());
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[61] || CT.C61,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 207,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 7,
-        [_Location_line]: 203,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 7,
-        [_Location_line]: 207,
+        [_Location_line]: 97,
         [_Location_file]: null
       });
     },
-    get C67() {
-      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69], T._LocationL());
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
     },
-    get C66() {
-      return C[66] = dart.const({
+    get C44() {
+      return C[44] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_parameterLocations]: C[45] || CT.C45,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 202,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart"
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: popup_menu._MenuLayoutId.prototype,
-        [_name$]: "_MenuLayoutId.arrow",
-        index: 0
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: popup_menu._MenuLayoutId.prototype,
-        [_name$]: "_MenuLayoutId.downArrow",
-        index: 1
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: popup_menu._MenuLayoutId.prototype,
-        [_name$]: "_MenuLayoutId.content",
-        index: 2
-      });
-    },
-    get C73() {
-      return C[73] = dart.constList([C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72], T._MenuLayoutIdL());
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.bottomLeft",
-        index: 0
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.bottomCenter",
-        index: 1
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.bottomRight",
-        index: 2
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.topLeft",
-        index: 3
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.topCenter",
-        index: 4
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: popup_menu._MenuPosition.prototype,
-        [_name$]: "_MenuPosition.topRight",
-        index: 5
-      });
-    },
-    get C80() {
-      return C[80] = dart.constList([C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79], T._MenuPositionL());
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: -100
+        [_Location_line]: 93,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
       });
     }
   }, false);
-  var C = Array(83).fill(void 0);
+  var C = Array(50).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/popup_menu.dart",
-    "package:velocity_x/src/flutter/popup_menu.dart"
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart",
+    "package:velocity_x/src/flutter/timeline/timeline_view.dart"
   ];
-  var _name$ = dart.privateName(popup_menu, "_name");
-  popup_menu.VxClickType = class VxClickType extends core.Object {
-    toString() {
-      return this[_name$];
+  var lineColor$ = dart.privateName(timeline_view, "VxTimelineView.lineColor");
+  var backgroundColor$ = dart.privateName(timeline_view, "VxTimelineView.backgroundColor");
+  var model$ = dart.privateName(timeline_view, "VxTimelineView.model");
+  var firstElement$ = dart.privateName(timeline_view, "VxTimelineView.firstElement");
+  var lastElement$ = dart.privateName(timeline_view, "VxTimelineView.lastElement");
+  var controller$ = dart.privateName(timeline_view, "VxTimelineView.controller");
+  var headingColor$ = dart.privateName(timeline_view, "VxTimelineView.headingColor");
+  var descriptionColor$ = dart.privateName(timeline_view, "VxTimelineView.descriptionColor");
+  var hideLauncher$ = dart.privateName(timeline_view, "VxTimelineView.hideLauncher");
+  var trailing$ = dart.privateName(timeline_view, "VxTimelineView.trailing");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _buildLine = dart.privateName(timeline_view, "_buildLine");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var _buildContentColumn = dart.privateName(timeline_view, "_buildContentColumn");
+  var _buildRow = dart.privateName(timeline_view, "_buildRow");
+  timeline_view.VxTimelineView = class VxTimelineView extends framework.StatelessWidget {
+    get lineColor() {
+      return this[lineColor$];
     }
-  };
-  (popup_menu.VxClickType.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 6, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 6, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = popup_menu.VxClickType.prototype;
-  dart.addTypeTests(popup_menu.VxClickType);
-  dart.addTypeCaches(popup_menu.VxClickType);
-  dart.setLibraryUri(popup_menu.VxClickType, I[1]);
-  dart.setFieldSignature(popup_menu.VxClickType, () => ({
-    __proto__: dart.getFields(popup_menu.VxClickType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(popup_menu.VxClickType, ['toString']);
-  popup_menu.VxClickType.longClick = C[0] || CT.C0;
-  popup_menu.VxClickType.singleClick = C[1] || CT.C1;
-  popup_menu.VxClickType.values = C[2] || CT.C2;
-  var menuIsShowing = dart.privateName(popup_menu, "VxPopupMenuController.menuIsShowing");
-  popup_menu.VxPopupMenuController = class VxPopupMenuController extends change_notifier.ChangeNotifier {
-    get menuIsShowing() {
-      return this[menuIsShowing];
+    set lineColor(value) {
+      super.lineColor = value;
     }
-    set menuIsShowing(value) {
-      this[menuIsShowing] = value;
+    get backgroundColor() {
+      return this[backgroundColor$];
     }
-    showMenu() {
-      this.menuIsShowing = true;
-      this.notifyListeners();
+    set backgroundColor(value) {
+      super.backgroundColor = value;
     }
-    hideMenu() {
-      this.menuIsShowing = false;
-      this.notifyListeners();
+    get model() {
+      return this[model$];
     }
-    toggleMenu() {
-      this.menuIsShowing = !dart.test(this.menuIsShowing);
-      this.notifyListeners();
+    set model(value) {
+      super.model = value;
     }
-  };
-  (popup_menu.VxPopupMenuController.new = function() {
-    this[menuIsShowing] = false;
-    popup_menu.VxPopupMenuController.__proto__.new.call(this);
-    ;
-  }).prototype = popup_menu.VxPopupMenuController.prototype;
-  dart.addTypeTests(popup_menu.VxPopupMenuController);
-  dart.addTypeCaches(popup_menu.VxPopupMenuController);
-  dart.setMethodSignature(popup_menu.VxPopupMenuController, () => ({
-    __proto__: dart.getMethods(popup_menu.VxPopupMenuController.__proto__),
-    showMenu: dart.fnType(dart.void, []),
-    hideMenu: dart.fnType(dart.void, []),
-    toggleMenu: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(popup_menu.VxPopupMenuController, I[1]);
-  dart.setFieldSignature(popup_menu.VxPopupMenuController, () => ({
-    __proto__: dart.getFields(popup_menu.VxPopupMenuController.__proto__),
-    menuIsShowing: dart.fieldType(core.bool)
-  }));
-  var child$ = dart.privateName(popup_menu, "VxPopupMenu.child");
-  var clickType$ = dart.privateName(popup_menu, "VxPopupMenu.clickType");
-  var showArrow$ = dart.privateName(popup_menu, "VxPopupMenu.showArrow");
-  var arrowColor$ = dart.privateName(popup_menu, "VxPopupMenu.arrowColor");
-  var barrierColor$ = dart.privateName(popup_menu, "VxPopupMenu.barrierColor");
-  var horizontalMargin$ = dart.privateName(popup_menu, "VxPopupMenu.horizontalMargin");
-  var verticalMargin$ = dart.privateName(popup_menu, "VxPopupMenu.verticalMargin");
-  var arrowSize$ = dart.privateName(popup_menu, "VxPopupMenu.arrowSize");
-  var controller$ = dart.privateName(popup_menu, "VxPopupMenu.controller");
-  var menuBuilder$ = dart.privateName(popup_menu, "VxPopupMenu.menuBuilder");
-  var Color_value = dart.privateName(ui, "Color.value");
-  popup_menu.VxPopupMenu = class VxPopupMenu extends framework.StatefulWidget {
-    get child() {
-      return this[child$];
+    get firstElement() {
+      return this[firstElement$];
     }
-    set child(value) {
-      super.child = value;
+    set firstElement(value) {
+      super.firstElement = value;
     }
-    get clickType() {
-      return this[clickType$];
+    get lastElement() {
+      return this[lastElement$];
     }
-    set clickType(value) {
-      super.clickType = value;
-    }
-    get showArrow() {
-      return this[showArrow$];
-    }
-    set showArrow(value) {
-      super.showArrow = value;
-    }
-    get arrowColor() {
-      return this[arrowColor$];
-    }
-    set arrowColor(value) {
-      super.arrowColor = value;
-    }
-    get barrierColor() {
-      return this[barrierColor$];
-    }
-    set barrierColor(value) {
-      super.barrierColor = value;
-    }
-    get horizontalMargin() {
-      return this[horizontalMargin$];
-    }
-    set horizontalMargin(value) {
-      super.horizontalMargin = value;
-    }
-    get verticalMargin() {
-      return this[verticalMargin$];
-    }
-    set verticalMargin(value) {
-      super.verticalMargin = value;
-    }
-    get arrowSize() {
-      return this[arrowSize$];
-    }
-    set arrowSize(value) {
-      super.arrowSize = value;
+    set lastElement(value) {
+      super.lastElement = value;
     }
     get controller() {
       return this[controller$];
@@ -830,375 +512,117 @@ define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'pac
     set controller(value) {
       super.controller = value;
     }
-    get menuBuilder() {
-      return this[menuBuilder$];
+    get headingColor() {
+      return this[headingColor$];
     }
-    set menuBuilder(value) {
-      super.menuBuilder = value;
+    set headingColor(value) {
+      super.headingColor = value;
     }
-    createState() {
-      return new popup_menu._VxPopupMenuState.new();
+    get descriptionColor() {
+      return this[descriptionColor$];
     }
-  };
-  (popup_menu.VxPopupMenu.new = function(opts) {
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 40, 19, "child");
-    let menuBuilder = opts && 'menuBuilder' in opts ? opts.menuBuilder : null;
-    if (menuBuilder == null) dart.nullFailed(I[0], 41, 19, "menuBuilder");
-    let clickType = opts && 'clickType' in opts ? opts.clickType : null;
-    if (clickType == null) dart.nullFailed(I[0], 42, 19, "clickType");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let arrowColor = opts && 'arrowColor' in opts ? opts.arrowColor : C[3] || CT.C3;
-    if (arrowColor == null) dart.nullFailed(I[0], 45, 10, "arrowColor");
-    let showArrow = opts && 'showArrow' in opts ? opts.showArrow : true;
-    if (showArrow == null) dart.nullFailed(I[0], 46, 10, "showArrow");
-    let barrierColor = opts && 'barrierColor' in opts ? opts.barrierColor : C[4] || CT.C4;
-    if (barrierColor == null) dart.nullFailed(I[0], 47, 10, "barrierColor");
-    let arrowSize = opts && 'arrowSize' in opts ? opts.arrowSize : 10;
-    if (arrowSize == null) dart.nullFailed(I[0], 48, 10, "arrowSize");
-    let horizontalMargin = opts && 'horizontalMargin' in opts ? opts.horizontalMargin : 10;
-    if (horizontalMargin == null) dart.nullFailed(I[0], 49, 10, "horizontalMargin");
-    let verticalMargin = opts && 'verticalMargin' in opts ? opts.verticalMargin : 10;
-    if (verticalMargin == null) dart.nullFailed(I[0], 50, 10, "verticalMargin");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$] = child;
-    this[menuBuilder$] = menuBuilder;
-    this[clickType$] = clickType;
-    this[controller$] = controller;
-    this[arrowColor$] = arrowColor;
-    this[showArrow$] = showArrow;
-    this[barrierColor$] = barrierColor;
-    this[arrowSize$] = arrowSize;
-    this[horizontalMargin$] = horizontalMargin;
-    this[verticalMargin$] = verticalMargin;
-    popup_menu.VxPopupMenu.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = popup_menu.VxPopupMenu.prototype;
-  dart.addTypeTests(popup_menu.VxPopupMenu);
-  dart.addTypeCaches(popup_menu.VxPopupMenu);
-  dart.setMethodSignature(popup_menu.VxPopupMenu, () => ({
-    __proto__: dart.getMethods(popup_menu.VxPopupMenu.__proto__),
-    createState: dart.fnType(popup_menu._VxPopupMenuState, [])
-  }));
-  dart.setLibraryUri(popup_menu.VxPopupMenu, I[1]);
-  dart.setFieldSignature(popup_menu.VxPopupMenu, () => ({
-    __proto__: dart.getFields(popup_menu.VxPopupMenu.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    clickType: dart.finalFieldType(popup_menu.VxClickType),
-    showArrow: dart.finalFieldType(core.bool),
-    arrowColor: dart.finalFieldType(ui.Color),
-    barrierColor: dart.finalFieldType(ui.Color),
-    horizontalMargin: dart.finalFieldType(core.double),
-    verticalMargin: dart.finalFieldType(core.double),
-    arrowSize: dart.finalFieldType(core.double),
-    controller: dart.finalFieldType(dart.nullable(popup_menu.VxPopupMenuController)),
-    menuBuilder: dart.finalFieldType(dart.fnType(framework.Widget, []))
-  }));
-  var _childBox = dart.privateName(popup_menu, "_childBox");
-  var _parentBox = dart.privateName(popup_menu, "_parentBox");
-  var _overlayEntry = dart.privateName(popup_menu, "_overlayEntry");
-  var _controller = dart.privateName(popup_menu, "_controller");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _hideMenu = dart.privateName(popup_menu, "_hideMenu");
-  var _showMenu = dart.privateName(popup_menu, "_showMenu");
-  var _updateView = dart.privateName(popup_menu, "_updateView");
-  popup_menu._VxPopupMenuState = class _VxPopupMenuState extends framework.State$(popup_menu.VxPopupMenu) {
-    [_showMenu]() {
-      let arrow = new basic.ClipPath.new({child: new container.Container.new({width: this.widget.arrowSize, height: this.widget.arrowSize, color: this.widget.arrowColor, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), clipper: new popup_menu._ArrowClipper.new(), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10});
-      this[_overlayEntry] = new overlay.OverlayEntry.new({builder: dart.fn(context => {
-          if (context == null) dart.nullFailed(I[0], 103, 17, "context");
-          return new basic.Stack.new({key: this.widget.key, children: T.JSArrayOfWidget().of([new gesture_detector.GestureDetector.new({onTap: dart.fn(() => this[_hideMenu](), T.VoidTovoid()), child: new container.Container.new({color: this.widget.barrierColor, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), new basic.Center.new({child: new container.Container.new({constraints: new box.BoxConstraints.new({maxWidth: dart.notNull(dart.nullCheck(this[_parentBox]).size.width) - 2 * dart.notNull(this.widget.horizontalMargin), minWidth: 0.0}), child: new basic.CustomMultiChildLayout.new({delegate: new popup_menu._MenuLayoutDelegate.new({anchorSize: dart.nullCheck(this[_childBox]).size, anchorOffset: dart.nullCheck(this[_childBox]).localToGlobal(new ui.Offset.new(-dart.notNull(this.widget.horizontalMargin), 0.0)), verticalMargin: this.widget.verticalMargin}), children: (() => {
-                      let t0 = T.JSArrayOfWidget().of([]);
-                      if (dart.test(this.widget.showArrow)) t0[$add](new basic.LayoutId.new({id: popup_menu._MenuLayoutId.arrow, child: arrow, $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}));
-                      if (dart.test(this.widget.showArrow)) t0[$add](new basic.LayoutId.new({id: popup_menu._MenuLayoutId.downArrow, child: new basic.Transform.rotate({angle: 3.141592653589793, child: arrow, $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}));
-                      t0[$add](new basic.LayoutId.new({id: popup_menu._MenuLayoutId.content, child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new material.Material.new({child: this.widget.menuBuilder(), color: colors.Colors.transparent, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}));
-                      return t0;
-                    })(), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53})]), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56});
-        }, T.BuildContextToStack())});
-      dart.nullCheck(overlay.Overlay.of(this.context)).insert(dart.nullCheck(this[_overlayEntry]));
+    set descriptionColor(value) {
+      super.descriptionColor = value;
     }
-    [_hideMenu]() {
-      if (this[_overlayEntry] != null) {
-        dart.nullCheck(this[_overlayEntry]).remove();
-        this[_overlayEntry] = null;
-      }
+    get hideLauncher() {
+      return this[hideLauncher$];
     }
-    [_updateView]() {
-      if (dart.test(dart.nullCheck(this[_controller]).menuIsShowing)) {
-        this[_showMenu]();
-      } else {
-        this[_hideMenu]();
-      }
+    set hideLauncher(value) {
+      super.hideLauncher = value;
     }
-    initState() {
-      super.initState();
-      this[_controller] = this.widget.controller;
-      this[_controller] == null ? this[_controller] = new popup_menu.VxPopupMenuController.new() : null;
-      dart.nullCheck(this[_controller]).addListener(dart.bind(this, _updateView));
-      dart.nullCheck(binding.WidgetsBinding.instance).addPostFrameCallback(dart.fn(call => {
-        if (call == null) dart.nullFailed(I[0], 186, 52, "call");
-        this[_childBox] = T.RenderBoxN().as(this.context.findRenderObject());
-        this[_parentBox] = T.RenderBoxN().as(dart.nullCheck(overlay.Overlay.of(this.context)).context.findRenderObject());
-      }, T.DurationTovoid()));
+    get trailing() {
+      return this[trailing$];
     }
-    dispose() {
-      this[_hideMenu]();
-      dart.nullCheck(this[_controller]).removeListener(dart.bind(this, _updateView));
-      super.dispose();
+    set trailing(value) {
+      super.trailing = value;
+    }
+    [_buildLine](context, child) {
+      if (context == null) dart.nullFailed(I[0], 45, 34, "context");
+      return new container.Container.new({width: 40.0, child: new basic.CustomPaint.new({painter: new timeline_painter.VxTimelinePainter.new({lineColor: this.lineColor, backgroundColor: this.backgroundColor, firstElement: this.firstElement, lastElement: this.lastElement, controller: dart.nullCheck(this.controller)}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3});
+    }
+    [_buildContentColumn](context) {
+      let t0, t0$;
+      if (context == null) dart.nullFailed(I[0], 59, 43, "context");
+      return new basic.Column.new({mainAxisSize: flex.MainAxisSize.max, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new container.Container.new({padding: C[7] || CT.C7, child: new text.Text.new(this.model.heading.length > 47 ? this.model.heading[$substring](0, 47) + "..." : this.model.heading, {style: new text_style.TextStyle.new({fontSize: 14.0, color: (t0 = this.headingColor, t0 == null ? colors.Colors.black : t0)}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), new basic.Expanded.new({child: new text.Text.new(this.model.description.length > 50 ? this.model.description[$substring](0, 50) + "..." : this.model.description, {style: new text_style.TextStyle.new({fontSize: 18.0, color: (t0$ = this.descriptionColor, t0$ == null ? colors.Colors.black : t0$)}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20})]), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23});
+    }
+    [_buildRow](context) {
+      if (context == null) dart.nullFailed(I[0], 92, 33, "context");
+      return new container.Container.new({height: 80.0, color: this.backgroundColor, padding: C[28] || CT.C28, child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.stretch, children: (() => {
+            let t0 = T.JSArrayOfWidget().of([new transitions.AnimatedBuilder.new({builder: dart.bind(this, _buildLine), animation: dart.nullCheck(this.controller), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), new basic.Expanded.new({child: this[_buildContentColumn](context), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]);
+            if (!dart.test(this.hideLauncher)) if (this.trailing != null)
+              t0[$add](dart.nullCheck(this.trailing));
+            else
+              t0[$add](new icon.Icon.new(icons.Icons.open_in_new, {color: theme.Theme.of(context).primaryColor, $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}));
+            return t0;
+          })(), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
     }
     build(context) {
-      if (context == null) dart.nullFailed(I[0], 201, 29, "context");
-      return new will_pop_scope.WillPopScope.new({onWillPop: dart.fn(() => {
-          this[_hideMenu]();
-          return T.FutureOfbool().value(true);
-        }, T.VoidToFutureOfbool()), child: new gesture_detector.GestureDetector.new({behavior: proxy_box.HitTestBehavior.translucent, child: this.widget.child, onTap: dart.fn(() => {
-            if (this.widget.clickType == popup_menu.VxClickType.singleClick) {
-              this[_showMenu]();
-            }
-          }, T.VoidTovoid()), onLongPress: dart.fn(() => {
-            if (this.widget.clickType == popup_menu.VxClickType.longClick) {
-              this[_showMenu]();
-            }
-          }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66});
+      if (context == null) dart.nullFailed(I[0], 120, 29, "context");
+      return this[_buildRow](context);
     }
   };
-  (popup_menu._VxPopupMenuState.new = function() {
-    this[_childBox] = null;
-    this[_parentBox] = null;
-    this[_overlayEntry] = null;
-    this[_controller] = null;
-    popup_menu._VxPopupMenuState.__proto__.new.call(this);
+  (timeline_view.VxTimelineView.new = function(opts) {
+    let lineColor = opts && 'lineColor' in opts ? opts.lineColor : null;
+    if (lineColor == null) dart.nullFailed(I[0], 24, 22, "lineColor");
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    if (backgroundColor == null) dart.nullFailed(I[0], 25, 21, "backgroundColor");
+    let model = opts && 'model' in opts ? opts.model : null;
+    if (model == null) dart.nullFailed(I[0], 26, 21, "model");
+    let firstElement = opts && 'firstElement' in opts ? opts.firstElement : false;
+    if (firstElement == null) dart.nullFailed(I[0], 27, 12, "firstElement");
+    let lastElement = opts && 'lastElement' in opts ? opts.lastElement : false;
+    if (lastElement == null) dart.nullFailed(I[0], 28, 12, "lastElement");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let headingColor = opts && 'headingColor' in opts ? opts.headingColor : null;
+    let descriptionColor = opts && 'descriptionColor' in opts ? opts.descriptionColor : null;
+    let hideLauncher = opts && 'hideLauncher' in opts ? opts.hideLauncher : true;
+    if (hideLauncher == null) dart.nullFailed(I[0], 32, 12, "hideLauncher");
+    let trailing = opts && 'trailing' in opts ? opts.trailing : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[lineColor$] = lineColor;
+    this[backgroundColor$] = backgroundColor;
+    this[model$] = model;
+    this[firstElement$] = firstElement;
+    this[lastElement$] = lastElement;
+    this[controller$] = controller;
+    this[headingColor$] = headingColor;
+    this[descriptionColor$] = descriptionColor;
+    this[hideLauncher$] = hideLauncher;
+    this[trailing$] = trailing;
+    timeline_view.VxTimelineView.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = popup_menu._VxPopupMenuState.prototype;
-  dart.addTypeTests(popup_menu._VxPopupMenuState);
-  dart.addTypeCaches(popup_menu._VxPopupMenuState);
-  dart.setMethodSignature(popup_menu._VxPopupMenuState, () => ({
-    __proto__: dart.getMethods(popup_menu._VxPopupMenuState.__proto__),
-    [_showMenu]: dart.fnType(dart.void, []),
-    [_hideMenu]: dart.fnType(dart.void, []),
-    [_updateView]: dart.fnType(dart.void, []),
+  }).prototype = timeline_view.VxTimelineView.prototype;
+  dart.addTypeTests(timeline_view.VxTimelineView);
+  dart.addTypeCaches(timeline_view.VxTimelineView);
+  dart.setMethodSignature(timeline_view.VxTimelineView, () => ({
+    __proto__: dart.getMethods(timeline_view.VxTimelineView.__proto__),
+    [_buildLine]: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(framework.Widget)]),
+    [_buildContentColumn]: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_buildRow]: dart.fnType(framework.Widget, [framework.BuildContext]),
     build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(popup_menu._VxPopupMenuState, I[1]);
-  dart.setFieldSignature(popup_menu._VxPopupMenuState, () => ({
-    __proto__: dart.getFields(popup_menu._VxPopupMenuState.__proto__),
-    [_childBox]: dart.fieldType(dart.nullable(box.RenderBox)),
-    [_parentBox]: dart.fieldType(dart.nullable(box.RenderBox)),
-    [_overlayEntry]: dart.fieldType(dart.nullable(overlay.OverlayEntry)),
-    [_controller]: dart.fieldType(dart.nullable(popup_menu.VxPopupMenuController))
+  dart.setLibraryUri(timeline_view.VxTimelineView, I[1]);
+  dart.setFieldSignature(timeline_view.VxTimelineView, () => ({
+    __proto__: dart.getFields(timeline_view.VxTimelineView.__proto__),
+    lineColor: dart.finalFieldType(ui.Color),
+    backgroundColor: dart.finalFieldType(ui.Color),
+    model: dart.finalFieldType(timeline.VxTimelineModel),
+    firstElement: dart.finalFieldType(core.bool),
+    lastElement: dart.finalFieldType(core.bool),
+    controller: dart.finalFieldType(dart.nullable(animation.Animation$(core.double))),
+    headingColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    descriptionColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hideLauncher: dart.finalFieldType(core.bool),
+    trailing: dart.finalFieldType(dart.nullable(framework.Widget))
   }));
-  popup_menu._MenuLayoutId = class _MenuLayoutId extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (popup_menu._MenuLayoutId.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 225, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 225, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = popup_menu._MenuLayoutId.prototype;
-  dart.addTypeTests(popup_menu._MenuLayoutId);
-  dart.addTypeCaches(popup_menu._MenuLayoutId);
-  dart.setLibraryUri(popup_menu._MenuLayoutId, I[1]);
-  dart.setFieldSignature(popup_menu._MenuLayoutId, () => ({
-    __proto__: dart.getFields(popup_menu._MenuLayoutId.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(popup_menu._MenuLayoutId, ['toString']);
-  popup_menu._MenuLayoutId.arrow = C[70] || CT.C70;
-  popup_menu._MenuLayoutId.downArrow = C[71] || CT.C71;
-  popup_menu._MenuLayoutId.content = C[72] || CT.C72;
-  popup_menu._MenuLayoutId.values = C[73] || CT.C73;
-  popup_menu._MenuPosition = class _MenuPosition extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (popup_menu._MenuPosition.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 231, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 231, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = popup_menu._MenuPosition.prototype;
-  dart.addTypeTests(popup_menu._MenuPosition);
-  dart.addTypeCaches(popup_menu._MenuPosition);
-  dart.setLibraryUri(popup_menu._MenuPosition, I[1]);
-  dart.setFieldSignature(popup_menu._MenuPosition, () => ({
-    __proto__: dart.getFields(popup_menu._MenuPosition.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(popup_menu._MenuPosition, ['toString']);
-  popup_menu._MenuPosition.bottomLeft = C[74] || CT.C74;
-  popup_menu._MenuPosition.bottomCenter = C[75] || CT.C75;
-  popup_menu._MenuPosition.bottomRight = C[76] || CT.C76;
-  popup_menu._MenuPosition.topLeft = C[77] || CT.C77;
-  popup_menu._MenuPosition.topCenter = C[78] || CT.C78;
-  popup_menu._MenuPosition.topRight = C[79] || CT.C79;
-  popup_menu._MenuPosition.values = C[80] || CT.C80;
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  popup_menu._MenuLayoutDelegate = class _MenuLayoutDelegate extends custom_layout.MultiChildLayoutDelegate {
-    performLayout(size) {
-      if (size == null) dart.nullFailed(I[0], 251, 27, "size");
-      let contentSize = ui.Size.zero;
-      let arrowSize = ui.Size.zero;
-      let contentOffset = C[81] || CT.C81;
-      let arrowOffset = C[81] || CT.C81;
-      let anchorCenterX = dart.notNull(dart.nullCheck(this.anchorOffset).dx) + dart.notNull(dart.nullCheck(this.anchorSize).width) / 2;
-      let anchorTopY = dart.nullCheck(this.anchorOffset).dy;
-      let anchorBottomY = dart.notNull(anchorTopY) + dart.notNull(dart.nullCheck(this.anchorSize).height);
-      let menuPosition = popup_menu._MenuPosition.bottomCenter;
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.content))) {
-        contentSize = this.layoutChild(popup_menu._MenuLayoutId.content, new box.BoxConstraints.loose(size));
-      }
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.arrow))) {
-        arrowSize = this.layoutChild(popup_menu._MenuLayoutId.arrow, new box.BoxConstraints.loose(size));
-      }
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.downArrow))) {
-        this.layoutChild(popup_menu._MenuLayoutId.downArrow, new box.BoxConstraints.loose(size));
-      }
-      let isTop = false;
-      if (anchorBottomY + dart.nullCheck(this.verticalMargin) + dart.notNull(arrowSize.height) + dart.notNull(contentSize.height) > dart.notNull(size.height)) {
-        isTop = true;
-      }
-      if (anchorCenterX - dart.notNull(contentSize.width) / 2 < 0) {
-        menuPosition = isTop ? popup_menu._MenuPosition.topLeft : popup_menu._MenuPosition.bottomLeft;
-      } else if (anchorCenterX + dart.notNull(contentSize.width) / 2 > dart.notNull(size.width)) {
-        menuPosition = isTop ? popup_menu._MenuPosition.topRight : popup_menu._MenuPosition.bottomRight;
-      } else {
-        menuPosition = isTop ? popup_menu._MenuPosition.topCenter : popup_menu._MenuPosition.bottomCenter;
-      }
-      switch (menuPosition) {
-        case C[75] || CT.C75:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, anchorBottomY + dart.nullCheck(this.verticalMargin));
-          contentOffset = new ui.Offset.new(anchorCenterX - dart.notNull(contentSize.width) / 2, anchorBottomY + dart.nullCheck(this.verticalMargin) + dart.notNull(arrowSize.height));
-          break;
-        }
-        case C[74] || CT.C74:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, anchorBottomY + dart.nullCheck(this.verticalMargin));
-          contentOffset = new ui.Offset.new(0.0, anchorBottomY + dart.nullCheck(this.verticalMargin) + dart.notNull(arrowSize.height));
-          break;
-        }
-        case C[76] || CT.C76:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, anchorBottomY + dart.nullCheck(this.verticalMargin));
-          contentOffset = new ui.Offset.new(dart.notNull(size.width) - dart.notNull(contentSize.width), anchorBottomY + dart.nullCheck(this.verticalMargin) + dart.notNull(arrowSize.height));
-          break;
-        }
-        case C[78] || CT.C78:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height));
-          contentOffset = new ui.Offset.new(anchorCenterX - dart.notNull(contentSize.width) / 2, dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height) - dart.notNull(contentSize.height));
-          break;
-        }
-        case C[77] || CT.C77:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height));
-          contentOffset = new ui.Offset.new(0.0, dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height) - dart.notNull(contentSize.height));
-          break;
-        }
-        case C[79] || CT.C79:
-        {
-          arrowOffset = new ui.Offset.new(anchorCenterX - dart.notNull(arrowSize.width) / 2, dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height));
-          contentOffset = new ui.Offset.new(dart.notNull(size.width) - dart.notNull(contentSize.width), dart.notNull(anchorTopY) - dart.nullCheck(this.verticalMargin) - dart.notNull(arrowSize.height) - dart.notNull(contentSize.height));
-          break;
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.content))) {
-        this.positionChild(popup_menu._MenuLayoutId.content, contentOffset);
-      }
-      let isBottom = false;
-      if (dart.notNull(popup_menu._MenuPosition.values[$indexOf](menuPosition)) < 3) {
-        isBottom = true;
-      }
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.arrow))) {
-        this.positionChild(popup_menu._MenuLayoutId.arrow, isBottom ? new ui.Offset.new(arrowOffset.dx, dart.notNull(arrowOffset.dy) + 0.1) : C[82] || CT.C82);
-      }
-      if (dart.test(this.hasChild(popup_menu._MenuLayoutId.downArrow))) {
-        this.positionChild(popup_menu._MenuLayoutId.downArrow, !isBottom ? new ui.Offset.new(arrowOffset.dx, dart.notNull(arrowOffset.dy) - 0.1) : C[82] || CT.C82);
-      }
-    }
-    shouldRelayout(oldDelegate) {
-      custom_layout.MultiChildLayoutDelegate.as(oldDelegate);
-      if (oldDelegate == null) dart.nullFailed(I[0], 383, 48, "oldDelegate");
-      return false;
-    }
-  };
-  (popup_menu._MenuLayoutDelegate.new = function(opts) {
-    let anchorSize = opts && 'anchorSize' in opts ? opts.anchorSize : null;
-    let anchorOffset = opts && 'anchorOffset' in opts ? opts.anchorOffset : null;
-    let verticalMargin = opts && 'verticalMargin' in opts ? opts.verticalMargin : null;
-    this.anchorSize = anchorSize;
-    this.anchorOffset = anchorOffset;
-    this.verticalMargin = verticalMargin;
-    popup_menu._MenuLayoutDelegate.__proto__.new.call(this);
-    ;
-  }).prototype = popup_menu._MenuLayoutDelegate.prototype;
-  dart.addTypeTests(popup_menu._MenuLayoutDelegate);
-  dart.addTypeCaches(popup_menu._MenuLayoutDelegate);
-  dart.setMethodSignature(popup_menu._MenuLayoutDelegate, () => ({
-    __proto__: dart.getMethods(popup_menu._MenuLayoutDelegate.__proto__),
-    performLayout: dart.fnType(dart.void, [ui.Size]),
-    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setLibraryUri(popup_menu._MenuLayoutDelegate, I[1]);
-  dart.setFieldSignature(popup_menu._MenuLayoutDelegate, () => ({
-    __proto__: dart.getFields(popup_menu._MenuLayoutDelegate.__proto__),
-    anchorSize: dart.finalFieldType(dart.nullable(ui.Size)),
-    anchorOffset: dart.finalFieldType(dart.nullable(ui.Offset)),
-    verticalMargin: dart.finalFieldType(dart.nullable(core.double))
-  }));
-  popup_menu._ArrowClipper = class _ArrowClipper extends proxy_box.CustomClipper$(ui.Path) {
-    getClip(size) {
-      if (size == null) dart.nullFailed(I[0], 388, 21, "size");
-      let path = ui.Path.new();
-      path.moveTo(0.0, size.height);
-      path.lineTo(dart.notNull(size.width) / 2, dart.notNull(size.height) / 2);
-      path.lineTo(size.width, size.height);
-      return path;
-    }
-    shouldReclip(oldClipper) {
-      T.CustomClipperOfPath().as(oldClipper);
-      if (oldClipper == null) dart.nullFailed(I[0], 397, 41, "oldClipper");
-      return true;
-    }
-  };
-  (popup_menu._ArrowClipper.new = function() {
-    popup_menu._ArrowClipper.__proto__.new.call(this);
-    ;
-  }).prototype = popup_menu._ArrowClipper.prototype;
-  dart.addTypeTests(popup_menu._ArrowClipper);
-  dart.addTypeCaches(popup_menu._ArrowClipper);
-  dart.setMethodSignature(popup_menu._ArrowClipper, () => ({
-    __proto__: dart.getMethods(popup_menu._ArrowClipper.__proto__),
-    getClip: dart.fnType(ui.Path, [ui.Size]),
-    shouldReclip: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setLibraryUri(popup_menu._ArrowClipper, I[1]);
-  dart.trackLibraries("packages/velocity_x/src/flutter/popup_menu.dart", {
-    "package:velocity_x/src/flutter/popup_menu.dart": popup_menu
+  dart.trackLibraries("packages/velocity_x/src/flutter/timeline/timeline_view.dart", {
+    "package:velocity_x/src/flutter/timeline/timeline_view.dart": timeline_view
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["popup_menu.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/popup_menu.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["timeline_view.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAiCc;;;;;;IACA;;;;;;IACU;;;;;;IACX;;;;;;IACA;;;;;;IACc;;;;;;IACZ;;;;;;IACA;;;;;;IACF;;;;;;IACG;;;;;;iBAEiB,SAAiB;UAAjB;AAC7B,YAAO,qCACE,aACA,oCACI,uDACM,iCACM,oCACH,gCACD,8BACS,eAAV;IAGtB;0BAEwC;;;AACtC,YAAO,qCACsB,2CACY,yCACrB,wBAChB,4DAES,kBACL,AAAM,AAAQ,AAAO,4BAAE,KACjB,AAAM,AAAQ,AAAiB,+BAAP,GAAG,MAAM,QACjC,AAAM,4BACL,wCACK,cACU,wBAAb,aAAuB,iJAIpC,+BACS,kBACL,AAAM,AAAY,AAAO,gCAAE,KACrB,AAAM,AAAY,AAAiB,mCAAP,GAAG,MAAM,QACrC,AACG,gCACF,wCACK,cACc,6BAAjB,cAA2B;IAM9C;;UAE8B;AAC5B,YAAO,sCACG,aACD,uDAEA,uCACoC,2CACrB;6CAChB,wDACW,8BACY,eAAV,6EAEb,+BACS,0BAAoB,OAAO;AAEpC,2BAAK,oBACH,IAAI;AACM,sCAAR;;AAEA,yCACQ,iCACO,AAAY,eAAT,OAAO;;;IAIvC;;UAG0B;AACxB,YAAO,iBAAU,OAAO;IAC1B;;;QAlGmB;;QACD;;QACA;;QACT;;QACA;;QACA;QACA;QACA;QACA;;QACA;;IATU;IACD;IACA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;AAVH;;EAUa","file":"../../../../../../../../../../../../D:/packages/velocity_x/src/flutter/timeline/timeline_view.dart.lib.js"}');
   // Exports:
   return {
-    src__flutter__popup_menu: popup_menu
+    src__flutter__timeline__timeline_view: timeline_view
   };
 }));
 
-//# sourceMappingURL=popup_menu.dart.lib.js.map
+//# sourceMappingURL=timeline_view.dart.lib.js.map

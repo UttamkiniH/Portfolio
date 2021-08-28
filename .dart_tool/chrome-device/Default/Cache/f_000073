@@ -1,152 +1,205 @@
-define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/velocity_x/src/velocity_xx.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/foundation/key.dart'], (function load__packages__velocity_x__src__flutter__shimmer_dart(dart_sdk, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__painting__alignment$46dart, packages__velocity_x__src__velocity_xx$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__foundation__key$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/velocity_x/src/flutter/builder.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/services/haptic_feedback.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/services/mouse_cursor.dart'], (function load__packages__velocity_x__src__flutter__gesture_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__velocity_x__src__flutter__builder$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__services__haptic_feedback$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__services__mouse_cursor$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
-  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
-  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
-  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const velocity_xx = packages__velocity_x__src__velocity_xx$46dart.src__velocity_xx;
-  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const builder = packages__velocity_x__src__flutter__builder$46dart.src__flutter__builder;
   const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
-  var shimmer$ = Object.create(dart.library);
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const haptic_feedback = packages__flutter__src__services__haptic_feedback$46dart.src__services__haptic_feedback;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
+  var gesture = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
-    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
-    AnimationStatusTovoid: () => (T.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation.AnimationStatus])))(),
-    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
-    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidToNvoid: () => (T.VoidToNvoid = dart.constFn(dart.nullable(T.VoidTovoid())))(),
     _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
-    BuildContextAndWidgetNTo_VxShimmer: () => (T.BuildContextAndWidgetNTo_VxShimmer = dart.constFn(dart.fnType(shimmer$._VxShimmer, [framework.BuildContext, T.WidgetN()])))(),
-    GradientN: () => (T.GradientN = dart.constFn(dart.nullable(gradient.Gradient)))(),
+    FnTo_VxGestureBuilder: () => (T.FnTo_VxGestureBuilder = dart.constFn(dart.fnType(gesture._VxGestureBuilder, [T.VoidTovoid()])))(),
+    FnTo_VelocityXInkWellBuilder: () => (T.FnTo_VelocityXInkWellBuilder = dart.constFn(dart.fnType(gesture._VelocityXInkWellBuilder, [T.VoidTovoid()])))(),
+    Fn__ToGestureDetector: () => (T.Fn__ToGestureDetector = dart.constFn(dart.fnType(gesture_detector.GestureDetector, [T.VoidTovoid()], {hitTestBehavior: proxy_box.HitTestBehavior}, {})))(),
+    FnToInkWell: () => (T.FnToInkWell = dart.constFn(dart.fnType(ink_well.InkWell, [T.VoidTovoid()])))(),
+    Fn__ToWidget: () => (T.Fn__ToWidget = dart.constFn(dart.fnType(framework.Widget, [T.VoidTovoid()], {hitTestBehavior: proxy_box.HitTestBehavior, touchFeedBack: core.bool}, {})))(),
+    PointerHoverEventTovoid: () => (T.PointerHoverEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerHoverEvent])))(),
+    FnToMouseRegion: () => (T.FnToMouseRegion = dart.constFn(dart.fnType(basic.MouseRegion, [T.PointerHoverEventTovoid()])))(),
+    PointerEnterEventTovoid: () => (T.PointerEnterEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerEnterEvent])))(),
+    FnToMouseRegion$1: () => (T.FnToMouseRegion$1 = dart.constFn(dart.fnType(basic.MouseRegion, [T.PointerEnterEventTovoid()])))(),
+    PointerExitEventTovoid: () => (T.PointerExitEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerExitEvent])))(),
+    FnToMouseRegion$2: () => (T.FnToMouseRegion$2 = dart.constFn(dart.fnType(basic.MouseRegion, [T.PointerExitEventTovoid()])))(),
+    __ToMouseRegion: () => (T.__ToMouseRegion = dart.constFn(dart.fnType(basic.MouseRegion, [], {onEnter: T.PointerEnterEventTovoid(), onExit: T.PointerExitEventTovoid()}, {})))(),
     KeyN: () => (T.KeyN = dart.constFn(dart.nullable(key.Key)))(),
-    ColorN: () => (T.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
-    __ToWidget: () => (T.__ToWidget = dart.constFn(dart.fnType(framework.Widget, [], {count: core.int, duration: core.Duration, gradient: T.GradientN(), key: T.KeyN(), primaryColor: ui.Color, secondaryColor: T.ColorN(), showAnimation: core.bool, showGradient: core.bool}, {})))()
+    PointerEnterEventToNvoid: () => (T.PointerEnterEventToNvoid = dart.constFn(dart.nullable(T.PointerEnterEventTovoid())))(),
+    PointerExitEventToNvoid: () => (T.PointerExitEventToNvoid = dart.constFn(dart.nullable(T.PointerExitEventTovoid())))(),
+    PointerHoverEventToNvoid: () => (T.PointerHoverEventToNvoid = dart.constFn(dart.nullable(T.PointerHoverEventTovoid())))(),
+    __ToMouseRegion$1: () => (T.__ToMouseRegion$1 = dart.constFn(dart.fnType(basic.MouseRegion, [], {key: T.KeyN(), mouseCursor: mouse_cursor.MouseCursor, onEnter: T.PointerEnterEventToNvoid(), onExit: T.PointerExitEventToNvoid(), onHover: T.PointerHoverEventToNvoid(), opaque: core.bool}, {})))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 1000000
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 64,
+        [_Location_file]: null
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294638330.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 65,
+        [_Location_file]: null
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294309365.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 66,
+        [_Location_file]: null
       });
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293848814.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTap",
+        [_Location_column]: 7,
+        [_Location_line]: 67,
+        [_Location_file]: null
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292927712.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPress",
+        [_Location_column]: 7,
+        [_Location_line]: 68,
+        [_Location_file]: null
       });
     },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292269782.0
-      });
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
     },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290624957.0
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
       });
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288585374.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 103,
+        [_Location_file]: null
       });
     },
     get C10() {
       return C[10] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285887861.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 104,
+        [_Location_file]: null
       });
     },
     get C11() {
       return C[11] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284572001.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 105,
+        [_Location_file]: null
       });
     },
     get C12() {
       return C[12] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282532418.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 7,
+        [_Location_line]: 106,
+        [_Location_file]: null
       });
     },
     get C13() {
       return C[13] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281348144.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTap",
+        [_Location_column]: 7,
+        [_Location_line]: 107,
+        [_Location_file]: null
       });
     },
     get C14() {
       return C[14] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280361249.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPress",
+        [_Location_column]: 7,
+        [_Location_line]: 108,
+        [_Location_file]: null
       });
     },
-    get C2() {
-      return C[2] = dart.constMap(T.intL(), T.ColorL(), [50, C[3] || CT.C3, 100, C[4] || CT.C4, 200, C[5] || CT.C5, 300, C[6] || CT.C6, 350, C[7] || CT.C7, 400, C[8] || CT.C8, 500, C[9] || CT.C9, 600, C[10] || CT.C10, 700, C[11] || CT.C11, 800, C[12] || CT.C12, 850, C[13] || CT.C13, 900, C[14] || CT.C14]);
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14], T._LocationL());
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: colors.MaterialColor.prototype,
-        [Color_value]: 4288585374.0,
-        [ColorSwatch__swatch]: C[2] || CT.C2
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 102,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
       });
     },
     get C15() {
-      return C[15] = dart.constList([0, 0.3, 0.5, 0.7, 1], T.doubleL());
+      return C[15] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
     },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 110,
-        [_Location_file]: null
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 520093696
       });
     },
     get C19() {
       return C[19] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "gradient",
-        [_Location_column]: 11,
-        [_Location_line]: 111,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 315,
         [_Location_file]: null
       });
     },
@@ -154,42 +207,42 @@ define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutt
       return C[20] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "controllerValue",
-        [_Location_column]: 11,
-        [_Location_line]: 130,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 316,
         [_Location_file]: null
       });
     },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "showShimmerEffect",
-        [_Location_column]: 11,
-        [_Location_line]: 131,
-        [_Location_file]: null
-      });
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
     },
     get C17() {
-      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
-    },
-    get C16() {
-      return C[16] = dart.const({
+      return C[17] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_parameterLocations]: C[18] || CT.C18,
         [_Location_name]: null,
-        [_Location_column]: 59,
-        [_Location_line]: 109,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+        [_Location_column]: 14,
+        [_Location_line]: 314,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 309,
+        [_Location_file]: null
       });
     },
     get C24() {
       return C[24] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 9,
-        [_Location_line]: 107,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 310,
         [_Location_file]: null
       });
     },
@@ -197,9 +250,9 @@ define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutt
       return C[25] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 108,
+        [_Location_name]: "onTapDown",
+        [_Location_column]: 7,
+        [_Location_line]: 311,
         [_Location_file]: null
       });
     },
@@ -207,62 +260,59 @@ define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutt
       return C[26] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 9,
-        [_Location_line]: 109,
+        [_Location_name]: "onTapUp",
+        [_Location_column]: 7,
+        [_Location_line]: 312,
         [_Location_file]: null
       });
     },
-    get C23() {
-      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapCancel",
+        [_Location_column]: 7,
+        [_Location_line]: 313,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 314,
+        [_Location_file]: null
+      });
     },
     get C22() {
-      return C[22] = dart.const({
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_parameterLocations]: C[22] || CT.C22,
         [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 106,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+        [_Location_column]: 12,
+        [_Location_line]: 308,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
       });
     },
     get C29() {
       return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 254,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 255,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "count",
-        [_Location_column]: 9,
-        [_Location_line]: 256,
-        [_Location_file]: null
+        __proto__: proxy_box.HitTestBehavior.prototype,
+        [_name]: "HitTestBehavior.deferToChild",
+        index: 0
       });
     },
     get C32() {
       return C[32] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "duration",
-        [_Location_column]: 9,
-        [_Location_line]: 257,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 153,
         [_Location_file]: null
       });
     },
@@ -270,9 +320,9 @@ define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutt
       return C[33] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "gradient",
-        [_Location_column]: 9,
-        [_Location_line]: 258,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 154,
         [_Location_file]: null
       });
     },
@@ -280,462 +330,1053 @@ define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutt
       return C[34] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "primaryColor",
-        [_Location_column]: 9,
-        [_Location_line]: 259,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 155,
         [_Location_file]: null
       });
     },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "secondaryColor",
-        [_Location_column]: 9,
-        [_Location_line]: 260,
-        [_Location_file]: null
-      });
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
     },
-    get C36() {
-      return C[36] = dart.const({
+    get C30() {
+      return C[30] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "showAnimation",
-        [_Location_column]: 9,
-        [_Location_line]: 261,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 152,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
       });
     },
     get C37() {
       return C[37] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "showGradient",
-        [_Location_column]: 9,
-        [_Location_line]: 262,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 163,
         [_Location_file]: null
       });
     },
-    get C28() {
-      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37], T._LocationL());
-    },
-    get C27() {
-      return C[27] = dart.const({
+    get C38() {
+      return C[38] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[28] || CT.C28,
-        [_Location_name]: null,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
         [_Location_column]: 7,
-        [_Location_line]: 253,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart"
+        [_Location_line]: 164,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 162,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTap",
+        [_Location_column]: 7,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 170,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTap",
+        [_Location_column]: 7,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], T._LocationL());
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 180,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPress",
+        [_Location_column]: 7,
+        [_Location_line]: 190,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 188,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPress",
+        [_Location_column]: 7,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 200,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56], T._LocationL());
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 198,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "needHaptic",
+        [_Location_column]: 7,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hitTestBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 215,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62], T._LocationL());
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 211,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 7,
+        [_Location_line]: 224,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 225,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], T._LocationL());
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 223,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onEnter",
+        [_Location_column]: 7,
+        [_Location_line]: 234,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 235,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70], T._LocationL());
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[68] || CT.C68,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 233,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onExit",
+        [_Location_column]: 7,
+        [_Location_line]: 244,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 245,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74], T._LocationL());
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[72] || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 243,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onEnter",
+        [_Location_column]: 7,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onExit",
+        [_Location_column]: 7,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79], T._LocationL());
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 254,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: mouse_cursor._DeferringMouseCursor.prototype
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 7,
+        [_Location_line]: 271,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "cursor",
+        [_Location_column]: 7,
+        [_Location_line]: 272,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opaque",
+        [_Location_column]: 7,
+        [_Location_line]: 273,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onEnter",
+        [_Location_column]: 7,
+        [_Location_line]: 274,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onExit",
+        [_Location_column]: 7,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 276,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89], T._LocationL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 269,
+        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart"
       });
     }
   }, false);
-  var C = Array(38).fill(void 0);
+  var C = Array(90).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/shimmer.dart",
-    "package:velocity_x/src/flutter/shimmer.dart"
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/gesture.dart",
+    "package:velocity_x/src/flutter/gesture.dart"
   ];
-  var child$ = dart.privateName(shimmer$, "VxShimmer.child");
-  var duration$ = dart.privateName(shimmer$, "VxShimmer.duration");
-  var gradient$ = dart.privateName(shimmer$, "VxShimmer.gradient");
-  var count$ = dart.privateName(shimmer$, "VxShimmer.count");
-  var showAnimation$ = dart.privateName(shimmer$, "VxShimmer.showAnimation");
-  var showGradient$ = dart.privateName(shimmer$, "VxShimmer.showGradient");
-  var primaryColor$ = dart.privateName(shimmer$, "VxShimmer.primaryColor");
-  var secondaryColor$ = dart.privateName(shimmer$, "VxShimmer.secondaryColor");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _onLongClick$ = dart.privateName(gesture, "_onLongClick");
+  var _onDoubleClick$ = dart.privateName(gesture, "_onDoubleClick");
+  var _child$ = dart.privateName(gesture, "_child");
+  var _onClick$ = dart.privateName(gesture, "_onClick");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  gesture._VxGestureBuilder = class _VxGestureBuilder extends builder.VxWidgetBuilder$(framework.Widget) {
+    doubleClick(opts) {
+      let t0;
+      let onDoubleClick = opts && 'onDoubleClick' in opts ? opts.onDoubleClick : null;
+      if (onDoubleClick == null) dart.nullFailed(I[0], 54, 52, "onDoubleClick");
+      t0 = this;
+      return (() => {
+        t0[_onDoubleClick$] = onDoubleClick;
+        return t0;
+      })();
+    }
+    longClick(opts) {
+      let t0;
+      let onLongClick = opts && 'onLongClick' in opts ? opts.onLongClick : null;
+      if (onLongClick == null) dart.nullFailed(I[0], 58, 50, "onLongClick");
+      t0 = this;
+      return (() => {
+        t0[_onLongClick$] = onLongClick;
+        return t0;
+      })();
+    }
+    make(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      return new gesture_detector.GestureDetector.new({key: key, onTap: T.VoidToNvoid().as(this[_onClick$]), child: this[_child$], onDoubleTap: T.VoidToNvoid().as(this[_onDoubleClick$]), onLongPress: T.VoidToNvoid().as(this[_onLongClick$]), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+    }
+  };
+  (gesture._VxGestureBuilder.new = function(_child, _onClick) {
+    if (_child == null) dart.nullFailed(I[0], 44, 26, "_child");
+    if (_onClick == null) dart.nullFailed(I[0], 44, 48, "_onClick");
+    this[_onLongClick$] = null;
+    this[_onDoubleClick$] = null;
+    this[_child$] = _child;
+    this[_onClick$] = _onClick;
+    ;
+  }).prototype = gesture._VxGestureBuilder.prototype;
+  (gesture._VxGestureBuilder.doubleClick = function(_child, _onDoubleClick) {
+    if (_child == null) dart.nullFailed(I[0], 45, 38, "_child");
+    if (_onDoubleClick == null) dart.nullFailed(I[0], 45, 60, "_onDoubleClick");
+    this[_onLongClick$] = null;
+    this[_onClick$] = null;
+    this[_child$] = _child;
+    this[_onDoubleClick$] = _onDoubleClick;
+    ;
+  }).prototype = gesture._VxGestureBuilder.prototype;
+  (gesture._VxGestureBuilder.longClick = function(_child, _onLongClick) {
+    if (_child == null) dart.nullFailed(I[0], 46, 36, "_child");
+    if (_onLongClick == null) dart.nullFailed(I[0], 46, 58, "_onLongClick");
+    this[_onDoubleClick$] = null;
+    this[_onClick$] = null;
+    this[_child$] = _child;
+    this[_onLongClick$] = _onLongClick;
+    ;
+  }).prototype = gesture._VxGestureBuilder.prototype;
+  dart.addTypeTests(gesture._VxGestureBuilder);
+  dart.addTypeCaches(gesture._VxGestureBuilder);
+  dart.setMethodSignature(gesture._VxGestureBuilder, () => ({
+    __proto__: dart.getMethods(gesture._VxGestureBuilder.__proto__),
+    doubleClick: dart.fnType(gesture._VxGestureBuilder, [], {}, {onDoubleClick: core.Function}),
+    longClick: dart.fnType(gesture._VxGestureBuilder, [], {}, {onLongClick: core.Function}),
+    make: dart.fnType(framework.Widget, [], {key: dart.nullable(key.Key)}, {})
+  }));
+  dart.setLibraryUri(gesture._VxGestureBuilder, I[1]);
+  dart.setFieldSignature(gesture._VxGestureBuilder, () => ({
+    __proto__: dart.getFields(gesture._VxGestureBuilder.__proto__),
+    [_child$]: dart.finalFieldType(framework.Widget),
+    [_onClick$]: dart.fieldType(dart.nullable(core.Function)),
+    [_onDoubleClick$]: dart.fieldType(dart.nullable(core.Function)),
+    [_onLongClick$]: dart.fieldType(dart.nullable(core.Function))
+  }));
+  var _splashColor = dart.privateName(gesture, "_splashColor");
+  gesture._VelocityXInkWellBuilder = class _VelocityXInkWellBuilder extends builder.VxWidgetBuilder$(framework.Widget) {
+    splashColor(color) {
+      let t0;
+      if (color == null) dart.nullFailed(I[0], 87, 46, "color");
+      t0 = this;
+      return (() => {
+        t0[_splashColor] = color;
+        return t0;
+      })();
+    }
+    mdDoubleClick(opts) {
+      let t0;
+      let onDoubleClick = opts && 'onDoubleClick' in opts ? opts.onDoubleClick : null;
+      if (onDoubleClick == null) dart.nullFailed(I[0], 92, 39, "onDoubleClick");
+      t0 = this;
+      return (() => {
+        t0[_onDoubleClick$] = onDoubleClick;
+        return t0;
+      })();
+    }
+    mdLongClick(opts) {
+      let t0;
+      let onLongClick = opts && 'onLongClick' in opts ? opts.onLongClick : null;
+      if (onLongClick == null) dart.nullFailed(I[0], 97, 39, "onLongClick");
+      t0 = this;
+      return (() => {
+        t0[_onLongClick$] = onLongClick;
+        return t0;
+      })();
+    }
+    make(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      return new ink_well.InkWell.new({key: key, onTap: this[_onClick$], child: this[_child$], splashColor: this[_splashColor], onDoubleTap: this[_onDoubleClick$], onLongPress: this[_onLongClick$], $creationLocationd_0dea112b090073317d4: C[7] || CT.C7});
+    }
+  };
+  (gesture._VelocityXInkWellBuilder.new = function(_child, _onClick) {
+    if (_child == null) dart.nullFailed(I[0], 76, 33, "_child");
+    this[_splashColor] = null;
+    this[_onLongClick$] = null;
+    this[_onDoubleClick$] = null;
+    this[_child$] = _child;
+    this[_onClick$] = _onClick;
+    ;
+  }).prototype = gesture._VelocityXInkWellBuilder.prototype;
+  (gesture._VelocityXInkWellBuilder.mdDoubleClick = function(_child, _onDoubleClick) {
+    if (_child == null) dart.nullFailed(I[0], 77, 47, "_child");
+    this[_splashColor] = null;
+    this[_onLongClick$] = null;
+    this[_onClick$] = null;
+    this[_child$] = _child;
+    this[_onDoubleClick$] = _onDoubleClick;
+    ;
+  }).prototype = gesture._VelocityXInkWellBuilder.prototype;
+  (gesture._VelocityXInkWellBuilder.mdLongClick = function(_child, _onLongClick) {
+    if (_child == null) dart.nullFailed(I[0], 78, 45, "_child");
+    this[_splashColor] = null;
+    this[_onDoubleClick$] = null;
+    this[_onClick$] = null;
+    this[_child$] = _child;
+    this[_onLongClick$] = _onLongClick;
+    ;
+  }).prototype = gesture._VelocityXInkWellBuilder.prototype;
+  dart.addTypeTests(gesture._VelocityXInkWellBuilder);
+  dart.addTypeCaches(gesture._VelocityXInkWellBuilder);
+  dart.setMethodSignature(gesture._VelocityXInkWellBuilder, () => ({
+    __proto__: dart.getMethods(gesture._VelocityXInkWellBuilder.__proto__),
+    splashColor: dart.fnType(gesture._VelocityXInkWellBuilder, [ui.Color]),
+    mdDoubleClick: dart.fnType(gesture._VelocityXInkWellBuilder, [], {}, {onDoubleClick: dart.fnType(dart.void, [])}),
+    mdLongClick: dart.fnType(gesture._VelocityXInkWellBuilder, [], {}, {onLongClick: dart.fnType(dart.void, [])}),
+    make: dart.fnType(framework.Widget, [], {key: dart.nullable(key.Key)}, {})
+  }));
+  dart.setLibraryUri(gesture._VelocityXInkWellBuilder, I[1]);
+  dart.setFieldSignature(gesture._VelocityXInkWellBuilder, () => ({
+    __proto__: dart.getFields(gesture._VelocityXInkWellBuilder.__proto__),
+    [_child$]: dart.finalFieldType(framework.Widget),
+    [_onClick$]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_onDoubleClick$]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_onLongClick$]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_splashColor]: dart.fieldType(dart.nullable(ui.Color))
+  }));
+  var onTap$ = dart.privateName(gesture, "_CallbackButton.onTap");
+  var child$ = dart.privateName(gesture, "_CallbackButton.child");
+  var normalColor$ = dart.privateName(gesture, "_CallbackButton.normalColor");
+  var pressedColor$ = dart.privateName(gesture, "_CallbackButton.pressedColor");
+  var needHaptic$ = dart.privateName(gesture, "_CallbackButton.needHaptic");
+  var hitTestBehavior$ = dart.privateName(gesture, "_CallbackButton.hitTestBehavior");
   var Color_value = dart.privateName(ui, "Color.value");
-  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
-  shimmer$.VxShimmer = class VxShimmer extends framework.StatefulWidget {
+  gesture._CallbackButton = class _CallbackButton extends framework.StatefulWidget {
+    get onTap() {
+      return this[onTap$];
+    }
+    set onTap(value) {
+      super.onTap = value;
+    }
     get child() {
       return this[child$];
     }
     set child(value) {
       super.child = value;
     }
-    get duration() {
-      return this[duration$];
+    get normalColor() {
+      return this[normalColor$];
     }
-    set duration(value) {
-      super.duration = value;
+    set normalColor(value) {
+      super.normalColor = value;
     }
-    get gradient() {
-      return this[gradient$];
+    get pressedColor() {
+      return this[pressedColor$];
     }
-    set gradient(value) {
-      super.gradient = value;
+    set pressedColor(value) {
+      super.pressedColor = value;
     }
-    get count() {
-      return this[count$];
+    get needHaptic() {
+      return this[needHaptic$];
     }
-    set count(value) {
-      super.count = value;
+    set needHaptic(value) {
+      super.needHaptic = value;
     }
-    get showAnimation() {
-      return this[showAnimation$];
+    get hitTestBehavior() {
+      return this[hitTestBehavior$];
     }
-    set showAnimation(value) {
-      super.showAnimation = value;
-    }
-    get showGradient() {
-      return this[showGradient$];
-    }
-    set showGradient(value) {
-      super.showGradient = value;
-    }
-    get primaryColor() {
-      return this[primaryColor$];
-    }
-    set primaryColor(value) {
-      super.primaryColor = value;
-    }
-    get secondaryColor() {
-      return this[secondaryColor$];
-    }
-    set secondaryColor(value) {
-      super.secondaryColor = value;
+    set hitTestBehavior(value) {
+      super.hitTestBehavior = value;
     }
     createState() {
-      return new shimmer$._VxShimmerState.new();
+      return new gesture._CallbackButtonState.new();
     }
   };
-  (shimmer$.VxShimmer.new = function(opts) {
+  (gesture._CallbackButton.new = function(opts) {
     let key = opts && 'key' in opts ? opts.key : null;
+    let onTap = opts && 'onTap' in opts ? opts.onTap : null;
     let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 23, 19, "child");
-    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
-    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
-    if (duration == null) dart.nullFailed(I[0], 25, 10, "duration");
-    let count = opts && 'count' in opts ? opts.count : 10000;
-    if (count == null) dart.nullFailed(I[0], 26, 10, "count");
-    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
-    if (showAnimation == null) dart.nullFailed(I[0], 27, 10, "showAnimation");
-    let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
-    if (showGradient == null) dart.nullFailed(I[0], 28, 10, "showGradient");
-    let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
-    if (primaryColor == null) dart.nullFailed(I[0], 29, 10, "primaryColor");
-    let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
+    let normalColor = opts && 'normalColor' in opts ? opts.normalColor : C[15] || CT.C15;
+    if (normalColor == null) dart.nullFailed(I[0], 293, 12, "normalColor");
+    let pressedColor = opts && 'pressedColor' in opts ? opts.pressedColor : C[16] || CT.C16;
+    if (pressedColor == null) dart.nullFailed(I[0], 294, 12, "pressedColor");
+    let needHaptic = opts && 'needHaptic' in opts ? opts.needHaptic : false;
+    if (needHaptic == null) dart.nullFailed(I[0], 295, 12, "needHaptic");
+    let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : null;
     let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[onTap$] = onTap;
     this[child$] = child;
-    this[gradient$] = gradient;
-    this[duration$] = duration;
-    this[count$] = count;
-    this[showAnimation$] = showAnimation;
-    this[showGradient$] = showGradient;
-    this[primaryColor$] = primaryColor;
-    this[secondaryColor$] = secondaryColor;
-    shimmer$.VxShimmer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    this[normalColor$] = normalColor;
+    this[pressedColor$] = pressedColor;
+    this[needHaptic$] = needHaptic;
+    this[hitTestBehavior$] = hitTestBehavior;
+    gesture._CallbackButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = shimmer$.VxShimmer.prototype;
-  dart.addTypeTests(shimmer$.VxShimmer);
-  dart.addTypeCaches(shimmer$.VxShimmer);
-  dart.setMethodSignature(shimmer$.VxShimmer, () => ({
-    __proto__: dart.getMethods(shimmer$.VxShimmer.__proto__),
-    createState: dart.fnType(shimmer$._VxShimmerState, [])
+  }).prototype = gesture._CallbackButton.prototype;
+  dart.addTypeTests(gesture._CallbackButton);
+  dart.addTypeCaches(gesture._CallbackButton);
+  dart.setMethodSignature(gesture._CallbackButton, () => ({
+    __proto__: dart.getMethods(gesture._CallbackButton.__proto__),
+    createState: dart.fnType(gesture._CallbackButtonState, [])
   }));
-  dart.setLibraryUri(shimmer$.VxShimmer, I[1]);
-  dart.setFieldSignature(shimmer$.VxShimmer, () => ({
-    __proto__: dart.getFields(shimmer$.VxShimmer.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    duration: dart.finalFieldType(core.Duration),
-    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
-    count: dart.finalFieldType(core.int),
-    showAnimation: dart.finalFieldType(core.bool),
-    showGradient: dart.finalFieldType(core.bool),
-    primaryColor: dart.finalFieldType(ui.Color),
-    secondaryColor: dart.finalFieldType(dart.nullable(ui.Color))
+  dart.setLibraryUri(gesture._CallbackButton, I[1]);
+  dart.setFieldSignature(gesture._CallbackButton, () => ({
+    __proto__: dart.getFields(gesture._CallbackButton.__proto__),
+    onTap: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    child: dart.finalFieldType(dart.nullable(framework.Widget)),
+    normalColor: dart.finalFieldType(ui.Color),
+    pressedColor: dart.finalFieldType(ui.Color),
+    needHaptic: dart.finalFieldType(core.bool),
+    hitTestBehavior: dart.finalFieldType(dart.nullable(proxy_box.HitTestBehavior))
   }));
-  var ___VxShimmerState__controller = dart.privateName(shimmer$, "_#_VxShimmerState#_controller");
-  var ___VxShimmerState__controller_isSet = dart.privateName(shimmer$, "_#_VxShimmerState#_controller#isSet");
-  var _count = dart.privateName(shimmer$, "_count");
-  var _controller = dart.privateName(shimmer$, "_controller");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(shimmer$.VxShimmer) {};
-  (State_SingleTickerProviderStateMixin$36.new = function() {
-    ticker_provider.SingleTickerProviderStateMixin$(shimmer$.VxShimmer)[dart.mixinNew].call(this);
-    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
-  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
-  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(shimmer$.VxShimmer));
-  shimmer$._VxShimmerState = class _VxShimmerState extends State_SingleTickerProviderStateMixin$36 {
-    get [_controller]() {
-      let t0;
-      return dart.test(this[___VxShimmerState__controller_isSet]) ? (t0 = this[___VxShimmerState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
-    }
-    set [_controller](t0) {
-      if (t0 == null) dart.nullFailed(I[0], 71, 28, "null");
-      this[___VxShimmerState__controller_isSet] = true;
-      this[___VxShimmerState__controller] = t0;
-    }
-    initState() {
-      let t1;
-      super.initState();
-      this[_count] = 0;
-      this[_controller] = (t1 = new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}), (() => {
-        t1.addStatusListener(dart.fn(status => {
-          if (status == null) dart.nullFailed(I[0], 79, 44, "status");
-          if (status != animation.AnimationStatus.completed) {
-            return;
-          }
-          this[_count] = dart.nullCheck(this[_count]) + 1;
-          if (dart.notNull(this.widget.count) <= 0) {
-            this[_controller].repeat();
-          } else if (dart.nullCheck(this[_count]) < dart.notNull(this.widget.count)) {
-            this[_controller].forward({from: 0.0});
-          }
-        }, T.AnimationStatusTovoid()));
-        return t1;
-      })());
-      if (dart.test(this.widget.showAnimation)) {
-        this[_controller].forward();
-      }
-    }
-    didUpdateWidget(oldWidget) {
-      shimmer$.VxShimmer.as(oldWidget);
-      if (oldWidget == null) dart.nullFailed(I[0], 96, 34, "oldWidget");
-      if (dart.test(this.widget.showAnimation)) {
-        this[_controller].forward();
-      } else {
-        this[_controller].stop();
-      }
-      super.didUpdateWidget(oldWidget);
-    }
+  gesture._CallbackButtonState = class _CallbackButtonState extends framework.State$(gesture._CallbackButton) {
     build(context) {
-      if (context == null) dart.nullFailed(I[0], 106, 29, "context");
-      return new transitions.AnimatedBuilder.new({animation: this[_controller], child: this.widget.child, builder: dart.fn((context, child) => {
-          let t1;
-          if (context == null) dart.nullFailed(I[0], 109, 32, "context");
-          return new shimmer$._VxShimmer.new({child: child, gradient: dart.test(this.widget.showGradient) ? this.widget.gradient : new gradient.LinearGradient.new({begin: alignment.Alignment.topLeft, end: alignment.Alignment.centerRight, colors: T.JSArrayOfColor().of([this.widget.primaryColor, this.widget.primaryColor, (t1 = this.widget.secondaryColor, t1 == null ? velocity_xx.Vx.gray200 : t1), this.widget.primaryColor, this.widget.primaryColor]), stops: C[15] || CT.C15}), controllerValue: this[_controller].value, showShimmerEffect: this.widget.showAnimation, $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
-        }, T.BuildContextAndWidgetNTo_VxShimmer()), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22});
+      if (context == null) dart.nullFailed(I[0], 307, 29, "context");
+      return new gesture_detector.GestureDetector.new({behavior: this.widget.hitTestBehavior, onTap: this.widget.onTap, onTapDown: dart.bind(this, 'handleTapDown'), onTapUp: dart.bind(this, 'handleTapUp'), onTapCancel: dart.bind(this, 'handleCancel'), child: new container.Container.new({color: this.bgColor, child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
     }
-    dispose() {
-      this[_controller].dispose();
-      super.dispose();
+    handleTapDown(tapDownDetails) {
+      if (tapDownDetails == null) dart.nullFailed(I[0], 321, 37, "tapDownDetails");
+      this.setState(dart.fn(() => {
+        this.bgColor = this.widget.pressedColor;
+      }, T.VoidTovoid()));
+    }
+    handleCancel() {
+      this.setState(dart.fn(() => {
+        this.bgColor = this.widget.normalColor;
+      }, T.VoidTovoid()));
+    }
+    handleTapUp(tapDownDetails) {
+      if (tapDownDetails == null) dart.nullFailed(I[0], 333, 33, "tapDownDetails");
+      if (dart.test(this.widget.needHaptic)) {
+        haptic_feedback.HapticFeedback.heavyImpact();
+      }
+      this.setState(dart.fn(() => {
+        this.bgColor = this.widget.normalColor;
+      }, T.VoidTovoid()));
     }
   };
-  (shimmer$._VxShimmerState.new = function() {
-    this[___VxShimmerState__controller] = null;
-    this[___VxShimmerState__controller_isSet] = false;
-    this[_count] = null;
-    shimmer$._VxShimmerState.__proto__.new.call(this);
+  (gesture._CallbackButtonState.new = function() {
+    this.bgColor = null;
+    gesture._CallbackButtonState.__proto__.new.call(this);
     ;
-  }).prototype = shimmer$._VxShimmerState.prototype;
-  dart.addTypeTests(shimmer$._VxShimmerState);
-  dart.addTypeCaches(shimmer$._VxShimmerState);
-  dart.setMethodSignature(shimmer$._VxShimmerState, () => ({
-    __proto__: dart.getMethods(shimmer$._VxShimmerState.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = gesture._CallbackButtonState.prototype;
+  dart.addTypeTests(gesture._CallbackButtonState);
+  dart.addTypeCaches(gesture._CallbackButtonState);
+  dart.setMethodSignature(gesture._CallbackButtonState, () => ({
+    __proto__: dart.getMethods(gesture._CallbackButtonState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    handleTapDown: dart.fnType(dart.void, [tap.TapDownDetails]),
+    handleCancel: dart.fnType(dart.void, []),
+    handleTapUp: dart.fnType(dart.void, [tap.TapUpDetails])
   }));
-  dart.setGetterSignature(shimmer$._VxShimmerState, () => ({
-    __proto__: dart.getGetters(shimmer$._VxShimmerState.__proto__),
-    [_controller]: animation_controller.AnimationController
+  dart.setLibraryUri(gesture._CallbackButtonState, I[1]);
+  dart.setFieldSignature(gesture._CallbackButtonState, () => ({
+    __proto__: dart.getFields(gesture._CallbackButtonState.__proto__),
+    bgColor: dart.fieldType(dart.nullable(ui.Color))
   }));
-  dart.setSetterSignature(shimmer$._VxShimmerState, () => ({
-    __proto__: dart.getSetters(shimmer$._VxShimmerState.__proto__),
-    [_controller]: animation_controller.AnimationController
-  }));
-  dart.setLibraryUri(shimmer$._VxShimmerState, I[1]);
-  dart.setFieldSignature(shimmer$._VxShimmerState, () => ({
-    __proto__: dart.getFields(shimmer$._VxShimmerState.__proto__),
-    [___VxShimmerState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
-    [___VxShimmerState__controller_isSet]: dart.fieldType(core.bool),
-    [_count]: dart.fieldType(dart.nullable(core.int))
-  }));
-  var controllerValue$ = dart.privateName(shimmer$, "_VxShimmer.controllerValue");
-  var gradient$0 = dart.privateName(shimmer$, "_VxShimmer.gradient");
-  var showShimmerEffect$ = dart.privateName(shimmer$, "_VxShimmer.showShimmerEffect");
-  shimmer$._VxShimmer = class _VxShimmer extends framework.SingleChildRenderObjectWidget {
-    get controllerValue() {
-      return this[controllerValue$];
-    }
-    set controllerValue(value) {
-      super.controllerValue = value;
-    }
-    get gradient() {
-      return this[gradient$0];
-    }
-    set gradient(value) {
-      super.gradient = value;
-    }
-    get showShimmerEffect() {
-      return this[showShimmerEffect$];
-    }
-    set showShimmerEffect(value) {
-      super.showShimmerEffect = value;
-    }
-    createRenderObject(context) {
-      if (context == null) dart.nullFailed(I[0], 161, 52, "context");
-      return new shimmer$._VxShimmerFilter.new({value: this.controllerValue, gradient: this.gradient, showAnimation: this.showShimmerEffect});
-    }
-    updateRenderObject(context, shimmer) {
-      if (context == null) dart.nullFailed(I[0], 167, 40, "context");
-      shimmer$._VxShimmerFilter.as(shimmer);
-      if (shimmer == null) dart.nullFailed(I[0], 167, 66, "shimmer");
-      shimmer.controllerValue = this.controllerValue;
-      shimmer.showAnimation = this.showShimmerEffect;
-    }
+  var _name = dart.privateName(proxy_box, "_name");
+  gesture['GestureExtensions|click'] = function GestureExtensions$124click($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 117, 21, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 117, 45, "onClick");
+    return new gesture._VxGestureBuilder.new($this, onClick);
   };
-  (shimmer$._VxShimmer.new = function(opts) {
-    let child = opts && 'child' in opts ? opts.child : null;
-    let controllerValue = opts && 'controllerValue' in opts ? opts.controllerValue : null;
-    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
-    let showShimmerEffect = opts && 'showShimmerEffect' in opts ? opts.showShimmerEffect : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[controllerValue$] = controllerValue;
-    this[gradient$0] = gradient;
-    this[showShimmerEffect$] = showShimmerEffect;
-    shimmer$._VxShimmer.__proto__.new.call(this, {child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = shimmer$._VxShimmer.prototype;
-  dart.addTypeTests(shimmer$._VxShimmer);
-  dart.addTypeCaches(shimmer$._VxShimmer);
-  dart.setMethodSignature(shimmer$._VxShimmer, () => ({
-    __proto__: dart.getMethods(shimmer$._VxShimmer.__proto__),
-    createRenderObject: dart.fnType(shimmer$._VxShimmerFilter, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(shimmer$._VxShimmer, I[1]);
-  dart.setFieldSignature(shimmer$._VxShimmer, () => ({
-    __proto__: dart.getFields(shimmer$._VxShimmer.__proto__),
-    controllerValue: dart.finalFieldType(dart.nullable(core.double)),
-    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
-    showShimmerEffect: dart.finalFieldType(dart.nullable(core.bool))
-  }));
-  var _rect = dart.privateName(shimmer$, "_rect");
-  var _offset = dart.privateName(shimmer$, "_offset");
-  shimmer$._VxShimmerFilter = class _VxShimmerFilter extends proxy_box.RenderProxyBox {
-    get alwaysNeedsCompositing() {
-      return this.child != null;
-    }
-    get controllerValue() {
-      return this.value;
-    }
-    set controllerValue(newValue) {
-      if (newValue == this.value) {
-        return;
-      }
-      this.value = newValue;
-      this.markNeedsPaint();
-    }
-    paint(context, offset) {
-      if (context == null) dart.nullFailed(I[0], 209, 30, "context");
-      if (offset == null) dart.nullFailed(I[0], 209, 46, "offset");
-      if (this.child == null) {
-        return;
-      }
-      if (!dart.test(this.needsCompositing)) dart.assertFailed(null, I[0], 213, 12, "needsCompositing");
-      context.canvas.saveLayer(offset['&'](dart.nullCheck(this.child).size), this.initialPaint);
-      context.paintChild(dart.nullCheck(this.child), offset);
-      let rect = null;
-      let dx = null;
-      let dy = null;
-      let width = dart.nullCheck(this.child).size.width;
-      let height = dart.nullCheck(this.child).size.height;
-      dx = this[_offset](-dart.notNull(width), width, dart.nullCheck(this.value));
-      dy = 0.0;
-      rect = new ui.Rect.fromLTWH(dart.notNull(offset.dx) - dart.notNull(width), offset.dy, 3 * dart.notNull(width), height);
-      if (!dart.equals(this[_rect], rect)) {
-        this.gradientPaint.shader = dart.nullCheck(this.gradient).createShader(rect);
-        this[_rect] = rect;
-      }
-      context.canvas.translate(dx, dy);
-      context.canvas.drawRect(rect, this.gradientPaint);
-      context.canvas.restore();
-    }
-    [_offset](start, end, controllerValue) {
-      if (start == null) dart.nullFailed(I[0], 234, 25, "start");
-      if (end == null) dart.nullFailed(I[0], 234, 39, "end");
-      if (controllerValue == null) dart.nullFailed(I[0], 234, 51, "controllerValue");
-      return dart.notNull(start) + (dart.notNull(end) - dart.notNull(start)) * dart.notNull(controllerValue);
-    }
+  gesture['GestureExtensions|get#click'] = function GestureExtensions$124get$35click($this) {
+    if ($this == null) dart.nullFailed(I[0], 117, 21, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 117, 45, "onClick");
+      return gesture['GestureExtensions|click']($this, onClick);
+    }, T.FnTo_VxGestureBuilder());
   };
-  (shimmer$._VxShimmerFilter.new = function(opts) {
-    let t1;
-    let value = opts && 'value' in opts ? opts.value : null;
-    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
-    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : null;
-    this.initialPaint = ui.Paint.new();
-    this[_rect] = null;
-    this.value = value;
-    this.gradient = gradient;
-    this.showAnimation = showAnimation;
-    this.gradientPaint = (t1 = ui.Paint.new(), (() => {
-      t1.blendMode = ui.BlendMode.srcIn;
-      return t1;
-    })());
-    shimmer$._VxShimmerFilter.__proto__.new.call(this);
-    ;
-  }).prototype = shimmer$._VxShimmerFilter.prototype;
-  dart.addTypeTests(shimmer$._VxShimmerFilter);
-  dart.addTypeCaches(shimmer$._VxShimmerFilter);
-  dart.setMethodSignature(shimmer$._VxShimmerFilter, () => ({
-    __proto__: dart.getMethods(shimmer$._VxShimmerFilter.__proto__),
-    [_offset]: dart.fnType(core.double, [core.double, core.double, core.double])
-  }));
-  dart.setGetterSignature(shimmer$._VxShimmerFilter, () => ({
-    __proto__: dart.getGetters(shimmer$._VxShimmerFilter.__proto__),
-    controllerValue: dart.nullable(core.double)
-  }));
-  dart.setSetterSignature(shimmer$._VxShimmerFilter, () => ({
-    __proto__: dart.getSetters(shimmer$._VxShimmerFilter.__proto__),
-    controllerValue: dart.nullable(core.double)
-  }));
-  dart.setLibraryUri(shimmer$._VxShimmerFilter, I[1]);
-  dart.setFieldSignature(shimmer$._VxShimmerFilter, () => ({
-    __proto__: dart.getFields(shimmer$._VxShimmerFilter.__proto__),
-    initialPaint: dart.finalFieldType(ui.Paint),
-    gradientPaint: dart.finalFieldType(ui.Paint),
-    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
-    showAnimation: dart.fieldType(dart.nullable(core.bool)),
-    value: dart.fieldType(dart.nullable(core.double)),
-    [_rect]: dart.fieldType(dart.nullable(ui.Rect))
-  }));
-  shimmer$['ShimmerExtension|shimmer'] = function ShimmerExtension$124shimmer($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 243, 10, "#this");
+  gesture['GestureExtensions|doubleClick'] = function GestureExtensions$124doubleClick($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 123, 21, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 123, 51, "onClick");
+    return new gesture._VxGestureBuilder.doubleClick($this, onClick);
+  };
+  gesture['GestureExtensions|get#doubleClick'] = function GestureExtensions$124get$35doubleClick($this) {
+    if ($this == null) dart.nullFailed(I[0], 123, 21, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 123, 51, "onClick");
+      return gesture['GestureExtensions|doubleClick']($this, onClick);
+    }, T.FnTo_VxGestureBuilder());
+  };
+  gesture['GestureExtensions|longClick'] = function GestureExtensions$124longClick($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 129, 21, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 129, 49, "onClick");
+    return new gesture._VxGestureBuilder.longClick($this, onClick);
+  };
+  gesture['GestureExtensions|get#longClick'] = function GestureExtensions$124get$35longClick($this) {
+    if ($this == null) dart.nullFailed(I[0], 129, 21, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 129, 49, "onClick");
+      return gesture['GestureExtensions|longClick']($this, onClick);
+    }, T.FnTo_VxGestureBuilder());
+  };
+  gesture['GestureExtensions|mdClick'] = function GestureExtensions$124mdClick($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 135, 28, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 135, 54, "onClick");
+    return new gesture._VelocityXInkWellBuilder.new($this, onClick);
+  };
+  gesture['GestureExtensions|get#mdClick'] = function GestureExtensions$124get$35mdClick($this) {
+    if ($this == null) dart.nullFailed(I[0], 135, 28, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 135, 54, "onClick");
+      return gesture['GestureExtensions|mdClick']($this, onClick);
+    }, T.FnTo_VelocityXInkWellBuilder());
+  };
+  gesture['GestureExtensions|mdDoubleClick'] = function GestureExtensions$124mdDoubleClick($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 141, 28, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 141, 60, "onClick");
+    return new gesture._VelocityXInkWellBuilder.mdDoubleClick($this, onClick);
+  };
+  gesture['GestureExtensions|get#mdDoubleClick'] = function GestureExtensions$124get$35mdDoubleClick($this) {
+    if ($this == null) dart.nullFailed(I[0], 141, 28, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 141, 60, "onClick");
+      return gesture['GestureExtensions|mdDoubleClick']($this, onClick);
+    }, T.FnTo_VelocityXInkWellBuilder());
+  };
+  gesture['GestureExtensions|get#mdLongClick'] = function GestureExtensions$124get$35mdLongClick($this) {
+    if ($this == null) dart.nullFailed(I[0], 147, 28, "#this");
+    return dart.fn(onClick => {
+      if (onClick == null) dart.nullFailed(I[0], 147, 58, "onClick");
+      return gesture['GestureExtensions|mdLongClick']($this, onClick);
+    }, T.FnTo_VelocityXInkWellBuilder());
+  };
+  gesture['GestureExtensions|mdLongClick'] = function GestureExtensions$124mdLongClick($this, onClick) {
+    if ($this == null) dart.nullFailed(I[0], 147, 28, "#this");
+    if (onClick == null) dart.nullFailed(I[0], 147, 58, "onClick");
+    return new gesture._VelocityXInkWellBuilder.mdLongClick($this, onClick);
+  };
+  gesture['GestureExtensions|onTap'] = function GestureExtensions$124onTap($this, onTap, opts) {
+    if ($this == null) dart.nullFailed(I[0], 150, 19, "#this");
+    if (onTap == null) dart.nullFailed(I[0], 150, 38, "onTap");
+    let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+    if (hitTestBehavior == null) dart.nullFailed(I[0], 151, 24, "hitTestBehavior");
+    return new gesture_detector.GestureDetector.new({behavior: hitTestBehavior, onTap: onTap, child: $this, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
+  };
+  gesture['GestureExtensions|get#onTap'] = function GestureExtensions$124get$35onTap($this) {
+    if ($this == null) dart.nullFailed(I[0], 150, 19, "#this");
+    return dart.fn((onTap, opts) => {
+      if (onTap == null) dart.nullFailed(I[0], 150, 38, "onTap");
+      let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+      if (hitTestBehavior == null) dart.nullFailed(I[0], 151, 24, "hitTestBehavior");
+      return gesture['GestureExtensions|onTap']($this, onTap, {hitTestBehavior: hitTestBehavior});
+    }, T.Fn__ToGestureDetector());
+  };
+  gesture['GestureExtensions|onInkTap'] = function GestureExtensions$124onInkTap($this, onTap) {
+    if ($this == null) dart.nullFailed(I[0], 159, 11, "#this");
+    if (onTap == null) dart.nullFailed(I[0], 160, 18, "onTap");
+    return new ink_well.InkWell.new({onTap: onTap, child: $this, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+  };
+  gesture['GestureExtensions|get#onInkTap'] = function GestureExtensions$124get$35onInkTap($this) {
+    if ($this == null) dart.nullFailed(I[0], 159, 11, "#this");
+    return dart.fn(onTap => {
+      if (onTap == null) dart.nullFailed(I[0], 160, 18, "onTap");
+      return gesture['GestureExtensions|onInkTap']($this, onTap);
+    }, T.FnToInkWell());
+  };
+  gesture['GestureExtensions|onDoubleTap'] = function GestureExtensions$124onDoubleTap($this, onDoubleTap, opts) {
+    if ($this == null) dart.nullFailed(I[0], 168, 19, "#this");
+    if (onDoubleTap == null) dart.nullFailed(I[0], 168, 44, "onDoubleTap");
+    let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+    if (hitTestBehavior == null) dart.nullFailed(I[0], 169, 24, "hitTestBehavior");
+    return new gesture_detector.GestureDetector.new({behavior: hitTestBehavior, onDoubleTap: onDoubleTap, child: $this, $creationLocationd_0dea112b090073317d4: C[39] || CT.C39});
+  };
+  gesture['GestureExtensions|get#onDoubleTap'] = function GestureExtensions$124get$35onDoubleTap($this) {
+    if ($this == null) dart.nullFailed(I[0], 168, 19, "#this");
+    return dart.fn((onDoubleTap, opts) => {
+      if (onDoubleTap == null) dart.nullFailed(I[0], 168, 44, "onDoubleTap");
+      let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+      if (hitTestBehavior == null) dart.nullFailed(I[0], 169, 24, "hitTestBehavior");
+      return gesture['GestureExtensions|onDoubleTap']($this, onDoubleTap, {hitTestBehavior: hitTestBehavior});
+    }, T.Fn__ToGestureDetector());
+  };
+  gesture['GestureExtensions|onInkDoubleTap'] = function GestureExtensions$124onInkDoubleTap($this, onDoubleTap) {
+    if ($this == null) dart.nullFailed(I[0], 177, 11, "#this");
+    if (onDoubleTap == null) dart.nullFailed(I[0], 178, 18, "onDoubleTap");
+    return new ink_well.InkWell.new({onDoubleTap: onDoubleTap, child: $this, $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
+  };
+  gesture['GestureExtensions|get#onInkDoubleTap'] = function GestureExtensions$124get$35onInkDoubleTap($this) {
+    if ($this == null) dart.nullFailed(I[0], 177, 11, "#this");
+    return dart.fn(onDoubleTap => {
+      if (onDoubleTap == null) dart.nullFailed(I[0], 178, 18, "onDoubleTap");
+      return gesture['GestureExtensions|onInkDoubleTap']($this, onDoubleTap);
+    }, T.FnToInkWell());
+  };
+  gesture['GestureExtensions|onLongPress'] = function GestureExtensions$124onLongPress($this, onLongPress, opts) {
+    if ($this == null) dart.nullFailed(I[0], 186, 19, "#this");
+    if (onLongPress == null) dart.nullFailed(I[0], 186, 44, "onLongPress");
+    let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+    if (hitTestBehavior == null) dart.nullFailed(I[0], 187, 24, "hitTestBehavior");
+    return new gesture_detector.GestureDetector.new({behavior: hitTestBehavior, onLongPress: onLongPress, child: $this, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
+  };
+  gesture['GestureExtensions|get#onLongPress'] = function GestureExtensions$124get$35onLongPress($this) {
+    if ($this == null) dart.nullFailed(I[0], 186, 19, "#this");
+    return dart.fn((onLongPress, opts) => {
+      if (onLongPress == null) dart.nullFailed(I[0], 186, 44, "onLongPress");
+      let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+      if (hitTestBehavior == null) dart.nullFailed(I[0], 187, 24, "hitTestBehavior");
+      return gesture['GestureExtensions|onLongPress']($this, onLongPress, {hitTestBehavior: hitTestBehavior});
+    }, T.Fn__ToGestureDetector());
+  };
+  gesture['GestureExtensions|onInkLongPress'] = function GestureExtensions$124onInkLongPress($this, onLongPress) {
+    if ($this == null) dart.nullFailed(I[0], 195, 11, "#this");
+    if (onLongPress == null) dart.nullFailed(I[0], 196, 18, "onLongPress");
+    return new ink_well.InkWell.new({onLongPress: onLongPress, child: $this, $creationLocationd_0dea112b090073317d4: C[53] || CT.C53});
+  };
+  gesture['GestureExtensions|get#onInkLongPress'] = function GestureExtensions$124get$35onInkLongPress($this) {
+    if ($this == null) dart.nullFailed(I[0], 195, 11, "#this");
+    return dart.fn(onLongPress => {
+      if (onLongPress == null) dart.nullFailed(I[0], 196, 18, "onLongPress");
+      return gesture['GestureExtensions|onInkLongPress']($this, onLongPress);
+    }, T.FnToInkWell());
+  };
+  gesture['GestureExtensions|onFeedBackTap'] = function GestureExtensions$124onFeedBackTap($this, onTap, opts) {
+    if ($this == null) dart.nullFailed(I[0], 208, 10, "#this");
+    if (onTap == null) dart.nullFailed(I[0], 208, 37, "onTap");
+    let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+    if (hitTestBehavior == null) dart.nullFailed(I[0], 209, 24, "hitTestBehavior");
+    let touchFeedBack = opts && 'touchFeedBack' in opts ? opts.touchFeedBack : false;
+    if (touchFeedBack == null) dart.nullFailed(I[0], 210, 12, "touchFeedBack");
+    return new gesture._CallbackButton.new({child: $this, onTap: onTap, needHaptic: touchFeedBack, hitTestBehavior: hitTestBehavior, $creationLocationd_0dea112b090073317d4: C[57] || CT.C57});
+  };
+  gesture['GestureExtensions|get#onFeedBackTap'] = function GestureExtensions$124get$35onFeedBackTap($this) {
+    if ($this == null) dart.nullFailed(I[0], 208, 10, "#this");
+    return dart.fn((onTap, opts) => {
+      if (onTap == null) dart.nullFailed(I[0], 208, 37, "onTap");
+      let hitTestBehavior = opts && 'hitTestBehavior' in opts ? opts.hitTestBehavior : C[29] || CT.C29;
+      if (hitTestBehavior == null) dart.nullFailed(I[0], 209, 24, "hitTestBehavior");
+      let touchFeedBack = opts && 'touchFeedBack' in opts ? opts.touchFeedBack : false;
+      if (touchFeedBack == null) dart.nullFailed(I[0], 210, 12, "touchFeedBack");
+      return gesture['GestureExtensions|onFeedBackTap']($this, onTap, {hitTestBehavior: hitTestBehavior, touchFeedBack: touchFeedBack});
+    }, T.Fn__ToWidget());
+  };
+  gesture['GestureExtensions|onMouseHover'] = function GestureExtensions$124onMouseHover($this, onHover) {
+    if ($this == null) dart.nullFailed(I[0], 220, 15, "#this");
+    if (onHover == null) dart.nullFailed(I[0], 221, 31, "onHover");
+    return new basic.MouseRegion.new({onHover: onHover, child: $this, $creationLocationd_0dea112b090073317d4: C[63] || CT.C63});
+  };
+  gesture['GestureExtensions|get#onMouseHover'] = function GestureExtensions$124get$35onMouseHover($this) {
+    if ($this == null) dart.nullFailed(I[0], 220, 15, "#this");
+    return dart.fn(onHover => {
+      if (onHover == null) dart.nullFailed(I[0], 221, 31, "onHover");
+      return gesture['GestureExtensions|onMouseHover']($this, onHover);
+    }, T.FnToMouseRegion());
+  };
+  gesture['GestureExtensions|onMouseEnter'] = function GestureExtensions$124onMouseEnter($this, onEnter) {
+    if ($this == null) dart.nullFailed(I[0], 230, 15, "#this");
+    if (onEnter == null) dart.nullFailed(I[0], 231, 31, "onEnter");
+    return new basic.MouseRegion.new({onEnter: onEnter, child: $this, $creationLocationd_0dea112b090073317d4: C[67] || CT.C67});
+  };
+  gesture['GestureExtensions|get#onMouseEnter'] = function GestureExtensions$124get$35onMouseEnter($this) {
+    if ($this == null) dart.nullFailed(I[0], 230, 15, "#this");
+    return dart.fn(onEnter => {
+      if (onEnter == null) dart.nullFailed(I[0], 231, 31, "onEnter");
+      return gesture['GestureExtensions|onMouseEnter']($this, onEnter);
+    }, T.FnToMouseRegion$1());
+  };
+  gesture['GestureExtensions|onMouseExit'] = function GestureExtensions$124onMouseExit($this, onExit) {
+    if ($this == null) dart.nullFailed(I[0], 240, 15, "#this");
+    if (onExit == null) dart.nullFailed(I[0], 241, 30, "onExit");
+    return new basic.MouseRegion.new({onExit: onExit, child: $this, $creationLocationd_0dea112b090073317d4: C[71] || CT.C71});
+  };
+  gesture['GestureExtensions|get#onMouseExit'] = function GestureExtensions$124get$35onMouseExit($this) {
+    if ($this == null) dart.nullFailed(I[0], 240, 15, "#this");
+    return dart.fn(onExit => {
+      if (onExit == null) dart.nullFailed(I[0], 241, 30, "onExit");
+      return gesture['GestureExtensions|onMouseExit']($this, onExit);
+    }, T.FnToMouseRegion$2());
+  };
+  gesture['GestureExtensions|onMouseEnterExit'] = function GestureExtensions$124onMouseEnterExit($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 250, 15, "#this");
+    let onEnter = opts && 'onEnter' in opts ? opts.onEnter : null;
+    if (onEnter == null) dart.nullFailed(I[0], 251, 40, "onEnter");
+    let onExit = opts && 'onExit' in opts ? opts.onExit : null;
+    if (onExit == null) dart.nullFailed(I[0], 252, 39, "onExit");
+    return new basic.MouseRegion.new({onEnter: onEnter, onExit: onExit, child: $this, $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
+  };
+  gesture['GestureExtensions|get#onMouseEnterExit'] = function GestureExtensions$124get$35onMouseEnterExit($this) {
+    if ($this == null) dart.nullFailed(I[0], 250, 15, "#this");
+    return dart.fn(opts => {
+      let onEnter = opts && 'onEnter' in opts ? opts.onEnter : null;
+      if (onEnter == null) dart.nullFailed(I[0], 251, 40, "onEnter");
+      let onExit = opts && 'onExit' in opts ? opts.onExit : null;
+      if (onExit == null) dart.nullFailed(I[0], 252, 39, "onExit");
+      return gesture['GestureExtensions|onMouseEnterExit']($this, {onEnter: onEnter, onExit: onExit});
+    }, T.__ToMouseRegion());
+  };
+  gesture['GestureExtensions|mouseRegion'] = function GestureExtensions$124mouseRegion($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 262, 15, "#this");
     let key = opts && 'key' in opts ? opts.key : null;
-    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
-    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
-    if (duration == null) dart.nullFailed(I[0], 246, 14, "duration");
-    let count = opts && 'count' in opts ? opts.count : 10000;
-    if (count == null) dart.nullFailed(I[0], 247, 9, "count");
-    let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
-    if (showAnimation == null) dart.nullFailed(I[0], 248, 10, "showAnimation");
-    let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
-    if (showGradient == null) dart.nullFailed(I[0], 249, 10, "showGradient");
-    let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
-    if (primaryColor == null) dart.nullFailed(I[0], 250, 11, "primaryColor");
-    let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
-    return new shimmer$.VxShimmer.new({key: key, child: $this, count: count, duration: duration, gradient: gradient, primaryColor: primaryColor, secondaryColor: secondaryColor, showAnimation: showAnimation, showGradient: showGradient, $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+    let onHover = opts && 'onHover' in opts ? opts.onHover : null;
+    let onEnter = opts && 'onEnter' in opts ? opts.onEnter : null;
+    let onExit = opts && 'onExit' in opts ? opts.onExit : null;
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : C[80] || CT.C80;
+    if (mouseCursor == null) dart.nullFailed(I[0], 267, 19, "mouseCursor");
+    let opaque = opts && 'opaque' in opts ? opts.opaque : true;
+    if (opaque == null) dart.nullFailed(I[0], 268, 12, "opaque");
+    return new basic.MouseRegion.new({key: key, onHover: onHover, cursor: mouseCursor, opaque: opaque, onEnter: onEnter, onExit: onExit, child: $this, $creationLocationd_0dea112b090073317d4: C[81] || CT.C81});
   };
-  shimmer$['ShimmerExtension|get#shimmer'] = function ShimmerExtension$124get$35shimmer($this) {
-    if ($this == null) dart.nullFailed(I[0], 243, 10, "#this");
+  gesture['GestureExtensions|get#mouseRegion'] = function GestureExtensions$124get$35mouseRegion($this) {
+    if ($this == null) dart.nullFailed(I[0], 262, 15, "#this");
     return dart.fn(opts => {
       let key = opts && 'key' in opts ? opts.key : null;
-      let gradient = opts && 'gradient' in opts ? opts.gradient : null;
-      let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
-      if (duration == null) dart.nullFailed(I[0], 246, 14, "duration");
-      let count = opts && 'count' in opts ? opts.count : 10000;
-      if (count == null) dart.nullFailed(I[0], 247, 9, "count");
-      let showAnimation = opts && 'showAnimation' in opts ? opts.showAnimation : true;
-      if (showAnimation == null) dart.nullFailed(I[0], 248, 10, "showAnimation");
-      let showGradient = opts && 'showGradient' in opts ? opts.showGradient : false;
-      if (showGradient == null) dart.nullFailed(I[0], 249, 10, "showGradient");
-      let primaryColor = opts && 'primaryColor' in opts ? opts.primaryColor : C[1] || CT.C1;
-      if (primaryColor == null) dart.nullFailed(I[0], 250, 11, "primaryColor");
-      let secondaryColor = opts && 'secondaryColor' in opts ? opts.secondaryColor : null;
-      return shimmer$['ShimmerExtension|shimmer']($this, {key: key, gradient: gradient, duration: duration, count: count, showAnimation: showAnimation, showGradient: showGradient, primaryColor: primaryColor, secondaryColor: secondaryColor});
-    }, T.__ToWidget());
+      let onHover = opts && 'onHover' in opts ? opts.onHover : null;
+      let onEnter = opts && 'onEnter' in opts ? opts.onEnter : null;
+      let onExit = opts && 'onExit' in opts ? opts.onExit : null;
+      let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : C[80] || CT.C80;
+      if (mouseCursor == null) dart.nullFailed(I[0], 267, 19, "mouseCursor");
+      let opaque = opts && 'opaque' in opts ? opts.opaque : true;
+      if (opaque == null) dart.nullFailed(I[0], 268, 12, "opaque");
+      return gesture['GestureExtensions|mouseRegion']($this, {key: key, onHover: onHover, onEnter: onEnter, onExit: onExit, mouseCursor: mouseCursor, opaque: opaque});
+    }, T.__ToMouseRegion$1());
   };
-  dart.trackLibraries("packages/velocity_x/src/flutter/shimmer.dart", {
-    "package:velocity_x/src/flutter/shimmer.dart": shimmer$
+  dart.trackLibraries("packages/velocity_x/src/flutter/gesture.dart", {
+    "package:velocity_x/src/flutter/gesture.dart": gesture
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["shimmer.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/shimmer.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["gesture.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/gesture.dart.lib.js"}');
   // Exports:
   return {
-    src__flutter__shimmer: shimmer$
+    src__flutter__gesture: gesture
   };
 }));
 
-//# sourceMappingURL=shimmer.dart.lib.js.map
+//# sourceMappingURL=gesture.dart.lib.js.map

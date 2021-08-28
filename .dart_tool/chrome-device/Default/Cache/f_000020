@@ -1,1679 +1,709 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/observer_list.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/animation/curves.dart'], (function load__packages__flutter__src__animation__listener_helpers_dart(dart_sdk, packages__flutter__src__foundation__observer_list$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__animation__curves$46dart) {
+define(['dart_sdk', 'packages/pedantic/pedantic.dart', 'packages/http/src/byte_stream.dart', 'packages/http/src/exception.dart', 'packages/http/src/utils.dart', 'packages/http_parser/src/media_type.dart'], (function load__packages__http__src__browser_client_dart(dart_sdk, packages__pedantic__pedantic$46dart, packages__http__src__byte_stream$46dart, packages__http__src__exception$46dart, packages__http__src__utils$46dart, packages__http_parser__src__media_type$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const collection = dart_sdk.collection;
+  const html = dart_sdk.html;
+  const async = dart_sdk.async;
+  const typed_data = dart_sdk.typed_data;
+  const convert = dart_sdk.convert;
+  const _native_typed_data = dart_sdk._native_typed_data;
   const _js_helper = dart_sdk._js_helper;
-  const _internal = dart_sdk._internal;
-  const math = dart_sdk.math;
-  const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const observer_list = packages__flutter__src__foundation__observer_list$46dart.src__foundation__observer_list;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  var listener_helpers = Object.create(dart.library);
-  var animations = Object.create(dart.library);
-  var tween = Object.create(dart.library);
-  var animation$ = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $round = dartx.round;
-  var $toDouble = dartx.toDouble;
-  var $add = dartx.add;
-  var $floor = dartx.floor;
+  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
+  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
+  const exception = packages__http__src__exception$46dart.src__exception;
+  const utils = packages__http__src__utils$46dart.src__utils;
+  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
+  var browser_client = Object.create(dart.library);
+  var response$ = Object.create(dart.library);
+  var request$ = Object.create(dart.library);
+  var base_response = Object.create(dart.library);
+  var streamed_response = Object.create(dart.library);
+  var base_request = Object.create(dart.library);
+  var base_client = Object.create(dart.library);
+  var client$ = Object.create(dart.library);
+  var $forEach = dartx.forEach;
+  var $onLoad = dartx.onLoad;
+  var $response = dartx.response;
+  var $result = dartx.result;
+  var $length = dartx.length;
+  var $responseHeaders = dartx.responseHeaders;
+  var $onError = dartx.onError;
+  var $toString = dartx.toString;
+  var $addAll = dartx.addAll;
+  var $cast = dartx.cast;
+  var $_get = dartx._get;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $toLowerCase = dartx.toLowerCase;
+  var $hashCode = dartx.hashCode;
   dart._checkModuleNullSafetyMode(false);
-  var T$ = {
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    ObserverListOfVoidTovoid: () => (T$.ObserverListOfVoidTovoid = dart.constFn(observer_list.ObserverList$(T$.VoidTovoid())))(),
-    ListOfVoidTovoid: () => (T$.ListOfVoidTovoid = dart.constFn(core.List$(T$.VoidTovoid())))(),
-    DiagnosticsPropertyOfAnimationLocalListenersMixin: () => (T$.DiagnosticsPropertyOfAnimationLocalListenersMixin = dart.constFn(diagnostics.DiagnosticsProperty$(listener_helpers.AnimationLocalListenersMixin)))(),
-    SyncIterableOfDiagnosticsNode: () => (T$.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
-    IterableOfDiagnosticsNode: () => (T$.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
-    VoidToIterableOfDiagnosticsNode: () => (T$.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T$.IterableOfDiagnosticsNode(), [])))(),
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    AnimationStatusTovoid: () => (T$.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation$.AnimationStatus])))(),
-    ObserverListOfAnimationStatusTovoid: () => (T$.ObserverListOfAnimationStatusTovoid = dart.constFn(observer_list.ObserverList$(T$.AnimationStatusTovoid())))(),
-    ListOfAnimationStatusTovoid: () => (T$.ListOfAnimationStatusTovoid = dart.constFn(core.List$(T$.AnimationStatusTovoid())))(),
-    DiagnosticsPropertyOfAnimationLocalStatusListenersMixin: () => (T$.DiagnosticsPropertyOfAnimationLocalStatusListenersMixin = dart.constFn(diagnostics.DiagnosticsProperty$(listener_helpers.AnimationLocalStatusListenersMixin)))(),
-    AnimationOfdouble: () => (T$.AnimationOfdouble = dart.constFn(animation$.Animation$(core.double)))(),
-    _TrainHoppingModeL: () => (T$._TrainHoppingModeL = dart.constFn(dart.legacy(animations._TrainHoppingMode)))(),
-    JSArrayOfDiagnosticsNode: () => (T$.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    AnimationStatusL: () => (T$.AnimationStatusL = dart.constFn(dart.legacy(animation$.AnimationStatus)))()
+  var T = {
+    HttpRequestL: () => (T.HttpRequestL = dart.constFn(dart.legacy(html.HttpRequest)))(),
+    LinkedHashSetOfHttpRequestL: () => (T.LinkedHashSetOfHttpRequestL = dart.constFn(collection.LinkedHashSet$(T.HttpRequestL())))(),
+    StreamedResponseL: () => (T.StreamedResponseL = dart.constFn(dart.legacy(streamed_response.StreamedResponse)))(),
+    CompleterOfStreamedResponseL: () => (T.CompleterOfStreamedResponseL = dart.constFn(async.Completer$(T.StreamedResponseL())))(),
+    BlobL: () => (T.BlobL = dart.constFn(dart.legacy(html.Blob)))(),
+    Uint8ListL: () => (T.Uint8ListL = dart.constFn(dart.legacy(typed_data.Uint8List)))(),
+    ProgressEventL: () => (T.ProgressEventL = dart.constFn(dart.legacy(html.ProgressEvent)))(),
+    ProgressEventLToNull: () => (T.ProgressEventLToNull = dart.constFn(dart.fnType(core.Null, [T.ProgressEventL()])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    ListL: () => (T.ListL = dart.constFn(dart.legacy(core.List)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    MapL: () => (T.MapL = dart.constFn(dart.legacy(core.Map)))(),
+    ResponseL: () => (T.ResponseL = dart.constFn(dart.legacy(response$.Response)))(),
+    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))(),
+    LinkedHashMapOfStringL$StringL: () => (T.LinkedHashMapOfStringL$StringL = dart.constFn(collection.LinkedHashMap$(T.StringL(), T.StringL())))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    StringLAndStringLToboolL: () => (T.StringLAndStringLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.StringL(), T.StringL()])))(),
+    StringLTointL: () => (T.StringLTointL = dart.constFn(dart.fnType(T.intL(), [T.StringL()])))(),
+    ListOfintL: () => (T.ListOfintL = dart.constFn(core.List$(T.intL())))(),
+    ListLOfintL: () => (T.ListLOfintL = dart.constFn(dart.legacy(T.ListOfintL())))(),
+    UriL: () => (T.UriL = dart.constFn(dart.legacy(core.Uri)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: animation$.AnimationStatus.prototype,
-        [_name$]: "AnimationStatus.forward",
-        index: 1
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: animation$.AnimationStatus.prototype,
-        [_name$]: "AnimationStatus.reverse",
-        index: 2
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: animation$.AnimationStatus.prototype,
-        [_name$]: "AnimationStatus.completed",
-        index: 3
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: animation$.AnimationStatus.prototype,
-        [_name$]: "AnimationStatus.dismissed",
-        index: 0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: animations._TrainHoppingMode.prototype,
-        [_name$0]: "_TrainHoppingMode.minimize",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: animations._TrainHoppingMode.prototype,
-        [_name$0]: "_TrainHoppingMode.maximize",
-        index: 1
-      });
-    },
-    get C6() {
-      return C[6] = dart.constList([C[4] || CT.C4, C[5] || CT.C5], T$._TrainHoppingModeL());
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: animations._AlwaysCompleteAnimation.prototype
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: animations._AlwaysDismissedAnimation.prototype
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[3] || CT.C3, C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], T$.AnimationStatusL());
+      return C[0] = dart.constMap(T.StringL(), T.StringL(), []);
     }
   }, false);
-  var C = Array(10).fill(void 0);
+  var C = [void 0];
   var I = [
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/animation/listener_helpers.dart",
-    "package:flutter/src/animation/listener_helpers.dart",
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/animation/animations.dart",
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/animation/animation.dart",
-    "package:flutter/src/animation/animation.dart",
-    "package:flutter/src/animation/animations.dart",
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/animation/tween.dart",
-    "package:flutter/src/animation/tween.dart"
+    "package:http/src/base_client.dart",
+    "package:http/src/browser_client.dart",
+    "package:http/src/base_response.dart",
+    "package:http/src/response.dart",
+    "package:http/src/base_request.dart",
+    "package:http/src/request.dart",
+    "package:http/src/streamed_response.dart",
+    "package:http/src/client.dart"
   ];
-  var _listenerCounter = dart.privateName(listener_helpers, "_listenerCounter");
-  listener_helpers.AnimationLazyListenerMixin = class AnimationLazyListenerMixin extends core.Object {};
-  listener_helpers.AnimationLazyListenerMixin[dart.mixinOn] = Object => class AnimationLazyListenerMixin extends Object {
-    didRegisterListener() {
-      if (!(dart.notNull(this[_listenerCounter]) >= 0)) dart.assertFailed(null, I[0], 27, 12, "_listenerCounter >= 0");
-      if (this[_listenerCounter] === 0) this.didStartListening();
-      this[_listenerCounter] = dart.notNull(this[_listenerCounter]) + 1;
+  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
+  var _xhrs = dart.privateName(browser_client, "_xhrs");
+  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
+  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
+  base_client.BaseClient = class BaseClient extends core.Object {
+    head(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return this[_sendUnstreamed]("HEAD", url, headers);
     }
-    didUnregisterListener() {
-      if (!(dart.notNull(this[_listenerCounter]) >= 1)) dart.assertFailed(null, I[0], 40, 12, "_listenerCounter >= 1");
-      this[_listenerCounter] = dart.notNull(this[_listenerCounter]) - 1;
-      if (this[_listenerCounter] === 0) this.didStopListening();
+    get(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return this[_sendUnstreamed]("GET", url, headers);
     }
-    get isListening() {
-      return dart.notNull(this[_listenerCounter]) > 0;
+    post(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
     }
-  };
-  (listener_helpers.AnimationLazyListenerMixin[dart.mixinNew] = function() {
-    this[_listenerCounter] = 0;
-  }).prototype = listener_helpers.AnimationLazyListenerMixin.prototype;
-  dart.addTypeTests(listener_helpers.AnimationLazyListenerMixin);
-  dart.addTypeCaches(listener_helpers.AnimationLazyListenerMixin);
-  listener_helpers.AnimationLazyListenerMixin[dart.implements] = () => [core.Object];
-  dart.setMethodSignature(listener_helpers.AnimationLazyListenerMixin, () => ({
-    __proto__: dart.getMethods(listener_helpers.AnimationLazyListenerMixin.__proto__),
-    didRegisterListener: dart.fnType(dart.void, []),
-    didUnregisterListener: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(listener_helpers.AnimationLazyListenerMixin, () => ({
-    __proto__: dart.getGetters(listener_helpers.AnimationLazyListenerMixin.__proto__),
-    isListening: core.bool
-  }));
-  dart.setLibraryUri(listener_helpers.AnimationLazyListenerMixin, I[1]);
-  dart.setFieldSignature(listener_helpers.AnimationLazyListenerMixin, () => ({
-    __proto__: dart.getFields(listener_helpers.AnimationLazyListenerMixin.__proto__),
-    [_listenerCounter]: dart.fieldType(core.int)
-  }));
-  listener_helpers.AnimationEagerListenerMixin = class AnimationEagerListenerMixin extends core.Object {};
-  listener_helpers.AnimationEagerListenerMixin[dart.mixinOn] = Object => class AnimationEagerListenerMixin extends Object {
-    didRegisterListener() {
+    put(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
     }
-    didUnregisterListener() {
+    patch(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
     }
-    dispose() {
+    delete(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return this[_sendUnstreamed]("DELETE", url, headers);
     }
-  };
-  (listener_helpers.AnimationEagerListenerMixin[dart.mixinNew] = function() {
-  }).prototype = listener_helpers.AnimationEagerListenerMixin.prototype;
-  dart.addTypeTests(listener_helpers.AnimationEagerListenerMixin);
-  dart.addTypeCaches(listener_helpers.AnimationEagerListenerMixin);
-  listener_helpers.AnimationEagerListenerMixin[dart.implements] = () => [core.Object];
-  dart.setMethodSignature(listener_helpers.AnimationEagerListenerMixin, () => ({
-    __proto__: dart.getMethods(listener_helpers.AnimationEagerListenerMixin.__proto__),
-    didRegisterListener: dart.fnType(dart.void, []),
-    didUnregisterListener: dart.fnType(dart.void, []),
-    dispose: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(listener_helpers.AnimationEagerListenerMixin, I[1]);
-  var _listeners = dart.privateName(listener_helpers, "_listeners");
-  listener_helpers.AnimationLocalListenersMixin = class AnimationLocalListenersMixin extends core.Object {};
-  listener_helpers.AnimationLocalListenersMixin[dart.mixinOn] = Object => class AnimationLocalListenersMixin extends Object {
-    addListener(listener) {
-      if (listener == null) dart.nullFailed(I[0], 101, 33, "listener");
-      this.didRegisterListener();
-      this[_listeners].add(listener);
+    read(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return async.async(T.StringL(), (function* read() {
+        let response = (yield this.get(url, {headers: headers}));
+        this[_checkResponseSuccess](url, response);
+        return response.body;
+      }).bind(this));
     }
-    removeListener(listener) {
-      if (listener == null) dart.nullFailed(I[0], 109, 36, "listener");
-      let removed = this[_listeners].remove(listener);
-      if (dart.test(removed)) {
-        this.didUnregisterListener();
+    readBytes(url, opts) {
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return async.async(T.Uint8ListL(), (function* readBytes() {
+        let response = (yield this.get(url, {headers: headers}));
+        this[_checkResponseSuccess](url, response);
+        return response.bodyBytes;
+      }).bind(this));
+    }
+    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
+      return async.async(T.ResponseL(), (function* _sendUnstreamed() {
+        let request = new request$.Request.new(method, base_client._fromUriOrString(url));
+        if (headers != null) request.headers[$addAll](headers);
+        if (encoding != null) request.encoding = encoding;
+        if (body != null) {
+          if (T.StringL().is(body)) {
+            request.body = body;
+          } else if (T.ListL().is(body)) {
+            request.bodyBytes = body[$cast](T.intL());
+          } else if (T.MapL().is(body)) {
+            request.bodyFields = body[$cast](T.StringL(), T.StringL());
+          } else {
+            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
+          }
+        }
+        return response$.Response.fromStream(yield this.send(request));
+      }).bind(this));
+    }
+    [_checkResponseSuccess](url, response) {
+      if (dart.notNull(response.statusCode) < 400) return;
+      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
+      if (response.reasonPhrase != null) {
+        message = message + ": " + dart.str(response.reasonPhrase);
       }
+      dart.throw(new exception.ClientException.new(message + ".", base_client._fromUriOrString(url)));
     }
-    notifyListeners() {
-      let localListeners = T$.ListOfVoidTovoid().from(this[_listeners]);
-      for (let listener of localListeners) {
-        let collector = null;
-        if (!dart.test(dart.fn(() => {
-          collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-            yield new (T$.DiagnosticsPropertyOfAnimationLocalListenersMixin()).new("The " + dart.str(this[$runtimeType]) + " notifying listeners was", this, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-          }).bind(this)), T$.VoidToIterableOfDiagnosticsNode());
-          return true;
-        }, T$.VoidTobool())())) dart.assertFailed(null, I[0], 124, 14, "() {\r\n        collector = () sync* {\r\n          yield DiagnosticsProperty<AnimationLocalListenersMixin>(\r\n            'The $runtimeType notifying listeners was',\r\n            this,\r\n            style: DiagnosticsTreeStyle.errorProperty,\r\n          );\r\n        };\r\n        return true;\r\n      }()");
+    close() {
+    }
+  };
+  (base_client.BaseClient.new = function() {
+    ;
+  }).prototype = base_client.BaseClient.prototype;
+  dart.addTypeTests(base_client.BaseClient);
+  dart.addTypeCaches(base_client.BaseClient);
+  base_client.BaseClient[dart.implements] = () => [client$.Client];
+  dart.setMethodSignature(base_client.BaseClient, () => ({
+    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
+    head: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    get: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    post: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    put: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    patch: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    delete: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    read: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    readBytes: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.Uint8List))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
+    [_sendUnstreamed]: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.legacy(core.String), dart.dynamic, dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))], [dart.dynamic, dart.legacy(convert.Encoding)]),
+    [_checkResponseSuccess]: dart.fnType(dart.void, [dart.dynamic, dart.legacy(response$.Response)]),
+    close: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(base_client.BaseClient, I[0]);
+  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
+    get withCredentials() {
+      return this[withCredentials];
+    }
+    set withCredentials(value) {
+      this[withCredentials] = value;
+    }
+    send(request) {
+      return async.async(T.StreamedResponseL(), (function* send() {
+        let t0;
+        let bytes = (yield request.finalize().toBytes());
+        let xhr = html.HttpRequest.new();
+        this[_xhrs].add(xhr);
+        t0 = xhr;
+        (() => {
+          t0.open(request.method, dart.str(request.url), {async: true});
+          t0.responseType = "blob";
+          t0.withCredentials = this.withCredentials;
+          return t0;
+        })();
+        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
+        let completer = T.CompleterOfStreamedResponseL().new();
+        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
+          let t0;
+          let blob = (t0 = T.BlobL().as(xhr[$response]), t0 == null ? html.Blob.new([]) : t0);
+          let reader = html.FileReader.new();
+          reader[$onLoad].first.then(core.Null, dart.fn(_ => {
+            let body = T.Uint8ListL().as(reader[$result]);
+            completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), xhr.status, {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
+          }, T.ProgressEventLToNull()));
+          reader[$onError].first.then(core.Null, dart.fn(error => {
+            completer.completeError(new exception.ClientException.new(dart.toString(error), request.url), core.StackTrace.current);
+          }, T.ProgressEventLToNull()));
+          reader.readAsArrayBuffer(blob);
+        }, T.ProgressEventLToNull())));
+        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
+          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
+        }, T.ProgressEventLToNull())));
+        xhr.send(bytes);
         try {
-          if (dart.test(this[_listeners].contains(listener))) listener();
-        } catch (e) {
-          let exception = dart.getThrown(e);
-          let stack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "animation library", context: new assertions.ErrorDescription.new("while notifying listeners for " + dart.str(this[$runtimeType])), informationCollector: collector}));
-          } else
-            throw e;
+          return yield completer.future;
+        } finally {
+          this[_xhrs].remove(xhr);
         }
+      }).bind(this));
+    }
+    close() {
+      for (let xhr of this[_xhrs]) {
+        xhr.abort();
       }
     }
   };
-  (listener_helpers.AnimationLocalListenersMixin[dart.mixinNew] = function() {
-    this[_listeners] = new (T$.ObserverListOfVoidTovoid()).new();
-  }).prototype = listener_helpers.AnimationLocalListenersMixin.prototype;
-  dart.addTypeTests(listener_helpers.AnimationLocalListenersMixin);
-  dart.addTypeCaches(listener_helpers.AnimationLocalListenersMixin);
-  listener_helpers.AnimationLocalListenersMixin[dart.implements] = () => [core.Object];
-  dart.setMethodSignature(listener_helpers.AnimationLocalListenersMixin, () => ({
-    __proto__: dart.getMethods(listener_helpers.AnimationLocalListenersMixin.__proto__),
-    addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    notifyListeners: dart.fnType(dart.void, [])
+  (browser_client.BrowserClient.new = function() {
+    this[_xhrs] = T.LinkedHashSetOfHttpRequestL().new();
+    this[withCredentials] = false;
+    ;
+  }).prototype = browser_client.BrowserClient.prototype;
+  dart.addTypeTests(browser_client.BrowserClient);
+  dart.addTypeCaches(browser_client.BrowserClient);
+  dart.setMethodSignature(browser_client.BrowserClient, () => ({
+    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
+    send: dart.fnType(dart.legacy(async.Future$(dart.legacy(streamed_response.StreamedResponse))), [dart.legacy(base_request.BaseRequest)])
   }));
-  dart.setLibraryUri(listener_helpers.AnimationLocalListenersMixin, I[1]);
-  dart.setFieldSignature(listener_helpers.AnimationLocalListenersMixin, () => ({
-    __proto__: dart.getFields(listener_helpers.AnimationLocalListenersMixin.__proto__),
-    [_listeners]: dart.finalFieldType(observer_list.ObserverList$(dart.fnType(dart.void, [])))
+  dart.setLibraryUri(browser_client.BrowserClient, I[1]);
+  dart.setFieldSignature(browser_client.BrowserClient, () => ({
+    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
+    [_xhrs]: dart.finalFieldType(dart.legacy(core.Set$(dart.legacy(html.HttpRequest)))),
+    withCredentials: dart.fieldType(dart.legacy(core.bool))
   }));
-  var _statusListeners = dart.privateName(listener_helpers, "_statusListeners");
-  listener_helpers.AnimationLocalStatusListenersMixin = class AnimationLocalStatusListenersMixin extends core.Object {};
-  listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinOn] = Object => class AnimationLocalStatusListenersMixin extends Object {
-    addStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[0], 175, 50, "listener");
-      this.didRegisterListener();
-      this[_statusListeners].add(listener);
+  browser_client.createClient = function createClient() {
+    return new browser_client.BrowserClient.new();
+  };
+  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
+  var request$0 = dart.privateName(base_response, "BaseResponse.request");
+  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
+  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
+  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
+  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
+  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
+  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
+  base_response.BaseResponse = class BaseResponse extends core.Object {
+    get request() {
+      return this[request$0];
     }
-    removeStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[0], 183, 53, "listener");
-      let removed = this[_statusListeners].remove(listener);
-      if (dart.test(removed)) {
-        this.didUnregisterListener();
+    set request(value) {
+      super.request = value;
+    }
+    get statusCode() {
+      return this[statusCode$];
+    }
+    set statusCode(value) {
+      super.statusCode = value;
+    }
+    get reasonPhrase() {
+      return this[reasonPhrase$];
+    }
+    set reasonPhrase(value) {
+      super.reasonPhrase = value;
+    }
+    get contentLength() {
+      return this[contentLength$];
+    }
+    set contentLength(value) {
+      super.contentLength = value;
+    }
+    get headers() {
+      return this[headers$];
+    }
+    set headers(value) {
+      super.headers = value;
+    }
+    get isRedirect() {
+      return this[isRedirect$];
+    }
+    set isRedirect(value) {
+      super.isRedirect = value;
+    }
+    get persistentConnection() {
+      return this[persistentConnection$];
+    }
+    set persistentConnection(value) {
+      super.persistentConnection = value;
+    }
+  };
+  (base_response.BaseResponse.new = function(statusCode, opts) {
+    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[0] || CT.C0;
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[statusCode$] = statusCode;
+    this[contentLength$] = contentLength;
+    this[request$0] = request;
+    this[headers$] = headers;
+    this[isRedirect$] = isRedirect;
+    this[persistentConnection$] = persistentConnection;
+    this[reasonPhrase$] = reasonPhrase;
+    if (dart.notNull(this.statusCode) < 100) {
+      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
+    } else if (this.contentLength != null && dart.notNull(this.contentLength) < 0) {
+      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
+    }
+  }).prototype = base_response.BaseResponse.prototype;
+  dart.addTypeTests(base_response.BaseResponse);
+  dart.addTypeCaches(base_response.BaseResponse);
+  dart.setLibraryUri(base_response.BaseResponse, I[2]);
+  dart.setFieldSignature(base_response.BaseResponse, () => ({
+    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
+    request: dart.finalFieldType(dart.legacy(base_request.BaseRequest)),
+    statusCode: dart.finalFieldType(dart.legacy(core.int)),
+    reasonPhrase: dart.finalFieldType(dart.legacy(core.String)),
+    contentLength: dart.finalFieldType(dart.legacy(core.int)),
+    headers: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))),
+    isRedirect: dart.finalFieldType(dart.legacy(core.bool)),
+    persistentConnection: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  response$.Response = class Response extends base_response.BaseResponse {
+    get bodyBytes() {
+      return this[bodyBytes$];
+    }
+    set bodyBytes(value) {
+      super.bodyBytes = value;
+    }
+    get body() {
+      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
+    }
+    static fromStream(response) {
+      return async.async(T.ResponseL(), function* fromStream() {
+        let body = (yield response.stream.toBytes());
+        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+      });
+    }
+  };
+  (response$.Response.new = function(body, statusCode, opts) {
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[0] || CT.C0;
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+  }).prototype = response$.Response.prototype;
+  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[0] || CT.C0;
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[bodyBytes$] = utils.toUint8List(bodyBytes);
+    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+    ;
+  }).prototype = response$.Response.prototype;
+  dart.addTypeTests(response$.Response);
+  dart.addTypeCaches(response$.Response);
+  dart.setGetterSignature(response$.Response, () => ({
+    __proto__: dart.getGetters(response$.Response.__proto__),
+    body: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(response$.Response, I[3]);
+  dart.setFieldSignature(response$.Response, () => ({
+    __proto__: dart.getFields(response$.Response.__proto__),
+    bodyBytes: dart.finalFieldType(dart.legacy(typed_data.Uint8List))
+  }));
+  response$._encodingForHeaders = function _encodingForHeaders(headers) {
+    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
+  };
+  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
+    let contentType = headers[$_get]("content-type");
+    if (contentType != null) return media_type.MediaType.parse(contentType);
+    return new media_type.MediaType.new("application", "octet-stream");
+  };
+  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
+  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
+  var _contentType = dart.privateName(request$, "_contentType");
+  var _checkFinalized = dart.privateName(request$, "_checkFinalized");
+  var method$ = dart.privateName(base_request, "BaseRequest.method");
+  var url$ = dart.privateName(base_request, "BaseRequest.url");
+  var headers = dart.privateName(base_request, "BaseRequest.headers");
+  var _contentLength = dart.privateName(base_request, "_contentLength");
+  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
+  var _followRedirects = dart.privateName(base_request, "_followRedirects");
+  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
+  var _finalized = dart.privateName(base_request, "_finalized");
+  var _checkFinalized$ = dart.privateName(base_request, "_checkFinalized");
+  base_request.BaseRequest = class BaseRequest extends core.Object {
+    get method() {
+      return this[method$];
+    }
+    set method(value) {
+      super.method = value;
+    }
+    get url() {
+      return this[url$];
+    }
+    set url(value) {
+      super.url = value;
+    }
+    get headers() {
+      return this[headers];
+    }
+    set headers(value) {
+      super.headers = value;
+    }
+    get contentLength() {
+      return this[_contentLength];
+    }
+    set contentLength(value) {
+      if (value != null && dart.notNull(value) < 0) {
+        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
       }
+      this[_checkFinalized$]();
+      this[_contentLength] = value;
     }
-    notifyStatusListeners(status) {
-      if (status == null) dart.nullFailed(I[0], 194, 46, "status");
-      let localListeners = T$.ListOfAnimationStatusTovoid().from(this[_statusListeners]);
-      for (let listener of localListeners) {
+    get persistentConnection() {
+      return this[_persistentConnection];
+    }
+    set persistentConnection(value) {
+      this[_checkFinalized$]();
+      this[_persistentConnection] = value;
+    }
+    get followRedirects() {
+      return this[_followRedirects];
+    }
+    set followRedirects(value) {
+      this[_checkFinalized$]();
+      this[_followRedirects] = value;
+    }
+    get maxRedirects() {
+      return this[_maxRedirects];
+    }
+    set maxRedirects(value) {
+      this[_checkFinalized$]();
+      this[_maxRedirects] = value;
+    }
+    get finalized() {
+      return this[_finalized];
+    }
+    finalize() {
+      if (dart.test(this.finalized)) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
+      this[_finalized] = true;
+      return null;
+    }
+    send() {
+      return async.async(T.StreamedResponseL(), (function* send() {
+        let client = client$.Client.new();
         try {
-          if (dart.test(this[_statusListeners].contains(listener))) listener(status);
+          let response = (yield client.send(this));
+          let stream = utils.onDone(T.ListLOfintL(), response.stream, dart.bind(client, 'close'));
+          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
         } catch (e) {
-          let exception = dart.getThrown(e);
-          let stack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            let collector = null;
-            if (!dart.test(dart.fn(() => {
-              collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-                yield new (T$.DiagnosticsPropertyOfAnimationLocalStatusListenersMixin()).new("The " + dart.str(this[$runtimeType]) + " notifying status listeners was", this, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-              }).bind(this)), T$.VoidToIterableOfDiagnosticsNode());
-              return true;
-            }, T$.VoidTobool())())) dart.assertFailed(null, I[0], 202, 16, "() {\r\n          collector = () sync* {\r\n            yield DiagnosticsProperty<AnimationLocalStatusListenersMixin>(\r\n              'The $runtimeType notifying status listeners was',\r\n              this,\r\n              style: DiagnosticsTreeStyle.errorProperty,\r\n            );\r\n          };\r\n          return true;\r\n        }()");
-            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "animation library", context: new assertions.ErrorDescription.new("while notifying status listeners for " + dart.str(this[$runtimeType])), informationCollector: collector}));
-          } else
-            throw e;
+          let _ = dart.getThrown(e);
+          client.close();
+          dart.rethrow(e);
         }
-      }
+      }).bind(this));
     }
-  };
-  (listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinNew] = function() {
-    this[_statusListeners] = new (T$.ObserverListOfAnimationStatusTovoid()).new();
-  }).prototype = listener_helpers.AnimationLocalStatusListenersMixin.prototype;
-  dart.addTypeTests(listener_helpers.AnimationLocalStatusListenersMixin);
-  dart.addTypeCaches(listener_helpers.AnimationLocalStatusListenersMixin);
-  listener_helpers.AnimationLocalStatusListenersMixin[dart.implements] = () => [core.Object];
-  dart.setMethodSignature(listener_helpers.AnimationLocalStatusListenersMixin, () => ({
-    __proto__: dart.getMethods(listener_helpers.AnimationLocalStatusListenersMixin.__proto__),
-    addStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-    removeStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-    notifyStatusListeners: dart.fnType(dart.void, [animation$.AnimationStatus])
-  }));
-  dart.setLibraryUri(listener_helpers.AnimationLocalStatusListenersMixin, I[1]);
-  dart.setFieldSignature(listener_helpers.AnimationLocalStatusListenersMixin, () => ({
-    __proto__: dart.getFields(listener_helpers.AnimationLocalStatusListenersMixin.__proto__),
-    [_statusListeners]: dart.finalFieldType(observer_list.ObserverList$(dart.fnType(dart.void, [animation$.AnimationStatus])))
-  }));
-  var _name$ = dart.privateName(animation$, "_name");
-  const _is_Animation_default = Symbol('_is_Animation_default');
-  animation$.Animation$ = dart.generic(T => {
-    class Animation extends change_notifier.Listenable {
-      get isDismissed() {
-        return this.status == animation$.AnimationStatus.dismissed;
-      }
-      get isCompleted() {
-        return this.status == animation$.AnimationStatus.completed;
-      }
-      drive(U, child) {
-        if (child == null) dart.nullFailed(I[3], 168, 39, "child");
-        if (!T$.AnimationOfdouble().is(this)) dart.assertFailed(null, I[3], 169, 12, "this is Animation<double>");
-        return child.animate(T$.AnimationOfdouble().as(this));
-      }
-      toString() {
-        return dart.str(diagnostics.describeIdentity(this)) + "(" + dart.str(this.toStringDetails()) + ")";
-      }
-      toStringDetails() {
-        if (!(this.status != null)) dart.assertFailed(null, I[3], 193, 12, "status != null");
-        switch (this.status) {
-          case C[0] || CT.C0:
-          {
-            return "▶";
-          }
-          case C[1] || CT.C1:
-          {
-            return "◀";
-          }
-          case C[2] || CT.C2:
-          {
-            return "⏭";
-          }
-          case C[3] || CT.C3:
-          {
-            return "⏮";
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
-        }
-      }
-    }
-    (Animation.new = function() {
-      Animation.__proto__.new.call(this);
-      ;
-    }).prototype = Animation.prototype;
-    dart.addTypeTests(Animation);
-    Animation.prototype[_is_Animation_default] = true;
-    dart.addTypeCaches(Animation);
-    Animation[dart.implements] = () => [change_notifier.ValueListenable$(T)];
-    dart.setMethodSignature(Animation, () => ({
-      __proto__: dart.getMethods(Animation.__proto__),
-      drive: dart.gFnType(U => [animation$.Animation$(U), [tween.Animatable$(U)]], U => [dart.nullable(core.Object)]),
-      toStringDetails: dart.fnType(core.String, [])
-    }));
-    dart.setGetterSignature(Animation, () => ({
-      __proto__: dart.getGetters(Animation.__proto__),
-      isDismissed: core.bool,
-      isCompleted: core.bool
-    }));
-    dart.setLibraryUri(Animation, I[4]);
-    dart.defineExtensionMethods(Animation, ['toString']);
-    return Animation;
-  });
-  animation$.Animation = animation$.Animation$();
-  dart.addTypeTests(animation$.Animation, _is_Animation_default);
-  animations._AlwaysCompleteAnimation = class _AlwaysCompleteAnimation extends animation$.Animation$(core.double) {
-    addListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 21, 33, "listener");
-    }
-    removeListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 24, 36, "listener");
-    }
-    addStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 27, 50, "listener");
-    }
-    removeStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 30, 53, "listener");
-    }
-    get status() {
-      return animation$.AnimationStatus.completed;
-    }
-    get value() {
-      return 1.0;
+    [_checkFinalized$]() {
+      if (!dart.test(this.finalized)) return;
+      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
     }
     toString() {
-      return "kAlwaysCompleteAnimation";
+      return dart.str(this.method) + " " + dart.str(this.url);
     }
   };
-  (animations._AlwaysCompleteAnimation.new = function() {
-    animations._AlwaysCompleteAnimation.__proto__.new.call(this);
+  (base_request.BaseRequest.new = function(method, url) {
+    this[_contentLength] = null;
+    this[_persistentConnection] = true;
+    this[_followRedirects] = true;
+    this[_maxRedirects] = 5;
+    this[_finalized] = false;
+    this[method$] = method;
+    this[url$] = url;
+    this[headers] = T.LinkedHashMapOfStringL$StringL().new({equals: dart.fn((key1, key2) => key1[$toLowerCase]() === key2[$toLowerCase](), T.StringLAndStringLToboolL()), hashCode: dart.fn(key => key[$toLowerCase]()[$hashCode], T.StringLTointL())});
     ;
-  }).prototype = animations._AlwaysCompleteAnimation.prototype;
-  dart.addTypeTests(animations._AlwaysCompleteAnimation);
-  dart.addTypeCaches(animations._AlwaysCompleteAnimation);
-  dart.setMethodSignature(animations._AlwaysCompleteAnimation, () => ({
-    __proto__: dart.getMethods(animations._AlwaysCompleteAnimation.__proto__),
-    addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    addStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-    removeStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])])
+  }).prototype = base_request.BaseRequest.prototype;
+  dart.addTypeTests(base_request.BaseRequest);
+  dart.addTypeCaches(base_request.BaseRequest);
+  dart.setMethodSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
+    finalize: dart.fnType(dart.legacy(byte_stream.ByteStream), []),
+    send: dart.fnType(dart.legacy(async.Future$(dart.legacy(streamed_response.StreamedResponse))), []),
+    [_checkFinalized$]: dart.fnType(dart.void, []),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
   }));
-  dart.setGetterSignature(animations._AlwaysCompleteAnimation, () => ({
-    __proto__: dart.getGetters(animations._AlwaysCompleteAnimation.__proto__),
-    status: animation$.AnimationStatus,
-    value: core.double
+  dart.setGetterSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
+    contentLength: dart.legacy(core.int),
+    persistentConnection: dart.legacy(core.bool),
+    followRedirects: dart.legacy(core.bool),
+    maxRedirects: dart.legacy(core.int),
+    finalized: dart.legacy(core.bool)
   }));
-  dart.setLibraryUri(animations._AlwaysCompleteAnimation, I[5]);
-  dart.defineExtensionMethods(animations._AlwaysCompleteAnimation, ['toString']);
-  animations._AlwaysDismissedAnimation = class _AlwaysDismissedAnimation extends animation$.Animation$(core.double) {
-    addListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 53, 33, "listener");
+  dart.setSetterSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
+    contentLength: dart.legacy(core.int),
+    persistentConnection: dart.legacy(core.bool),
+    followRedirects: dart.legacy(core.bool),
+    maxRedirects: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(base_request.BaseRequest, I[4]);
+  dart.setFieldSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
+    method: dart.finalFieldType(dart.legacy(core.String)),
+    url: dart.finalFieldType(dart.legacy(core.Uri)),
+    [_contentLength]: dart.fieldType(dart.legacy(core.int)),
+    [_persistentConnection]: dart.fieldType(dart.legacy(core.bool)),
+    [_followRedirects]: dart.fieldType(dart.legacy(core.bool)),
+    [_maxRedirects]: dart.fieldType(dart.legacy(core.int)),
+    headers: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))),
+    [_finalized]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
+  request$.Request = class Request extends base_request.BaseRequest {
+    get contentLength() {
+      return this.bodyBytes[$length];
     }
-    removeListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 56, 36, "listener");
+    set contentLength(value) {
+      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
     }
-    addStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 59, 50, "listener");
+    get encoding() {
+      if (this[_contentType] == null || !dart.test(this[_contentType].parameters[$containsKey]("charset"))) {
+        return this[_defaultEncoding];
+      }
+      return utils.requiredEncodingForCharset(this[_contentType].parameters[$_get]("charset"));
     }
-    removeStatusListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 62, 53, "listener");
+    set encoding(value) {
+      this[_checkFinalized]();
+      this[_defaultEncoding] = value;
+      let contentType = this[_contentType];
+      if (contentType == null) return;
+      this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfStringL$StringL()).from(["charset", value.name])});
     }
-    get status() {
-      return animation$.AnimationStatus.dismissed;
+    get bodyBytes() {
+      return this[_bodyBytes];
     }
-    get value() {
-      return 0.0;
+    set bodyBytes(value) {
+      this[_checkFinalized]();
+      this[_bodyBytes] = utils.toUint8List(value);
     }
-    toString() {
-      return "kAlwaysDismissedAnimation";
+    get body() {
+      return this.encoding.decode(this.bodyBytes);
+    }
+    set body(value) {
+      this.bodyBytes = this.encoding.encode(value);
+      let contentType = this[_contentType];
+      if (contentType == null) {
+        this[_contentType] = new media_type.MediaType.new("text", "plain", new (T.IdentityMapOfStringL$StringL()).from(["charset", this.encoding.name]));
+      } else if (!dart.test(contentType.parameters[$containsKey]("charset"))) {
+        this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfStringL$StringL()).from(["charset", this.encoding.name])});
+      }
+    }
+    get bodyFields() {
+      let contentType = this[_contentType];
+      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
+        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
+      }
+      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
+    }
+    set bodyFields(fields) {
+      let contentType = this[_contentType];
+      if (contentType == null) {
+        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
+      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
+        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + dart.str(contentType.mimeType) + "\"."));
+      }
+      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
+    }
+    finalize() {
+      super.finalize();
+      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
+    }
+    get [_contentType]() {
+      let contentType = this.headers[$_get]("content-type");
+      if (contentType == null) return null;
+      return media_type.MediaType.parse(contentType);
+    }
+    set [_contentType](value) {
+      this.headers[$_set]("content-type", dart.toString(value));
+    }
+    [_checkFinalized]() {
+      if (!dart.test(this.finalized)) return;
+      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
     }
   };
-  (animations._AlwaysDismissedAnimation.new = function() {
-    animations._AlwaysDismissedAnimation.__proto__.new.call(this);
+  (request$.Request.new = function(method, url) {
+    this[_defaultEncoding] = convert.utf8;
+    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
+    request$.Request.__proto__.new.call(this, method, url);
     ;
-  }).prototype = animations._AlwaysDismissedAnimation.prototype;
-  dart.addTypeTests(animations._AlwaysDismissedAnimation);
-  dart.addTypeCaches(animations._AlwaysDismissedAnimation);
-  dart.setMethodSignature(animations._AlwaysDismissedAnimation, () => ({
-    __proto__: dart.getMethods(animations._AlwaysDismissedAnimation.__proto__),
-    addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    addStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-    removeStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])])
+  }).prototype = request$.Request.prototype;
+  dart.addTypeTests(request$.Request);
+  dart.addTypeCaches(request$.Request);
+  dart.setMethodSignature(request$.Request, () => ({
+    __proto__: dart.getMethods(request$.Request.__proto__),
+    [_checkFinalized]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(animations._AlwaysDismissedAnimation, () => ({
-    __proto__: dart.getGetters(animations._AlwaysDismissedAnimation.__proto__),
-    status: animation$.AnimationStatus,
-    value: core.double
+  dart.setGetterSignature(request$.Request, () => ({
+    __proto__: dart.getGetters(request$.Request.__proto__),
+    encoding: dart.legacy(convert.Encoding),
+    bodyBytes: dart.legacy(typed_data.Uint8List),
+    body: dart.legacy(core.String),
+    bodyFields: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))),
+    [_contentType]: dart.legacy(media_type.MediaType)
   }));
-  dart.setLibraryUri(animations._AlwaysDismissedAnimation, I[5]);
-  dart.defineExtensionMethods(animations._AlwaysDismissedAnimation, ['toString']);
-  var value$ = dart.privateName(animations, "AlwaysStoppedAnimation.value");
-  const _is_AlwaysStoppedAnimation_default = Symbol('_is_AlwaysStoppedAnimation_default');
-  animations.AlwaysStoppedAnimation$ = dart.generic(T => {
-    class AlwaysStoppedAnimation extends animation$.Animation$(T) {
-      get value() {
-        return this[value$];
-      }
-      set value(value) {
-        super.value = value;
-      }
-      addListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 98, 33, "listener");
-      }
-      removeListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 101, 36, "listener");
-      }
-      addStatusListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 104, 50, "listener");
-      }
-      removeStatusListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 107, 53, "listener");
-      }
-      get status() {
-        return animation$.AnimationStatus.forward;
-      }
-      toStringDetails() {
-        return dart.str(super.toStringDetails()) + " " + dart.str(this.value) + "; paused";
-      }
+  dart.setSetterSignature(request$.Request, () => ({
+    __proto__: dart.getSetters(request$.Request.__proto__),
+    encoding: dart.legacy(convert.Encoding),
+    bodyBytes: dart.legacy(core.List$(dart.legacy(core.int))),
+    body: dart.legacy(core.String),
+    bodyFields: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))),
+    [_contentType]: dart.legacy(media_type.MediaType)
+  }));
+  dart.setLibraryUri(request$.Request, I[5]);
+  dart.setFieldSignature(request$.Request, () => ({
+    __proto__: dart.getFields(request$.Request.__proto__),
+    [_defaultEncoding]: dart.fieldType(dart.legacy(convert.Encoding)),
+    [_bodyBytes]: dart.fieldType(dart.legacy(typed_data.Uint8List))
+  }));
+  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
+  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
+    get stream() {
+      return this[stream$];
     }
-    (AlwaysStoppedAnimation.new = function(value) {
-      this[value$] = value;
-      AlwaysStoppedAnimation.__proto__.new.call(this);
-      ;
-    }).prototype = AlwaysStoppedAnimation.prototype;
-    dart.addTypeTests(AlwaysStoppedAnimation);
-    AlwaysStoppedAnimation.prototype[_is_AlwaysStoppedAnimation_default] = true;
-    dart.addTypeCaches(AlwaysStoppedAnimation);
-    dart.setMethodSignature(AlwaysStoppedAnimation, () => ({
-      __proto__: dart.getMethods(AlwaysStoppedAnimation.__proto__),
-      addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-      removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-      addStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-      removeStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])])
-    }));
-    dart.setGetterSignature(AlwaysStoppedAnimation, () => ({
-      __proto__: dart.getGetters(AlwaysStoppedAnimation.__proto__),
-      status: animation$.AnimationStatus
-    }));
-    dart.setLibraryUri(AlwaysStoppedAnimation, I[5]);
-    dart.setFieldSignature(AlwaysStoppedAnimation, () => ({
-      __proto__: dart.getFields(AlwaysStoppedAnimation.__proto__),
-      value: dart.finalFieldType(T)
-    }));
-    return AlwaysStoppedAnimation;
-  });
-  animations.AlwaysStoppedAnimation = animations.AlwaysStoppedAnimation$();
-  dart.addTypeTests(animations.AlwaysStoppedAnimation, _is_AlwaysStoppedAnimation_default);
-  const _is_AnimationWithParentMixin_default = Symbol('_is_AnimationWithParentMixin_default');
-  animations.AnimationWithParentMixin$ = dart.generic(T => {
-    class AnimationWithParentMixin extends core.Object {}
-    AnimationWithParentMixin[dart.mixinOn] = Object => class AnimationWithParentMixin extends Object {
-      addListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 139, 33, "listener");
-        return this.parent.addListener(listener);
-      }
-      removeListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 144, 36, "listener");
-        return this.parent.removeListener(listener);
-      }
-      addStatusListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 149, 50, "listener");
-        return this.parent.addStatusListener(listener);
-      }
-      removeStatusListener(listener) {
-        if (listener == null) dart.nullFailed(I[2], 154, 53, "listener");
-        return this.parent.removeStatusListener(listener);
-      }
-      get status() {
-        return this.parent.status;
-      }
-    };
-    (AnimationWithParentMixin[dart.mixinNew] = function() {
-    }).prototype = AnimationWithParentMixin.prototype;
-    dart.addTypeTests(AnimationWithParentMixin);
-    AnimationWithParentMixin.prototype[_is_AnimationWithParentMixin_default] = true;
-    dart.addTypeCaches(AnimationWithParentMixin);
-    AnimationWithParentMixin[dart.implements] = () => [core.Object];
-    dart.setMethodSignature(AnimationWithParentMixin, () => ({
-      __proto__: dart.getMethods(AnimationWithParentMixin.__proto__),
-      addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-      removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-      addStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])]),
-      removeStatusListener: dart.fnType(dart.void, [dart.fnType(dart.void, [animation$.AnimationStatus])])
-    }));
-    dart.setGetterSignature(AnimationWithParentMixin, () => ({
-      __proto__: dart.getGetters(AnimationWithParentMixin.__proto__),
-      status: animation$.AnimationStatus
-    }));
-    dart.setLibraryUri(AnimationWithParentMixin, I[5]);
-    return AnimationWithParentMixin;
-  });
-  animations.AnimationWithParentMixin = animations.AnimationWithParentMixin$();
-  dart.addTypeTests(animations.AnimationWithParentMixin, _is_AnimationWithParentMixin_default);
-  var _status = dart.privateName(animations, "_status");
-  var _value = dart.privateName(animations, "_value");
-  var _parent = dart.privateName(animations, "_parent");
-  const Animation_AnimationLazyListenerMixin$36 = class Animation_AnimationLazyListenerMixin extends animation$.Animation$(core.double) {};
-  (Animation_AnimationLazyListenerMixin$36.new = function() {
-    listener_helpers.AnimationLazyListenerMixin[dart.mixinNew].call(this);
-    Animation_AnimationLazyListenerMixin$36.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLazyListenerMixin$36.prototype;
-  dart.applyMixin(Animation_AnimationLazyListenerMixin$36, listener_helpers.AnimationLazyListenerMixin);
-  const Animation_AnimationLocalListenersMixin$36 = class Animation_AnimationLocalListenersMixin extends Animation_AnimationLazyListenerMixin$36 {};
-  (Animation_AnimationLocalListenersMixin$36.new = function() {
-    listener_helpers.AnimationLocalListenersMixin[dart.mixinNew].call(this);
-    Animation_AnimationLocalListenersMixin$36.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLocalListenersMixin$36.prototype;
-  dart.applyMixin(Animation_AnimationLocalListenersMixin$36, listener_helpers.AnimationLocalListenersMixin);
-  const Animation_AnimationLocalStatusListenersMixin$36 = class Animation_AnimationLocalStatusListenersMixin extends Animation_AnimationLocalListenersMixin$36 {};
-  (Animation_AnimationLocalStatusListenersMixin$36.new = function() {
-    listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinNew].call(this);
-    Animation_AnimationLocalStatusListenersMixin$36.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLocalStatusListenersMixin$36.prototype;
-  dart.applyMixin(Animation_AnimationLocalStatusListenersMixin$36, listener_helpers.AnimationLocalStatusListenersMixin);
-  animations.ProxyAnimation = class ProxyAnimation extends Animation_AnimationLocalStatusListenersMixin$36 {
-    get parent() {
-      return this[_parent];
-    }
-    set parent(value) {
-      if (dart.equals(value, this[_parent])) return;
-      if (this[_parent] != null) {
-        this[_status] = dart.nullCheck(this[_parent]).status;
-        this[_value] = dart.nullCheck(this[_parent]).value;
-        if (dart.test(this.isListening)) this.didStopListening();
-      }
-      this[_parent] = value;
-      if (this[_parent] != null) {
-        if (dart.test(this.isListening)) this.didStartListening();
-        if (this[_value] != dart.nullCheck(this[_parent]).value) this.notifyListeners();
-        if (this[_status] != dart.nullCheck(this[_parent]).status) this.notifyStatusListeners(dart.nullCheck(this[_parent]).status);
-        this[_status] = null;
-        this[_value] = null;
-      }
-    }
-    didStartListening() {
-      if (this[_parent] != null) {
-        dart.nullCheck(this[_parent]).addListener(dart.bind(this, 'notifyListeners'));
-        dart.nullCheck(this[_parent]).addStatusListener(dart.bind(this, 'notifyStatusListeners'));
-      }
-    }
-    didStopListening() {
-      if (this[_parent] != null) {
-        dart.nullCheck(this[_parent]).removeListener(dart.bind(this, 'notifyListeners'));
-        dart.nullCheck(this[_parent]).removeStatusListener(dart.bind(this, 'notifyStatusListeners'));
-      }
-    }
-    get status() {
-      return this[_parent] != null ? dart.nullCheck(this[_parent]).status : dart.nullCheck(this[_status]);
-    }
-    get value() {
-      return this[_parent] != null ? dart.nullCheck(this[_parent]).value : dart.nullCheck(this[_value]);
-    }
-    toString() {
-      if (this.parent == null) return dart.str(object.objectRuntimeType(this, "ProxyAnimation")) + "(null; " + dart.str(super.toStringDetails()) + " " + this.value[$toStringAsFixed](3) + ")";
-      return dart.str(this.parent) + "➩" + dart.str(object.objectRuntimeType(this, "ProxyAnimation"));
+    set stream(value) {
+      super.stream = value;
     }
   };
-  (animations.ProxyAnimation.new = function(animation = null) {
-    this[_status] = null;
-    this[_value] = null;
-    this[_parent] = null;
-    animations.ProxyAnimation.__proto__.new.call(this);
-    this[_parent] = animation;
-    if (this[_parent] == null) {
-      this[_status] = animation$.AnimationStatus.dismissed;
-      this[_value] = 0.0;
-    }
-  }).prototype = animations.ProxyAnimation.prototype;
-  dart.addTypeTests(animations.ProxyAnimation);
-  dart.addTypeCaches(animations.ProxyAnimation);
-  dart.setMethodSignature(animations.ProxyAnimation, () => ({
-    __proto__: dart.getMethods(animations.ProxyAnimation.__proto__),
-    didStartListening: dart.fnType(dart.void, []),
-    didStopListening: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(animations.ProxyAnimation, () => ({
-    __proto__: dart.getGetters(animations.ProxyAnimation.__proto__),
-    parent: dart.nullable(animation$.Animation$(core.double)),
-    status: animation$.AnimationStatus,
-    value: core.double
-  }));
-  dart.setSetterSignature(animations.ProxyAnimation, () => ({
-    __proto__: dart.getSetters(animations.ProxyAnimation.__proto__),
-    parent: dart.nullable(animation$.Animation$(core.double))
-  }));
-  dart.setLibraryUri(animations.ProxyAnimation, I[5]);
-  dart.setFieldSignature(animations.ProxyAnimation, () => ({
-    __proto__: dart.getFields(animations.ProxyAnimation.__proto__),
-    [_status]: dart.fieldType(dart.nullable(animation$.AnimationStatus)),
-    [_value]: dart.fieldType(dart.nullable(core.double)),
-    [_parent]: dart.fieldType(dart.nullable(animation$.Animation$(core.double)))
-  }));
-  dart.defineExtensionMethods(animations.ProxyAnimation, ['toString']);
-  var parent$ = dart.privateName(animations, "ReverseAnimation.parent");
-  var _statusChangeHandler = dart.privateName(animations, "_statusChangeHandler");
-  var _reverseStatus = dart.privateName(animations, "_reverseStatus");
-  const Animation_AnimationLazyListenerMixin$36$ = class Animation_AnimationLazyListenerMixin extends animation$.Animation$(core.double) {};
-  (Animation_AnimationLazyListenerMixin$36$.new = function() {
-    listener_helpers.AnimationLazyListenerMixin[dart.mixinNew].call(this);
-    Animation_AnimationLazyListenerMixin$36$.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLazyListenerMixin$36$.prototype;
-  dart.applyMixin(Animation_AnimationLazyListenerMixin$36$, listener_helpers.AnimationLazyListenerMixin);
-  const Animation_AnimationLocalStatusListenersMixin$36$ = class Animation_AnimationLocalStatusListenersMixin extends Animation_AnimationLazyListenerMixin$36$ {};
-  (Animation_AnimationLocalStatusListenersMixin$36$.new = function() {
-    listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinNew].call(this);
-    Animation_AnimationLocalStatusListenersMixin$36$.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLocalStatusListenersMixin$36$.prototype;
-  dart.applyMixin(Animation_AnimationLocalStatusListenersMixin$36$, listener_helpers.AnimationLocalStatusListenersMixin);
-  animations.ReverseAnimation = class ReverseAnimation extends Animation_AnimationLocalStatusListenersMixin$36$ {
-    get parent() {
-      return this[parent$];
-    }
-    set parent(value) {
-      super.parent = value;
-    }
-    addListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 270, 33, "listener");
-      this.didRegisterListener();
-      this.parent.addListener(listener);
-    }
-    removeListener(listener) {
-      if (listener == null) dart.nullFailed(I[2], 276, 36, "listener");
-      this.parent.removeListener(listener);
-      this.didUnregisterListener();
-    }
-    didStartListening() {
-      this.parent.addStatusListener(dart.bind(this, _statusChangeHandler));
-    }
-    didStopListening() {
-      this.parent.removeStatusListener(dart.bind(this, _statusChangeHandler));
-    }
-    [_statusChangeHandler](status) {
-      if (status == null) dart.nullFailed(I[2], 291, 45, "status");
-      this.notifyStatusListeners(this[_reverseStatus](status));
-    }
-    get status() {
-      return this[_reverseStatus](this.parent.status);
-    }
-    get value() {
-      return 1.0 - dart.notNull(this.parent.value);
-    }
-    [_reverseStatus](status) {
-      if (status == null) dart.nullFailed(I[2], 301, 50, "status");
-      if (!(status != null)) dart.assertFailed(null, I[2], 302, 12, "status != null");
-      switch (status) {
-        case C[0] || CT.C0:
-        {
-          return animation$.AnimationStatus.reverse;
-        }
-        case C[1] || CT.C1:
-        {
-          return animation$.AnimationStatus.forward;
-        }
-        case C[2] || CT.C2:
-        {
-          return animation$.AnimationStatus.dismissed;
-        }
-        case C[3] || CT.C3:
-        {
-          return animation$.AnimationStatus.completed;
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-    }
-    toString() {
-      return dart.str(this.parent) + "➪" + dart.str(object.objectRuntimeType(this, "ReverseAnimation"));
-    }
-  };
-  (animations.ReverseAnimation.new = function(parent) {
-    if (parent == null) dart.nullFailed(I[2], 263, 25, "parent");
-    this[parent$] = parent;
-    if (!(parent != null)) dart.assertFailed(null, I[2], 264, 14, "parent != null");
-    animations.ReverseAnimation.__proto__.new.call(this);
+  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
+    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[0] || CT.C0;
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[stream$] = utils.toByteStream(stream);
+    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
     ;
-  }).prototype = animations.ReverseAnimation.prototype;
-  dart.addTypeTests(animations.ReverseAnimation);
-  dart.addTypeCaches(animations.ReverseAnimation);
-  dart.setMethodSignature(animations.ReverseAnimation, () => ({
-    __proto__: dart.getMethods(animations.ReverseAnimation.__proto__),
-    addListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    removeListener: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    didStartListening: dart.fnType(dart.void, []),
-    didStopListening: dart.fnType(dart.void, []),
-    [_statusChangeHandler]: dart.fnType(dart.void, [animation$.AnimationStatus]),
-    [_reverseStatus]: dart.fnType(animation$.AnimationStatus, [animation$.AnimationStatus])
+  }).prototype = streamed_response.StreamedResponse.prototype;
+  dart.addTypeTests(streamed_response.StreamedResponse);
+  dart.addTypeCaches(streamed_response.StreamedResponse);
+  dart.setLibraryUri(streamed_response.StreamedResponse, I[6]);
+  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
+    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
+    stream: dart.finalFieldType(dart.legacy(byte_stream.ByteStream))
   }));
-  dart.setGetterSignature(animations.ReverseAnimation, () => ({
-    __proto__: dart.getGetters(animations.ReverseAnimation.__proto__),
-    status: animation$.AnimationStatus,
-    value: core.double
-  }));
-  dart.setLibraryUri(animations.ReverseAnimation, I[5]);
-  dart.setFieldSignature(animations.ReverseAnimation, () => ({
-    __proto__: dart.getFields(animations.ReverseAnimation.__proto__),
-    parent: dart.finalFieldType(animation$.Animation$(core.double))
-  }));
-  dart.defineExtensionMethods(animations.ReverseAnimation, ['toString']);
-  var parent$0 = dart.privateName(animations, "CurvedAnimation.parent");
-  var curve$ = dart.privateName(animations, "CurvedAnimation.curve");
-  var reverseCurve$ = dart.privateName(animations, "CurvedAnimation.reverseCurve");
-  var _curveDirection = dart.privateName(animations, "_curveDirection");
-  var _updateCurveDirection = dart.privateName(animations, "_updateCurveDirection");
-  var _useForwardCurve = dart.privateName(animations, "_useForwardCurve");
-  const Animation_AnimationWithParentMixin$36 = class Animation_AnimationWithParentMixin extends animation$.Animation$(core.double) {};
-  (Animation_AnimationWithParentMixin$36.new = function() {
-    Animation_AnimationWithParentMixin$36.__proto__.new.call(this);
-  }).prototype = Animation_AnimationWithParentMixin$36.prototype;
-  dart.applyMixin(Animation_AnimationWithParentMixin$36, animations.AnimationWithParentMixin$(core.double));
-  animations.CurvedAnimation = class CurvedAnimation extends Animation_AnimationWithParentMixin$36 {
-    get parent() {
-      return this[parent$0];
-    }
-    set parent(value) {
-      super.parent = value;
-    }
-    get curve() {
-      return this[curve$];
-    }
-    set curve(value) {
-      this[curve$] = value;
-    }
-    get reverseCurve() {
-      return this[reverseCurve$];
-    }
-    set reverseCurve(value) {
-      this[reverseCurve$] = value;
-    }
-    [_updateCurveDirection](status) {
-      if (status == null) dart.nullFailed(I[2], 411, 46, "status");
-      switch (status) {
-        case C[3] || CT.C3:
-        case C[2] || CT.C2:
-        {
-          this[_curveDirection] = null;
-          break;
-        }
-        case C[0] || CT.C0:
-        {
-          this[_curveDirection] == null ? this[_curveDirection] = animation$.AnimationStatus.forward : null;
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          this[_curveDirection] == null ? this[_curveDirection] = animation$.AnimationStatus.reverse : null;
-          break;
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-    }
-    get [_useForwardCurve]() {
-      let t2;
-      return this.reverseCurve == null || (t2 = this[_curveDirection], t2 == null ? this.parent.status : t2) != animation$.AnimationStatus.reverse;
-    }
-    get value() {
-      let activeCurve = dart.test(this[_useForwardCurve]) ? this.curve : this.reverseCurve;
-      let t = this.parent.value;
-      if (activeCurve == null) return t;
-      if (t === 0.0 || t === 1.0) {
-        if (!dart.test(dart.fn(() => {
-          let transformedValue = activeCurve.transform(t);
-          let roundedTransformedValue = transformedValue[$round]()[$toDouble]();
-          if (roundedTransformedValue !== t) {
-            dart.throw(assertions.FlutterError.new("Invalid curve endpoint at " + dart.str(t) + ".\n" + "Curves must map 0.0 to near zero and 1.0 to near one but " + dart.str(dart.runtimeType(activeCurve)) + " mapped " + dart.str(t) + " to " + dart.str(transformedValue) + ", which " + "is near " + dart.str(roundedTransformedValue) + "."));
-          }
-          return true;
-        }, T$.VoidTobool())())) dart.assertFailed(null, I[2], 438, 14, "() {\r\n        final double transformedValue = activeCurve.transform(t);\r\n        final double roundedTransformedValue = transformedValue.round().toDouble();\r\n        if (roundedTransformedValue != t) {\r\n          throw FlutterError(\r\n            'Invalid curve endpoint at $t.\\n'\r\n            'Curves must map 0.0 to near zero and 1.0 to near one but '\r\n            '${activeCurve.runtimeType} mapped $t to $transformedValue, which '\r\n            'is near $roundedTransformedValue.',\r\n          );\r\n        }\r\n        return true;\r\n      }()");
-        return t;
-      }
-      return activeCurve.transform(t);
-    }
-    toString() {
-      if (this.reverseCurve == null) return dart.str(this.parent) + "➩" + dart.str(this.curve);
-      if (dart.test(this[_useForwardCurve])) return dart.str(this.parent) + "➩" + dart.str(this.curve) + "ₒₙ/" + dart.str(this.reverseCurve);
-      return dart.str(this.parent) + "➩" + dart.str(this.curve) + "/" + dart.str(this.reverseCurve) + "ₒₙ";
+  base_client._fromUriOrString = function _fromUriOrString(uri) {
+    return T.StringL().is(uri) ? core.Uri.parse(uri) : T.UriL().as(uri);
+  };
+  client$.Client = class Client extends core.Object {
+    static new() {
+      return browser_client.createClient();
     }
   };
-  (animations.CurvedAnimation.new = function(opts) {
-    let parent = opts && 'parent' in opts ? opts.parent : null;
-    if (parent == null) dart.nullFailed(I[2], 373, 19, "parent");
-    let curve = opts && 'curve' in opts ? opts.curve : null;
-    if (curve == null) dart.nullFailed(I[2], 374, 19, "curve");
-    let reverseCurve = opts && 'reverseCurve' in opts ? opts.reverseCurve : null;
-    this[_curveDirection] = null;
-    this[parent$0] = parent;
-    this[curve$] = curve;
-    this[reverseCurve$] = reverseCurve;
-    if (!(parent != null)) dart.assertFailed(null, I[2], 376, 15, "parent != null");
-    if (!(curve != null)) dart.assertFailed(null, I[2], 377, 15, "curve != null");
-    animations.CurvedAnimation.__proto__.new.call(this);
-    this[_updateCurveDirection](this.parent.status);
-    this.parent.addStatusListener(dart.bind(this, _updateCurveDirection));
-  }).prototype = animations.CurvedAnimation.prototype;
-  dart.addTypeTests(animations.CurvedAnimation);
-  dart.addTypeCaches(animations.CurvedAnimation);
-  dart.setMethodSignature(animations.CurvedAnimation, () => ({
-    __proto__: dart.getMethods(animations.CurvedAnimation.__proto__),
-    [_updateCurveDirection]: dart.fnType(dart.void, [animation$.AnimationStatus])
-  }));
-  dart.setGetterSignature(animations.CurvedAnimation, () => ({
-    __proto__: dart.getGetters(animations.CurvedAnimation.__proto__),
-    [_useForwardCurve]: core.bool,
-    value: core.double
-  }));
-  dart.setLibraryUri(animations.CurvedAnimation, I[5]);
-  dart.setFieldSignature(animations.CurvedAnimation, () => ({
-    __proto__: dart.getFields(animations.CurvedAnimation.__proto__),
-    parent: dart.finalFieldType(animation$.Animation$(core.double)),
-    curve: dart.fieldType(curves.Curve),
-    reverseCurve: dart.fieldType(dart.nullable(curves.Curve)),
-    [_curveDirection]: dart.fieldType(dart.nullable(animation$.AnimationStatus))
-  }));
-  dart.defineExtensionMethods(animations.CurvedAnimation, ['toString']);
-  var _name$0 = dart.privateName(animations, "_name");
-  animations._TrainHoppingMode = class _TrainHoppingMode extends core.Object {
-    toString() {
-      return this[_name$0];
-    }
-  };
-  (animations._TrainHoppingMode.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[2], 466, 6, "index");
-    if (_name == null) dart.nullFailed(I[2], 466, 6, "_name");
-    this.index = index;
-    this[_name$0] = _name;
-    ;
-  }).prototype = animations._TrainHoppingMode.prototype;
-  dart.addTypeTests(animations._TrainHoppingMode);
-  dart.addTypeCaches(animations._TrainHoppingMode);
-  dart.setLibraryUri(animations._TrainHoppingMode, I[5]);
-  dart.setFieldSignature(animations._TrainHoppingMode, () => ({
-    __proto__: dart.getFields(animations._TrainHoppingMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$0]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(animations._TrainHoppingMode, ['toString']);
-  animations._TrainHoppingMode.minimize = C[4] || CT.C4;
-  animations._TrainHoppingMode.maximize = C[5] || CT.C5;
-  animations._TrainHoppingMode.values = C[6] || CT.C6;
-  var onSwitchedTrain$ = dart.privateName(animations, "TrainHoppingAnimation.onSwitchedTrain");
-  var _mode = dart.privateName(animations, "_mode");
-  var _lastStatus = dart.privateName(animations, "_lastStatus");
-  var _lastValue = dart.privateName(animations, "_lastValue");
-  var _currentTrain$ = dart.privateName(animations, "_currentTrain");
-  var _nextTrain$ = dart.privateName(animations, "_nextTrain");
-  var _valueChangeHandler = dart.privateName(animations, "_valueChangeHandler");
-  const Animation_AnimationEagerListenerMixin$36 = class Animation_AnimationEagerListenerMixin extends animation$.Animation$(core.double) {};
-  (Animation_AnimationEagerListenerMixin$36.new = function() {
-    Animation_AnimationEagerListenerMixin$36.__proto__.new.call(this);
-  }).prototype = Animation_AnimationEagerListenerMixin$36.prototype;
-  dart.applyMixin(Animation_AnimationEagerListenerMixin$36, listener_helpers.AnimationEagerListenerMixin);
-  const Animation_AnimationLocalListenersMixin$36$ = class Animation_AnimationLocalListenersMixin extends Animation_AnimationEagerListenerMixin$36 {};
-  (Animation_AnimationLocalListenersMixin$36$.new = function() {
-    listener_helpers.AnimationLocalListenersMixin[dart.mixinNew].call(this);
-    Animation_AnimationLocalListenersMixin$36$.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLocalListenersMixin$36$.prototype;
-  dart.applyMixin(Animation_AnimationLocalListenersMixin$36$, listener_helpers.AnimationLocalListenersMixin);
-  const Animation_AnimationLocalStatusListenersMixin$36$0 = class Animation_AnimationLocalStatusListenersMixin extends Animation_AnimationLocalListenersMixin$36$ {};
-  (Animation_AnimationLocalStatusListenersMixin$36$0.new = function() {
-    listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinNew].call(this);
-    Animation_AnimationLocalStatusListenersMixin$36$0.__proto__.new.call(this);
-  }).prototype = Animation_AnimationLocalStatusListenersMixin$36$0.prototype;
-  dart.applyMixin(Animation_AnimationLocalStatusListenersMixin$36$0, listener_helpers.AnimationLocalStatusListenersMixin);
-  animations.TrainHoppingAnimation = class TrainHoppingAnimation extends Animation_AnimationLocalStatusListenersMixin$36$0 {
-    get onSwitchedTrain() {
-      return this[onSwitchedTrain$];
-    }
-    set onSwitchedTrain(value) {
-      this[onSwitchedTrain$] = value;
-    }
-    get currentTrain() {
-      return this[_currentTrain$];
-    }
-    [_statusChangeHandler](status) {
-      if (status == null) dart.nullFailed(I[2], 533, 45, "status");
-      if (!(this[_currentTrain$] != null)) dart.assertFailed(null, I[2], 534, 12, "_currentTrain != null");
-      if (status != this[_lastStatus]) {
-        this.notifyListeners();
-        this[_lastStatus] = status;
-      }
-      if (!(this[_lastStatus] != null)) dart.assertFailed(null, I[2], 539, 12, "_lastStatus != null");
-    }
-    get status() {
-      return dart.nullCheck(this[_currentTrain$]).status;
-    }
-    [_valueChangeHandler]() {
-      let t2;
-      if (!(this[_currentTrain$] != null)) dart.assertFailed(null, I[2], 547, 12, "_currentTrain != null");
-      let hop = false;
-      if (this[_nextTrain$] != null) {
-        if (!(this[_mode] != null)) dart.assertFailed(null, I[2], 550, 14, "_mode != null");
-        switch (dart.nullCheck(this[_mode])) {
-          case C[4] || CT.C4:
-          {
-            hop = dart.notNull(dart.nullCheck(this[_nextTrain$]).value) <= dart.notNull(dart.nullCheck(this[_currentTrain$]).value);
-            break;
-          }
-          case C[5] || CT.C5:
-          {
-            hop = dart.notNull(dart.nullCheck(this[_nextTrain$]).value) >= dart.notNull(dart.nullCheck(this[_currentTrain$]).value);
-            break;
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
-        }
-        if (hop) {
-          t2 = dart.nullCheck(this[_currentTrain$]);
-          (() => {
-            t2.removeStatusListener(dart.bind(this, _statusChangeHandler));
-            t2.removeListener(dart.bind(this, _valueChangeHandler));
-            return t2;
-          })();
-          this[_currentTrain$] = this[_nextTrain$];
-          this[_nextTrain$] = null;
-          dart.nullCheck(this[_currentTrain$]).addStatusListener(dart.bind(this, _statusChangeHandler));
-          this[_statusChangeHandler](dart.nullCheck(this[_currentTrain$]).status);
-        }
-      }
-      let newValue = this.value;
-      if (newValue != this[_lastValue]) {
-        this.notifyListeners();
-        this[_lastValue] = newValue;
-      }
-      if (!(this[_lastValue] != null)) dart.assertFailed(null, I[2], 574, 12, "_lastValue != null");
-      if (hop && this.onSwitchedTrain != null) dart.nullCheck(this.onSwitchedTrain)();
-    }
-    get value() {
-      return dart.nullCheck(this[_currentTrain$]).value;
-    }
-    dispose() {
-      let t2;
-      if (!(this[_currentTrain$] != null)) dart.assertFailed(null, I[2], 586, 12, "_currentTrain != null");
-      dart.nullCheck(this[_currentTrain$]).removeStatusListener(dart.bind(this, _statusChangeHandler));
-      dart.nullCheck(this[_currentTrain$]).removeListener(dart.bind(this, _valueChangeHandler));
-      this[_currentTrain$] = null;
-      t2 = this[_nextTrain$];
-      t2 == null ? null : t2.removeListener(dart.bind(this, _valueChangeHandler));
-      this[_nextTrain$] = null;
-      super.dispose();
-    }
-    toString() {
-      if (this[_nextTrain$] != null) return dart.str(this.currentTrain) + "➩" + dart.str(object.objectRuntimeType(this, "TrainHoppingAnimation")) + "(next: " + dart.str(this[_nextTrain$]) + ")";
-      return dart.str(this.currentTrain) + "➩" + dart.str(object.objectRuntimeType(this, "TrainHoppingAnimation")) + "(no next)";
-    }
-  };
-  (animations.TrainHoppingAnimation.new = function(_currentTrain, _nextTrain, opts) {
-    let t2;
-    if (_currentTrain == null) dart.nullFailed(I[2], 495, 28, "_currentTrain");
-    let onSwitchedTrain = opts && 'onSwitchedTrain' in opts ? opts.onSwitchedTrain : null;
-    this[_mode] = null;
-    this[_lastStatus] = null;
-    this[_lastValue] = null;
-    this[_currentTrain$] = _currentTrain;
-    this[_nextTrain$] = _nextTrain;
-    this[onSwitchedTrain$] = onSwitchedTrain;
-    if (!(_currentTrain != null)) dart.assertFailed(null, I[2], 498, 15, "_currentTrain != null");
-    animations.TrainHoppingAnimation.__proto__.new.call(this);
-    if (this[_nextTrain$] != null) {
-      if (dart.nullCheck(this[_currentTrain$]).value == dart.nullCheck(this[_nextTrain$]).value) {
-        this[_currentTrain$] = this[_nextTrain$];
-        this[_nextTrain$] = null;
-      } else if (dart.notNull(dart.nullCheck(this[_currentTrain$]).value) > dart.notNull(dart.nullCheck(this[_nextTrain$]).value)) {
-        this[_mode] = animations._TrainHoppingMode.maximize;
-      } else {
-        if (!(dart.notNull(dart.nullCheck(this[_currentTrain$]).value) < dart.notNull(dart.nullCheck(this[_nextTrain$]).value))) dart.assertFailed(null, I[2], 506, 16, "_currentTrain!.value < _nextTrain!.value");
-        this[_mode] = animations._TrainHoppingMode.minimize;
-      }
-    }
-    dart.nullCheck(this[_currentTrain$]).addStatusListener(dart.bind(this, _statusChangeHandler));
-    dart.nullCheck(this[_currentTrain$]).addListener(dart.bind(this, _valueChangeHandler));
-    t2 = this[_nextTrain$];
-    t2 == null ? null : t2.addListener(dart.bind(this, _valueChangeHandler));
-    if (!(this[_mode] != null || this[_nextTrain$] == null)) dart.assertFailed(null, I[2], 513, 12, "_mode != null || _nextTrain == null");
-  }).prototype = animations.TrainHoppingAnimation.prototype;
-  dart.addTypeTests(animations.TrainHoppingAnimation);
-  dart.addTypeCaches(animations.TrainHoppingAnimation);
-  dart.setMethodSignature(animations.TrainHoppingAnimation, () => ({
-    __proto__: dart.getMethods(animations.TrainHoppingAnimation.__proto__),
-    [_statusChangeHandler]: dart.fnType(dart.void, [animation$.AnimationStatus]),
-    [_valueChangeHandler]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(animations.TrainHoppingAnimation, () => ({
-    __proto__: dart.getGetters(animations.TrainHoppingAnimation.__proto__),
-    currentTrain: dart.nullable(animation$.Animation$(core.double)),
-    status: animation$.AnimationStatus,
-    value: core.double
-  }));
-  dart.setLibraryUri(animations.TrainHoppingAnimation, I[5]);
-  dart.setFieldSignature(animations.TrainHoppingAnimation, () => ({
-    __proto__: dart.getFields(animations.TrainHoppingAnimation.__proto__),
-    [_currentTrain$]: dart.fieldType(dart.nullable(animation$.Animation$(core.double))),
-    [_nextTrain$]: dart.fieldType(dart.nullable(animation$.Animation$(core.double))),
-    [_mode]: dart.fieldType(dart.nullable(animations._TrainHoppingMode)),
-    onSwitchedTrain: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    [_lastStatus]: dart.fieldType(dart.nullable(animation$.AnimationStatus)),
-    [_lastValue]: dart.fieldType(dart.nullable(core.double))
-  }));
-  dart.defineExtensionMethods(animations.TrainHoppingAnimation, ['toString']);
-  var first$ = dart.privateName(animations, "CompoundAnimation.first");
-  var next$ = dart.privateName(animations, "CompoundAnimation.next");
-  var _maybeNotifyListeners = dart.privateName(animations, "_maybeNotifyListeners");
-  var _maybeNotifyStatusListeners = dart.privateName(animations, "_maybeNotifyStatusListeners");
-  const _is_CompoundAnimation_default = Symbol('_is_CompoundAnimation_default');
-  animations.CompoundAnimation$ = dart.generic(T => {
-    const Animation_AnimationLazyListenerMixin$36 = class Animation_AnimationLazyListenerMixin extends animation$.Animation$(T) {};
-    (Animation_AnimationLazyListenerMixin$36.new = function() {
-      listener_helpers.AnimationLazyListenerMixin[dart.mixinNew].call(this);
-      Animation_AnimationLazyListenerMixin$36.__proto__.new.call(this);
-    }).prototype = Animation_AnimationLazyListenerMixin$36.prototype;
-    dart.applyMixin(Animation_AnimationLazyListenerMixin$36, listener_helpers.AnimationLazyListenerMixin);
-    const Animation_AnimationLocalListenersMixin$36 = class Animation_AnimationLocalListenersMixin extends Animation_AnimationLazyListenerMixin$36 {};
-    (Animation_AnimationLocalListenersMixin$36.new = function() {
-      listener_helpers.AnimationLocalListenersMixin[dart.mixinNew].call(this);
-      Animation_AnimationLocalListenersMixin$36.__proto__.new.call(this);
-    }).prototype = Animation_AnimationLocalListenersMixin$36.prototype;
-    dart.applyMixin(Animation_AnimationLocalListenersMixin$36, listener_helpers.AnimationLocalListenersMixin);
-    const Animation_AnimationLocalStatusListenersMixin$36 = class Animation_AnimationLocalStatusListenersMixin extends Animation_AnimationLocalListenersMixin$36 {};
-    (Animation_AnimationLocalStatusListenersMixin$36.new = function() {
-      listener_helpers.AnimationLocalStatusListenersMixin[dart.mixinNew].call(this);
-      Animation_AnimationLocalStatusListenersMixin$36.__proto__.new.call(this);
-    }).prototype = Animation_AnimationLocalStatusListenersMixin$36.prototype;
-    dart.applyMixin(Animation_AnimationLocalStatusListenersMixin$36, listener_helpers.AnimationLocalStatusListenersMixin);
-    class CompoundAnimation extends Animation_AnimationLocalStatusListenersMixin$36 {
-      get first() {
-        return this[first$];
-      }
-      set first(value) {
-        super.first = value;
-      }
-      get next() {
-        return this[next$];
-      }
-      set next(value) {
-        super.next = value;
-      }
-      didStartListening() {
-        this.first.addListener(dart.bind(this, _maybeNotifyListeners));
-        this.first.addStatusListener(dart.bind(this, _maybeNotifyStatusListeners));
-        this.next.addListener(dart.bind(this, _maybeNotifyListeners));
-        this.next.addStatusListener(dart.bind(this, _maybeNotifyStatusListeners));
-      }
-      didStopListening() {
-        this.first.removeListener(dart.bind(this, _maybeNotifyListeners));
-        this.first.removeStatusListener(dart.bind(this, _maybeNotifyStatusListeners));
-        this.next.removeListener(dart.bind(this, _maybeNotifyListeners));
-        this.next.removeStatusListener(dart.bind(this, _maybeNotifyStatusListeners));
-      }
-      get status() {
-        if (this.next.status == animation$.AnimationStatus.forward || this.next.status == animation$.AnimationStatus.reverse) return this.next.status;
-        return this.first.status;
-      }
-      toString() {
-        return dart.str(object.objectRuntimeType(this, "CompoundAnimation")) + "(" + dart.str(this.first) + ", " + dart.str(this.next) + ")";
-      }
-      [_maybeNotifyStatusListeners](_) {
-        if (_ == null) dart.nullFailed(I[2], 663, 52, "_");
-        if (this.status != this[_lastStatus]) {
-          this[_lastStatus] = this.status;
-          this.notifyStatusListeners(this.status);
-        }
-      }
-      [_maybeNotifyListeners]() {
-        if (!dart.equals(this.value, this[_lastValue])) {
-          this[_lastValue] = this.value;
-          this.notifyListeners();
-        }
-      }
-    }
-    (CompoundAnimation.new = function(opts) {
-      let first = opts && 'first' in opts ? opts.first : null;
-      if (first == null) dart.nullFailed(I[2], 618, 19, "first");
-      let next = opts && 'next' in opts ? opts.next : null;
-      if (next == null) dart.nullFailed(I[2], 619, 19, "next");
-      this[_lastStatus] = null;
-      this[_lastValue] = null;
-      this[first$] = first;
-      this[next$] = next;
-      if (!(first != null)) dart.assertFailed(null, I[2], 620, 15, "first != null");
-      if (!(next != null)) dart.assertFailed(null, I[2], 621, 15, "next != null");
-      CompoundAnimation.__proto__.new.call(this);
-      ;
-    }).prototype = CompoundAnimation.prototype;
-    dart.addTypeTests(CompoundAnimation);
-    CompoundAnimation.prototype[_is_CompoundAnimation_default] = true;
-    dart.addTypeCaches(CompoundAnimation);
-    dart.setMethodSignature(CompoundAnimation, () => ({
-      __proto__: dart.getMethods(CompoundAnimation.__proto__),
-      didStartListening: dart.fnType(dart.void, []),
-      didStopListening: dart.fnType(dart.void, []),
-      [_maybeNotifyStatusListeners]: dart.fnType(dart.void, [animation$.AnimationStatus]),
-      [_maybeNotifyListeners]: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(CompoundAnimation, () => ({
-      __proto__: dart.getGetters(CompoundAnimation.__proto__),
-      status: animation$.AnimationStatus
-    }));
-    dart.setLibraryUri(CompoundAnimation, I[5]);
-    dart.setFieldSignature(CompoundAnimation, () => ({
-      __proto__: dart.getFields(CompoundAnimation.__proto__),
-      first: dart.finalFieldType(animation$.Animation$(T)),
-      next: dart.finalFieldType(animation$.Animation$(T)),
-      [_lastStatus]: dart.fieldType(dart.nullable(animation$.AnimationStatus)),
-      [_lastValue]: dart.fieldType(dart.nullable(T))
-    }));
-    dart.defineExtensionMethods(CompoundAnimation, ['toString']);
-    return CompoundAnimation;
-  });
-  animations.CompoundAnimation = animations.CompoundAnimation$();
-  dart.addTypeTests(animations.CompoundAnimation, _is_CompoundAnimation_default);
-  animations.AnimationMean = class AnimationMean extends animations.CompoundAnimation$(core.double) {
-    get value() {
-      return (dart.notNull(this.first.value) + dart.notNull(this.next.value)) / 2.0;
-    }
-  };
-  (animations.AnimationMean.new = function(opts) {
-    let left = opts && 'left' in opts ? opts.left : null;
-    if (left == null) dart.nullFailed(I[2], 689, 32, "left");
-    let right = opts && 'right' in opts ? opts.right : null;
-    if (right == null) dart.nullFailed(I[2], 690, 32, "right");
-    animations.AnimationMean.__proto__.new.call(this, {first: left, next: right});
-    ;
-  }).prototype = animations.AnimationMean.prototype;
-  dart.addTypeTests(animations.AnimationMean);
-  dart.addTypeCaches(animations.AnimationMean);
-  dart.setGetterSignature(animations.AnimationMean, () => ({
-    __proto__: dart.getGetters(animations.AnimationMean.__proto__),
-    value: core.double
-  }));
-  dart.setLibraryUri(animations.AnimationMean, I[5]);
-  const _is_AnimationMax_default = Symbol('_is_AnimationMax_default');
-  animations.AnimationMax$ = dart.generic(T => {
-    class AnimationMax extends animations.CompoundAnimation$(T) {
-      get value() {
-        return math.max(T, this.first.value, this.next.value);
-      }
-    }
-    (AnimationMax.new = function(first, next) {
-      if (first == null) dart.nullFailed(I[2], 706, 29, "first");
-      if (next == null) dart.nullFailed(I[2], 706, 49, "next");
-      AnimationMax.__proto__.new.call(this, {first: first, next: next});
-      ;
-    }).prototype = AnimationMax.prototype;
-    dart.addTypeTests(AnimationMax);
-    AnimationMax.prototype[_is_AnimationMax_default] = true;
-    dart.addTypeCaches(AnimationMax);
-    dart.setGetterSignature(AnimationMax, () => ({
-      __proto__: dart.getGetters(AnimationMax.__proto__),
-      value: T
-    }));
-    dart.setLibraryUri(AnimationMax, I[5]);
-    return AnimationMax;
-  });
-  animations.AnimationMax = animations.AnimationMax$();
-  dart.addTypeTests(animations.AnimationMax, _is_AnimationMax_default);
-  const _is_AnimationMin_default = Symbol('_is_AnimationMin_default');
-  animations.AnimationMin$ = dart.generic(T => {
-    class AnimationMin extends animations.CompoundAnimation$(T) {
-      get value() {
-        return math.min(T, this.first.value, this.next.value);
-      }
-    }
-    (AnimationMin.new = function(first, next) {
-      if (first == null) dart.nullFailed(I[2], 721, 29, "first");
-      if (next == null) dart.nullFailed(I[2], 721, 49, "next");
-      AnimationMin.__proto__.new.call(this, {first: first, next: next});
-      ;
-    }).prototype = AnimationMin.prototype;
-    dart.addTypeTests(AnimationMin);
-    AnimationMin.prototype[_is_AnimationMin_default] = true;
-    dart.addTypeCaches(AnimationMin);
-    dart.setGetterSignature(AnimationMin, () => ({
-      __proto__: dart.getGetters(AnimationMin.__proto__),
-      value: T
-    }));
-    dart.setLibraryUri(AnimationMin, I[5]);
-    return AnimationMin;
-  });
-  animations.AnimationMin = animations.AnimationMin$();
-  dart.addTypeTests(animations.AnimationMin, _is_AnimationMin_default);
-  dart.defineLazy(animations, {
-    /*animations.kAlwaysCompleteAnimation*/get kAlwaysCompleteAnimation() {
-      return C[7] || CT.C7;
-    },
-    /*animations.kAlwaysDismissedAnimation*/get kAlwaysDismissedAnimation() {
-      return C[8] || CT.C8;
-    }
-  }, false);
-  const _is_Animatable_default = Symbol('_is_Animatable_default');
-  tween.Animatable$ = dart.generic(T => {
-    var _AnimatedEvaluationOfT = () => (_AnimatedEvaluationOfT = dart.constFn(tween._AnimatedEvaluation$(T)))();
-    var _ChainedEvaluationOfT = () => (_ChainedEvaluationOfT = dart.constFn(tween._ChainedEvaluation$(T)))();
-    class Animatable extends core.Object {
-      evaluate(animation) {
-        if (animation == null) dart.nullFailed(I[6], 53, 32, "animation");
-        return this.transform(animation.value);
-      }
-      animate(parent) {
-        if (parent == null) dart.nullFailed(I[6], 65, 42, "parent");
-        return new (_AnimatedEvaluationOfT()).new(parent, this);
-      }
-      chain(parent) {
-        if (parent == null) dart.nullFailed(I[6], 73, 42, "parent");
-        return new (_ChainedEvaluationOfT()).new(parent, this);
-      }
-    }
-    (Animatable.new = function() {
-      ;
-    }).prototype = Animatable.prototype;
-    dart.addTypeTests(Animatable);
-    Animatable.prototype[_is_Animatable_default] = true;
-    dart.addTypeCaches(Animatable);
-    dart.setMethodSignature(Animatable, () => ({
-      __proto__: dart.getMethods(Animatable.__proto__),
-      evaluate: dart.fnType(T, [animation$.Animation$(core.double)]),
-      animate: dart.fnType(animation$.Animation$(T), [animation$.Animation$(core.double)]),
-      chain: dart.fnType(tween.Animatable$(T), [tween.Animatable$(core.double)])
-    }));
-    dart.setLibraryUri(Animatable, I[7]);
-    return Animatable;
-  });
-  tween.Animatable = tween.Animatable$();
-  dart.addTypeTests(tween.Animatable, _is_Animatable_default);
-  var parent$1 = dart.privateName(tween, "_AnimatedEvaluation.parent");
-  var _evaluatable$ = dart.privateName(tween, "_evaluatable");
-  const _is__AnimatedEvaluation_default = Symbol('_is__AnimatedEvaluation_default');
-  tween._AnimatedEvaluation$ = dart.generic(T => {
-    const Animation_AnimationWithParentMixin$36 = class Animation_AnimationWithParentMixin extends animation$.Animation$(T) {};
-    (Animation_AnimationWithParentMixin$36.new = function() {
-      Animation_AnimationWithParentMixin$36.__proto__.new.call(this);
-    }).prototype = Animation_AnimationWithParentMixin$36.prototype;
-    dart.applyMixin(Animation_AnimationWithParentMixin$36, animations.AnimationWithParentMixin$(core.double));
-    class _AnimatedEvaluation extends Animation_AnimationWithParentMixin$36 {
-      get parent() {
-        return this[parent$1];
-      }
-      set parent(value) {
-        super.parent = value;
-      }
-      get value() {
-        return this[_evaluatable$].evaluate(this.parent);
-      }
-      toString() {
-        return dart.str(this.parent) + "➩" + dart.str(this[_evaluatable$]) + "➩" + dart.str(this.value);
-      }
-      toStringDetails() {
-        return dart.str(super.toStringDetails()) + " " + dart.str(this[_evaluatable$]);
-      }
-    }
-    (_AnimatedEvaluation.new = function(parent, _evaluatable) {
-      if (parent == null) dart.nullFailed(I[6], 79, 28, "parent");
-      if (_evaluatable == null) dart.nullFailed(I[6], 79, 41, "_evaluatable");
-      this[parent$1] = parent;
-      this[_evaluatable$] = _evaluatable;
-      _AnimatedEvaluation.__proto__.new.call(this);
-      ;
-    }).prototype = _AnimatedEvaluation.prototype;
-    dart.addTypeTests(_AnimatedEvaluation);
-    _AnimatedEvaluation.prototype[_is__AnimatedEvaluation_default] = true;
-    dart.addTypeCaches(_AnimatedEvaluation);
-    dart.setGetterSignature(_AnimatedEvaluation, () => ({
-      __proto__: dart.getGetters(_AnimatedEvaluation.__proto__),
-      value: T
-    }));
-    dart.setLibraryUri(_AnimatedEvaluation, I[7]);
-    dart.setFieldSignature(_AnimatedEvaluation, () => ({
-      __proto__: dart.getFields(_AnimatedEvaluation.__proto__),
-      parent: dart.finalFieldType(animation$.Animation$(core.double)),
-      [_evaluatable$]: dart.finalFieldType(tween.Animatable$(T))
-    }));
-    dart.defineExtensionMethods(_AnimatedEvaluation, ['toString']);
-    return _AnimatedEvaluation;
-  });
-  tween._AnimatedEvaluation = tween._AnimatedEvaluation$();
-  dart.addTypeTests(tween._AnimatedEvaluation, _is__AnimatedEvaluation_default);
-  var _parent$ = dart.privateName(tween, "_parent");
-  const _is__ChainedEvaluation_default = Symbol('_is__ChainedEvaluation_default');
-  tween._ChainedEvaluation$ = dart.generic(T => {
-    class _ChainedEvaluation extends tween.Animatable$(T) {
-      transform(t) {
-        if (t == null) dart.nullFailed(I[6], 107, 22, "t");
-        return this[_evaluatable$].transform(this[_parent$].transform(t));
-      }
-      toString() {
-        return dart.str(this[_parent$]) + "➩" + dart.str(this[_evaluatable$]);
-      }
-    }
-    (_ChainedEvaluation.new = function(_parent, _evaluatable) {
-      if (_parent == null) dart.nullFailed(I[6], 101, 27, "_parent");
-      if (_evaluatable == null) dart.nullFailed(I[6], 101, 41, "_evaluatable");
-      this[_parent$] = _parent;
-      this[_evaluatable$] = _evaluatable;
-      _ChainedEvaluation.__proto__.new.call(this);
-      ;
-    }).prototype = _ChainedEvaluation.prototype;
-    dart.addTypeTests(_ChainedEvaluation);
-    _ChainedEvaluation.prototype[_is__ChainedEvaluation_default] = true;
-    dart.addTypeCaches(_ChainedEvaluation);
-    dart.setMethodSignature(_ChainedEvaluation, () => ({
-      __proto__: dart.getMethods(_ChainedEvaluation.__proto__),
-      transform: dart.fnType(T, [core.double])
-    }));
-    dart.setLibraryUri(_ChainedEvaluation, I[7]);
-    dart.setFieldSignature(_ChainedEvaluation, () => ({
-      __proto__: dart.getFields(_ChainedEvaluation.__proto__),
-      [_parent$]: dart.finalFieldType(tween.Animatable$(core.double)),
-      [_evaluatable$]: dart.finalFieldType(tween.Animatable$(T))
-    }));
-    dart.defineExtensionMethods(_ChainedEvaluation, ['toString']);
-    return _ChainedEvaluation;
-  });
-  tween._ChainedEvaluation = tween._ChainedEvaluation$();
-  dart.addTypeTests(tween._ChainedEvaluation, _is__ChainedEvaluation_default);
-  var begin$ = dart.privateName(tween, "Tween.begin");
-  var end$ = dart.privateName(tween, "Tween.end");
-  const _is_Tween_default = Symbol('_is_Tween_default');
-  tween.Tween$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    class Tween extends tween.Animatable$(T) {
-      get begin() {
-        return this[begin$];
-      }
-      set begin(value) {
-        this[begin$] = TN().as(value);
-      }
-      get end() {
-        return this[end$];
-      }
-      set end(value) {
-        this[end$] = TN().as(value);
-      }
-      lerp(t) {
-        if (t == null) dart.nullFailed(I[6], 256, 17, "t");
-        if (!(this.begin != null)) dart.assertFailed(null, I[6], 257, 12, "begin != null");
-        if (!(this.end != null)) dart.assertFailed(null, I[6], 258, 12, "end != null");
-        if (!dart.test(dart.fn(() => {
-          let result = null;
-          try {
-            result = dart.dsend(this.begin, '+', [dart.dsend(dart.dsend(this.end, '-', [this.begin]), '*', [t])]);
-            T.as(result);
-            return true;
-          } catch (e) {
-            let ex = dart.getThrown(e);
-            if (core.NoSuchMethodError.is(ex)) {
-              dart.throw(new assertions.FlutterError.fromParts((() => {
-                let t5 = T$.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Cannot lerp between \"" + dart.str(this.begin) + "\" and \"" + dart.str(this.end) + "\"."), new assertions.ErrorDescription.new("The type " + dart.str(dart.runtimeType(this.begin)) + " might not fully implement `+`, `-`, and/or `*`. " + "See \"Types with special considerations\" at https://api.flutter.dev/flutter/animation/Tween-class.html " + "for more information.")]);
-                if (ui.Color.is(this.begin) || ui.Color.is(this.end))
-                  t5[$add](new assertions.ErrorHint.new("To lerp colors, consider ColorTween instead."));
-                else if (ui.Rect.is(this.begin) || ui.Rect.is(this.end))
-                  t5[$add](new assertions.ErrorHint.new("To lerp rects, consider RectTween instead."));
-                else
-                  t5[$add](new assertions.ErrorHint.new("There may be a dedicated \"" + dart.str(dart.runtimeType(this.begin)) + "Tween\" for this type, " + "or you may need to create one."));
-                return t5;
-              })()));
-            } else if (core.TypeError.is(ex)) {
-              dart.throw(new assertions.FlutterError.fromParts((() => {
-                let t3 = T$.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Cannot lerp between \"" + dart.str(this.begin) + "\" and \"" + dart.str(this.end) + "\"."), new assertions.ErrorDescription.new("The type " + dart.str(dart.runtimeType(this.begin)) + " returned a " + dart.str(dart.runtimeType(result)) + " after " + "multiplication with a double value. " + "See \"Types with special considerations\" at https://api.flutter.dev/flutter/animation/Tween-class.html " + "for more information.")]);
-                if (core.int.is(this.begin) || core.int.is(this.end))
-                  t3[$add](new assertions.ErrorHint.new("To lerp int values, consider IntTween or StepTween instead."));
-                else
-                  t3[$add](new assertions.ErrorHint.new("There may be a dedicated \"" + dart.str(dart.runtimeType(this.begin)) + "Tween\" for this type, " + "or you may need to create one."));
-                return t3;
-              })()));
-            } else
-              throw e;
-          }
-        }, T$.VoidTobool())())) dart.assertFailed(null, I[6], 259, 12, "() {\r\n      // Assertions that attempt to catch common cases of tweening types\r\n      // that do not conform to the Tween requirements.\r\n      dynamic result;\r\n      try {\r\n        result = begin + (end - begin) * t;\r\n        result as T;\r\n        return true;\r\n      } on NoSuchMethodError {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('Cannot lerp between \"$begin\" and \"$end\".'),\r\n          ErrorDescription(\r\n            'The type ${begin.runtimeType} might not fully implement `+`, `-`, and/or `*`. '\r\n            'See \"Types with special considerations\" at https://api.flutter.dev/flutter/animation/Tween-class.html '\r\n            'for more information.',\r\n          ),\r\n          if (begin is Color || end is Color)\r\n            ErrorHint('To lerp colors, consider ColorTween instead.')\r\n          else if (begin is Rect || end is Rect)\r\n            ErrorHint('To lerp rects, consider RectTween instead.')\r\n          else\r\n            ErrorHint(\r\n              'There may be a dedicated \"${begin.runtimeType}Tween\" for this type, '\r\n              'or you may need to create one.',\r\n            ),\r\n        ]);\r\n      } on TypeError {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('Cannot lerp between \"$begin\" and \"$end\".'),\r\n          ErrorDescription(\r\n            'The type ${begin.runtimeType} returned a ${result.runtimeType} after '\r\n            'multiplication with a double value. '\r\n            'See \"Types with special considerations\" at https://api.flutter.dev/flutter/animation/Tween-class.html '\r\n            'for more information.',\r\n          ),\r\n          if (begin is int || end is int)\r\n            ErrorHint('To lerp int values, consider IntTween or StepTween instead.')\r\n          else\r\n            ErrorHint(\r\n              'There may be a dedicated \"${begin.runtimeType}Tween\" for this type, '\r\n              'or you may need to create one.',\r\n            ),\r\n        ]);\r\n      }\r\n    }()");
-        return T.as(dart.dsend(this.begin, '+', [dart.dsend(dart.dsend(this.end, '-', [this.begin]), '*', [t])]));
-      }
-      transform(t) {
-        if (t == null) dart.nullFailed(I[6], 320, 22, "t");
-        if (t === 0.0) return T.as(this.begin);
-        if (t === 1.0) return T.as(this.end);
-        return this.lerp(t);
-      }
-      toString() {
-        return dart.str(object.objectRuntimeType(this, "Animatable")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + ")";
-      }
-    }
-    (Tween.new = function(opts) {
-      let begin = opts && 'begin' in opts ? opts.begin : null;
-      let end = opts && 'end' in opts ? opts.end : null;
-      this[begin$] = begin;
-      this[end$] = end;
-      Tween.__proto__.new.call(this);
-      ;
-    }).prototype = Tween.prototype;
-    dart.addTypeTests(Tween);
-    Tween.prototype[_is_Tween_default] = true;
-    dart.addTypeCaches(Tween);
-    dart.setMethodSignature(Tween, () => ({
-      __proto__: dart.getMethods(Tween.__proto__),
-      lerp: dart.fnType(T, [core.double]),
-      transform: dart.fnType(T, [core.double])
-    }));
-    dart.setLibraryUri(Tween, I[7]);
-    dart.setFieldSignature(Tween, () => ({
-      __proto__: dart.getFields(Tween.__proto__),
-      begin: dart.fieldType(dart.nullable(T)),
-      end: dart.fieldType(dart.nullable(T))
-    }));
-    dart.defineExtensionMethods(Tween, ['toString']);
-    return Tween;
-  });
-  tween.Tween = tween.Tween$();
-  dart.addTypeTests(tween.Tween, _is_Tween_default);
-  var parent$2 = dart.privateName(tween, "ReverseTween.parent");
-  const _is_ReverseTween_default = Symbol('_is_ReverseTween_default');
-  tween.ReverseTween$ = dart.generic(T => {
-    class ReverseTween extends tween.Tween$(T) {
-      get parent() {
-        return this[parent$2];
-      }
-      set parent(value) {
-        super.parent = value;
-      }
-      lerp(t) {
-        if (t == null) dart.nullFailed(I[6], 347, 17, "t");
-        return this.parent.lerp(1.0 - dart.notNull(t));
-      }
-    }
-    (ReverseTween.new = function(parent) {
-      if (parent == null) dart.nullFailed(I[6], 335, 21, "parent");
-      this[parent$2] = parent;
-      if (!(parent != null)) dart.assertFailed(null, I[6], 336, 14, "parent != null");
-      ReverseTween.__proto__.new.call(this, {begin: parent.end, end: parent.begin});
-      ;
-    }).prototype = ReverseTween.prototype;
-    dart.addTypeTests(ReverseTween);
-    ReverseTween.prototype[_is_ReverseTween_default] = true;
-    dart.addTypeCaches(ReverseTween);
-    dart.setLibraryUri(ReverseTween, I[7]);
-    dart.setFieldSignature(ReverseTween, () => ({
-      __proto__: dart.getFields(ReverseTween.__proto__),
-      parent: dart.finalFieldType(tween.Tween$(T))
-    }));
-    return ReverseTween;
-  });
-  tween.ReverseTween = tween.ReverseTween$();
-  dart.addTypeTests(tween.ReverseTween, _is_ReverseTween_default);
-  tween.ColorTween = class ColorTween extends tween.Tween$(dart.nullable(ui.Color)) {
-    lerp(t) {
-      if (t == null) dart.nullFailed(I[6], 373, 22, "t");
-      return ui.Color.lerp(this.begin, this.end, t);
-    }
-  };
-  (tween.ColorTween.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : null;
-    let end = opts && 'end' in opts ? opts.end : null;
-    tween.ColorTween.__proto__.new.call(this, {begin: begin, end: end});
-    ;
-  }).prototype = tween.ColorTween.prototype;
-  dart.addTypeTests(tween.ColorTween);
-  dart.addTypeCaches(tween.ColorTween);
-  dart.setLibraryUri(tween.ColorTween, I[7]);
-  tween.SizeTween = class SizeTween extends tween.Tween$(dart.nullable(ui.Size)) {
-    lerp(t) {
-      if (t == null) dart.nullFailed(I[6], 393, 21, "t");
-      return ui.Size.lerp(this.begin, this.end, t);
-    }
-  };
-  (tween.SizeTween.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : null;
-    let end = opts && 'end' in opts ? opts.end : null;
-    tween.SizeTween.__proto__.new.call(this, {begin: begin, end: end});
-    ;
-  }).prototype = tween.SizeTween.prototype;
-  dart.addTypeTests(tween.SizeTween);
-  dart.addTypeCaches(tween.SizeTween);
-  dart.setLibraryUri(tween.SizeTween, I[7]);
-  tween.RectTween = class RectTween extends tween.Tween$(dart.nullable(ui.Rect)) {
-    lerp(t) {
-      if (t == null) dart.nullFailed(I[6], 414, 21, "t");
-      return ui.Rect.lerp(this.begin, this.end, t);
-    }
-  };
-  (tween.RectTween.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : null;
-    let end = opts && 'end' in opts ? opts.end : null;
-    tween.RectTween.__proto__.new.call(this, {begin: begin, end: end});
-    ;
-  }).prototype = tween.RectTween.prototype;
-  dart.addTypeTests(tween.RectTween);
-  dart.addTypeCaches(tween.RectTween);
-  dart.setLibraryUri(tween.RectTween, I[7]);
-  tween.IntTween = class IntTween extends tween.Tween$(core.int) {
-    lerp(t) {
-      if (t == null) dart.nullFailed(I[6], 442, 19, "t");
-      return (dart.nullCheck(this.begin) + (dart.nullCheck(this.end) - dart.nullCheck(this.begin)) * dart.notNull(t))[$round]();
-    }
-  };
-  (tween.IntTween.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : null;
-    let end = opts && 'end' in opts ? opts.end : null;
-    tween.IntTween.__proto__.new.call(this, {begin: begin, end: end});
-    ;
-  }).prototype = tween.IntTween.prototype;
-  dart.addTypeTests(tween.IntTween);
-  dart.addTypeCaches(tween.IntTween);
-  dart.setLibraryUri(tween.IntTween, I[7]);
-  tween.StepTween = class StepTween extends tween.Tween$(core.int) {
-    lerp(t) {
-      if (t == null) dart.nullFailed(I[6], 470, 19, "t");
-      return (dart.nullCheck(this.begin) + (dart.nullCheck(this.end) - dart.nullCheck(this.begin)) * dart.notNull(t))[$floor]();
-    }
-  };
-  (tween.StepTween.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : null;
-    let end = opts && 'end' in opts ? opts.end : null;
-    tween.StepTween.__proto__.new.call(this, {begin: begin, end: end});
-    ;
-  }).prototype = tween.StepTween.prototype;
-  dart.addTypeTests(tween.StepTween);
-  dart.addTypeCaches(tween.StepTween);
-  dart.setLibraryUri(tween.StepTween, I[7]);
-  const _is_ConstantTween_default = Symbol('_is_ConstantTween_default');
-  tween.ConstantTween$ = dart.generic(T => {
-    class ConstantTween extends tween.Tween$(T) {
-      lerp(t) {
-        if (t == null) dart.nullFailed(I[6], 480, 17, "t");
-        return T.as(this.begin);
-      }
-      toString() {
-        return dart.str(object.objectRuntimeType(this, "ConstantTween")) + "(value: " + dart.str(this.begin) + ")";
-      }
-    }
-    (ConstantTween.new = function(value) {
-      ConstantTween.__proto__.new.call(this, {begin: value, end: value});
-      ;
-    }).prototype = ConstantTween.prototype;
-    dart.addTypeTests(ConstantTween);
-    ConstantTween.prototype[_is_ConstantTween_default] = true;
-    dart.addTypeCaches(ConstantTween);
-    dart.setLibraryUri(ConstantTween, I[7]);
-    dart.defineExtensionMethods(ConstantTween, ['toString']);
-    return ConstantTween;
-  });
-  tween.ConstantTween = tween.ConstantTween$();
-  dart.addTypeTests(tween.ConstantTween, _is_ConstantTween_default);
-  var curve$0 = dart.privateName(tween, "CurveTween.curve");
-  tween.CurveTween = class CurveTween extends tween.Animatable$(core.double) {
-    get curve() {
-      return this[curve$0];
-    }
-    set curve(value) {
-      this[curve$0] = value;
-    }
-    transform(t) {
-      if (t == null) dart.nullFailed(I[6], 523, 27, "t");
-      if (t === 0.0 || t === 1.0) {
-        if (!(this.curve.transform(t)[$round]() === t)) dart.assertFailed(null, I[6], 525, 14, "curve.transform(t).round() == t");
-        return t;
-      }
-      return this.curve.transform(t);
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "CurveTween")) + "(curve: " + dart.str(this.curve) + ")";
-    }
-  };
-  (tween.CurveTween.new = function(opts) {
-    let curve = opts && 'curve' in opts ? opts.curve : null;
-    if (curve == null) dart.nullFailed(I[6], 516, 30, "curve");
-    this[curve$0] = curve;
-    if (!(curve != null)) dart.assertFailed(null, I[6], 517, 14, "curve != null");
-    tween.CurveTween.__proto__.new.call(this);
-    ;
-  }).prototype = tween.CurveTween.prototype;
-  dart.addTypeTests(tween.CurveTween);
-  dart.addTypeCaches(tween.CurveTween);
-  dart.setMethodSignature(tween.CurveTween, () => ({
-    __proto__: dart.getMethods(tween.CurveTween.__proto__),
-    transform: dart.fnType(core.double, [core.double])
-  }));
-  dart.setLibraryUri(tween.CurveTween, I[7]);
-  dart.setFieldSignature(tween.CurveTween, () => ({
-    __proto__: dart.getFields(tween.CurveTween.__proto__),
-    curve: dart.fieldType(curves.Curve)
-  }));
-  dart.defineExtensionMethods(tween.CurveTween, ['toString']);
-  animation$.AnimationStatus = class AnimationStatus extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (animation$.AnimationStatus.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[3], 14, 6, "index");
-    if (_name == null) dart.nullFailed(I[3], 14, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = animation$.AnimationStatus.prototype;
-  dart.addTypeTests(animation$.AnimationStatus);
-  dart.addTypeCaches(animation$.AnimationStatus);
-  dart.setLibraryUri(animation$.AnimationStatus, I[4]);
-  dart.setFieldSignature(animation$.AnimationStatus, () => ({
-    __proto__: dart.getFields(animation$.AnimationStatus.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(animation$.AnimationStatus, ['toString']);
-  animation$.AnimationStatus.dismissed = C[3] || CT.C3;
-  animation$.AnimationStatus.forward = C[0] || CT.C0;
-  animation$.AnimationStatus.reverse = C[1] || CT.C1;
-  animation$.AnimationStatus.completed = C[2] || CT.C2;
-  animation$.AnimationStatus.values = C[9] || CT.C9;
-  dart.trackLibraries("packages/flutter/src/animation/listener_helpers.dart", {
-    "package:flutter/src/animation/listener_helpers.dart": listener_helpers,
-    "package:flutter/src/animation/animations.dart": animations,
-    "package:flutter/src/animation/tween.dart": tween,
-    "package:flutter/src/animation/animation.dart": animation$
+  (client$.Client[dart.mixinNew] = function() {
+  }).prototype = client$.Client.prototype;
+  dart.addTypeTests(client$.Client);
+  dart.addTypeCaches(client$.Client);
+  dart.setLibraryUri(client$.Client, I[7]);
+  dart.trackLibraries("packages/http/src/browser_client.dart", {
+    "package:http/src/browser_client.dart": browser_client,
+    "package:http/src/response.dart": response$,
+    "package:http/src/request.dart": request$,
+    "package:http/src/base_response.dart": base_response,
+    "package:http/src/streamed_response.dart": streamed_response,
+    "package:http/src/base_request.dart": base_request,
+    "package:http/src/base_client.dart": base_client,
+    "package:http/src/client.dart": client$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["listener_helpers.dart","animation.dart","animations.dart","tween.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/animation/listener_helpers.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["base_client.dart","browser_client.dart","base_response.dart","response.dart","base_request.dart","request.dart","streamed_response.dart","client.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../D:/packages/http/src/browser_client.dart.lib.js"}');
   // Exports:
   return {
-    src__animation__listener_helpers: listener_helpers,
-    src__animation__animations: animations,
-    src__animation__tween: tween,
-    src__animation__animation: animation$
+    src__browser_client: browser_client,
+    src__response: response$,
+    src__request: request$,
+    src__base_response: base_response,
+    src__streamed_response: streamed_response,
+    src__base_request: base_request,
+    src__base_client: base_client,
+    src__client: client$
   };
 }));
 
-//# sourceMappingURL=listener_helpers.dart.lib.js.map
+//# sourceMappingURL=browser_client.dart.lib.js.map

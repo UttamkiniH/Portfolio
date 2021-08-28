@@ -1,340 +1,896 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/cupertino/route.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__material__page_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__cupertino__route$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
+define(['dart_sdk', 'packages/velocity_x/src/flutter/widgets.dart', 'packages/velocity_x/src/flutter/flex.dart', 'packages/velocity_x/src/flutter/center.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter_icons/src/ant_design.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/portfolio/coolors.dart', 'packages/velocity_x/src/flutter/common/velocity_curve.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/portfolio/header.dart', 'packages/flutter/src/painting/box_fit.dart'], (function load__packages__portfolio__clubs_dart(dart_sdk, packages__velocity_x__src__flutter__widgets$46dart, packages__velocity_x__src__flutter__flex$46dart, packages__velocity_x__src__flutter__center$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter_icons__src__ant_design$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__flex$46dart, packages__portfolio__coolors$46dart, packages__velocity_x__src__flutter__common__velocity_curve$46dart, packages__flutter__src__material__icon_button$46dart, packages__portfolio__header$46dart, packages__flutter__src__painting__box_fit$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const pages = packages__flutter__src__widgets__widget_span$46dart.src__widgets__pages;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const velocity_responsive = packages__velocity_x__src__flutter__widgets$46dart.src__flutter__common__velocity_responsive;
+  const container = packages__velocity_x__src__flutter__widgets$46dart.src__flutter__container;
+  const num_ext = packages__velocity_x__src__flutter__widgets$46dart.src__extensions__num_ext;
+  const padding = packages__velocity_x__src__flutter__widgets$46dart.src__flutter__padding;
+  const string_ext = packages__velocity_x__src__flutter__widgets$46dart.src__extensions__string_ext;
+  const flex = packages__velocity_x__src__flutter__flex$46dart.src__flutter__flex;
+  const center = packages__velocity_x__src__flutter__center$46dart.src__flutter__center;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const ant_design = packages__flutter_icons__src__ant_design$46dart.src__ant_design;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const route = packages__flutter__src__cupertino__route$46dart.src__cupertino__route;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  var page = Object.create(dart.library);
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const flex$ = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const coolors = packages__portfolio__coolors$46dart.coolors;
+  const velocity_curve = packages__velocity_x__src__flutter__common__velocity_curve$46dart.src__flutter__common__velocity_curve;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const footer = packages__portfolio__header$46dart.footer;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  var clubs = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
-  var T$ = {
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    _LocationL: () => (T$._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 300000
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 25,
+        [_Location_line]: 19,
+        [_Location_file]: null
       });
     },
     get C3() {
       return C[3] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "scopesRoute",
-        [_Location_column]: 7,
-        [_Location_line]: 117,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 20,
         [_Location_file]: null
       });
     },
-    get C4() {
-      return C[4] = dart.const({
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 18,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "explicitChildNodes",
-        [_Location_column]: 7,
-        [_Location_line]: 118,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 14,
         [_Location_file]: null
       });
     },
     get C5() {
-      return C[5] = dart.const({
+      return C[5] = dart.constList([C[6] || CT.C6], T._LocationL());
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 13,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([], T._LocationL());
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 119,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 28,
         [_Location_file]: null
       });
     },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5], T$._LocationL());
-    },
-    get C1() {
-      return C[1] = dart.const({
+    get C12() {
+      return C[12] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 96,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22], T._LocationL());
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 87,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAlignment",
+        [_Location_column]: 11,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 22,
+        [_Location_line]: 12,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 12,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 23,
+        [_Location_line]: 127,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 13,
+        [_Location_line]: 128,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], T._LocationL());
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 126,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 16,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36], T._LocationL());
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 122,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 137,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 134,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 169,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 160,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 194,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 193,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 133,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 11,
+        [_Location_line]: 223,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 132,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58], T._LocationL());
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 116,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/page.dart"
+        [_Location_line]: 121,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mobile",
+        [_Location_column]: 7,
+        [_Location_line]: 12,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "web",
+        [_Location_column]: 7,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.constList([C[61] || CT.C61, C[62] || CT.C62], T._LocationL());
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 11,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 11,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 11,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 11,
+        [_Location_line]: 242,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66, C[67] || CT.C67, C[68] || CT.C68], T._LocationL());
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 238,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 235,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 238,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71, C[72] || CT.C72], T._LocationL());
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 234,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 11,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 11,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 11,
+        [_Location_line]: 260,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.constList([C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78], T._LocationL());
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 256,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 252,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.constList([C[81] || CT.C81, C[82] || CT.C82], T._LocationL());
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[80] || CT.C80,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 251,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 11,
+        [_Location_line]: 274,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 11,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 276,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.constList([C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87], T._LocationL());
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[84] || CT.C84,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 273,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 273,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91], T._LocationL());
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 269,
+        [_Location_file]: "file:///D:/flutterWeb/Portfolio/lib/clubs.dart"
       });
     }
   }, false);
-  var C = Array(6).fill(void 0);
-  var I = [
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/page.dart",
-    "package:flutter/src/material/page.dart"
-  ];
-  var builder$ = dart.privateName(page, "MaterialPageRoute.builder");
-  var maintainState$ = dart.privateName(page, "MaterialPageRoute.maintainState");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C = Array(92).fill(void 0);
+  var I = ["package:portfolio/clubs.dart"];
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const _is_MaterialRouteTransitionMixin_default = Symbol('_is_MaterialRouteTransitionMixin_default');
-  page.MaterialRouteTransitionMixin$ = dart.generic(T => {
-    class MaterialRouteTransitionMixin extends pages.PageRoute$(T) {}
-    MaterialRouteTransitionMixin[dart.mixinOn] = PageRoute => class MaterialRouteTransitionMixin extends PageRoute {
-      get transitionDuration() {
-        return C[0] || CT.C0;
-      }
-      get barrierColor() {
-        return null;
-      }
-      get barrierLabel() {
-        return null;
-      }
-      canTransitionTo(nextRoute) {
-        if (nextRoute == null) dart.nullFailed(I[0], 94, 49, "nextRoute");
-        return page.MaterialRouteTransitionMixin.is(nextRoute) && !dart.test(nextRoute.fullscreenDialog) || route.CupertinoRouteTransitionMixin.is(nextRoute) && !dart.test(nextRoute.fullscreenDialog);
-      }
-      buildPage(context, animation, secondaryAnimation) {
-        if (context == null) dart.nullFailed(I[0], 102, 18, "context");
-        if (animation == null) dart.nullFailed(I[0], 103, 23, "animation");
-        if (secondaryAnimation == null) dart.nullFailed(I[0], 104, 23, "secondaryAnimation");
-        let result = this.buildContent(context);
-        if (!dart.test(dart.fn(() => {
-          if (result == null) {
-            dart.throw(assertions.FlutterError.new("The builder for route \"" + dart.str(this.settings.name) + "\" returned null.\n" + "Route builders must never return null."));
-          }
-          return true;
-        }, T$.VoidTobool())())) dart.assertFailed(null, I[0], 107, 12, "() {\r\n      if (result == null) {\r\n        throw FlutterError(\r\n          'The builder for route \"${settings.name}\" returned null.\\n'\r\n          'Route builders must never return null.',\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-        return new basic.Semantics.new({scopesRoute: true, explicitChildNodes: true, child: result, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1});
-      }
-      buildTransitions(context, animation, secondaryAnimation, child) {
-        if (context == null) dart.nullFailed(I[0], 124, 40, "context");
-        if (animation == null) dart.nullFailed(I[0], 124, 67, "animation");
-        if (secondaryAnimation == null) dart.nullFailed(I[0], 124, 96, "secondaryAnimation");
-        if (child == null) dart.nullFailed(I[0], 124, 123, "child");
-        let theme = theme$.Theme.of(context).pageTransitionsTheme;
-        return theme.buildTransitions(T, this, context, animation, secondaryAnimation, child);
-      }
-    };
-    dart.addTypeTests(MaterialRouteTransitionMixin);
-    MaterialRouteTransitionMixin.prototype[_is_MaterialRouteTransitionMixin_default] = true;
-    dart.addTypeCaches(MaterialRouteTransitionMixin);
-    MaterialRouteTransitionMixin[dart.implements] = () => [pages.PageRoute$(T)];
-    dart.setMethodSignature(MaterialRouteTransitionMixin, () => ({
-      __proto__: dart.getMethods(MaterialRouteTransitionMixin.__proto__),
-      buildPage: dart.fnType(framework.Widget, [framework.BuildContext, animation.Animation$(core.double), animation.Animation$(core.double)])
-    }));
-    dart.setGetterSignature(MaterialRouteTransitionMixin, () => ({
-      __proto__: dart.getGetters(MaterialRouteTransitionMixin.__proto__),
-      transitionDuration: core.Duration,
-      barrierColor: dart.nullable(ui.Color),
-      barrierLabel: dart.nullable(core.String)
-    }));
-    dart.setLibraryUri(MaterialRouteTransitionMixin, I[1]);
-    return MaterialRouteTransitionMixin;
-  });
-  page.MaterialRouteTransitionMixin = page.MaterialRouteTransitionMixin$();
-  dart.addTypeTests(page.MaterialRouteTransitionMixin, _is_MaterialRouteTransitionMixin_default);
-  const _is_MaterialPageRoute_default = Symbol('_is_MaterialPageRoute_default');
-  page.MaterialPageRoute$ = dart.generic(T => {
-    const PageRoute_MaterialRouteTransitionMixin$36 = class PageRoute_MaterialRouteTransitionMixin extends pages.PageRoute$(T) {};
-    (PageRoute_MaterialRouteTransitionMixin$36.new = function(opts) {
-      PageRoute_MaterialRouteTransitionMixin$36.__proto__.new.call(this, opts);
-    }).prototype = PageRoute_MaterialRouteTransitionMixin$36.prototype;
-    dart.applyMixin(PageRoute_MaterialRouteTransitionMixin$36, page.MaterialRouteTransitionMixin$(T));
-    class MaterialPageRoute extends PageRoute_MaterialRouteTransitionMixin$36 {
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get maintainState() {
-        return this[maintainState$];
-      }
-      set maintainState(value) {
-        super.maintainState = value;
-      }
-      buildContent(context) {
-        let t0;
-        if (context == null) dart.nullFailed(I[0], 53, 36, "context");
-        t0 = context;
-        return this.builder(t0);
-      }
-      get debugLabel() {
-        return dart.str(super.debugLabel) + "(" + dart.str(this.settings.name) + ")";
-      }
+  clubs.ClubActivity = class ClubActivity extends framework.StatelessWidget {
+    build(context) {
+      return new velocity_responsive.VxDevice.new({mobile: new flex.VStack.new(T.JSArrayOfWidgetL().of([center['CenterBuilderExtension|makeCentered'](container['ContainerWidgetExtension|get#box'](new flex.HStack.new(T.JSArrayOfWidgetL().of([num_ext['NumExtension|get#heightBox'](100), padding['PaddingExtensions|p12'](string_ext['StringExtension|get#text']("I am Part of ").semiBold.white.xl5.make()), num_ext['NumExtension|get#heightBox'](5), new icon.Icon.new(ant_design.AntDesign.pushpin, {color: colors.Colors.redAccent, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0})]), {$creationLocationd_0dea112b090073317d4: C[4] || CT.C4}))), num_ext['NumExtension|get#heightBox'](20), new flex.VStack.new(T.JSArrayOfWidgetL().of([center['CenterBuilderExtension|makeCentered'](container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([string_ext['StringExtension|get#text']("Google Developer Student Clubs").semiBold.white.xl2.center.make(), new clubs.dscClick.new({$creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Community Lead").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2020-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[9] || CT.C9})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave})), num_ext['NumExtension|get#heightBox'](20), container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([string_ext['StringExtension|get#text']("Sahyadri Open Source Community").semiBold.white.xl2.center.make(), new clubs.soscClick.new({$creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Core Member").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2020-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave}).make(), num_ext['NumExtension|get#heightBox'](20), container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("ACM Sahyadri\nChapter").semiBold.white.xl2.center), new clubs.acmClick.new({$creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Technical Head").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2019-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[19] || CT.C19})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave}).make()]), {crossAlignment: flex$.CrossAxisAlignment.center, $creationLocationd_0dea112b090073317d4: C[23] || CT.C23})]), {$creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), web: new flex.VStack.new(T.JSArrayOfWidgetL().of([new flex.HStack.new(T.JSArrayOfWidgetL().of([num_ext['NumExtension|get#widthBox'](250), padding['PaddingExtensions|p12'](center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("I am Part of ").semiBold.white.xl5)), num_ext['NumExtension|get#widthBox'](5), new icon.Icon.new(ant_design.AntDesign.pushpin, {color: colors.Colors.redAccent, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30})]), {$creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), num_ext['NumExtension|get#heightBox'](20), center['CenterBuilderExtension|makeCentered'](container['ContainerWidgetExtension|get#box'](new flex.HStack.new(T.JSArrayOfWidgetL().of([container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([string_ext['StringExtension|get#text']("Google Developer Student Clubs").semiBold.white.xl2.center.make(), new clubs.dscClick.new({$creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Community Lead").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2020-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[38] || CT.C38})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave}).make(), num_ext['NumExtension|get#widthBox'](20), container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([string_ext['StringExtension|get#text']("Sahyadri Open Source Community").semiBold.white.xl2.center.make(), new clubs.soscClick.new({$creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Core Member").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2020-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[43] || CT.C43})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave}).make(), num_ext['NumExtension|get#widthBox'](20), container['ContainerWidgetExtension|get#box'](new flex.VStack.new(T.JSArrayOfWidgetL().of([center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("ACM Sahyadri\nChapter").semiBold.white.xl2.center), new clubs.acmClick.new({$creationLocationd_0dea112b090073317d4: C[47] || CT.C47}), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("Technical Head").semiBold.xl2.white), center['CenterBuilderExtension|makeCentered'](string_ext['StringExtension|get#text']("2019-Present").semiBold.xl2.white)]), {alignment: flex$.MainAxisAlignment.spaceEvenly, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48})).p24.width(300.0).height(400.0).roundedLg.shadowSm.neumorphic({color: coolors.Coolors.primaryColor, curve: velocity_curve.VxCurve.concave}).make()]), {alignment: flex$.MainAxisAlignment.spaceAround, $creationLocationd_0dea112b090073317d4: C[52] || CT.C52})))]), {$creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59});
     }
-    (MaterialPageRoute.new = function(opts) {
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      if (builder == null) dart.nullFailed(I[0], 38, 19, "builder");
-      let settings = opts && 'settings' in opts ? opts.settings : null;
-      let maintainState = opts && 'maintainState' in opts ? opts.maintainState : true;
-      if (maintainState == null) dart.nullFailed(I[0], 40, 10, "maintainState");
-      let fullscreenDialog = opts && 'fullscreenDialog' in opts ? opts.fullscreenDialog : false;
-      if (fullscreenDialog == null) dart.nullFailed(I[0], 41, 10, "fullscreenDialog");
-      this[builder$] = builder;
-      this[maintainState$] = maintainState;
-      if (!(builder != null)) dart.assertFailed(null, I[0], 42, 15, "builder != null");
-      if (!(maintainState != null)) dart.assertFailed(null, I[0], 43, 15, "maintainState != null");
-      if (!(fullscreenDialog != null)) dart.assertFailed(null, I[0], 44, 15, "fullscreenDialog != null");
-      MaterialPageRoute.__proto__.new.call(this, {settings: settings, fullscreenDialog: fullscreenDialog});
-      if (!dart.test(this.opaque)) dart.assertFailed(null, I[0], 46, 12, "opaque");
-    }).prototype = MaterialPageRoute.prototype;
-    dart.addTypeTests(MaterialPageRoute);
-    MaterialPageRoute.prototype[_is_MaterialPageRoute_default] = true;
-    dart.addTypeCaches(MaterialPageRoute);
-    dart.setMethodSignature(MaterialPageRoute, () => ({
-      __proto__: dart.getMethods(MaterialPageRoute.__proto__),
-      buildContent: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setLibraryUri(MaterialPageRoute, I[1]);
-    dart.setFieldSignature(MaterialPageRoute, () => ({
-      __proto__: dart.getFields(MaterialPageRoute.__proto__),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext])),
-      maintainState: dart.finalFieldType(core.bool)
-    }));
-    return MaterialPageRoute;
-  });
-  page.MaterialPageRoute = page.MaterialPageRoute$();
-  dart.addTypeTests(page.MaterialPageRoute, _is_MaterialPageRoute_default);
-  var child$ = dart.privateName(page, "MaterialPage.child");
-  var maintainState$0 = dart.privateName(page, "MaterialPage.maintainState");
-  var fullscreenDialog$ = dart.privateName(page, "MaterialPage.fullscreenDialog");
-  const _is_MaterialPage_default = Symbol('_is_MaterialPage_default');
-  page.MaterialPage$ = dart.generic(T => {
-    var _PageBasedMaterialPageRouteOfT = () => (_PageBasedMaterialPageRouteOfT = dart.constFn(page._PageBasedMaterialPageRoute$(T)))();
-    class MaterialPage extends navigator.Page$(T) {
-      get child() {
-        return this[child$];
-      }
-      set child(value) {
-        super.child = value;
-      }
-      get maintainState() {
-        return this[maintainState$0];
-      }
-      set maintainState(value) {
-        super.maintainState = value;
-      }
-      get fullscreenDialog() {
-        return this[fullscreenDialog$];
-      }
-      set fullscreenDialog(value) {
-        super.fullscreenDialog = value;
-      }
-      createRoute(context) {
-        if (context == null) dart.nullFailed(I[0], 175, 37, "context");
-        return new (_PageBasedMaterialPageRouteOfT()).new({page: this});
-      }
+  };
+  (clubs.ClubActivity.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    clubs.ClubActivity.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = clubs.ClubActivity.prototype;
+  dart.addTypeTests(clubs.ClubActivity);
+  dart.addTypeCaches(clubs.ClubActivity);
+  dart.setMethodSignature(clubs.ClubActivity, () => ({
+    __proto__: dart.getMethods(clubs.ClubActivity.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(clubs.ClubActivity, I[0]);
+  clubs.soscClick = class soscClick extends framework.StatelessWidget {
+    build(context) {
+      return new ink_well.InkWell.new({onTap: dart.fn(() => {
+          footer.launchURL("https://sosc.org.in/team");
+        }, T.VoidToNull()), child: center['CenterExtension|centered'](new image.Image.asset("assets/sosc.png", {fit: box_fit.BoxFit.contain, width: 100.0, height: 100.0, $creationLocationd_0dea112b090073317d4: C[63] || CT.C63})), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69});
     }
-    (MaterialPage.new = function(opts) {
-      let child = opts && 'child' in opts ? opts.child : null;
-      if (child == null) dart.nullFailed(I[0], 153, 19, "child");
-      let maintainState = opts && 'maintainState' in opts ? opts.maintainState : true;
-      if (maintainState == null) dart.nullFailed(I[0], 154, 10, "maintainState");
-      let fullscreenDialog = opts && 'fullscreenDialog' in opts ? opts.fullscreenDialog : false;
-      if (fullscreenDialog == null) dart.nullFailed(I[0], 155, 10, "fullscreenDialog");
-      let key = opts && 'key' in opts ? opts.key : null;
-      let name = opts && 'name' in opts ? opts.name : null;
-      let $arguments = opts && 'arguments' in opts ? opts.arguments : null;
-      let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-      this[child$] = child;
-      this[maintainState$0] = maintainState;
-      this[fullscreenDialog$] = fullscreenDialog;
-      if (!(child != null)) dart.assertFailed(null, I[0], 160, 15, "child != null");
-      if (!(maintainState != null)) dart.assertFailed(null, I[0], 161, 15, "maintainState != null");
-      if (!(fullscreenDialog != null)) dart.assertFailed(null, I[0], 162, 15, "fullscreenDialog != null");
-      MaterialPage.__proto__.new.call(this, {key: key, name: name, arguments: $arguments, restorationId: restorationId});
-      ;
-    }).prototype = MaterialPage.prototype;
-    dart.addTypeTests(MaterialPage);
-    MaterialPage.prototype[_is_MaterialPage_default] = true;
-    dart.addTypeCaches(MaterialPage);
-    dart.setMethodSignature(MaterialPage, () => ({
-      __proto__: dart.getMethods(MaterialPage.__proto__),
-      createRoute: dart.fnType(navigator.Route$(T), [framework.BuildContext])
-    }));
-    dart.setLibraryUri(MaterialPage, I[1]);
-    dart.setFieldSignature(MaterialPage, () => ({
-      __proto__: dart.getFields(MaterialPage.__proto__),
-      child: dart.finalFieldType(framework.Widget),
-      maintainState: dart.finalFieldType(core.bool),
-      fullscreenDialog: dart.finalFieldType(core.bool)
-    }));
-    return MaterialPage;
-  });
-  page.MaterialPage = page.MaterialPage$();
-  dart.addTypeTests(page.MaterialPage, _is_MaterialPage_default);
-  var _page = dart.privateName(page, "_page");
-  const _is__PageBasedMaterialPageRoute_default = Symbol('_is__PageBasedMaterialPageRoute_default');
-  page._PageBasedMaterialPageRoute$ = dart.generic(T => {
-    var MaterialPageOfT = () => (MaterialPageOfT = dart.constFn(page.MaterialPage$(T)))();
-    const PageRoute_MaterialRouteTransitionMixin$36 = class PageRoute_MaterialRouteTransitionMixin extends pages.PageRoute$(T) {};
-    (PageRoute_MaterialRouteTransitionMixin$36.new = function(opts) {
-      PageRoute_MaterialRouteTransitionMixin$36.__proto__.new.call(this, opts);
-    }).prototype = PageRoute_MaterialRouteTransitionMixin$36.prototype;
-    dart.applyMixin(PageRoute_MaterialRouteTransitionMixin$36, page.MaterialRouteTransitionMixin$(T));
-    class _PageBasedMaterialPageRoute extends PageRoute_MaterialRouteTransitionMixin$36 {
-      get [_page]() {
-        return MaterialPageOfT().as(this.settings);
-      }
-      buildContent(context) {
-        if (context == null) dart.nullFailed(I[0], 195, 36, "context");
-        return this[_page].child;
-      }
-      get maintainState() {
-        return this[_page].maintainState;
-      }
-      get fullscreenDialog() {
-        return this[_page].fullscreenDialog;
-      }
-      get debugLabel() {
-        return dart.str(super.debugLabel) + "(" + dart.str(this[_page].name) + ")";
-      }
+  };
+  (clubs.soscClick.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    clubs.soscClick.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = clubs.soscClick.prototype;
+  dart.addTypeTests(clubs.soscClick);
+  dart.addTypeCaches(clubs.soscClick);
+  dart.setMethodSignature(clubs.soscClick, () => ({
+    __proto__: dart.getMethods(clubs.soscClick.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(clubs.soscClick, I[0]);
+  clubs.dscClick = class dscClick extends framework.StatelessWidget {
+    build(context) {
+      return new ink_well.InkWell.new({onTap: dart.fn(() => {
+          footer.launchURL("https://gdsc.community.dev/sahyadri-college-of-engineering-management-mangaluru/");
+        }, T.VoidToNull()), child: center['CenterExtension|centered'](new image.Image.asset("assets/gdgd.png", {fit: box_fit.BoxFit.contain, width: 100.0, height: 100.0, $creationLocationd_0dea112b090073317d4: C[73] || CT.C73})), $creationLocationd_0dea112b090073317d4: C[79] || CT.C79});
     }
-    (_PageBasedMaterialPageRoute.new = function(opts) {
-      let page = opts && 'page' in opts ? opts.page : null;
-      if (page == null) dart.nullFailed(I[0], 186, 30, "page");
-      if (!(page != null)) dart.assertFailed(null, I[0], 187, 15, "page != null");
-      _PageBasedMaterialPageRoute.__proto__.new.call(this, {settings: page});
-      if (!dart.test(this.opaque)) dart.assertFailed(null, I[0], 189, 12, "opaque");
-    }).prototype = _PageBasedMaterialPageRoute.prototype;
-    dart.addTypeTests(_PageBasedMaterialPageRoute);
-    _PageBasedMaterialPageRoute.prototype[_is__PageBasedMaterialPageRoute_default] = true;
-    dart.addTypeCaches(_PageBasedMaterialPageRoute);
-    dart.setMethodSignature(_PageBasedMaterialPageRoute, () => ({
-      __proto__: dart.getMethods(_PageBasedMaterialPageRoute.__proto__),
-      buildContent: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(_PageBasedMaterialPageRoute, () => ({
-      __proto__: dart.getGetters(_PageBasedMaterialPageRoute.__proto__),
-      [_page]: page.MaterialPage$(T),
-      maintainState: core.bool,
-      fullscreenDialog: core.bool
-    }));
-    dart.setLibraryUri(_PageBasedMaterialPageRoute, I[1]);
-    return _PageBasedMaterialPageRoute;
-  });
-  page._PageBasedMaterialPageRoute = page._PageBasedMaterialPageRoute$();
-  dart.addTypeTests(page._PageBasedMaterialPageRoute, _is__PageBasedMaterialPageRoute_default);
-  dart.trackLibraries("packages/flutter/src/material/page.dart", {
-    "package:flutter/src/material/page.dart": page
+  };
+  (clubs.dscClick.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    clubs.dscClick.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = clubs.dscClick.prototype;
+  dart.addTypeTests(clubs.dscClick);
+  dart.addTypeCaches(clubs.dscClick);
+  dart.setMethodSignature(clubs.dscClick, () => ({
+    __proto__: dart.getMethods(clubs.dscClick.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(clubs.dscClick, I[0]);
+  clubs.acmClick = class acmClick extends framework.StatelessWidget {
+    build(context) {
+      return new ink_well.InkWell.new({onTap: dart.fn(() => {
+          footer.launchURL("https://sahyadri.acm.org/assets/team.html");
+        }, T.VoidToNull()), child: center['CenterExtension|centered'](new image.Image.asset("assets/ACM.png", {fit: box_fit.BoxFit.contain, width: 200.0, $creationLocationd_0dea112b090073317d4: C[83] || CT.C83})), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88});
+    }
+  };
+  (clubs.acmClick.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    clubs.acmClick.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = clubs.acmClick.prototype;
+  dart.addTypeTests(clubs.acmClick);
+  dart.addTypeCaches(clubs.acmClick);
+  dart.setMethodSignature(clubs.acmClick, () => ({
+    __proto__: dart.getMethods(clubs.acmClick.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(clubs.acmClick, I[0]);
+  dart.trackLibraries("packages/portfolio/clubs.dart", {
+    "package:portfolio/clubs.dart": clubs
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["page.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAoFqC;MAAiC;;AAGzC;MAAI;;AAGH;MAAI;;YAGc;AAE5C,cAAkB,AAChB,sCADM,SAAS,gBAAqC,AAAU,SAAD,sBAC/C,uCAAV,SAAS,gBAAsC,AAAU,SAAD;MAChE;gBAIe,SACK,WACA;YAFL;YACK;YACA;AAEL,qBAAS,kBAAa,OAAO;AAC1C,uBAAO,AAQN;AAPC,cAAI,AAAO,MAAD;AAIP,YAHD,WAAM,4BAAY,AAChB,sCAA0B,AAAS,sBAAK,wBACxC;;AAGJ,gBAAO;;AAET,cAAO,uCACQ,0BACO,aACb,MAAM;MAEjB;uBAGqC,SAA2B,WAA6B,oBAA2B;YAAnF;YAA2B;YAA6B;YAA2B;AAC3F,oBAAc,AAAY,gBAAT,OAAO;AACnD,cAAO,AAAM,MAAD,qBAAqB,MAAM,OAAO,EAAE,SAAS,EAAE,kBAAkB,EAAE,KAAK;MACtF;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA7EoB;;;;;;MAMT;;;;;;mBAHsB;;;AAAY,aAAQ,OAAO;cAAf,AAAO;MAAS;;AAMpC,cAAuC,UAA9B,oBAAW,eAAG,AAAS,sBAAK;MAAE;;;UArBhD;;UACC;UACV;;UACA;;MAHS;MAET;YAEK,AAAQ,OAAD;YACP,AAAc,aAAD;YACb,AAAiB,gBAAD;AACvB,4DAAgB,QAAQ,oBAAoB,gBAAgB;AAC/D,qBAAO;IACT;;;;;;;;;;;;;;;;;;;;;;;;;MAuHa;;;;;;MAGF;;;;;;MAGA;;;;;;;YAGuB;AAChC,cAAO,mDAAqC;MAC9C;;;UAxBgB;;UACT;;UACA;;UACK;UACF;UACA;UACA;MANM;MACT;MACA;YAKK,AAAM,KAAD;YACL,AAAc,aAAD;YACb,AAAiB,gBAAD;AACvB,kDAAW,GAAG,QAAQ,IAAI,aAAa,2BAA0B,aAAa;;IAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6BvD,cAAS,sBAAT;MAA2B;;YAGvB;AAC/B,cAAO,AAAM;MACf;;AAG0B,cAAA,AAAM;MAAa;;AAGhB,cAAA,AAAM;MAAgB;;AAG1B,cAAoC,UAA3B,oBAAW,eAAG,AAAM,oBAAK;MAAE;;;UApBlC;;YACf,AAAK,IAAD;AACX,sEAAgB,IAAI;AACvB,qBAAO;IACT","file":"../../../../../../../../../D:/packages/flutter/src/material/page.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["clubs.dart"],"names":[],"mappings":"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","file":"../../../packages/portfolio/clubs.dart.lib.js"}');
   // Exports:
   return {
-    src__material__page: page
+    clubs: clubs
   };
 }));
 
-//# sourceMappingURL=page.dart.lib.js.map
+//# sourceMappingURL=clubs.dart.lib.js.map

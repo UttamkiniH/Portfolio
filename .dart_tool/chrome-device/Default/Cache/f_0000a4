@@ -1,349 +1,463 @@
-define(['dart_sdk', 'packages/file/src/forwarding/forwarding_link.dart', 'packages/file/src/interface/link.dart', 'packages/file/src/common.dart'], (function load__packages__file__src__backends__local__local_link_dart(dart_sdk, packages__file__src__forwarding__forwarding_link$46dart, packages__file__src__interface__link$46dart, packages__file__src__common$46dart) {
+define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/scheduler/ticker.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__rendering__animated_size_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__scheduler__ticker$46dart, packages__flutter__src__rendering__layer$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
   const _internal = dart_sdk._internal;
-  const io = dart_sdk.io;
-  const async = dart_sdk.async;
-  const typed_data = dart_sdk.typed_data;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const forwarding_file_system_entity = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_file_system_entity;
-  const forwarding_link = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_link;
-  const forwarding_file = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_file;
-  const forwarding_directory = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_directory;
-  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
-  const file = packages__file__src__interface__link$46dart.src__interface__file;
-  const link = packages__file__src__interface__link$46dart.src__interface__link;
-  const file_system = packages__file__src__interface__link$46dart.src__interface__file_system;
-  const common = packages__file__src__common$46dart.src__common;
-  var local_link = Object.create(dart.library);
-  var local_file = Object.create(dart.library);
-  var local_file_system_entity = Object.create(dart.library);
-  var local_directory = Object.create(dart.library);
-  var $noSuchMethod = dartx.noSuchMethod;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
+  const ticker = packages__flutter__src__scheduler__ticker$46dart.src__scheduler__ticker;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
+  var animated_size = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    SymbolL: () => (T.SymbolL = dart.constFn(dart.legacy(core.Symbol)))(),
-    LinkedMapOfSymbolL$dynamic: () => (T.LinkedMapOfSymbolL$dynamic = dart.constFn(_js_helper.LinkedMap$(T.SymbolL(), dart.dynamic)))(),
-    FutureOfFileSystemEntity: () => (T.FutureOfFileSystemEntity = dart.constFn(async.Future$(io.FileSystemEntity)))()
+    RenderAnimatedSizeStateL: () => (T.RenderAnimatedSizeStateL = dart.constFn(dart.legacy(animated_size.RenderAnimatedSizeState)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync));
+      return C[0] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.start",
+        index: 0
+      });
     },
     get C1() {
-      return C[1] = dart.const(new _internal.Symbol.new('recursive'));
+      return C[1] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.stable",
+        index: 1
+      });
     },
     get C2() {
-      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete));
+      return C[2] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.changed",
+        index: 2
+      });
     },
     get C3() {
-      return C[3] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath));
+      return C[3] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.unstable",
+        index: 3
+      });
     },
     get C4() {
-      return C[4] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path));
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], T.RenderAnimatedSizeStateL());
     },
     get C5() {
-      return C[5] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath));
+      return C[5] = dart.const({
+        __proto__: curves._Linear.prototype
+      });
     },
     get C6() {
-      return C[6] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$0));
+      return C[6] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
     },
     get C7() {
-      return C[7] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$0));
-    },
-    get C8() {
-      return C[8] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$0));
-    },
-    get C9() {
-      return C[9] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$0));
-    },
-    get C10() {
-      return C[10] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$0));
-    },
-    get C11() {
-      return C[11] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$1));
-    },
-    get C12() {
-      return C[12] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$1));
-    },
-    get C13() {
-      return C[13] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$1));
-    },
-    get C14() {
-      return C[14] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$1));
-    },
-    get C15() {
-      return C[15] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$1));
+      return C[7] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
+      });
     }
   }, false);
-  var C = Array(16).fill(void 0);
+  var C = Array(8).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0/lib/src/backends/local/local_link.dart",
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0/lib/src/backends/local/local_file_system_entity.dart",
-    "package:file/src/backends/local/local_file_system_entity.dart",
-    "package:file/src/backends/local/local_link.dart",
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0/lib/src/backends/local/local_file.dart",
-    "package:file/src/backends/local/local_file.dart",
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0/lib/src/backends/local/local_directory.dart",
-    "package:file/src/backends/local/local_directory.dart"
+    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/rendering/animated_size.dart",
+    "package:flutter/src/rendering/animated_size.dart"
   ];
-  var _deleteSync = dart.privateName(local_link, "_deleteSync");
-  var _deleteSync$ = dart.privateName(io, "_deleteSync");
-  var _delete = dart.privateName(local_link, "_delete");
-  var _delete$ = dart.privateName(io, "_delete");
-  var _rawPath = dart.privateName(local_link, "_rawPath");
-  var _rawPath$ = dart.privateName(io, "_rawPath");
-  var _path = dart.privateName(local_link, "_path");
-  var _path$ = dart.privateName(io, "_path");
-  var _absolutePath = dart.privateName(local_link, "_absolutePath");
-  var _absolutePath$ = dart.privateName(io, "_absolutePath");
-  var fileSystem$ = dart.privateName(local_file_system_entity, "LocalFileSystemEntity.fileSystem");
-  var delegate$ = dart.privateName(local_file_system_entity, "LocalFileSystemEntity.delegate");
-  const _is_LocalFileSystemEntity_default = Symbol('_is_LocalFileSystemEntity_default');
-  local_file_system_entity.LocalFileSystemEntity$ = dart.generic((T, D) => {
-    class LocalFileSystemEntity extends forwarding_file_system_entity.ForwardingFileSystemEntity$(T, D) {
-      get fileSystem() {
-        return this[fileSystem$];
-      }
-      set fileSystem(value) {
-        super.fileSystem = value;
-      }
-      get delegate() {
-        return this[delegate$];
-      }
-      set delegate(value) {
-        super.delegate = value;
-      }
-      get dirname() {
-        return this.fileSystem.path.dirname(this.path);
-      }
-      get basename() {
-        return this.fileSystem.path.basename(this.path);
-      }
-      wrapDirectory(delegate) {
-        if (delegate == null) dart.nullFailed(I[1], 33, 40, "delegate");
-        return new local_directory.LocalDirectory.new(this.fileSystem, delegate);
-      }
-      wrapFile(delegate) {
-        if (delegate == null) dart.nullFailed(I[1], 37, 25, "delegate");
-        return new local_file.LocalFile.new(this.fileSystem, delegate);
-      }
-      wrapLink(delegate) {
-        if (delegate == null) dart.nullFailed(I[1], 40, 25, "delegate");
-        return new local_link.LocalLink.new(this.fileSystem, delegate);
-      }
-    }
-    (LocalFileSystemEntity.new = function(fileSystem, delegate) {
-      if (fileSystem == null) dart.nullFailed(I[1], 18, 30, "fileSystem");
-      if (delegate == null) dart.nullFailed(I[1], 18, 47, "delegate");
-      this[fileSystem$] = fileSystem;
-      this[delegate$] = delegate;
-      ;
-    }).prototype = LocalFileSystemEntity.prototype;
-    dart.addTypeTests(LocalFileSystemEntity);
-    LocalFileSystemEntity.prototype[_is_LocalFileSystemEntity_default] = true;
-    dart.addTypeCaches(LocalFileSystemEntity);
-    dart.setMethodSignature(LocalFileSystemEntity, () => ({
-      __proto__: dart.getMethods(LocalFileSystemEntity.__proto__),
-      wrapDirectory: dart.fnType(directory.Directory, [io.Directory]),
-      wrapFile: dart.fnType(file.File, [io.File]),
-      wrapLink: dart.fnType(link.Link, [io.Link])
-    }));
-    dart.setLibraryUri(LocalFileSystemEntity, I[2]);
-    dart.setFieldSignature(LocalFileSystemEntity, () => ({
-      __proto__: dart.getFields(LocalFileSystemEntity.__proto__),
-      fileSystem: dart.finalFieldType(file_system.FileSystem),
-      delegate: dart.finalFieldType(D)
-    }));
-    return LocalFileSystemEntity;
-  });
-  local_file_system_entity.LocalFileSystemEntity = local_file_system_entity.LocalFileSystemEntity$();
-  dart.addTypeTests(local_file_system_entity.LocalFileSystemEntity, _is_LocalFileSystemEntity_default);
-  const LocalFileSystemEntity_ForwardingLink$36 = class LocalFileSystemEntity_ForwardingLink extends local_file_system_entity.LocalFileSystemEntity$(link.Link, io.Link) {};
-  (LocalFileSystemEntity_ForwardingLink$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingLink$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingLink$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_ForwardingLink$36, forwarding_link.ForwardingLink);
-  local_link.LocalLink = class LocalLink extends LocalFileSystemEntity_ForwardingLink$36 {
+  var _name$ = dart.privateName(animated_size, "_name");
+  animated_size.RenderAnimatedSizeState = class RenderAnimatedSizeState extends core.Object {
     toString() {
-      return "LocalLink: '" + dart.str(this.path) + "'";
-    }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[0], 12, 7, "recursive");
-      return this[$noSuchMethod](new core._Invocation.method(C[0] || CT.C0, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
-    }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[0], 12, 7, "recursive");
-      return T.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[2] || CT.C2, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
-    }
-    get [_rawPath$]() {
-      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[3] || CT.C3)));
-    }
-    get [_path$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[4] || CT.C4)));
-    }
-    get [_absolutePath$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[5] || CT.C5)));
+      return this[_name$];
     }
   };
-  (local_link.LocalLink.new = function(fs, delegate) {
-    if (fs == null) dart.nullFailed(I[0], 16, 24, "fs");
-    if (delegate == null) dart.nullFailed(I[0], 16, 36, "delegate");
-    local_link.LocalLink.__proto__.new.call(this, fs, delegate);
+  (animated_size.RenderAnimatedSizeState.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 16, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 16, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = local_link.LocalLink.prototype;
-  dart.addTypeTests(local_link.LocalLink);
-  dart.addTypeCaches(local_link.LocalLink);
-  dart.setMethodSignature(local_link.LocalLink, () => ({
-    __proto__: dart.getMethods(local_link.LocalLink.__proto__),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  }).prototype = animated_size.RenderAnimatedSizeState.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSizeState);
+  dart.addTypeCaches(animated_size.RenderAnimatedSizeState);
+  dart.setLibraryUri(animated_size.RenderAnimatedSizeState, I[1]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSizeState, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSizeState.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setGetterSignature(local_link.LocalLink, () => ({
-    __proto__: dart.getGetters(local_link.LocalLink.__proto__),
-    [_rawPath$]: typed_data.Uint8List,
-    [_path$]: core.String,
-    [_absolutePath$]: core.String
-  }));
-  dart.setLibraryUri(local_link.LocalLink, I[3]);
-  dart.defineExtensionMethods(local_link.LocalLink, ['toString']);
-  var _deleteSync$0 = dart.privateName(local_file, "_deleteSync");
-  var _delete$0 = dart.privateName(local_file, "_delete");
-  var _rawPath$0 = dart.privateName(local_file, "_rawPath");
-  var _path$0 = dart.privateName(local_file, "_path");
-  var _absolutePath$0 = dart.privateName(local_file, "_absolutePath");
-  const LocalFileSystemEntity_ForwardingFile$36 = class LocalFileSystemEntity_ForwardingFile extends local_file_system_entity.LocalFileSystemEntity$(file.File, io.File) {};
-  (LocalFileSystemEntity_ForwardingFile$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingFile$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingFile$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_ForwardingFile$36, forwarding_file.ForwardingFile);
-  local_file.LocalFile = class LocalFile extends LocalFileSystemEntity_ForwardingFile$36 {
-    toString() {
-      return "LocalFile: '" + dart.str(this.path) + "'";
+  dart.defineExtensionMethods(animated_size.RenderAnimatedSizeState, ['toString']);
+  animated_size.RenderAnimatedSizeState.start = C[0] || CT.C0;
+  animated_size.RenderAnimatedSizeState.stable = C[1] || CT.C1;
+  animated_size.RenderAnimatedSizeState.changed = C[2] || CT.C2;
+  animated_size.RenderAnimatedSizeState.unstable = C[3] || CT.C3;
+  animated_size.RenderAnimatedSizeState.values = C[4] || CT.C4;
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _name = dart.privateName(ui, "_name");
+  var __RenderAnimatedSize__controller = dart.privateName(animated_size, "_#RenderAnimatedSize#_controller");
+  var __RenderAnimatedSize__controller_isSet = dart.privateName(animated_size, "_#RenderAnimatedSize#_controller#isSet");
+  var __RenderAnimatedSize__animation = dart.privateName(animated_size, "_#RenderAnimatedSize#_animation");
+  var __RenderAnimatedSize__animation_isSet = dart.privateName(animated_size, "_#RenderAnimatedSize#_animation#isSet");
+  var _sizeTween = dart.privateName(animated_size, "_sizeTween");
+  var __RenderAnimatedSize__hasVisualOverflow = dart.privateName(animated_size, "_#RenderAnimatedSize#_hasVisualOverflow");
+  var __RenderAnimatedSize__hasVisualOverflow_isSet = dart.privateName(animated_size, "_#RenderAnimatedSize#_hasVisualOverflow#isSet");
+  var _lastValue = dart.privateName(animated_size, "_lastValue");
+  var _state = dart.privateName(animated_size, "_state");
+  var _clipBehavior = dart.privateName(animated_size, "_clipBehavior");
+  var _clipRectLayer = dart.privateName(animated_size, "_clipRectLayer");
+  var _vsync = dart.privateName(animated_size, "_vsync");
+  var _controller = dart.privateName(animated_size, "_controller");
+  var _animation = dart.privateName(animated_size, "_animation");
+  var _hasVisualOverflow = dart.privateName(animated_size, "_hasVisualOverflow");
+  var _animatedSize = dart.privateName(animated_size, "_animatedSize");
+  var _layoutStart = dart.privateName(animated_size, "_layoutStart");
+  var _layoutStable = dart.privateName(animated_size, "_layoutStable");
+  var _layoutChanged = dart.privateName(animated_size, "_layoutChanged");
+  var _layoutUnstable = dart.privateName(animated_size, "_layoutUnstable");
+  var _restartAnimation = dart.privateName(animated_size, "_restartAnimation");
+  animated_size.RenderAnimatedSize = class RenderAnimatedSize extends shifted_box.RenderAligningShiftedBox {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[__RenderAnimatedSize__controller_isSet]) ? (t0 = this[__RenderAnimatedSize__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
     }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[4], 12, 7, "recursive");
-      return this[$noSuchMethod](new core._Invocation.method(C[6] || CT.C6, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 107, 34, "null");
+      if (dart.test(this[__RenderAnimatedSize__controller_isSet]))
+        dart.throw(new _internal.LateError.fieldAI("_controller"));
+      else {
+        this[__RenderAnimatedSize__controller_isSet] = true;
+        this[__RenderAnimatedSize__controller] = t0;
+      }
     }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[4], 12, 7, "recursive");
-      return T.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[7] || CT.C7, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
+    get [_animation]() {
+      let t1;
+      return dart.test(this[__RenderAnimatedSize__animation_isSet]) ? (t1 = this[__RenderAnimatedSize__animation], t1) : dart.throw(new _internal.LateError.fieldNI("_animation"));
     }
-    get [_rawPath$]() {
-      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[8] || CT.C8)));
+    set [_animation](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 108, 30, "null");
+      if (dart.test(this[__RenderAnimatedSize__animation_isSet]))
+        dart.throw(new _internal.LateError.fieldAI("_animation"));
+      else {
+        this[__RenderAnimatedSize__animation_isSet] = true;
+        this[__RenderAnimatedSize__animation] = t1;
+      }
     }
-    get [_path$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[9] || CT.C9)));
+    get [_hasVisualOverflow]() {
+      let t2;
+      return dart.test(this[__RenderAnimatedSize__hasVisualOverflow_isSet]) ? (t2 = this[__RenderAnimatedSize__hasVisualOverflow], t2) : dart.throw(new _internal.LateError.fieldNI("_hasVisualOverflow"));
     }
-    get [_absolutePath$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[10] || CT.C10)));
+    set [_hasVisualOverflow](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 110, 13, "null");
+      this[__RenderAnimatedSize__hasVisualOverflow_isSet] = true;
+      this[__RenderAnimatedSize__hasVisualOverflow] = t2;
+    }
+    get state() {
+      return this[_state];
+    }
+    get duration() {
+      return dart.nullCheck(this[_controller].duration);
+    }
+    set duration(value) {
+      if (value == null) dart.nullFailed(I[0], 122, 25, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 123, 12, "value != null");
+      if (dart.equals(value, this[_controller].duration)) return;
+      this[_controller].duration = value;
+    }
+    get reverseDuration() {
+      return this[_controller].reverseDuration;
+    }
+    set reverseDuration(value) {
+      if (dart.equals(value, this[_controller].reverseDuration)) return;
+      this[_controller].reverseDuration = value;
+    }
+    get curve() {
+      return this[_animation].curve;
+    }
+    set curve(value) {
+      if (value == null) dart.nullFailed(I[0], 139, 19, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 140, 12, "value != null");
+      if (dart.equals(value, this[_animation].curve)) return;
+      this[_animation].curve = value;
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (value == null) dart.nullFailed(I[0], 151, 25, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 152, 12, "value != null");
+      if (value != this[_clipBehavior]) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    get isAnimating() {
+      return this[_controller].isAnimating;
+    }
+    get vsync() {
+      return this[_vsync];
+    }
+    set vsync(value) {
+      if (value == null) dart.nullFailed(I[0], 169, 28, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 170, 12, "value != null");
+      if (dart.equals(value, this[_vsync])) return;
+      this[_vsync] = value;
+      this[_controller].resync(this.vsync);
+    }
+    detach() {
+      this[_controller].stop();
+      super.detach();
+    }
+    get [_animatedSize]() {
+      return this[_sizeTween].evaluate(this[_animation]);
+    }
+    performLayout() {
+      let t3;
+      this[_lastValue] = this[_controller].value;
+      this[_hasVisualOverflow] = false;
+      let constraints = this.constraints;
+      if (this.child == null || dart.test(constraints.isTight)) {
+        this[_controller].stop();
+        this.size = this[_sizeTween].begin = this[_sizeTween].end = constraints.smallest;
+        this[_state] = animated_size.RenderAnimatedSizeState.start;
+        t3 = this.child;
+        t3 == null ? null : t3.layout(constraints);
+        return;
+      }
+      dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
+      if (!(this[_state] != null)) dart.assertFailed(null, I[0], 202, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          this[_layoutStart]();
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          this[_layoutStable]();
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          this[_layoutChanged]();
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          this[_layoutUnstable]();
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      this.size = constraints.constrain(dart.nullCheck(this[_animatedSize]));
+      this.alignChild();
+      if (dart.notNull(this.size.width) < dart.notNull(dart.nullCheck(this[_sizeTween].end).width) || dart.notNull(this.size.height) < dart.notNull(dart.nullCheck(this[_sizeTween].end).height)) this[_hasVisualOverflow] = true;
+    }
+    computeDryLayout(constraints) {
+      if (constraints == null) dart.nullFailed(I[0], 227, 40, "constraints");
+      if (this.child == null || dart.test(constraints.isTight)) {
+        return constraints.smallest;
+      }
+      let childSize = dart.nullCheck(this.child).getDryLayout(constraints);
+      if (!(this[_state] != null)) dart.assertFailed(null, I[0], 236, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          return constraints.constrain(childSize);
+        }
+        case C[1] || CT.C1:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(this.size);
+          } else if (this[_controller].value == this[_controller].upperBound) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+        case C[3] || CT.C3:
+        case C[2] || CT.C2:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      return constraints.constrain(dart.nullCheck(this[_animatedSize]));
+    }
+    [_restartAnimation]() {
+      this[_lastValue] = 0.0;
+      this[_controller].forward({from: 0.0});
+    }
+    [_layoutStart]() {
+      this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      this[_state] = animated_size.RenderAnimatedSizeState.stable;
+    }
+    [_layoutStable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this.size;
+        this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.changed;
+      } else if (this[_controller].value == this[_controller].upperBound) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      } else if (!dart.test(this[_controller].isAnimating)) {
+        this[_controller].forward();
+      }
+    }
+    [_layoutChanged]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.unstable;
+      } else {
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+        if (!dart.test(this[_controller].isAnimating)) this[_controller].forward();
+      }
+    }
+    [_layoutUnstable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+      } else {
+        this[_controller].stop();
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+      }
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 327, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 327, 46, "offset");
+      if (this.child != null && dart.test(this[_hasVisualOverflow]) && this.clipBehavior != ui.Clip.none) {
+        let rect = ui.Offset.zero['&'](this.size);
+        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, rect, dart.bind(this, 'paint', super.paint), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+      } else {
+        this[_clipRectLayer] = null;
+        super.paint(context, offset);
+      }
     }
   };
-  (local_file.LocalFile.new = function(fs, delegate) {
-    if (fs == null) dart.nullFailed(I[4], 16, 24, "fs");
-    if (delegate == null) dart.nullFailed(I[4], 16, 36, "delegate");
-    local_file.LocalFile.__proto__.new.call(this, fs, delegate);
-    ;
-  }).prototype = local_file.LocalFile.prototype;
-  dart.addTypeTests(local_file.LocalFile);
-  dart.addTypeCaches(local_file.LocalFile);
-  dart.setMethodSignature(local_file.LocalFile, () => ({
-    __proto__: dart.getMethods(local_file.LocalFile.__proto__),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  (animated_size.RenderAnimatedSize.new = function(opts) {
+    let t0;
+    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
+    if (vsync == null) dart.nullFailed(I[0], 78, 29, "vsync");
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    if (duration == null) dart.nullFailed(I[0], 79, 23, "duration");
+    let reverseDuration = opts && 'reverseDuration' in opts ? opts.reverseDuration : null;
+    let curve = opts && 'curve' in opts ? opts.curve : C[5] || CT.C5;
+    if (curve == null) dart.nullFailed(I[0], 81, 11, "curve");
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[6] || CT.C6;
+    if (alignment == null) dart.nullFailed(I[0], 82, 23, "alignment");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[7] || CT.C7;
+    if (clipBehavior == null) dart.nullFailed(I[0], 85, 10, "clipBehavior");
+    this[__RenderAnimatedSize__controller] = null;
+    this[__RenderAnimatedSize__controller_isSet] = false;
+    this[__RenderAnimatedSize__animation] = null;
+    this[__RenderAnimatedSize__animation_isSet] = false;
+    this[_sizeTween] = new tween.SizeTween.new();
+    this[__RenderAnimatedSize__hasVisualOverflow] = null;
+    this[__RenderAnimatedSize__hasVisualOverflow_isSet] = false;
+    this[_lastValue] = null;
+    this[_state] = animated_size.RenderAnimatedSizeState.start;
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    this[_clipRectLayer] = null;
+    if (!(vsync != null)) dart.assertFailed(null, I[0], 86, 15, "vsync != null");
+    if (!(duration != null)) dart.assertFailed(null, I[0], 87, 15, "duration != null");
+    if (!(curve != null)) dart.assertFailed(null, I[0], 88, 15, "curve != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 89, 15, "clipBehavior != null");
+    this[_vsync] = vsync;
+    this[_clipBehavior] = clipBehavior;
+    animated_size.RenderAnimatedSize.__proto__.new.call(this, {child: child, alignment: alignment, textDirection: textDirection});
+    this[_controller] = (t0 = new animation_controller.AnimationController.new({vsync: vsync, duration: duration, reverseDuration: reverseDuration}), (() => {
+      t0.addListener(dart.fn(() => {
+        if (this[_controller].value != this[_lastValue]) this.markNeedsLayout();
+      }, T.VoidTovoid()));
+      return t0;
+    })());
+    this[_animation] = new animations.CurvedAnimation.new({parent: this[_controller], curve: curve});
+  }).prototype = animated_size.RenderAnimatedSize.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSize);
+  dart.addTypeCaches(animated_size.RenderAnimatedSize);
+  dart.setMethodSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getMethods(animated_size.RenderAnimatedSize.__proto__),
+    [_restartAnimation]: dart.fnType(dart.void, []),
+    [_layoutStart]: dart.fnType(dart.void, []),
+    [_layoutStable]: dart.fnType(dart.void, []),
+    [_layoutChanged]: dart.fnType(dart.void, []),
+    [_layoutUnstable]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(local_file.LocalFile, () => ({
-    __proto__: dart.getGetters(local_file.LocalFile.__proto__),
-    [_rawPath$]: typed_data.Uint8List,
-    [_path$]: core.String,
-    [_absolutePath$]: core.String
+  dart.setGetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getGetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    state: animated_size.RenderAnimatedSizeState,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    isAnimating: core.bool,
+    vsync: ticker.TickerProvider,
+    [_animatedSize]: dart.nullable(ui.Size)
   }));
-  dart.setLibraryUri(local_file.LocalFile, I[5]);
-  dart.defineExtensionMethods(local_file.LocalFile, ['toString']);
-  var _deleteSync$1 = dart.privateName(local_directory, "_deleteSync");
-  var _delete$1 = dart.privateName(local_directory, "_delete");
-  var _rawPath$1 = dart.privateName(local_directory, "_rawPath");
-  var _path$1 = dart.privateName(local_directory, "_path");
-  var _absolutePath$1 = dart.privateName(local_directory, "_absolutePath");
-  const LocalFileSystemEntity_ForwardingDirectory$36 = class LocalFileSystemEntity_ForwardingDirectory extends local_file_system_entity.LocalFileSystemEntity {};
-  (LocalFileSystemEntity_ForwardingDirectory$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingDirectory$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingDirectory$36.prototype;
-  const LocalFileSystemEntity_DirectoryAddOnsMixin$36 = class LocalFileSystemEntity_DirectoryAddOnsMixin extends LocalFileSystemEntity_ForwardingDirectory$36 {};
-  (LocalFileSystemEntity_DirectoryAddOnsMixin$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_DirectoryAddOnsMixin$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_DirectoryAddOnsMixin$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_DirectoryAddOnsMixin$36, common.DirectoryAddOnsMixin);
-  local_directory.LocalDirectory = class LocalDirectory extends LocalFileSystemEntity_DirectoryAddOnsMixin$36 {
-    toString() {
-      return "LocalDirectory: '" + dart.str(this.path) + "'";
-    }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[6], 13, 7, "recursive");
-      return this[$noSuchMethod](new core._Invocation.method(C[11] || CT.C11, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
-    }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      if (recursive == null) dart.nullFailed(I[6], 13, 7, "recursive");
-      return T.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[12] || CT.C12, null, [], new (T.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
-    }
-    get [_rawPath$]() {
-      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[13] || CT.C13)));
-    }
-    get [_path$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[14] || CT.C14)));
-    }
-    get [_absolutePath$]() {
-      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[15] || CT.C15)));
-    }
-  };
-  (local_directory.LocalDirectory.new = function(fs, delegate) {
-    if (fs == null) dart.nullFailed(I[6], 17, 29, "fs");
-    if (delegate == null) dart.nullFailed(I[6], 17, 46, "delegate");
-    local_directory.LocalDirectory.__proto__.new.call(this, fs, delegate);
-    ;
-  }).prototype = local_directory.LocalDirectory.prototype;
-  dart.addTypeTests(local_directory.LocalDirectory);
-  dart.addTypeCaches(local_directory.LocalDirectory);
-  dart.setMethodSignature(local_directory.LocalDirectory, () => ({
-    __proto__: dart.getMethods(local_directory.LocalDirectory.__proto__),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  dart.setSetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getSetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    vsync: ticker.TickerProvider
   }));
-  dart.setGetterSignature(local_directory.LocalDirectory, () => ({
-    __proto__: dart.getGetters(local_directory.LocalDirectory.__proto__),
-    [_rawPath$]: typed_data.Uint8List,
-    [_path$]: core.String,
-    [_absolutePath$]: core.String
+  dart.setLibraryUri(animated_size.RenderAnimatedSize, I[1]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSize.__proto__),
+    [__RenderAnimatedSize__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [__RenderAnimatedSize__controller_isSet]: dart.fieldType(core.bool),
+    [__RenderAnimatedSize__animation]: dart.fieldType(dart.nullable(animations.CurvedAnimation)),
+    [__RenderAnimatedSize__animation_isSet]: dart.fieldType(core.bool),
+    [_sizeTween]: dart.finalFieldType(tween.SizeTween),
+    [__RenderAnimatedSize__hasVisualOverflow]: dart.fieldType(dart.nullable(core.bool)),
+    [__RenderAnimatedSize__hasVisualOverflow_isSet]: dart.fieldType(core.bool),
+    [_lastValue]: dart.fieldType(dart.nullable(core.double)),
+    [_state]: dart.fieldType(animated_size.RenderAnimatedSizeState),
+    [_clipBehavior]: dart.fieldType(ui.Clip),
+    [_vsync]: dart.fieldType(ticker.TickerProvider),
+    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
   }));
-  dart.setLibraryUri(local_directory.LocalDirectory, I[7]);
-  dart.defineExtensionMethods(local_directory.LocalDirectory, ['toString']);
-  dart.setBaseClass(local_directory.LocalDirectory.__proto__.__proto__, local_file_system_entity.LocalFileSystemEntity$(local_directory.LocalDirectory, io.Directory));
-  dart.applyMixin(local_directory.LocalDirectory.__proto__.__proto__, forwarding_directory.ForwardingDirectory$(local_directory.LocalDirectory));
-  dart.trackLibraries("packages/file/src/backends/local/local_link.dart", {
-    "package:file/src/backends/local/local_link.dart": local_link,
-    "package:file/src/backends/local/local_file.dart": local_file,
-    "package:file/src/backends/local/local_file_system_entity.dart": local_file_system_entity,
-    "package:file/src/backends/local/local_directory.dart": local_directory
+  dart.trackLibraries("packages/flutter/src/rendering/animated_size.dart", {
+    "package:flutter/src/rendering/animated_size.dart": animated_size
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["local_file_system_entity.dart","local_link.dart","local_file.dart","local_directory.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoBmB;;;;;;MAGT;;;;;;;AAGc,cAAA,AAAW,AAAK,8BAAQ;MAAK;;AAG5B,cAAA,AAAW,AAAK,+BAAS;MAAK;;YAGhB;AACjC,sDAAe,iBAAY,QAAQ;MAAC;;YAGlB;AAAa,4CAAU,iBAAY,QAAQ;MAAC;;YAG5C;AAAa,4CAAU,iBAAY,QAAQ;MAAC;;0CAtBvC,YAAiB;UAAjB;UAAiB;MAAjB;MAAiB;;IAAS;;;;;;;;;;;;;;;;;;;;;0DAA1B,YAAiB;qEAAjB,YAAiB;;;;;ACCvB,YAAA,AAAoB,2BAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;;;uCAHpB,IAAY;QAAZ;QAAY;AAAY,kDAAM,EAAE,EAAE,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;0DDErC,YAAiB;qEAAjB,YAAiB;;;;;AECvB,YAAA,AAAoB,2BAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;;;uCAHpB,IAAY;QAAZ;QAAY;AAAY,kDAAM,EAAE,EAAE,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;+DFErC,YAAiB;0EAAjB,YAAiB;;;gEAAjB,YAAiB;2EAAjB,YAAiB;;;;;AGEvB,YAAA,AAAyB,gCAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;;;iDAHpB,IAAiB;QAAjB;QAAiB;AAAY,4DAAM,EAAE,EAAE,QAAQ;;EAAC","file":"../../../../../../../../../../../../D:/packages/file/src/backends/local/local_link.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["animated_size.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/rendering/animated_size.dart.lib.js"}');
   // Exports:
   return {
-    src__backends__local__local_link: local_link,
-    src__backends__local__local_file: local_file,
-    src__backends__local__local_file_system_entity: local_file_system_entity,
-    src__backends__local__local_directory: local_directory
+    src__rendering__animated_size: animated_size
   };
 }));
 
-//# sourceMappingURL=local_link.dart.lib.js.map
+//# sourceMappingURL=animated_size.dart.lib.js.map

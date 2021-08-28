@@ -1,628 +1,622 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/velocity_x/src/flutter/timeline/timeline_painter.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/velocity_x/src/dart/timeline.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__velocity_x__src__flutter__timeline__timeline_view_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__velocity_x__src__flutter__timeline__timeline_painter$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__icon_button$46dart, packages__velocity_x__src__dart__timeline$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
+define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__gradient_dart(dart_sdk, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const typed_data = dart_sdk.typed_data;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
-  const timeline_painter = packages__velocity_x__src__flutter__timeline__timeline_painter$46dart.src__flutter__timeline__timeline_painter;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const timeline = packages__velocity_x__src__dart__timeline$46dart.src__dart__timeline;
-  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  var timeline_view = Object.create(dart.library);
-  var $substring = dartx.substring;
-  var $add = dartx.add;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var gradient = Object.create(dart.library);
+  var $length = dartx.length;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $runtimeType = dartx.runtimeType;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $lastIndexWhere = dartx.lastIndexWhere;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+    ListOfdouble: () => (T.ListOfdouble = dart.constFn(core.List$(core.double)))(),
+    intTodouble: () => (T.intTodouble = dart.constFn(dart.fnType(core.double, [core.int])))(),
+    ColorToColor: () => (T.ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))(),
+    LinearGradientN: () => (T.LinearGradientN = dart.constFn(dart.nullable(gradient.LinearGradient)))(),
+    RadialGradientN: () => (T.RadialGradientN = dart.constFn(dart.nullable(gradient.RadialGradient)))(),
+    SweepGradientN: () => (T.SweepGradientN = dart.constFn(dart.nullable(gradient.SweepGradient)))(),
+    doubleTobool: () => (T.doubleTobool = dart.constFn(dart.fnType(core.bool, [core.double])))(),
+    SplayTreeSetOfdouble: () => (T.SplayTreeSetOfdouble = dart.constFn(collection.SplayTreeSet$(core.double)))(),
+    doubleToColor: () => (T.doubleToColor = dart.constFn(dart.fnType(ui.Color, [core.double])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "painter",
-        [_Location_column]: 9,
-        [_Location_line]: 49,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: -1
       });
     },
     get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 48,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+      return C[1] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 1
       });
     },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 7,
-        [_Location_line]: 47,
-        [_Location_file]: null
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.TileMode.prototype,
+        [_name]: "TileMode.clamp",
+        index: 0
       });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 48,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 46,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 8,
-        [EdgeInsets_right]: 0,
-        [EdgeInsets_top]: 8,
-        [EdgeInsets_left]: 0
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 17,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 66,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 11,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[13] || CT.C13,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 17,
-        [_Location_line]: 79,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 82,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], T._LocationL());
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[17] || CT.C17,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 77,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 77,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.constList([C[22] || CT.C22], T._LocationL());
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[21] || CT.C21,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 76,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 7,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 7,
-        [_Location_line]: 62,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27], T._LocationL());
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 60,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 12,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 12
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 15,
-        [_Location_line]: 101,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 15,
-        [_Location_line]: 102,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], T._LocationL());
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[30] || CT.C30,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 100,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.constList([C[35] || CT.C35], T._LocationL());
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[34] || CT.C34,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 104,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 25,
-        [_Location_line]: 112,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 19,
-        [_Location_line]: 113,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], T._LocationL());
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 111,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 11,
-        [_Location_line]: 98,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[41] || CT.C41,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 97,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 7,
-        [_Location_line]: 94,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 7,
-        [_Location_line]: 95,
-        [_Location_file]: null
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 96,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 97,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[45] || CT.C45,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 93,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart"
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
       });
     }
   }, false);
-  var C = Array(50).fill(void 0);
+  var C = Array(4).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/timeline/timeline_view.dart",
-    "package:velocity_x/src/flutter/timeline/timeline_view.dart"
+    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/painting/gradient.dart",
+    "package:flutter/src/painting/gradient.dart"
   ];
-  var lineColor$ = dart.privateName(timeline_view, "VxTimelineView.lineColor");
-  var backgroundColor$ = dart.privateName(timeline_view, "VxTimelineView.backgroundColor");
-  var model$ = dart.privateName(timeline_view, "VxTimelineView.model");
-  var firstElement$ = dart.privateName(timeline_view, "VxTimelineView.firstElement");
-  var lastElement$ = dart.privateName(timeline_view, "VxTimelineView.lastElement");
-  var controller$ = dart.privateName(timeline_view, "VxTimelineView.controller");
-  var headingColor$ = dart.privateName(timeline_view, "VxTimelineView.headingColor");
-  var descriptionColor$ = dart.privateName(timeline_view, "VxTimelineView.descriptionColor");
-  var hideLauncher$ = dart.privateName(timeline_view, "VxTimelineView.hideLauncher");
-  var trailing$ = dart.privateName(timeline_view, "VxTimelineView.trailing");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _buildLine = dart.privateName(timeline_view, "_buildLine");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _buildContentColumn = dart.privateName(timeline_view, "_buildContentColumn");
-  var _buildRow = dart.privateName(timeline_view, "_buildRow");
-  timeline_view.VxTimelineView = class VxTimelineView extends framework.StatelessWidget {
-    get lineColor() {
-      return this[lineColor$];
+  gradient._ColorsAndStops = class _ColorsAndStops extends core.Object {};
+  (gradient._ColorsAndStops.new = function(colors, stops) {
+    if (colors == null) dart.nullFailed(I[0], 18, 24, "colors");
+    if (stops == null) dart.nullFailed(I[0], 18, 37, "stops");
+    this.colors = colors;
+    this.stops = stops;
+    ;
+  }).prototype = gradient._ColorsAndStops.prototype;
+  dart.addTypeTests(gradient._ColorsAndStops);
+  dart.addTypeCaches(gradient._ColorsAndStops);
+  dart.setLibraryUri(gradient._ColorsAndStops, I[1]);
+  dart.setFieldSignature(gradient._ColorsAndStops, () => ({
+    __proto__: dart.getFields(gradient._ColorsAndStops.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(core.List$(core.double))
+  }));
+  gradient.GradientTransform = class GradientTransform extends core.Object {};
+  (gradient.GradientTransform.new = function() {
+    ;
+  }).prototype = gradient.GradientTransform.prototype;
+  dart.addTypeTests(gradient.GradientTransform);
+  dart.addTypeCaches(gradient.GradientTransform);
+  dart.setLibraryUri(gradient.GradientTransform, I[1]);
+  var radians$ = dart.privateName(gradient, "GradientRotation.radians");
+  gradient.GradientRotation = class GradientRotation extends gradient.GradientTransform {
+    get radians() {
+      return this[radians$];
     }
-    set lineColor(value) {
-      super.lineColor = value;
+    set radians(value) {
+      super.radians = value;
     }
-    get backgroundColor() {
-      return this[backgroundColor$];
-    }
-    set backgroundColor(value) {
-      super.backgroundColor = value;
-    }
-    get model() {
-      return this[model$];
-    }
-    set model(value) {
-      super.model = value;
-    }
-    get firstElement() {
-      return this[firstElement$];
-    }
-    set firstElement(value) {
-      super.firstElement = value;
-    }
-    get lastElement() {
-      return this[lastElement$];
-    }
-    set lastElement(value) {
-      super.lastElement = value;
-    }
-    get controller() {
-      return this[controller$];
-    }
-    set controller(value) {
-      super.controller = value;
-    }
-    get headingColor() {
-      return this[headingColor$];
-    }
-    set headingColor(value) {
-      super.headingColor = value;
-    }
-    get descriptionColor() {
-      return this[descriptionColor$];
-    }
-    set descriptionColor(value) {
-      super.descriptionColor = value;
-    }
-    get hideLauncher() {
-      return this[hideLauncher$];
-    }
-    set hideLauncher(value) {
-      super.hideLauncher = value;
-    }
-    get trailing() {
-      return this[trailing$];
-    }
-    set trailing(value) {
-      super.trailing = value;
-    }
-    [_buildLine](context, child) {
-      if (context == null) dart.nullFailed(I[0], 45, 34, "context");
-      return new container.Container.new({width: 40.0, child: new basic.CustomPaint.new({painter: new timeline_painter.VxTimelinePainter.new({lineColor: this.lineColor, backgroundColor: this.backgroundColor, firstElement: this.firstElement, lastElement: this.lastElement, controller: dart.nullCheck(this.controller)}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3});
-    }
-    [_buildContentColumn](context) {
-      let t0, t0$;
-      if (context == null) dart.nullFailed(I[0], 59, 43, "context");
-      return new basic.Column.new({mainAxisSize: flex.MainAxisSize.max, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new container.Container.new({padding: C[7] || CT.C7, child: new text.Text.new(this.model.heading.length > 47 ? this.model.heading[$substring](0, 47) + "..." : this.model.heading, {style: new text_style.TextStyle.new({fontSize: 14.0, color: (t0 = this.headingColor, t0 == null ? colors.Colors.black : t0)}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), new basic.Expanded.new({child: new text.Text.new(this.model.description.length > 50 ? this.model.description[$substring](0, 50) + "..." : this.model.description, {style: new text_style.TextStyle.new({fontSize: 18.0, color: (t0$ = this.descriptionColor, t0$ == null ? colors.Colors.black : t0$)}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20})]), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23});
-    }
-    [_buildRow](context) {
-      if (context == null) dart.nullFailed(I[0], 92, 33, "context");
-      return new container.Container.new({height: 80.0, color: this.backgroundColor, padding: C[28] || CT.C28, child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.stretch, children: (() => {
-            let t0 = T.JSArrayOfWidget().of([new transitions.AnimatedBuilder.new({builder: dart.bind(this, _buildLine), animation: dart.nullCheck(this.controller), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), new basic.Expanded.new({child: this[_buildContentColumn](context), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]);
-            if (!dart.test(this.hideLauncher)) if (this.trailing != null)
-              t0[$add](dart.nullCheck(this.trailing));
-            else
-              t0[$add](new icon.Icon.new(icons.Icons.open_in_new, {color: theme.Theme.of(context).primaryColor, $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}));
-            return t0;
-          })(), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 120, 29, "context");
-      return this[_buildRow](context);
+    transform(bounds, opts) {
+      let t0;
+      if (bounds == null) dart.nullFailed(I[0], 109, 26, "bounds");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      if (!(bounds != null)) dart.assertFailed(null, I[0], 110, 12, "bounds != null");
+      let sinRadians = math.sin(this.radians);
+      let oneMinusCosRadians = 1 - math.cos(this.radians);
+      let center = bounds.center;
+      let originX = sinRadians * dart.notNull(center.dy) + oneMinusCosRadians * dart.notNull(center.dx);
+      let originY = -sinRadians * dart.notNull(center.dx) + oneMinusCosRadians * dart.notNull(center.dy);
+      t0 = vector_math_64.Matrix4.identity();
+      return (() => {
+        t0.translate(originX, originY);
+        t0.rotateZ(this.radians);
+        return t0;
+      })();
     }
   };
-  (timeline_view.VxTimelineView.new = function(opts) {
-    let lineColor = opts && 'lineColor' in opts ? opts.lineColor : null;
-    if (lineColor == null) dart.nullFailed(I[0], 24, 22, "lineColor");
-    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
-    if (backgroundColor == null) dart.nullFailed(I[0], 25, 21, "backgroundColor");
-    let model = opts && 'model' in opts ? opts.model : null;
-    if (model == null) dart.nullFailed(I[0], 26, 21, "model");
-    let firstElement = opts && 'firstElement' in opts ? opts.firstElement : false;
-    if (firstElement == null) dart.nullFailed(I[0], 27, 12, "firstElement");
-    let lastElement = opts && 'lastElement' in opts ? opts.lastElement : false;
-    if (lastElement == null) dart.nullFailed(I[0], 28, 12, "lastElement");
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let headingColor = opts && 'headingColor' in opts ? opts.headingColor : null;
-    let descriptionColor = opts && 'descriptionColor' in opts ? opts.descriptionColor : null;
-    let hideLauncher = opts && 'hideLauncher' in opts ? opts.hideLauncher : true;
-    if (hideLauncher == null) dart.nullFailed(I[0], 32, 12, "hideLauncher");
-    let trailing = opts && 'trailing' in opts ? opts.trailing : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[lineColor$] = lineColor;
-    this[backgroundColor$] = backgroundColor;
-    this[model$] = model;
-    this[firstElement$] = firstElement;
-    this[lastElement$] = lastElement;
-    this[controller$] = controller;
-    this[headingColor$] = headingColor;
-    this[descriptionColor$] = descriptionColor;
-    this[hideLauncher$] = hideLauncher;
-    this[trailing$] = trailing;
-    timeline_view.VxTimelineView.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (gradient.GradientRotation.new = function(radians) {
+    if (radians == null) dart.nullFailed(I[0], 103, 31, "radians");
+    this[radians$] = radians;
+    gradient.GradientRotation.__proto__.new.call(this);
     ;
-  }).prototype = timeline_view.VxTimelineView.prototype;
-  dart.addTypeTests(timeline_view.VxTimelineView);
-  dart.addTypeCaches(timeline_view.VxTimelineView);
-  dart.setMethodSignature(timeline_view.VxTimelineView, () => ({
-    __proto__: dart.getMethods(timeline_view.VxTimelineView.__proto__),
-    [_buildLine]: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(framework.Widget)]),
-    [_buildContentColumn]: dart.fnType(framework.Widget, [framework.BuildContext]),
-    [_buildRow]: dart.fnType(framework.Widget, [framework.BuildContext]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = gradient.GradientRotation.prototype;
+  dart.addTypeTests(gradient.GradientRotation);
+  dart.addTypeCaches(gradient.GradientRotation);
+  dart.setMethodSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getMethods(gradient.GradientRotation.__proto__),
+    transform: dart.fnType(vector_math_64.Matrix4, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
   }));
-  dart.setLibraryUri(timeline_view.VxTimelineView, I[1]);
-  dart.setFieldSignature(timeline_view.VxTimelineView, () => ({
-    __proto__: dart.getFields(timeline_view.VxTimelineView.__proto__),
-    lineColor: dart.finalFieldType(ui.Color),
-    backgroundColor: dart.finalFieldType(ui.Color),
-    model: dart.finalFieldType(timeline.VxTimelineModel),
-    firstElement: dart.finalFieldType(core.bool),
-    lastElement: dart.finalFieldType(core.bool),
-    controller: dart.finalFieldType(dart.nullable(animation.Animation$(core.double))),
-    headingColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    descriptionColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    hideLauncher: dart.finalFieldType(core.bool),
-    trailing: dart.finalFieldType(dart.nullable(framework.Widget))
+  dart.setLibraryUri(gradient.GradientRotation, I[1]);
+  dart.setFieldSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getFields(gradient.GradientRotation.__proto__),
+    radians: dart.finalFieldType(core.double)
   }));
-  dart.trackLibraries("packages/velocity_x/src/flutter/timeline/timeline_view.dart", {
-    "package:velocity_x/src/flutter/timeline/timeline_view.dart": timeline_view
+  var colors$ = dart.privateName(gradient, "Gradient.colors");
+  var stops$ = dart.privateName(gradient, "Gradient.stops");
+  var transform$ = dart.privateName(gradient, "Gradient.transform");
+  var _impliedStops = dart.privateName(gradient, "_impliedStops");
+  var _resolveTransform = dart.privateName(gradient, "_resolveTransform");
+  gradient.Gradient = class Gradient extends core.Object {
+    get colors() {
+      return this[colors$];
+    }
+    set colors(value) {
+      super.colors = value;
+    }
+    get stops() {
+      return this[stops$];
+    }
+    set stops(value) {
+      super.stops = value;
+    }
+    get transform() {
+      return this[transform$];
+    }
+    set transform(value) {
+      super.transform = value;
+    }
+    [_impliedStops]() {
+      if (this.stops != null) return dart.nullCheck(this.stops);
+      if (!(dart.notNull(this.colors[$length]) >= 2)) dart.assertFailed("colors list must have at least two colors", I[0], 190, 12, "colors.length >= 2");
+      let separation = 1.0 / (dart.notNull(this.colors[$length]) - 1);
+      return T.ListOfdouble().generate(this.colors[$length], dart.fn(index => {
+        if (index == null) dart.nullFailed(I[0], 194, 12, "index");
+        return dart.notNull(index) * separation;
+      }, T.intTodouble()), {growable: false});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(I[0], 245, 42, "t");
+      if (a == null) return this.scale(t);
+      return null;
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(I[0], 276, 40, "t");
+      if (b == null) return this.scale(1.0 - dart.notNull(t));
+      return null;
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 290, 58, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 291, 12, "t != null");
+      let result = null;
+      if (b != null) result = b.lerpFrom(a, t);
+      if (result == null && a != null) result = a.lerpTo(b, t);
+      if (result != null) return result;
+      if (a == null && b == null) return null;
+      if (!(a != null && b != null)) dart.assertFailed(null, I[0], 301, 12, "a != null && b != null");
+      return dart.notNull(t) < 0.5 ? dart.nullCheck(a).scale(1.0 - dart.notNull(t) * 2.0) : dart.nullCheck(b).scale((dart.notNull(t) - 0.5) * 2.0);
+    }
+    [_resolveTransform](bounds, textDirection) {
+      let t1, t0;
+      if (bounds == null) dart.nullFailed(I[0], 305, 39, "bounds");
+      t0 = this.transform;
+      return t0 == null ? null : (t1 = t0.transform(bounds, {textDirection: textDirection}), t1 == null ? null : t1.storage);
+    }
+  };
+  (gradient.Gradient.new = function(opts) {
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(I[0], 150, 19, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[colors$] = colors;
+    this[stops$] = stops;
+    this[transform$] = transform;
+    if (!(colors != null)) dart.assertFailed(null, I[0], 153, 15, "colors != null");
+    ;
+  }).prototype = gradient.Gradient.prototype;
+  dart.addTypeTests(gradient.Gradient);
+  dart.addTypeCaches(gradient.Gradient);
+  dart.setMethodSignature(gradient.Gradient, () => ({
+    __proto__: dart.getMethods(gradient.Gradient.__proto__),
+    [_impliedStops]: dart.fnType(core.List$(core.double), []),
+    lerpFrom: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    lerpTo: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    [_resolveTransform]: dart.fnType(dart.nullable(typed_data.Float64List), [ui.Rect, dart.nullable(ui.TextDirection)])
+  }));
+  dart.setLibraryUri(gradient.Gradient, I[1]);
+  dart.setFieldSignature(gradient.Gradient, () => ({
+    __proto__: dart.getFields(gradient.Gradient.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    transform: dart.finalFieldType(dart.nullable(gradient.GradientTransform))
+  }));
+  var begin$ = dart.privateName(gradient, "LinearGradient.begin");
+  var end$ = dart.privateName(gradient, "LinearGradient.end");
+  var tileMode$ = dart.privateName(gradient, "LinearGradient.tileMode");
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _name = dart.privateName(ui, "_name");
+  gradient.LinearGradient = class LinearGradient extends gradient.Gradient {
+    get begin() {
+      return this[begin$];
+    }
+    set begin(value) {
+      super.begin = value;
+    }
+    get end() {
+      return this[end$];
+    }
+    set end(value) {
+      super.end = value;
+    }
+    get tileMode() {
+      return this[tileMode$];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(I[0], 420, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.linear(this.begin.resolve(textDirection).withinRect(rect), this.end.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(I[0], 433, 31, "factor");
+      return new gradient.LinearGradient.new({begin: this.begin, end: this.end, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(I[0], 437, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(I[0], 444, 42, "t");
+      if (a == null || gradient.LinearGradient.is(a)) return gradient.LinearGradient.lerp(T.LinearGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(I[0], 451, 40, "t");
+      if (b == null || gradient.LinearGradient.is(b)) return gradient.LinearGradient.lerp(this, T.LinearGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 476, 76, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 477, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.LinearGradient.new({begin: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.begin, b.begin, t)), end: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.end, b.end, t)), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.LinearGradient.is(other) && dart.equals(other.begin, this.begin) && dart.equals(other.end, this.end) && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    }
+    get hashCode() {
+      return ui.hashValues(this.begin, this.end, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "LinearGradient")) + "(" + dart.str(this.begin) + ", " + dart.str(this.end) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    }
+  };
+  (gradient.LinearGradient.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : C[0] || CT.C0;
+    if (begin == null) dart.nullFailed(I[0], 368, 10, "begin");
+    let end = opts && 'end' in opts ? opts.end : C[1] || CT.C1;
+    if (end == null) dart.nullFailed(I[0], 369, 10, "end");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(I[0], 370, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    if (tileMode == null) dart.nullFailed(I[0], 372, 10, "tileMode");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[begin$] = begin;
+    this[end$] = end;
+    this[tileMode$] = tileMode;
+    if (!(begin != null)) dart.assertFailed(null, I[0], 374, 15, "begin != null");
+    if (!(end != null)) dart.assertFailed(null, I[0], 375, 15, "end != null");
+    if (!(tileMode != null)) dart.assertFailed(null, I[0], 376, 15, "tileMode != null");
+    gradient.LinearGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.LinearGradient.prototype;
+  dart.addTypeTests(gradient.LinearGradient);
+  dart.addTypeCaches(gradient.LinearGradient);
+  dart.setMethodSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getMethods(gradient.LinearGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.LinearGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.LinearGradient, I[1]);
+  dart.setFieldSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getFields(gradient.LinearGradient.__proto__),
+    begin: dart.finalFieldType(alignment.AlignmentGeometry),
+    end: dart.finalFieldType(alignment.AlignmentGeometry),
+    tileMode: dart.finalFieldType(ui.TileMode)
+  }));
+  dart.defineExtensionMethods(gradient.LinearGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.LinearGradient, ['hashCode']);
+  var center$ = dart.privateName(gradient, "RadialGradient.center");
+  var radius$ = dart.privateName(gradient, "RadialGradient.radius");
+  var tileMode$0 = dart.privateName(gradient, "RadialGradient.tileMode");
+  var focal$ = dart.privateName(gradient, "RadialGradient.focal");
+  var focalRadius$ = dart.privateName(gradient, "RadialGradient.focalRadius");
+  gradient.RadialGradient = class RadialGradient extends gradient.Gradient {
+    get center() {
+      return this[center$];
+    }
+    set center(value) {
+      super.center = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get tileMode() {
+      return this[tileMode$0];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    get focal() {
+      return this[focal$];
+    }
+    set focal(value) {
+      super.focal = value;
+    }
+    get focalRadius() {
+      return this[focalRadius$];
+    }
+    set focalRadius(value) {
+      super.focalRadius = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(I[0], 673, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.radial(this.center.resolve(textDirection).withinRect(rect), dart.notNull(this.radius) * dart.notNull(rect.shortestSide), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection), this.focal == null ? null : dart.nullCheck(this.focal).resolve(textDirection).withinRect(rect), dart.notNull(this.focalRadius) * dart.notNull(rect.shortestSide));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(I[0], 689, 31, "factor");
+      return new gradient.RadialGradient.new({center: this.center, radius: this.radius, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(I[0], 693, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode, focal: this.focal, focalRadius: this.focalRadius});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(I[0], 702, 42, "t");
+      if (a == null || gradient.RadialGradient.is(a)) return gradient.RadialGradient.lerp(T.RadialGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(I[0], 709, 40, "t");
+      if (b == null || gradient.RadialGradient.is(b)) return gradient.RadialGradient.lerp(this, T.RadialGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 734, 76, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 735, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.RadialGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), radius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.radius, b.radius, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode, focal: alignment.AlignmentGeometry.lerp(a.focal, b.focal, t), focalRadius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.focalRadius, b.focalRadius, t)))});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.RadialGradient.is(other) && dart.equals(other.center, this.center) && other.radius == this.radius && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops)) && dart.equals(other.focal, this.focal) && other.focalRadius == this.focalRadius;
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.radius, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops), this.focal, this.focalRadius);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "RadialGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.radius) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ", " + dart.str(this.focal) + ", " + dart.str(this.focalRadius) + ")";
+    }
+  };
+  (gradient.RadialGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
+    if (center == null) dart.nullFailed(I[0], 598, 10, "center");
+    let radius = opts && 'radius' in opts ? opts.radius : 0.5;
+    if (radius == null) dart.nullFailed(I[0], 599, 10, "radius");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(I[0], 600, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    if (tileMode == null) dart.nullFailed(I[0], 602, 10, "tileMode");
+    let focal = opts && 'focal' in opts ? opts.focal : null;
+    let focalRadius = opts && 'focalRadius' in opts ? opts.focalRadius : 0;
+    if (focalRadius == null) dart.nullFailed(I[0], 604, 10, "focalRadius");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$] = center;
+    this[radius$] = radius;
+    this[tileMode$0] = tileMode;
+    this[focal$] = focal;
+    this[focalRadius$] = focalRadius;
+    if (!(center != null)) dart.assertFailed(null, I[0], 606, 15, "center != null");
+    if (!(radius != null)) dart.assertFailed(null, I[0], 607, 15, "radius != null");
+    if (!(tileMode != null)) dart.assertFailed(null, I[0], 608, 15, "tileMode != null");
+    if (!(focalRadius != null)) dart.assertFailed(null, I[0], 609, 15, "focalRadius != null");
+    gradient.RadialGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.RadialGradient.prototype;
+  dart.addTypeTests(gradient.RadialGradient);
+  dart.addTypeCaches(gradient.RadialGradient);
+  dart.setMethodSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getMethods(gradient.RadialGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.RadialGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.RadialGradient, I[1]);
+  dart.setFieldSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getFields(gradient.RadialGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    radius: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode),
+    focal: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
+    focalRadius: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(gradient.RadialGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.RadialGradient, ['hashCode']);
+  var center$0 = dart.privateName(gradient, "SweepGradient.center");
+  var startAngle$ = dart.privateName(gradient, "SweepGradient.startAngle");
+  var endAngle$ = dart.privateName(gradient, "SweepGradient.endAngle");
+  var tileMode$1 = dart.privateName(gradient, "SweepGradient.tileMode");
+  gradient.SweepGradient = class SweepGradient extends gradient.Gradient {
+    get center() {
+      return this[center$0];
+    }
+    set center(value) {
+      super.center = value;
+    }
+    get startAngle() {
+      return this[startAngle$];
+    }
+    set startAngle(value) {
+      super.startAngle = value;
+    }
+    get endAngle() {
+      return this[endAngle$];
+    }
+    set endAngle(value) {
+      super.endAngle = value;
+    }
+    get tileMode() {
+      return this[tileMode$1];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(I[0], 923, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.sweep(this.center.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this.startAngle, this.endAngle, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(I[0], 938, 30, "factor");
+      return new gradient.SweepGradient.new({center: this.center, startAngle: this.startAngle, endAngle: this.endAngle, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(I[0], 943, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(I[0], 950, 42, "t");
+      if (a == null || gradient.SweepGradient.is(a)) return gradient.SweepGradient.lerp(T.SweepGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(I[0], 957, 40, "t");
+      if (b == null || gradient.SweepGradient.is(b)) return gradient.SweepGradient.lerp(this, T.SweepGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 981, 73, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 982, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.SweepGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), startAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.startAngle, b.startAngle, t))), endAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.endAngle, b.endAngle, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.SweepGradient.is(other) && dart.equals(other.center, this.center) && other.startAngle == this.startAngle && other.endAngle == this.endAngle && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.startAngle, this.endAngle, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "SweepGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.startAngle) + ", " + dart.str(this.endAngle) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    }
+  };
+  (gradient.SweepGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
+    if (center == null) dart.nullFailed(I[0], 873, 10, "center");
+    let startAngle = opts && 'startAngle' in opts ? opts.startAngle : 0;
+    if (startAngle == null) dart.nullFailed(I[0], 874, 10, "startAngle");
+    let endAngle = opts && 'endAngle' in opts ? opts.endAngle : 6.283185307179586;
+    if (endAngle == null) dart.nullFailed(I[0], 875, 10, "endAngle");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(I[0], 876, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    if (tileMode == null) dart.nullFailed(I[0], 878, 10, "tileMode");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$0] = center;
+    this[startAngle$] = startAngle;
+    this[endAngle$] = endAngle;
+    this[tileMode$1] = tileMode;
+    if (!(center != null)) dart.assertFailed(null, I[0], 880, 15, "center != null");
+    if (!(startAngle != null)) dart.assertFailed(null, I[0], 881, 15, "startAngle != null");
+    if (!(endAngle != null)) dart.assertFailed(null, I[0], 882, 15, "endAngle != null");
+    if (!(tileMode != null)) dart.assertFailed(null, I[0], 883, 15, "tileMode != null");
+    gradient.SweepGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.SweepGradient.prototype;
+  dart.addTypeTests(gradient.SweepGradient);
+  dart.addTypeCaches(gradient.SweepGradient);
+  dart.setMethodSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getMethods(gradient.SweepGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.SweepGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.SweepGradient, I[1]);
+  dart.setFieldSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getFields(gradient.SweepGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    startAngle: dart.finalFieldType(core.double),
+    endAngle: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode)
+  }));
+  dart.defineExtensionMethods(gradient.SweepGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.SweepGradient, ['hashCode']);
+  gradient._sample = function _sample(colors, stops, t) {
+    if (colors == null) dart.nullFailed(I[0], 24, 27, "colors");
+    if (stops == null) dart.nullFailed(I[0], 24, 48, "stops");
+    if (t == null) dart.nullFailed(I[0], 24, 62, "t");
+    if (!(colors != null)) dart.assertFailed(null, I[0], 25, 10, "colors != null");
+    if (!dart.test(colors[$isNotEmpty])) dart.assertFailed(null, I[0], 26, 10, "colors.isNotEmpty");
+    if (!(stops != null)) dart.assertFailed(null, I[0], 27, 10, "stops != null");
+    if (!dart.test(stops[$isNotEmpty])) dart.assertFailed(null, I[0], 28, 10, "stops.isNotEmpty");
+    if (!(t != null)) dart.assertFailed(null, I[0], 29, 10, "t != null");
+    if (dart.notNull(t) <= dart.notNull(stops[$first])) return colors[$first];
+    if (dart.notNull(t) >= dart.notNull(stops[$last])) return colors[$last];
+    let index = stops[$lastIndexWhere](dart.fn(s => {
+      if (s == null) dart.nullFailed(I[0], 34, 50, "s");
+      return dart.notNull(s) <= dart.notNull(t);
+    }, T.doubleTobool()));
+    if (!(index !== -1)) dart.assertFailed(null, I[0], 35, 10, "index != -1");
+    return dart.nullCheck(ui.Color.lerp(colors[$_get](index), colors[$_get](dart.notNull(index) + 1), (dart.notNull(t) - dart.notNull(stops[$_get](index))) / (dart.notNull(stops[$_get](dart.notNull(index) + 1)) - dart.notNull(stops[$_get](index)))));
+  };
+  gradient._interpolateColorsAndStops = function _interpolateColorsAndStops(aColors, aStops, bColors, bStops, t) {
+    let t0;
+    if (aColors == null) dart.nullFailed(I[0], 43, 15, "aColors");
+    if (aStops == null) dart.nullFailed(I[0], 44, 16, "aStops");
+    if (bColors == null) dart.nullFailed(I[0], 45, 15, "bColors");
+    if (bStops == null) dart.nullFailed(I[0], 46, 16, "bStops");
+    if (t == null) dart.nullFailed(I[0], 47, 10, "t");
+    if (!(dart.notNull(aColors[$length]) >= 2)) dart.assertFailed(null, I[0], 49, 10, "aColors.length >= 2");
+    if (!(dart.notNull(bColors[$length]) >= 2)) dart.assertFailed(null, I[0], 50, 10, "bColors.length >= 2");
+    if (!(aStops[$length] == aColors[$length])) dart.assertFailed(null, I[0], 51, 10, "aStops.length == aColors.length");
+    if (!(bStops[$length] == bColors[$length])) dart.assertFailed(null, I[0], 52, 10, "bStops.length == bColors.length");
+    let stops = (t0 = new (T.SplayTreeSetOfdouble()).new(), (() => {
+      t0.addAll(aStops);
+      t0.addAll(bStops);
+      return t0;
+    })());
+    let interpolatedStops = stops.toList({growable: false});
+    let interpolatedColors = interpolatedStops[$map](ui.Color, dart.fn(stop => {
+      if (stop == null) dart.nullFailed(I[0], 58, 19, "stop");
+      return dart.nullCheck(ui.Color.lerp(gradient._sample(aColors, aStops, stop), gradient._sample(bColors, bStops, stop), t));
+    }, T.doubleToColor()))[$toList]({growable: false});
+    return new gradient._ColorsAndStops.new(interpolatedColors, interpolatedStops);
+  };
+  dart.trackLibraries("packages/flutter/src/painting/gradient.dart", {
+    "package:flutter/src/painting/gradient.dart": gradient
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["timeline_view.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAiCc;;;;;;IACA;;;;;;IACU;;;;;;IACX;;;;;;IACA;;;;;;IACc;;;;;;IACZ;;;;;;IACA;;;;;;IACF;;;;;;IACG;;;;;;iBAEiB,SAAiB;UAAjB;AAC7B,YAAO,qCACE,aACA,oCACI,uDACM,iCACM,oCACH,gCACD,8BACS,eAAV;IAGtB;0BAEwC;;;AACtC,YAAO,qCACsB,2CACY,yCACrB,wBAChB,4DAES,kBACL,AAAM,AAAQ,AAAO,4BAAE,KACjB,AAAM,AAAQ,AAAiB,+BAAP,GAAG,MAAM,QACjC,AAAM,4BACL,wCACK,cACU,wBAAb,aAAuB,iJAIpC,+BACS,kBACL,AAAM,AAAY,AAAO,gCAAE,KACrB,AAAM,AAAY,AAAiB,mCAAP,GAAG,MAAM,QACrC,AACG,gCACF,wCACK,cACc,6BAAjB,cAA2B;IAM9C;;UAE8B;AAC5B,YAAO,sCACG,aACD,uDAEA,uCACoC,2CACrB;6CAChB,wDACW,8BACY,eAAV,6EAEb,+BACS,0BAAoB,OAAO;AAEpC,2BAAK,oBACH,IAAI;AACM,sCAAR;;AAEA,yCACQ,iCACO,AAAY,eAAT,OAAO;;;IAIvC;;UAG0B;AACxB,YAAO,iBAAU,OAAO;IAC1B;;;QAlGmB;;QACD;;QACA;;QACT;;QACA;;QACA;QACA;QACA;QACA;;QACA;;IATU;IACD;IACA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;AAVH;;EAUa","file":"../../../../../../../../../../../../D:/packages/velocity_x/src/flutter/timeline/timeline_view.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["gradient.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/painting/gradient.dart.lib.js"}');
   // Exports:
   return {
-    src__flutter__timeline__timeline_view: timeline_view
+    src__painting__gradient: gradient
   };
 }));
 
-//# sourceMappingURL=timeline_view.dart.lib.js.map
+//# sourceMappingURL=gradient.dart.lib.js.map

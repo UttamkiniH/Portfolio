@@ -1,316 +1,400 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/paragraph.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/cupertino/button.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/edge_insets.dart'], (function load__packages__flutter__src__cupertino__text_selection_toolbar_button_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__paragraph$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__cupertino__button$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__edge_insets$46dart) {
+define(['dart_sdk', 'packages/characters/src/grapheme_clusters/table.dart'], (function load__packages__characters__src__grapheme_clusters__breaks_dart(dart_sdk, packages__characters__src__grapheme_clusters__table$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const paragraph = packages__flutter__src__rendering__paragraph$46dart.src__rendering__paragraph;
-  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
-  const button = packages__flutter__src__cupertino__button$46dart.src__cupertino__button;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  var text_selection_toolbar_button = Object.create(dart.library);
+  const table = packages__characters__src__grapheme_clusters__table$46dart.src__grapheme_clusters__table;
+  var breaks = Object.create(dart.library);
+  var $codeUnitAt = dartx.codeUnitAt;
+  var $toRadixString = dartx.toRadixString;
   dart._checkModuleNullSafetyMode(false);
-  var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 10,
-        [_Location_line]: 40,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "overflow",
-        [_Location_column]: 10,
-        [_Location_line]: 41,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 10,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T._LocationL());
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 39,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection_toolbar_button.dart"
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderRadius",
-        [_Location_column]: 7,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 7,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "disabledColor",
-        [_Location_column]: 7,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 7,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 67,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "pressedOpacity",
-        [_Location_column]: 7,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[6] || CT.C6,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 62,
-        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection_toolbar_button.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: ui.FontWeight.prototype,
-        [FontWeight_index]: 3
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: null,
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: null,
-        [TextStyle_decorationColor]: null,
-        [TextStyle_decoration]: null,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: -0.15,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: C[15] || CT.C15,
-        [TextStyle_fontSize]: 14,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: null,
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: null,
-        [TextStyle_inherit]: false
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3944751136.0
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 16,
-        [EdgeInsets_right]: 18,
-        [EdgeInsets_top]: 16,
-        [EdgeInsets_left]: 18
-      });
-    }
-  }, false);
-  var C = Array(18).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection_toolbar_button.dart",
-    "package:flutter/src/cupertino/text_selection_toolbar_button.dart"
+    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib/src/grapheme_clusters/breaks.dart",
+    "package:characters/src/grapheme_clusters/breaks.dart"
   ];
-  var child$ = dart.privateName(text_selection_toolbar_button, "CupertinoTextSelectionToolbarButton.child");
-  var onPressed$ = dart.privateName(text_selection_toolbar_button, "CupertinoTextSelectionToolbarButton.onPressed");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  text_selection_toolbar_button.CupertinoTextSelectionToolbarButton = class CupertinoTextSelectionToolbarButton extends framework.StatelessWidget {
-    get child() {
-      return this[child$];
+  var base$ = dart.privateName(breaks, "Breaks.base");
+  var end$ = dart.privateName(breaks, "Breaks.end");
+  var cursor$ = dart.privateName(breaks, "Breaks.cursor");
+  var state$ = dart.privateName(breaks, "Breaks.state");
+  breaks.Breaks = class Breaks extends core.Object {
+    get base() {
+      return this[base$];
     }
-    set child(value) {
-      super.child = value;
+    set base(value) {
+      super.base = value;
     }
-    get onPressed() {
-      return this[onPressed$];
+    get end() {
+      return this[end$];
     }
-    set onPressed(value) {
-      super.onPressed = value;
+    set end(value) {
+      super.end = value;
     }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 61, 29, "context");
-      return new button.CupertinoButton.new({borderRadius: null, color: text_selection_toolbar_button._kToolbarBackgroundColor, disabledColor: text_selection_toolbar_button._kToolbarBackgroundColor, onPressed: this.onPressed, padding: text_selection_toolbar_button._kToolbarButtonPadding, pressedOpacity: this.onPressed == null ? 1.0 : 0.7, child: this.child, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+    get cursor() {
+      return this[cursor$];
+    }
+    set cursor(value) {
+      this[cursor$] = value;
+    }
+    get state() {
+      return this[state$];
+    }
+    set state(value) {
+      this[state$] = value;
+    }
+    copy() {
+      return new breaks.Breaks.new(this.base, this.cursor, this.end, this.state);
+    }
+    nextBreak() {
+      let t0;
+      while (dart.notNull(this.cursor) < dart.notNull(this.end)) {
+        let breakAt = this.cursor;
+        let char = this.base[$codeUnitAt]((t0 = this.cursor, this.cursor = dart.notNull(t0) + 1, t0));
+        if ((char & 64512) !== 55296) {
+          this.state = table.move(this.state, table.low(char));
+          if ((dart.notNull(this.state) & 1) === 0) {
+            return breakAt;
+          }
+          continue;
+        }
+        let category = 2;
+        if (dart.notNull(this.cursor) < dart.notNull(this.end)) {
+          let nextChar = this.base[$codeUnitAt](this.cursor);
+          if ((nextChar & 64512) === 56320) {
+            category = table.high(char, nextChar);
+            this.cursor = dart.notNull(this.cursor) + 1;
+          }
+        }
+        this.state = table.move(this.state, category);
+        if ((dart.notNull(this.state) & 1) === 0) {
+          return breakAt;
+        }
+      }
+      this.state = table.move(this.state, 15);
+      if ((dart.notNull(this.state) & 1) === 0) return this.cursor;
+      return -1;
     }
   };
-  (text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 30, 19, "child");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[onPressed$] = onPressed;
-    this[child$] = child;
-    text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (breaks.Breaks.new = function(base, cursor, end, state) {
+    if (base == null) dart.nullFailed(I[0], 37, 15, "base");
+    if (cursor == null) dart.nullFailed(I[0], 37, 26, "cursor");
+    if (end == null) dart.nullFailed(I[0], 37, 39, "end");
+    if (state == null) dart.nullFailed(I[0], 37, 49, "state");
+    this[base$] = base;
+    this[cursor$] = cursor;
+    this[end$] = end;
+    this[state$] = state;
     ;
-  }).prototype = text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.prototype;
-  (text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.text = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let text = opts && 'text' in opts ? opts.text : null;
-    if (text == null) dart.nullFailed(I[0], 38, 21, "text");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[onPressed$] = onPressed;
-    this[child$] = new text$.Text.new(text, {overflow: paragraph.TextOverflow.ellipsis, style: text_selection_toolbar_button._kToolbarButtonFontStyle.copyWith({color: onPressed != null ? colors.CupertinoColors.white : colors.CupertinoColors.inactiveGray}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
-    text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.prototype;
-  dart.addTypeTests(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton);
-  dart.addTypeCaches(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton);
-  dart.setMethodSignature(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton, () => ({
-    __proto__: dart.getMethods(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = breaks.Breaks.prototype;
+  dart.addTypeTests(breaks.Breaks);
+  dart.addTypeCaches(breaks.Breaks);
+  dart.setMethodSignature(breaks.Breaks, () => ({
+    __proto__: dart.getMethods(breaks.Breaks.__proto__),
+    copy: dart.fnType(breaks.Breaks, []),
+    nextBreak: dart.fnType(core.int, [])
   }));
-  dart.setLibraryUri(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton, I[1]);
-  dart.setFieldSignature(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton, () => ({
-    __proto__: dart.getFields(text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    onPressed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [])))
+  dart.setLibraryUri(breaks.Breaks, I[1]);
+  dart.setFieldSignature(breaks.Breaks, () => ({
+    __proto__: dart.getFields(breaks.Breaks.__proto__),
+    base: dart.finalFieldType(core.String),
+    end: dart.finalFieldType(core.int),
+    cursor: dart.fieldType(core.int),
+    state: dart.fieldType(core.int)
   }));
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  dart.defineLazy(text_selection_toolbar_button, {
-    /*text_selection_toolbar_button._kToolbarButtonFontStyle*/get _kToolbarButtonFontStyle() {
-      return C[14] || CT.C14;
-    },
-    /*text_selection_toolbar_button._kToolbarBackgroundColor*/get _kToolbarBackgroundColor() {
-      return C[16] || CT.C16;
-    },
-    /*text_selection_toolbar_button._kToolbarButtonPadding*/get _kToolbarButtonPadding() {
-      return C[17] || CT.C17;
+  var base$0 = dart.privateName(breaks, "BackBreaks.base");
+  var start$ = dart.privateName(breaks, "BackBreaks.start");
+  var cursor$0 = dart.privateName(breaks, "BackBreaks.cursor");
+  var state$0 = dart.privateName(breaks, "BackBreaks.state");
+  var _lookAhead = dart.privateName(breaks, "_lookAhead");
+  breaks.BackBreaks = class BackBreaks extends core.Object {
+    get base() {
+      return this[base$0];
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/cupertino/text_selection_toolbar_button.dart", {
-    "package:flutter/src/cupertino/text_selection_toolbar_button.dart": text_selection_toolbar_button
+    set base(value) {
+      super.base = value;
+    }
+    get start() {
+      return this[start$];
+    }
+    set start(value) {
+      super.start = value;
+    }
+    get cursor() {
+      return this[cursor$0];
+    }
+    set cursor(value) {
+      this[cursor$0] = value;
+    }
+    get state() {
+      return this[state$0];
+    }
+    set state(value) {
+      this[state$0] = value;
+    }
+    copy() {
+      return new breaks.BackBreaks.new(this.base, this.cursor, this.start, this.state);
+    }
+    nextBreak() {
+      while (dart.notNull(this.cursor) > dart.notNull(this.start)) {
+        let breakAt = this.cursor;
+        let char = this.base[$codeUnitAt](this.cursor = dart.notNull(this.cursor) - 1);
+        if ((char & 64512) !== 56320) {
+          this.state = table.moveBack(this.state, table.low(char));
+          if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
+          if ((dart.notNull(this.state) & 1) === 0) {
+            return breakAt;
+          }
+          continue;
+        }
+        let category = 2;
+        if (dart.notNull(this.cursor) >= dart.notNull(this.start)) {
+          let prevChar = this.base[$codeUnitAt](dart.notNull(this.cursor) - 1);
+          if ((prevChar & 64512) === 55296) {
+            category = table.high(prevChar, char);
+            this.cursor = dart.notNull(this.cursor) - 1;
+          }
+        }
+        this.state = table.moveBack(this.state, category);
+        if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
+        if ((dart.notNull(this.state) & 1) === 0) {
+          return breakAt;
+        }
+      }
+      this.state = table.moveBack(this.state, 15);
+      if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
+      if ((dart.notNull(this.state) & 1) === 0) return this.cursor;
+      return -1;
+    }
+    [_lookAhead](state) {
+      if (state == null) dart.nullFailed(I[0], 146, 22, "state");
+      return breaks.lookAhead(this.base, this.start, this.cursor, state);
+    }
+  };
+  (breaks.BackBreaks.new = function(base, cursor, start, state) {
+    if (base == null) dart.nullFailed(I[0], 105, 19, "base");
+    if (cursor == null) dart.nullFailed(I[0], 105, 30, "cursor");
+    if (start == null) dart.nullFailed(I[0], 105, 43, "start");
+    if (state == null) dart.nullFailed(I[0], 105, 55, "state");
+    this[base$0] = base;
+    this[cursor$0] = cursor;
+    this[start$] = start;
+    this[state$0] = state;
+    ;
+  }).prototype = breaks.BackBreaks.prototype;
+  dart.addTypeTests(breaks.BackBreaks);
+  dart.addTypeCaches(breaks.BackBreaks);
+  dart.setMethodSignature(breaks.BackBreaks, () => ({
+    __proto__: dart.getMethods(breaks.BackBreaks.__proto__),
+    copy: dart.fnType(breaks.BackBreaks, []),
+    nextBreak: dart.fnType(core.int, []),
+    [_lookAhead]: dart.fnType(core.int, [core.int])
+  }));
+  dart.setLibraryUri(breaks.BackBreaks, I[1]);
+  dart.setFieldSignature(breaks.BackBreaks, () => ({
+    __proto__: dart.getFields(breaks.BackBreaks.__proto__),
+    base: dart.finalFieldType(core.String),
+    start: dart.finalFieldType(core.int),
+    cursor: dart.fieldType(core.int),
+    state: dart.fieldType(core.int)
+  }));
+  breaks.lookAhead = function lookAhead(base, start, cursor, state) {
+    if (base == null) dart.nullFailed(I[0], 155, 22, "base");
+    if (start == null) dart.nullFailed(I[0], 155, 32, "start");
+    if (cursor == null) dart.nullFailed(I[0], 155, 43, "cursor");
+    if (state == null) dart.nullFailed(I[0], 155, 55, "state");
+    if (!(dart.notNull(state) >= 208)) dart.assertFailed(null, I[0], 156, 10, "state >= stateLookaheadMin");
+    if (state === 208) {
+      return breaks.lookAheadRegional(base, start, cursor);
+    }
+    if (state === 224) {
+      let prevPic = breaks.lookAheadPictorgraphicExtend(base, start, cursor);
+      if (dart.notNull(prevPic) >= 0) return (144 | 1) >>> 0;
+      return 64;
+    }
+    dart.throw(new core.StateError.new("Unexpected state: " + state[$toRadixString](16)));
+  };
+  breaks.lookAheadRegional = function lookAheadRegional(base, start, cursor) {
+    if (base == null) dart.nullFailed(I[0], 178, 30, "base");
+    if (start == null) dart.nullFailed(I[0], 178, 40, "start");
+    if (cursor == null) dart.nullFailed(I[0], 178, 51, "cursor");
+    let count = 0;
+    let index = cursor;
+    while (dart.notNull(index) - 2 >= dart.notNull(start)) {
+      let tail = base[$codeUnitAt](dart.notNull(index) - 1);
+      if ((tail & 64512) !== 56320) break;
+      let lead = base[$codeUnitAt](dart.notNull(index) - 2);
+      if ((lead & 64512) !== 55296) break;
+      let category = table.high(lead, tail);
+      if (category !== 6) break;
+      index = dart.notNull(index) - 2;
+      count = (count ^ 1) >>> 0;
+    }
+    if (count === 0) {
+      return (192 | 1) >>> 0;
+    } else {
+      return 144;
+    }
+  };
+  breaks.lookAheadPictorgraphicExtend = function lookAheadPictorgraphicExtend(base, start, cursor) {
+    if (base == null) dart.nullFailed(I[0], 208, 41, "base");
+    if (start == null) dart.nullFailed(I[0], 208, 51, "start");
+    if (cursor == null) dart.nullFailed(I[0], 208, 62, "cursor");
+    let index = cursor;
+    while (dart.notNull(index) > dart.notNull(start)) {
+      let char = base[$codeUnitAt](index = dart.notNull(index) - 1);
+      let prevChar = 0;
+      let category = 2;
+      if ((char & 64512) !== 56320) {
+        category = table.low(char);
+      } else if (dart.notNull(index) > dart.notNull(start) && ((prevChar = base[$codeUnitAt](index = dart.notNull(index) - 1)) & 64512) === 55296) {
+        category = table.high(prevChar, char);
+      } else {
+        break;
+      }
+      if (category === 7) {
+        return index;
+      }
+      if (category !== 4) break;
+    }
+    return -1;
+  };
+  breaks.isGraphemeClusterBoundary = function isGraphemeClusterBoundary(text, start, end, index) {
+    if (text == null) dart.nullFailed(I[0], 236, 39, "text");
+    if (start == null) dart.nullFailed(I[0], 236, 49, "start");
+    if (end == null) dart.nullFailed(I[0], 236, 60, "end");
+    if (index == null) dart.nullFailed(I[0], 236, 69, "index");
+    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 237, 10, "0 <= start");
+    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 238, 10, "start <= index");
+    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 239, 10, "index <= end");
+    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 240, 10, "end <= text.length");
+    if (dart.notNull(start) < dart.notNull(index) && dart.notNull(index) < dart.notNull(end)) {
+      let char = text[$codeUnitAt](index);
+      let prevChar = text[$codeUnitAt](dart.notNull(index) - 1);
+      let catAfter = 2;
+      if ((char & 63488) !== 55296) {
+        catAfter = table.low(char);
+      } else if ((char & 64512) === 55296) {
+        if (dart.notNull(index) + 1 >= dart.notNull(end)) return true;
+        let nextChar = text[$codeUnitAt](dart.notNull(index) + 1);
+        if ((nextChar & 64512) !== 56320) return true;
+        catAfter = table.high(char, nextChar);
+      } else {
+        return (prevChar & 64512) !== 55296;
+      }
+      let catBefore = 2;
+      if ((prevChar & 64512) !== 56320) {
+        catBefore = table.low(prevChar);
+        index = dart.notNull(index) - 1;
+      } else {
+        index = dart.notNull(index) - 2;
+        if (dart.notNull(start) <= dart.notNull(index)) {
+          let prevPrevChar = text[$codeUnitAt](index);
+          if ((prevPrevChar & 64512) !== 55296) {
+            return true;
+          }
+          catBefore = table.high(prevPrevChar, prevChar);
+        } else {
+          return true;
+        }
+      }
+      let state = table.moveBack(176, catAfter);
+      if (!(dart.notNull(state) < 208)) dart.assertFailed(null, I[0], 287, 12, "state < stateLookaheadMin");
+      state = table.moveBack(state, catBefore);
+      if (dart.notNull(state) >= 208) {
+        state = breaks.lookAhead(text, start, index, state);
+      }
+      return (dart.notNull(state) & 1) === 0;
+    }
+    return start != end;
+  };
+  breaks.previousBreak = function previousBreak(text, start, end, index) {
+    if (text == null) dart.nullFailed(I[0], 300, 26, "text");
+    if (start == null) dart.nullFailed(I[0], 300, 36, "start");
+    if (end == null) dart.nullFailed(I[0], 300, 47, "end");
+    if (index == null) dart.nullFailed(I[0], 300, 56, "index");
+    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 301, 10, "0 <= start");
+    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 302, 10, "start <= index");
+    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 303, 10, "index <= end");
+    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 304, 10, "end <= text.length");
+    if (index == start || index == end) return index;
+    let indexBefore = index;
+    let nextChar = text[$codeUnitAt](index);
+    let category = 2;
+    if ((nextChar & 63488) !== 55296) {
+      category = table.low(nextChar);
+    } else if ((nextChar & 64512) === 55296) {
+      let indexAfter = dart.notNull(index) + 1;
+      if (indexAfter < dart.notNull(end)) {
+        let secondChar = text[$codeUnitAt](indexAfter);
+        if ((secondChar & 64512) === 56320) {
+          category = table.high(nextChar, secondChar);
+        }
+      }
+    } else {
+      let prevChar = text[$codeUnitAt](dart.notNull(index) - 1);
+      if ((prevChar & 64512) === 55296) {
+        category = table.high(prevChar, nextChar);
+        indexBefore = dart.notNull(indexBefore) - 1;
+      }
+    }
+    return new breaks.BackBreaks.new(text, indexBefore, start, table.moveBack(176, category)).nextBreak();
+  };
+  breaks.nextBreak = function nextBreak(text, start, end, index) {
+    if (text == null) dart.nullFailed(I[0], 334, 22, "text");
+    if (start == null) dart.nullFailed(I[0], 334, 32, "start");
+    if (end == null) dart.nullFailed(I[0], 334, 43, "end");
+    if (index == null) dart.nullFailed(I[0], 334, 52, "index");
+    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 335, 10, "0 <= start");
+    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 336, 10, "start <= index");
+    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 337, 10, "index <= end");
+    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 338, 10, "end <= text.length");
+    if (index == start || index == end) return index;
+    let indexBefore = dart.notNull(index) - 1;
+    let prevChar = text[$codeUnitAt](indexBefore);
+    let prevCategory = 2;
+    if ((prevChar & 63488) !== 55296) {
+      prevCategory = table.low(prevChar);
+    } else if ((prevChar & 64512) === 55296) {
+      let nextChar = text[$codeUnitAt](index);
+      if ((nextChar & 64512) === 56320) {
+        index = dart.notNull(index) + 1;
+        if (index == end) return end;
+        prevCategory = table.high(prevChar, nextChar);
+      }
+    } else if (indexBefore > dart.notNull(start)) {
+      let secondCharIndex = indexBefore - 1;
+      let secondChar = text[$codeUnitAt](secondCharIndex);
+      if ((secondChar & 64512) === 55296) {
+        indexBefore = secondCharIndex;
+        prevCategory = table.high(secondChar, prevChar);
+      }
+    }
+    let state = 48;
+    if (prevCategory === 6) {
+      let prevState = breaks.lookAheadRegional(text, start, indexBefore);
+      if (prevState !== 144) {
+        state = 160;
+      }
+    } else if (prevCategory === 1 || prevCategory === 4) {
+      let prevPic = breaks.lookAheadPictorgraphicExtend(text, start, indexBefore);
+      if (dart.notNull(prevPic) >= 0) {
+        state = prevCategory === 1 ? 144 : 128;
+      }
+    } else {
+      state = table.move(176, prevCategory);
+    }
+    return new breaks.Breaks.new(text, index, text.length, state).nextBreak();
+  };
+  dart.trackLibraries("packages/characters/src/grapheme_clusters/breaks.dart", {
+    "package:characters/src/grapheme_clusters/breaks.dart": breaks
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["text_selection_toolbar_button.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoDe;;;;;;IAKO;;;;;;;UAGM;AACxB,YAAO,+CACS,aACP,uEACQ,mEACJ,yBACF,sEACO,AAAU,yBAAU,MAAM,YACnC;IAEX;;;QA3CO;QACA;QACS;;;IADT;IACS;AACX,qGAAW,GAAG;;EAAC;;QAKb;QACA;QACW;;;IADX;IAEI,eAAE,mBACN,IAAI,aACmB,wCAChB,AAAyB,wEACvB,AAAU,SAAD,WAA2B,+BAAwB;AAGvE,qGAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MApCN,sDAAwB;;;MAS5B,sDAAwB;;;MAGnB,oDAAsB","file":"../../../../../../../../../D:/packages/flutter/src/cupertino/text_selection_toolbar_button.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["breaks.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/characters/src/grapheme_clusters/breaks.dart.lib.js"}');
   // Exports:
   return {
-    src__cupertino__text_selection_toolbar_button: text_selection_toolbar_button
+    src__grapheme_clusters__breaks: breaks
   };
 }));
 
-//# sourceMappingURL=text_selection_toolbar_button.dart.lib.js.map
+//# sourceMappingURL=breaks.dart.lib.js.map

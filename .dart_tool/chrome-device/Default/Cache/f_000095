@@ -1,630 +1,865 @@
-define(['dart_sdk', 'packages/intl/src/intl/string_iterator.dart', 'packages/intl/number_symbols_data.dart', 'packages/intl/number_symbols.dart'], (function load__packages__intl__src__intl__number_format_parser_dart(dart_sdk, packages__intl__src__intl__string_iterator$46dart, packages__intl__number_symbols_data$46dart, packages__intl__number_symbols$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/editable.dart', 'packages/flutter/src/cupertino/debug.dart', 'packages/flutter/src/cupertino/text_selection_toolbar_button.dart', 'packages/flutter/src/cupertino/text_selection_toolbar.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/services/text_input.dart'], (function load__packages__flutter__src__cupertino__text_selection_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__editable$46dart, packages__flutter__src__cupertino__debug$46dart, packages__flutter__src__cupertino__text_selection_toolbar_button$46dart, packages__flutter__src__cupertino__text_selection_toolbar$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__services__text_input$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const string_iterator = packages__intl__src__intl__string_iterator$46dart.src__intl__string_iterator;
-  const number_symbols_data = packages__intl__number_symbols_data$46dart.number_symbols_data;
-  const number_symbols = packages__intl__number_symbols$46dart.number_symbols;
-  var number_format_parser = Object.create(dart.library);
-  var $round = dartx.round;
-  var $toUpperCase = dartx.toUpperCase;
-  var $_get = dartx._get;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const editable = packages__flutter__src__rendering__editable$46dart.src__rendering__editable;
+  const localizations$ = packages__flutter__src__cupertino__debug$46dart.src__cupertino__localizations;
+  const text_selection_toolbar_button = packages__flutter__src__cupertino__text_selection_toolbar_button$46dart.src__cupertino__text_selection_toolbar_button;
+  const text_selection_toolbar = packages__flutter__src__cupertino__text_selection_toolbar$46dart.src__cupertino__text_selection_toolbar;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  var text_selection$ = Object.create(dart.library);
+  var $clamp = dartx.clamp;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $add = dartx.add;
+  var $isEmpty = dartx.isEmpty;
   dart._checkModuleNullSafetyMode(false);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    StringAndFnTovoid: () => (T.StringAndFnTovoid = dart.constFn(dart.fnType(dart.void, [core.String, T.VoidTovoid()])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 41,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], T._LocationL());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: core.FormatException.prototype,
-        [FormatException_offset]: null,
-        [FormatException_source]: null,
-        [FormatException_message]: "Too many percent/permill"
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[1] || CT.C1,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 18,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 137,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "text",
+        [_Location_column]: 9,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 53,
+        [_Location_line]: 147,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 41,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 169,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[13] || CT.C13,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchorAbove",
+        [_Location_column]: 7,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchorBelow",
+        [_Location_column]: 7,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 172,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 6,
+        [OffsetBase__dx]: 6
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 10.5,
+        [OffsetBase__dx]: 5
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipboardStatus",
+        [_Location_column]: 7,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "endpoints",
+        [_Location_column]: 7,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "globalEditableRegion",
+        [_Location_column]: 7,
+        [_Location_line]: 238,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCut",
+        [_Location_column]: 7,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCopy",
+        [_Location_column]: 7,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handlePaste",
+        [_Location_column]: 7,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleSelectAll",
+        [_Location_column]: 7,
+        [_Location_line]: 242,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selectionMidpoint",
+        [_Location_column]: 7,
+        [_Location_line]: 243,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textLineHeight",
+        [_Location_column]: 7,
+        [_Location_line]: 244,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 235,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 257,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 255,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.left",
+        index: 0
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 11,
+        [_Location_line]: 271,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 270,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.right",
+        index: 1
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([], T._LocationL());
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 279,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[49] || CT.C49,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: null,
+        [SizedBox_width]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.collapsed",
+        index: 2
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(52).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/src/intl/number_format_parser.dart",
-    "package:intl/src/intl/number_format_parser.dart"
+    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/cupertino/text_selection.dart",
+    "package:flutter/src/cupertino/text_selection.dart"
   ];
-  var negativePrefix = dart.privateName(number_format_parser, "NumberFormatParseResult.negativePrefix");
-  var positivePrefix = dart.privateName(number_format_parser, "NumberFormatParseResult.positivePrefix");
-  var negativeSuffix = dart.privateName(number_format_parser, "NumberFormatParseResult.negativeSuffix");
-  var positiveSuffix = dart.privateName(number_format_parser, "NumberFormatParseResult.positiveSuffix");
-  var multiplier = dart.privateName(number_format_parser, "NumberFormatParseResult.multiplier");
-  var minimumExponentDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumExponentDigits");
-  var maximumIntegerDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.maximumIntegerDigits");
-  var minimumIntegerDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumIntegerDigits");
-  var maximumFractionDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.maximumFractionDigits");
-  var minimumFractionDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumFractionDigits");
-  var groupingSize = dart.privateName(number_format_parser, "NumberFormatParseResult.groupingSize");
-  var finalGroupingSize = dart.privateName(number_format_parser, "NumberFormatParseResult.finalGroupingSize");
-  var decimalSeparatorAlwaysShown = dart.privateName(number_format_parser, "NumberFormatParseResult.decimalSeparatorAlwaysShown");
-  var useSignForPositiveExponent = dart.privateName(number_format_parser, "NumberFormatParseResult.useSignForPositiveExponent");
-  var useExponentialNotation = dart.privateName(number_format_parser, "NumberFormatParseResult.useExponentialNotation");
-  var decimalDigits$ = dart.privateName(number_format_parser, "NumberFormatParseResult.decimalDigits");
-  number_format_parser.NumberFormatParseResult = class NumberFormatParseResult extends core.Object {
-    get negativePrefix() {
-      return this[negativePrefix];
+  var clipboardStatus$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.clipboardStatus");
+  var endpoints$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.endpoints");
+  var globalEditableRegion$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.globalEditableRegion");
+  var handleCopy$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.handleCopy");
+  var handleCut$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.handleCut");
+  var handlePaste$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.handlePaste");
+  var handleSelectAll$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.handleSelectAll");
+  var selectionMidpoint$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.selectionMidpoint");
+  var textLineHeight$ = dart.privateName(text_selection$, "_CupertinoTextSelectionControlsToolbar.textLineHeight");
+  text_selection$._CupertinoTextSelectionControlsToolbar = class _CupertinoTextSelectionControlsToolbar extends framework.StatefulWidget {
+    get clipboardStatus() {
+      return this[clipboardStatus$];
     }
-    set negativePrefix(value) {
-      this[negativePrefix] = value;
+    set clipboardStatus(value) {
+      super.clipboardStatus = value;
     }
-    get positivePrefix() {
-      return this[positivePrefix];
+    get endpoints() {
+      return this[endpoints$];
     }
-    set positivePrefix(value) {
-      this[positivePrefix] = value;
+    set endpoints(value) {
+      super.endpoints = value;
     }
-    get negativeSuffix() {
-      return this[negativeSuffix];
+    get globalEditableRegion() {
+      return this[globalEditableRegion$];
     }
-    set negativeSuffix(value) {
-      this[negativeSuffix] = value;
+    set globalEditableRegion(value) {
+      super.globalEditableRegion = value;
     }
-    get positiveSuffix() {
-      return this[positiveSuffix];
+    get handleCopy() {
+      return this[handleCopy$];
     }
-    set positiveSuffix(value) {
-      this[positiveSuffix] = value;
+    set handleCopy(value) {
+      super.handleCopy = value;
     }
-    get multiplier() {
-      return this[multiplier];
+    get handleCut() {
+      return this[handleCut$];
     }
-    set multiplier(value) {
-      this[multiplier] = value;
+    set handleCut(value) {
+      super.handleCut = value;
     }
-    get minimumExponentDigits() {
-      return this[minimumExponentDigits];
+    get handlePaste() {
+      return this[handlePaste$];
     }
-    set minimumExponentDigits(value) {
-      this[minimumExponentDigits] = value;
+    set handlePaste(value) {
+      super.handlePaste = value;
     }
-    get maximumIntegerDigits() {
-      return this[maximumIntegerDigits];
+    get handleSelectAll() {
+      return this[handleSelectAll$];
     }
-    set maximumIntegerDigits(value) {
-      this[maximumIntegerDigits] = value;
+    set handleSelectAll(value) {
+      super.handleSelectAll = value;
     }
-    get minimumIntegerDigits() {
-      return this[minimumIntegerDigits];
+    get selectionMidpoint() {
+      return this[selectionMidpoint$];
     }
-    set minimumIntegerDigits(value) {
-      this[minimumIntegerDigits] = value;
+    set selectionMidpoint(value) {
+      super.selectionMidpoint = value;
     }
-    get maximumFractionDigits() {
-      return this[maximumFractionDigits];
+    get textLineHeight() {
+      return this[textLineHeight$];
     }
-    set maximumFractionDigits(value) {
-      this[maximumFractionDigits] = value;
+    set textLineHeight(value) {
+      super.textLineHeight = value;
     }
-    get minimumFractionDigits() {
-      return this[minimumFractionDigits];
-    }
-    set minimumFractionDigits(value) {
-      this[minimumFractionDigits] = value;
-    }
-    get groupingSize() {
-      return this[groupingSize];
-    }
-    set groupingSize(value) {
-      this[groupingSize] = value;
-    }
-    get finalGroupingSize() {
-      return this[finalGroupingSize];
-    }
-    set finalGroupingSize(value) {
-      this[finalGroupingSize] = value;
-    }
-    get decimalSeparatorAlwaysShown() {
-      return this[decimalSeparatorAlwaysShown];
-    }
-    set decimalSeparatorAlwaysShown(value) {
-      this[decimalSeparatorAlwaysShown] = value;
-    }
-    get useSignForPositiveExponent() {
-      return this[useSignForPositiveExponent];
-    }
-    set useSignForPositiveExponent(value) {
-      this[useSignForPositiveExponent] = value;
-    }
-    get useExponentialNotation() {
-      return this[useExponentialNotation];
-    }
-    set useExponentialNotation(value) {
-      this[useExponentialNotation] = value;
-    }
-    get decimalDigits() {
-      return this[decimalDigits$];
-    }
-    set decimalDigits(value) {
-      this[decimalDigits$] = value;
-    }
-    get multiplierDigits() {
-      return (math.log(this.multiplier) / dart.notNull(number_format_parser._ln10))[$round]();
+    createState() {
+      return new text_selection$._CupertinoTextSelectionControlsToolbarState.new();
     }
   };
-  (number_format_parser.NumberFormatParseResult.new = function(symbols, decimalDigits) {
-    if (symbols == null) dart.nullFailed(I[0], 42, 41, "symbols");
-    this[positivePrefix] = "";
-    this[negativeSuffix] = "";
-    this[positiveSuffix] = "";
-    this[multiplier] = 1;
-    this[minimumExponentDigits] = 0;
-    this[maximumIntegerDigits] = 40;
-    this[minimumIntegerDigits] = 1;
-    this[maximumFractionDigits] = 3;
-    this[minimumFractionDigits] = 0;
-    this[groupingSize] = 3;
-    this[finalGroupingSize] = 3;
-    this[decimalSeparatorAlwaysShown] = false;
-    this[useSignForPositiveExponent] = false;
-    this[useExponentialNotation] = false;
-    this[decimalDigits$] = decimalDigits;
-    this[negativePrefix] = symbols.MINUS_SIGN;
+  (text_selection$._CupertinoTextSelectionControlsToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let clipboardStatus = opts && 'clipboardStatus' in opts ? opts.clipboardStatus : null;
+    let endpoints = opts && 'endpoints' in opts ? opts.endpoints : null;
+    if (endpoints == null) dart.nullFailed(I[0], 30, 19, "endpoints");
+    let globalEditableRegion = opts && 'globalEditableRegion' in opts ? opts.globalEditableRegion : null;
+    if (globalEditableRegion == null) dart.nullFailed(I[0], 31, 19, "globalEditableRegion");
+    let handleCopy = opts && 'handleCopy' in opts ? opts.handleCopy : null;
+    let handleCut = opts && 'handleCut' in opts ? opts.handleCut : null;
+    let handlePaste = opts && 'handlePaste' in opts ? opts.handlePaste : null;
+    let handleSelectAll = opts && 'handleSelectAll' in opts ? opts.handleSelectAll : null;
+    let selectionMidpoint = opts && 'selectionMidpoint' in opts ? opts.selectionMidpoint : null;
+    if (selectionMidpoint == null) dart.nullFailed(I[0], 36, 19, "selectionMidpoint");
+    let textLineHeight = opts && 'textLineHeight' in opts ? opts.textLineHeight : null;
+    if (textLineHeight == null) dart.nullFailed(I[0], 37, 19, "textLineHeight");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[clipboardStatus$] = clipboardStatus;
+    this[endpoints$] = endpoints;
+    this[globalEditableRegion$] = globalEditableRegion;
+    this[handleCopy$] = handleCopy;
+    this[handleCut$] = handleCut;
+    this[handlePaste$] = handlePaste;
+    this[handleSelectAll$] = handleSelectAll;
+    this[selectionMidpoint$] = selectionMidpoint;
+    this[textLineHeight$] = textLineHeight;
+    text_selection$._CupertinoTextSelectionControlsToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = number_format_parser.NumberFormatParseResult.prototype;
-  dart.addTypeTests(number_format_parser.NumberFormatParseResult);
-  dart.addTypeCaches(number_format_parser.NumberFormatParseResult);
-  dart.setGetterSignature(number_format_parser.NumberFormatParseResult, () => ({
-    __proto__: dart.getGetters(number_format_parser.NumberFormatParseResult.__proto__),
-    multiplierDigits: core.int
+  }).prototype = text_selection$._CupertinoTextSelectionControlsToolbar.prototype;
+  dart.addTypeTests(text_selection$._CupertinoTextSelectionControlsToolbar);
+  dart.addTypeCaches(text_selection$._CupertinoTextSelectionControlsToolbar);
+  dart.setMethodSignature(text_selection$._CupertinoTextSelectionControlsToolbar, () => ({
+    __proto__: dart.getMethods(text_selection$._CupertinoTextSelectionControlsToolbar.__proto__),
+    createState: dart.fnType(text_selection$._CupertinoTextSelectionControlsToolbarState, [])
   }));
-  dart.setLibraryUri(number_format_parser.NumberFormatParseResult, I[1]);
-  dart.setFieldSignature(number_format_parser.NumberFormatParseResult, () => ({
-    __proto__: dart.getFields(number_format_parser.NumberFormatParseResult.__proto__),
-    negativePrefix: dart.fieldType(core.String),
-    positivePrefix: dart.fieldType(core.String),
-    negativeSuffix: dart.fieldType(core.String),
-    positiveSuffix: dart.fieldType(core.String),
-    multiplier: dart.fieldType(core.int),
-    minimumExponentDigits: dart.fieldType(core.int),
-    maximumIntegerDigits: dart.fieldType(core.int),
-    minimumIntegerDigits: dart.fieldType(core.int),
-    maximumFractionDigits: dart.fieldType(core.int),
-    minimumFractionDigits: dart.fieldType(core.int),
-    groupingSize: dart.fieldType(core.int),
-    finalGroupingSize: dart.fieldType(core.int),
-    decimalSeparatorAlwaysShown: dart.fieldType(core.bool),
-    useSignForPositiveExponent: dart.fieldType(core.bool),
-    useExponentialNotation: dart.fieldType(core.bool),
-    decimalDigits: dart.fieldType(dart.nullable(core.int))
+  dart.setLibraryUri(text_selection$._CupertinoTextSelectionControlsToolbar, I[1]);
+  dart.setFieldSignature(text_selection$._CupertinoTextSelectionControlsToolbar, () => ({
+    __proto__: dart.getFields(text_selection$._CupertinoTextSelectionControlsToolbar.__proto__),
+    clipboardStatus: dart.finalFieldType(dart.nullable(text_selection.ClipboardStatusNotifier)),
+    endpoints: dart.finalFieldType(core.List$(editable.TextSelectionPoint)),
+    globalEditableRegion: dart.finalFieldType(ui.Rect),
+    handleCopy: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleCut: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handlePaste: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleSelectAll: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    selectionMidpoint: dart.finalFieldType(ui.Offset),
+    textLineHeight: dart.finalFieldType(core.double)
   }));
-  var symbols$ = dart.privateName(number_format_parser, "NumberFormatParser.symbols");
-  var pattern = dart.privateName(number_format_parser, "NumberFormatParser.pattern");
-  var isForCurrency$ = dart.privateName(number_format_parser, "NumberFormatParser.isForCurrency");
-  var currencySymbol$ = dart.privateName(number_format_parser, "NumberFormatParser.currencySymbol");
-  var currencyName$ = dart.privateName(number_format_parser, "NumberFormatParser.currencyName");
-  var result = dart.privateName(number_format_parser, "NumberFormatParser.result");
-  var groupingSizeSetExplicitly = dart.privateName(number_format_parser, "NumberFormatParser.groupingSizeSetExplicitly");
-  var inQuote = dart.privateName(number_format_parser, "NumberFormatParser.inQuote");
-  var decimalPos = dart.privateName(number_format_parser, "NumberFormatParser.decimalPos");
-  var digitLeftCount = dart.privateName(number_format_parser, "NumberFormatParser.digitLeftCount");
-  var zeroDigitCount = dart.privateName(number_format_parser, "NumberFormatParser.zeroDigitCount");
-  var digitRightCount = dart.privateName(number_format_parser, "NumberFormatParser.digitRightCount");
-  var groupingCount = dart.privateName(number_format_parser, "NumberFormatParser.groupingCount");
-  var _parse = dart.privateName(number_format_parser, "_parse");
-  var _defaultDecimalDigits = dart.privateName(number_format_parser, "_defaultDecimalDigits");
-  var _parseAffix = dart.privateName(number_format_parser, "_parseAffix");
-  var _parseTrunk = dart.privateName(number_format_parser, "_parseTrunk");
-  var FormatException_offset = dart.privateName(core, "FormatException.offset");
-  var FormatException_source = dart.privateName(core, "FormatException.source");
-  var FormatException_message = dart.privateName(core, "FormatException.message");
-  number_format_parser.NumberFormatParser = class NumberFormatParser extends core.Object {
-    get symbols() {
-      return this[symbols$];
+  var _clipboardStatus = dart.privateName(text_selection$, "_clipboardStatus");
+  var _onChangedClipboardStatus = dart.privateName(text_selection$, "_onChangedClipboardStatus");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
+  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
+  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
+  text_selection$._CupertinoTextSelectionControlsToolbarState = class _CupertinoTextSelectionControlsToolbarState extends framework.State$(text_selection$._CupertinoTextSelectionControlsToolbar) {
+    [_onChangedClipboardStatus]() {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
     }
-    set symbols(value) {
-      super.symbols = value;
-    }
-    get pattern() {
-      return this[pattern];
-    }
-    set pattern(value) {
-      super.pattern = value;
-    }
-    get isForCurrency() {
-      return this[isForCurrency$];
-    }
-    set isForCurrency(value) {
-      super.isForCurrency = value;
-    }
-    get currencySymbol() {
-      return this[currencySymbol$];
-    }
-    set currencySymbol(value) {
-      super.currencySymbol = value;
-    }
-    get currencyName() {
-      return this[currencyName$];
-    }
-    set currencyName(value) {
-      super.currencyName = value;
-    }
-    get result() {
-      return this[result];
-    }
-    set result(value) {
-      super.result = value;
-    }
-    get groupingSizeSetExplicitly() {
-      return this[groupingSizeSetExplicitly];
-    }
-    set groupingSizeSetExplicitly(value) {
-      this[groupingSizeSetExplicitly] = value;
-    }
-    get inQuote() {
-      return this[inQuote];
-    }
-    set inQuote(value) {
-      this[inQuote] = value;
-    }
-    get decimalPos() {
-      return this[decimalPos];
-    }
-    set decimalPos(value) {
-      this[decimalPos] = value;
-    }
-    get digitLeftCount() {
-      return this[digitLeftCount];
-    }
-    set digitLeftCount(value) {
-      this[digitLeftCount] = value;
-    }
-    get zeroDigitCount() {
-      return this[zeroDigitCount];
-    }
-    set zeroDigitCount(value) {
-      this[zeroDigitCount] = value;
-    }
-    get digitRightCount() {
-      return this[digitRightCount];
-    }
-    set digitRightCount(value) {
-      this[digitRightCount] = value;
-    }
-    get groupingCount() {
-      return this[groupingCount];
-    }
-    set groupingCount(value) {
-      this[groupingCount] = value;
-    }
-    static parse(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits) {
+    initState() {
       let t0;
-      if (symbols == null) dart.nullFailed(I[0], 98, 25, "symbols");
-      if (isForCurrency == null) dart.nullFailed(I[0], 100, 16, "isForCurrency");
-      if (currencySymbol == null) dart.nullFailed(I[0], 101, 18, "currencySymbol");
-      if (currencyName == null) dart.nullFailed(I[0], 102, 18, "currencyName");
-      return input == null ? new number_format_parser.NumberFormatParseResult.new(symbols, decimalDigits) : (t0 = new number_format_parser.NumberFormatParser.new(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits), (() => {
-        t0[_parse]();
+      super.initState();
+      if (this.widget.handlePaste != null) {
+        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
+        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
+        dart.nullCheck(this[_clipboardStatus]).update();
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      let t0;
+      text_selection$._CupertinoTextSelectionControlsToolbar.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 74, 63, "oldWidget");
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(oldWidget.clipboardStatus, this.widget.clipboardStatus)) {
+        if (this[_clipboardStatus] != null) {
+          dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
+          dart.nullCheck(this[_clipboardStatus]).dispose();
+        }
+        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
+        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
+        if (this.widget.handlePaste != null) {
+          dart.nullCheck(this[_clipboardStatus]).update();
+        }
+      }
+    }
+    dispose() {
+      super.dispose();
+      if (this[_clipboardStatus] != null && !dart.test(dart.nullCheck(this[_clipboardStatus]).disposed)) {
+        dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
+        if (this.widget.clipboardStatus == null) {
+          dart.nullCheck(this[_clipboardStatus]).dispose();
+        }
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 103, 29, "context");
+      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value == text_selection.ClipboardStatus.unknown) {
+        return C[0] || CT.C0;
+      }
+      if (!dart.test(debug.debugCheckHasMediaQuery(context))) dart.assertFailed(null, I[0], 110, 12, "debugCheckHasMediaQuery(context)");
+      let mediaQuery = media_query.MediaQuery.of(context);
+      let anchorX = (dart.notNull(this.widget.selectionMidpoint.dx) + dart.notNull(this.widget.globalEditableRegion.left))[$clamp](26 + dart.notNull(mediaQuery.padding.left), dart.notNull(mediaQuery.size.width) - dart.notNull(mediaQuery.padding.right) - 26);
+      let anchorAbove = new ui.Offset.new(anchorX, dart.notNull(this.widget.endpoints[$first].point.dy) - dart.notNull(this.widget.textLineHeight) + dart.notNull(this.widget.globalEditableRegion.top));
+      let anchorBelow = new ui.Offset.new(anchorX, dart.notNull(this.widget.endpoints[$last].point.dy) + dart.notNull(this.widget.globalEditableRegion.top));
+      let items = T.JSArrayOfWidget().of([]);
+      let localizations = localizations$.CupertinoLocalizations.of(context);
+      let onePhysicalPixelVerticalDivider = new basic.SizedBox.new({width: 1.0 / dart.notNull(media_query.MediaQuery.of(context).devicePixelRatio), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+      function addToolbarButton(text, onPressed) {
+        if (text == null) dart.nullFailed(I[0], 140, 14, "text");
+        if (onPressed == null) dart.nullFailed(I[0], 141, 20, "onPressed");
+        if (dart.test(items[$isNotEmpty])) {
+          items[$add](onePhysicalPixelVerticalDivider);
+        }
+        items[$add](new text_selection_toolbar_button.CupertinoTextSelectionToolbarButton.text({onPressed: onPressed, text: text, $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}));
+      }
+      dart.fn(addToolbarButton, T.StringAndFnTovoid());
+      if (this.widget.handleCut != null) {
+        addToolbarButton(localizations.cutButtonLabel, dart.nullCheck(this.widget.handleCut));
+      }
+      if (this.widget.handleCopy != null) {
+        addToolbarButton(localizations.copyButtonLabel, dart.nullCheck(this.widget.handleCopy));
+      }
+      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value == text_selection.ClipboardStatus.pasteable) {
+        addToolbarButton(localizations.pasteButtonLabel, dart.nullCheck(this.widget.handlePaste));
+      }
+      if (this.widget.handleSelectAll != null) {
+        addToolbarButton(localizations.selectAllButtonLabel, dart.nullCheck(this.widget.handleSelectAll));
+      }
+      if (dart.test(items[$isEmpty])) {
+        return C[12] || CT.C12;
+      }
+      return new text_selection_toolbar.CupertinoTextSelectionToolbar.new({anchorAbove: anchorAbove, anchorBelow: anchorBelow, children: items, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+    }
+  };
+  (text_selection$._CupertinoTextSelectionControlsToolbarState.new = function() {
+    this[_clipboardStatus] = null;
+    text_selection$._CupertinoTextSelectionControlsToolbarState.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection$._CupertinoTextSelectionControlsToolbarState.prototype;
+  dart.addTypeTests(text_selection$._CupertinoTextSelectionControlsToolbarState);
+  dart.addTypeCaches(text_selection$._CupertinoTextSelectionControlsToolbarState);
+  dart.setMethodSignature(text_selection$._CupertinoTextSelectionControlsToolbarState, () => ({
+    __proto__: dart.getMethods(text_selection$._CupertinoTextSelectionControlsToolbarState.__proto__),
+    [_onChangedClipboardStatus]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection$._CupertinoTextSelectionControlsToolbarState, I[1]);
+  dart.setFieldSignature(text_selection$._CupertinoTextSelectionControlsToolbarState, () => ({
+    __proto__: dart.getFields(text_selection$._CupertinoTextSelectionControlsToolbarState.__proto__),
+    [_clipboardStatus]: dart.fieldType(dart.nullable(text_selection.ClipboardStatusNotifier))
+  }));
+  var color$ = dart.privateName(text_selection$, "_TextSelectionHandlePainter.color");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  text_selection$._TextSelectionHandlePainter = class _TextSelectionHandlePainter extends custom_paint.CustomPainter {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    paint(canvas, size) {
+      let t0, t0$;
+      if (canvas == null) dart.nullFailed(I[0], 187, 21, "canvas");
+      if (size == null) dart.nullFailed(I[0], 187, 34, "size");
+      let paint = (t0 = ui.Paint.new(), (() => {
+        t0.color = this.color;
         return t0;
-      })()).result;
+      })());
+      let circle = new ui.Rect.fromCircle({center: C[22] || CT.C22, radius: 6});
+      let line = new ui.Rect.fromPoints(C[23] || CT.C23, new ui.Offset.new(6 + 1, size.height));
+      let path = (t0$ = ui.Path.new(), (() => {
+        t0$.addOval(circle);
+        t0$.addRect(line);
+        return t0$;
+      })());
+      canvas.drawPath(path, paint);
     }
-    get [_defaultDecimalDigits]() {
+    shouldRepaint(oldPainter) {
+      text_selection$._TextSelectionHandlePainter.as(oldPainter);
+      if (oldPainter == null) dart.nullFailed(I[0], 209, 50, "oldPainter");
+      return !dart.equals(this.color, oldPainter.color);
+    }
+  };
+  (text_selection$._TextSelectionHandlePainter.new = function(color) {
+    if (color == null) dart.nullFailed(I[0], 182, 42, "color");
+    this[color$] = color;
+    text_selection$._TextSelectionHandlePainter.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection$._TextSelectionHandlePainter.prototype;
+  dart.addTypeTests(text_selection$._TextSelectionHandlePainter);
+  dart.addTypeCaches(text_selection$._TextSelectionHandlePainter);
+  dart.setMethodSignature(text_selection$._TextSelectionHandlePainter, () => ({
+    __proto__: dart.getMethods(text_selection$._TextSelectionHandlePainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(text_selection$._TextSelectionHandlePainter, I[1]);
+  dart.setFieldSignature(text_selection$._TextSelectionHandlePainter, () => ({
+    __proto__: dart.getFields(text_selection$._TextSelectionHandlePainter.__proto__),
+    color: dart.finalFieldType(ui.Color)
+  }));
+  var _name = dart.privateName(text_selection, "_name");
+  text_selection$.CupertinoTextSelectionControls = class CupertinoTextSelectionControls extends text_selection.TextSelectionControls {
+    getHandleSize(textLineHeight) {
+      if (textLineHeight == null) dart.nullFailed(I[0], 216, 29, "textLineHeight");
+      return new ui.Size.new(6 * 2, dart.notNull(textLineHeight) + 6 * 2 - 1.5);
+    }
+    buildToolbar(context, globalEditableRegion, textLineHeight, selectionMidpoint, endpoints, delegate, clipboardStatus, lastSecondaryTapDownPosition) {
+      if (context == null) dart.nullFailed(I[0], 226, 18, "context");
+      if (globalEditableRegion == null) dart.nullFailed(I[0], 227, 10, "globalEditableRegion");
+      if (textLineHeight == null) dart.nullFailed(I[0], 228, 12, "textLineHeight");
+      if (selectionMidpoint == null) dart.nullFailed(I[0], 229, 12, "selectionMidpoint");
+      if (endpoints == null) dart.nullFailed(I[0], 230, 30, "endpoints");
+      if (delegate == null) dart.nullFailed(I[0], 231, 27, "delegate");
+      if (clipboardStatus == null) dart.nullFailed(I[0], 232, 29, "clipboardStatus");
+      return new text_selection$._CupertinoTextSelectionControlsToolbar.new({clipboardStatus: clipboardStatus, endpoints: endpoints, globalEditableRegion: globalEditableRegion, handleCut: dart.test(this.canCut(delegate)) ? dart.fn(() => this.handleCut(delegate), T.VoidTovoid()) : null, handleCopy: dart.test(this.canCopy(delegate)) ? dart.fn(() => this.handleCopy(delegate, clipboardStatus), T.VoidTovoid()) : null, handlePaste: dart.test(this.canPaste(delegate)) ? dart.fn(() => this.handlePaste(delegate), T.VoidTovoid()) : null, handleSelectAll: dart.test(this.canSelectAll(delegate)) ? dart.fn(() => this.handleSelectAll(delegate), T.VoidTovoid()) : null, selectionMidpoint: selectionMidpoint, textLineHeight: textLineHeight, $creationLocationd_0dea112b090073317d4: C[24] || CT.C24});
+    }
+    buildHandle(context, type, textLineHeight) {
       let t0;
-      t0 = number_symbols_data.currencyFractionDigits[$_get](this.currencyName[$toUpperCase]());
-      return t0 == null ? dart.nullCheck(number_symbols_data.currencyFractionDigits[$_get]("DEFAULT")) : t0;
-    }
-    [_parse]() {
-      let t0;
-      this.result.positivePrefix = this[_parseAffix]();
-      let trunk = this[_parseTrunk]();
-      this.result.positiveSuffix = this[_parseAffix]();
-      if (this.pattern.current === ";") {
-        this.pattern.moveNext();
-        this.result.negativePrefix = this[_parseAffix]();
-        let trunkIterator = new string_iterator.StringIterator.new(trunk);
-        while (dart.test(trunkIterator.moveNext())) {
-          let each = trunkIterator.current;
-          if (this.pattern.current != each && this.pattern.current != null) {
-            dart.throw(new core.FormatException.new("Positive and negative trunks must be the same", trunk));
-          }
-          this.pattern.moveNext();
-        }
-        this.result.negativeSuffix = this[_parseAffix]();
-      } else {
-        this.result.negativePrefix = dart.notNull(this.result.negativePrefix) + dart.notNull(this.result.positivePrefix);
-        this.result.negativeSuffix = dart.notNull(this.result.positiveSuffix) + dart.notNull(this.result.negativeSuffix);
-      }
-      if (dart.test(this.isForCurrency)) {
-        t0 = this.result;
-        t0.decimalDigits == null ? t0.decimalDigits = this[_defaultDecimalDigits] : null;
-      }
-      if (this.result.decimalDigits != null) {
-        this.result.minimumFractionDigits = dart.nullCheck(this.result.decimalDigits);
-        this.result.maximumFractionDigits = dart.nullCheck(this.result.decimalDigits);
-      }
-    }
-    [_parseAffix]() {
-      let affix = new core.StringBuffer.new();
-      this.inQuote = false;
-      while (dart.test(this.parseCharacterAffix(affix)) && dart.test(this.pattern.moveNext())) {
-      }
-      return affix.toString();
-    }
-    parseCharacterAffix(affix) {
-      if (affix == null) dart.nullFailed(I[0], 171, 41, "affix");
-      let ch = this.pattern.current;
-      if (ch == null) return false;
-      if (ch === "'") {
-        if (this.pattern.peek === "'") {
-          this.pattern.moveNext();
-          affix.write("'");
-        } else {
-          this.inQuote = !dart.test(this.inQuote);
-        }
-        return true;
-      }
-      if (dart.test(this.inQuote)) {
-        affix.write(ch);
-      } else {
-        switch (ch) {
-          case "#":
-          case "0":
-          case ",":
-          case ".":
-          case ";":
-          {
-            return false;
-          }
-          case "¤":
-          {
-            affix.write(this.currencySymbol);
-            break;
-          }
-          case "%":
-          {
-            if (this.result.multiplier !== 1 && this.result.multiplier !== 100) {
-              dart.throw(C[0] || CT.C0);
-            }
-            this.result.multiplier = 100;
-            affix.write(this.symbols.PERCENT);
-            break;
-          }
-          case "‰":
-          {
-            if (this.result.multiplier !== 1 && this.result.multiplier !== 1000) {
-              dart.throw(C[0] || CT.C0);
-            }
-            this.result.multiplier = 1000;
-            affix.write(this.symbols.PERMILL);
-            break;
-          }
-          default:
-          {
-            affix.write(ch);
-          }
-        }
-      }
-      return true;
-    }
-    [_parseTrunk]() {
-      let loop = true;
-      let trunk = new core.StringBuffer.new();
-      while (this.pattern.current != null && dart.test(loop)) {
-        loop = this.parseTrunkCharacter(trunk);
-      }
-      if (this.zeroDigitCount === 0 && dart.notNull(this.digitLeftCount) > 0 && dart.notNull(this.decimalPos) >= 0) {
-        let n = this.decimalPos === 0 ? 1 : this.decimalPos;
-        this.digitRightCount = dart.notNull(this.digitLeftCount) - dart.notNull(n);
-        this.digitLeftCount = dart.notNull(n) - 1;
-        this.zeroDigitCount = 1;
-      }
-      if (dart.notNull(this.decimalPos) < 0 && dart.notNull(this.digitRightCount) > 0 || dart.notNull(this.decimalPos) >= 0 && (dart.notNull(this.decimalPos) < dart.notNull(this.digitLeftCount) || dart.notNull(this.decimalPos) > dart.notNull(this.digitLeftCount) + dart.notNull(this.zeroDigitCount)) || this.groupingCount === 0) {
-        dart.throw(new core.FormatException.new("Malformed pattern \"" + dart.str(this.pattern.input) + "\""));
-      }
-      let totalDigits = dart.notNull(this.digitLeftCount) + dart.notNull(this.zeroDigitCount) + dart.notNull(this.digitRightCount);
-      this.result.maximumFractionDigits = dart.notNull(this.decimalPos) >= 0 ? totalDigits - dart.notNull(this.decimalPos) : 0;
-      if (dart.notNull(this.decimalPos) >= 0) {
-        this.result.minimumFractionDigits = dart.notNull(this.digitLeftCount) + dart.notNull(this.zeroDigitCount) - dart.notNull(this.decimalPos);
-        if (dart.notNull(this.result.minimumFractionDigits) < 0) {
-          this.result.minimumFractionDigits = 0;
-        }
-      }
-      let effectiveDecimalPos = dart.notNull(this.decimalPos) >= 0 ? this.decimalPos : totalDigits;
-      this.result.minimumIntegerDigits = dart.notNull(effectiveDecimalPos) - dart.notNull(this.digitLeftCount);
-      if (dart.test(this.result.useExponentialNotation)) {
-        this.result.maximumIntegerDigits = dart.notNull(this.digitLeftCount) + dart.notNull(this.result.minimumIntegerDigits);
-        if (this.result.maximumFractionDigits === 0 && this.result.minimumIntegerDigits === 0) {
-          this.result.minimumIntegerDigits = 1;
-        }
-      }
-      this.result.finalGroupingSize = math.max(core.int, 0, this.groupingCount);
-      if (!dart.test(this.groupingSizeSetExplicitly)) {
-        this.result.groupingSize = this.result.finalGroupingSize;
-      }
-      this.result.decimalSeparatorAlwaysShown = this.decimalPos === 0 || this.decimalPos === totalDigits;
-      return trunk.toString();
-    }
-    parseTrunkCharacter(trunk) {
-      let t0;
-      let ch = this.pattern.current;
-      switch (ch) {
-        case "#":
+      if (context == null) dart.nullFailed(I[0], 250, 35, "context");
+      if (type == null) dart.nullFailed(I[0], 250, 68, "type");
+      if (textLineHeight == null) dart.nullFailed(I[0], 250, 81, "textLineHeight");
+      let desiredSize = this.getHandleSize(textLineHeight);
+      let handle = new basic.SizedBox.fromSize({size: desiredSize, child: new basic.CustomPaint.new({painter: new text_selection$._TextSelectionHandlePainter.new(theme.CupertinoTheme.of(context).primaryColor), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38});
+      switch (type) {
+        case C[42] || CT.C42:
         {
-          if (dart.notNull(this.zeroDigitCount) > 0) {
-            this.digitRightCount = dart.notNull(this.digitRightCount) + 1;
-          } else {
-            this.digitLeftCount = dart.notNull(this.digitLeftCount) + 1;
-          }
-          if (dart.notNull(this.groupingCount) >= 0 && dart.notNull(this.decimalPos) < 0) {
-            this.groupingCount = dart.notNull(this.groupingCount) + 1;
-          }
-          break;
+          return handle;
         }
-        case "0":
+        case C[47] || CT.C47:
         {
-          if (dart.notNull(this.digitRightCount) > 0) {
-            dart.throw(new core.FormatException.new("Unexpected \"0\" in pattern \"" + dart.str(this.pattern.input)));
-          }
-          this.zeroDigitCount = dart.notNull(this.zeroDigitCount) + 1;
-          if (dart.notNull(this.groupingCount) >= 0 && dart.notNull(this.decimalPos) < 0) {
-            this.groupingCount = dart.notNull(this.groupingCount) + 1;
-          }
-          break;
+          return new basic.Transform.new({transform: (t0 = vector_math_64.Matrix4.identity(), (() => {
+              t0.translate(dart.notNull(desiredSize.width) / 2, dart.notNull(desiredSize.height) / 2);
+              t0.rotateZ(3.141592653589793);
+              t0.translate(-dart.notNull(desiredSize.width) / 2, -dart.notNull(desiredSize.height) / 2);
+              return t0;
+            })()), child: handle, $creationLocationd_0dea112b090073317d4: C[43] || CT.C43});
         }
-        case ",":
+        case C[51] || CT.C51:
         {
-          if (dart.notNull(this.groupingCount) > 0) {
-            this.groupingSizeSetExplicitly = true;
-            this.result.groupingSize = this.groupingCount;
-          }
-          this.groupingCount = 0;
-          break;
-        }
-        case ".":
-        {
-          if (dart.notNull(this.decimalPos) >= 0) {
-            dart.throw(new core.FormatException.new("Multiple decimal separators in pattern \"" + dart.str(this.pattern) + "\""));
-          }
-          this.decimalPos = dart.notNull(this.digitLeftCount) + dart.notNull(this.zeroDigitCount) + dart.notNull(this.digitRightCount);
-          break;
-        }
-        case "E":
-        {
-          dart.dsend(trunk, 'write', [ch]);
-          if (dart.test(this.result.useExponentialNotation)) {
-            dart.throw(new core.FormatException.new("Multiple exponential symbols in pattern \"" + dart.str(this.pattern) + "\""));
-          }
-          this.result.useExponentialNotation = true;
-          this.result.minimumExponentDigits = 0;
-          this.pattern.moveNext();
-          let nextChar = this.pattern.current;
-          if (nextChar === "+") {
-            dart.dsend(trunk, 'write', [this.pattern.current]);
-            this.pattern.moveNext();
-            this.result.useSignForPositiveExponent = true;
-          }
-          while (this.pattern.current === "0") {
-            dart.dsend(trunk, 'write', [this.pattern.current]);
-            this.pattern.moveNext();
-            t0 = this.result;
-            t0.minimumExponentDigits = dart.notNull(t0.minimumExponentDigits) + 1;
-          }
-          if (dart.notNull(this.digitLeftCount) + dart.notNull(this.zeroDigitCount) < 1 || dart.notNull(this.result.minimumExponentDigits) < 1) {
-            dart.throw(new core.FormatException.new("Malformed exponential pattern \"" + dart.str(this.pattern) + "\""));
-          }
-          return false;
+          return C[48] || CT.C48;
         }
         default:
         {
-          return false;
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
         }
       }
-      dart.dsend(trunk, 'write', [ch]);
-      this.pattern.moveNext();
-      return true;
+    }
+    getHandleAnchor(type, textLineHeight) {
+      if (type == null) dart.nullFailed(I[0], 287, 50, "type");
+      if (textLineHeight == null) dart.nullFailed(I[0], 287, 63, "textLineHeight");
+      let handleSize = this.getHandleSize(textLineHeight);
+      switch (type) {
+        case C[42] || CT.C42:
+        {
+          return new ui.Offset.new(dart.notNull(handleSize.width) / 2, handleSize.height);
+        }
+        case C[47] || CT.C47:
+        {
+          return new ui.Offset.new(dart.notNull(handleSize.width) / 2, dart.notNull(handleSize.height) - 2 * 6 + 1.5);
+        }
+        case C[51] || CT.C51:
+        {
+          return new ui.Offset.new(dart.notNull(handleSize.width) / 2, dart.notNull(textLineHeight) + (dart.notNull(handleSize.height) - dart.notNull(textLineHeight)) / 2);
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
     }
   };
-  (number_format_parser.NumberFormatParser.new = function(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits) {
-    if (symbols == null) dart.nullFailed(I[0], 90, 27, "symbols");
-    if (input == null) dart.nullFailed(I[0], 90, 43, "input");
-    if (isForCurrency == null) dart.nullFailed(I[0], 90, 55, "isForCurrency");
-    if (currencySymbol == null) dart.nullFailed(I[0], 91, 12, "currencySymbol");
-    if (currencyName == null) dart.nullFailed(I[0], 91, 33, "currencyName");
-    this[groupingSizeSetExplicitly] = false;
-    this[inQuote] = false;
-    this[decimalPos] = -1;
-    this[digitLeftCount] = 0;
-    this[zeroDigitCount] = 0;
-    this[digitRightCount] = 0;
-    this[groupingCount] = -1;
-    this[symbols$] = symbols;
-    this[isForCurrency$] = isForCurrency;
-    this[currencySymbol$] = currencySymbol;
-    this[currencyName$] = currencyName;
-    this[result] = new number_format_parser.NumberFormatParseResult.new(symbols, decimalDigits);
-    this[pattern] = new string_iterator.StringIterator.new(input);
-    this.pattern.moveNext();
-  }).prototype = number_format_parser.NumberFormatParser.prototype;
-  dart.addTypeTests(number_format_parser.NumberFormatParser);
-  dart.addTypeCaches(number_format_parser.NumberFormatParser);
-  dart.setMethodSignature(number_format_parser.NumberFormatParser, () => ({
-    __proto__: dart.getMethods(number_format_parser.NumberFormatParser.__proto__),
-    [_parse]: dart.fnType(dart.void, []),
-    [_parseAffix]: dart.fnType(core.String, []),
-    parseCharacterAffix: dart.fnType(core.bool, [core.StringBuffer]),
-    [_parseTrunk]: dart.fnType(core.String, []),
-    parseTrunkCharacter: dart.fnType(core.bool, [dart.dynamic])
+  (text_selection$.CupertinoTextSelectionControls.new = function() {
+    ;
+  }).prototype = text_selection$.CupertinoTextSelectionControls.prototype;
+  dart.addTypeTests(text_selection$.CupertinoTextSelectionControls);
+  dart.addTypeCaches(text_selection$.CupertinoTextSelectionControls);
+  dart.setMethodSignature(text_selection$.CupertinoTextSelectionControls, () => ({
+    __proto__: dart.getMethods(text_selection$.CupertinoTextSelectionControls.__proto__),
+    getHandleSize: dart.fnType(ui.Size, [core.double]),
+    buildToolbar: dart.fnType(framework.Widget, [framework.BuildContext, ui.Rect, core.double, ui.Offset, core.List$(editable.TextSelectionPoint), text_input.TextSelectionDelegate, text_selection.ClipboardStatusNotifier, dart.nullable(ui.Offset)]),
+    buildHandle: dart.fnType(framework.Widget, [framework.BuildContext, text_selection.TextSelectionHandleType, core.double]),
+    getHandleAnchor: dart.fnType(ui.Offset, [text_selection.TextSelectionHandleType, core.double])
   }));
-  dart.setGetterSignature(number_format_parser.NumberFormatParser, () => ({
-    __proto__: dart.getGetters(number_format_parser.NumberFormatParser.__proto__),
-    [_defaultDecimalDigits]: core.int
-  }));
-  dart.setLibraryUri(number_format_parser.NumberFormatParser, I[1]);
-  dart.setFieldSignature(number_format_parser.NumberFormatParser, () => ({
-    __proto__: dart.getFields(number_format_parser.NumberFormatParser.__proto__),
-    symbols: dart.finalFieldType(number_symbols.NumberSymbols),
-    pattern: dart.finalFieldType(string_iterator.StringIterator),
-    isForCurrency: dart.finalFieldType(core.bool),
-    currencySymbol: dart.finalFieldType(core.String),
-    currencyName: dart.finalFieldType(core.String),
-    result: dart.finalFieldType(number_format_parser.NumberFormatParseResult),
-    groupingSizeSetExplicitly: dart.fieldType(core.bool),
-    inQuote: dart.fieldType(core.bool),
-    decimalPos: dart.fieldType(core.int),
-    digitLeftCount: dart.fieldType(core.int),
-    zeroDigitCount: dart.fieldType(core.int),
-    digitRightCount: dart.fieldType(core.int),
-    groupingCount: dart.fieldType(core.int)
-  }));
-  dart.defineLazy(number_format_parser.NumberFormatParser, {
-    /*number_format_parser.NumberFormatParser.PATTERN_SEPARATOR*/get PATTERN_SEPARATOR() {
-      return ";";
+  dart.setLibraryUri(text_selection$.CupertinoTextSelectionControls, I[1]);
+  dart.defineLazy(text_selection$, {
+    /*text_selection$._kSelectionHandleOverlap*/get _kSelectionHandleOverlap() {
+      return 1.5;
     },
-    /*number_format_parser.NumberFormatParser.QUOTE*/get QUOTE() {
-      return "'";
+    /*text_selection$._kSelectionHandleRadius*/get _kSelectionHandleRadius() {
+      return 6;
     },
-    /*number_format_parser.NumberFormatParser.PATTERN_DIGIT*/get PATTERN_DIGIT() {
-      return "#";
+    /*text_selection$._kArrowScreenPadding*/get _kArrowScreenPadding() {
+      return 26;
     },
-    /*number_format_parser.NumberFormatParser.PATTERN_ZERO_DIGIT*/get PATTERN_ZERO_DIGIT() {
-      return "0";
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_GROUPING_SEPARATOR*/get PATTERN_GROUPING_SEPARATOR() {
-      return ",";
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_DECIMAL_SEPARATOR*/get PATTERN_DECIMAL_SEPARATOR() {
-      return ".";
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_CURRENCY_SIGN*/get PATTERN_CURRENCY_SIGN() {
-      return "¤";
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_PER_MILLE*/get PATTERN_PER_MILLE() {
-      return "‰";
-    },
-    /*number_format_parser.NumberFormatParser.PER_MILLE_SCALE*/get PER_MILLE_SCALE() {
-      return 1000;
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_PERCENT*/get PATTERN_PERCENT() {
-      return "%";
-    },
-    /*number_format_parser.NumberFormatParser.PERCENT_SCALE*/get PERCENT_SCALE() {
-      return 100;
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_EXPONENT*/get PATTERN_EXPONENT() {
-      return "E";
-    },
-    /*number_format_parser.NumberFormatParser.PATTERN_PLUS*/get PATTERN_PLUS() {
-      return "+";
+    /*text_selection$.cupertinoTextSelectionControls*/get cupertinoTextSelectionControls() {
+      return new text_selection$.CupertinoTextSelectionControls.new();
     }
   }, false);
-  dart.defineLazy(number_format_parser, {
-    /*number_format_parser._ln10*/get _ln10() {
-      return math.log(10);
-    }
-  }, false);
-  dart.trackLibraries("packages/intl/src/intl/number_format_parser.dart", {
-    "package:intl/src/intl/number_format_parser.dart": number_format_parser
+  dart.trackLibraries("packages/flutter/src/cupertino/text_selection.dart", {
+    "package:flutter/src/cupertino/text_selection.dart": text_selection$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["number_format_parser.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/intl/src/intl/number_format_parser.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["text_selection.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flutter/src/cupertino/text_selection.dart.lib.js"}');
   // Exports:
   return {
-    src__intl__number_format_parser: number_format_parser
+    src__cupertino__text_selection: text_selection$
   };
 }));
 
-//# sourceMappingURL=number_format_parser.dart.lib.js.map
+//# sourceMappingURL=text_selection.dart.lib.js.map

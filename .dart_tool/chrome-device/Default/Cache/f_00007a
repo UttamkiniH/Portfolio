@@ -1,92 +1,90 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/alignment.dart'], (function load__packages__velocity_x__src__flutter__transform_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__alignment$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/implicit_animations.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/constants.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/painting/_network_image_web.dart'], (function load__packages__flutter__src__material__circle_avatar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__implicit_animations$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__constants$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__painting___network_image_web$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
   const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  var transform = Object.create(dart.library);
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const implicit_animations = packages__flutter__src__widgets__implicit_animations$46dart.src__widgets__implicit_animations;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const constants = packages__flutter__src__material__constants$46dart.src__material__constants;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  var circle_avatar = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    KeyN: () => (T.KeyN = dart.constFn(dart.nullable(key.Key)))(),
-    __ToWidget: () => (T.__ToWidget = dart.constFn(dart.fnType(framework.Widget, [], {key: T.KeyN()}, {})))(),
-    __ToWidget$1: () => (T.__ToWidget$1 = dart.constFn(dart.fnType(framework.Widget, [], {key: T.KeyN(), offset: ui.Offset, transformHitTests: core.bool}, {})))(),
-    doubleN: () => (T.doubleN = dart.constFn(dart.nullable(core.double)))(),
-    __ToWidget$2: () => (T.__ToWidget$2 = dart.constFn(dart.fnType(framework.Widget, [], {key: T.KeyN(), radian: T.doubleN()}, {})))(),
-    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
-    double__ToWidget: () => (T.double__ToWidget = dart.constFn(dart.fnType(framework.Widget, [core.double], {alignment: alignment.Alignment, key: T.KeyN(), origin: T.OffsetN()}, {})))(),
-    __ToWidget$3: () => (T.__ToWidget$3 = dart.constFn(dart.fnType(framework.Widget, [], {alignment: alignment.Alignment, key: T.KeyN(), origin: T.OffsetN(), scaleValue: T.doubleN()}, {})))()
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 29,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.Brightness.prototype,
+        [_name]: "Brightness.dark",
+        index: 0
       });
     },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 9,
-        [_Location_line]: 30,
-        [_Location_file]: null
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: ui.Brightness.prototype,
+        [_name]: "Brightness.light",
+        index: 1
       });
     },
     get C4() {
       return C[4] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 31,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 258,
         [_Location_file]: null
       });
     },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T._LocationL());
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 37,
-        [_Location_line]: 28,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
+    get C5() {
+      return C[5] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 7,
-        [_Location_line]: 38,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 259,
         [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5], T._LocationL());
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 257,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
       });
     },
     get C8() {
       return C[8] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "transformHitTests",
-        [_Location_column]: 7,
-        [_Location_line]: 39,
+        [_Location_name]: "data",
+        [_Location_column]: 19,
+        [_Location_line]: 256,
         [_Location_file]: null
       });
     },
@@ -94,95 +92,88 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/v
       return C[9] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "offset",
-        [_Location_column]: 7,
-        [_Location_line]: 40,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 257,
         [_Location_file]: null
       });
     },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 41,
-        [_Location_file]: null
-      });
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
     },
     get C6() {
-      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], T._LocationL());
-    },
-    get C5() {
-      return C[5] = dart.const({
+      return C[6] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_parameterLocations]: C[7] || CT.C7,
         [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 37,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
+        [_Location_column]: 24,
+        [_Location_line]: 255,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 17,
+        [_Location_line]: 254,
+        [_Location_file]: null
       });
     },
     get C13() {
       return C[13] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 49,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 255,
         [_Location_file]: null
       });
     },
-    get C14() {
-      return C[14] = dart.const({
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 251,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 9,
-        [_Location_line]: 50,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 251,
         [_Location_file]: null
       });
     },
     get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 51,
-        [_Location_file]: null
-      });
+      return C[15] = dart.constList([C[16] || CT.C16], T._LocationL());
     },
-    get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
-    },
-    get C11() {
-      return C[11] = dart.const({
+    get C14() {
+      return C[14] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_parameterLocations]: C[15] || CT.C15,
         [_Location_name]: null,
-        [_Location_column]: 40,
-        [_Location_line]: 48,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 58,
-        [_Location_file]: null
+        [_Location_column]: 13,
+        [_Location_line]: 250,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
       });
     },
     get C19() {
       return C[19] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 9,
-        [_Location_line]: 59,
+        [_Location_name]: "constraints",
+        [_Location_column]: 7,
+        [_Location_line]: 220,
         [_Location_file]: null
       });
     },
@@ -190,1442 +181,273 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/v
       return C[20] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 60,
+        [_Location_name]: "duration",
+        [_Location_column]: 7,
+        [_Location_line]: 226,
         [_Location_file]: null
       });
     },
-    get C17() {
-      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
-    },
-    get C16() {
-      return C[16] = dart.const({
+    get C21() {
+      return C[21] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[17] || CT.C17,
-        [_Location_name]: null,
-        [_Location_column]: 47,
-        [_Location_line]: 57,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "foregroundDecoration",
+        [_Location_column]: 7,
+        [_Location_line]: 238,
+        [_Location_file]: null
       });
     },
     get C23() {
       return C[23] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 67,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 9,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 66,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 76,
-        [_Location_file]: null
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 9,
-        [_Location_line]: 77,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 78,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 47,
-        [_Location_line]: 75,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 86,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 87,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[32] || CT.C32,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 84,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 96,
-        [_Location_file]: null
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 97,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 9,
-        [_Location_line]: 98,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "origin",
-        [_Location_column]: 9,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 100,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[38] || CT.C38,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 95,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 107,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 108,
-        [_Location_file]: null
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 109,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48], T._LocationL());
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[45] || CT.C45,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 106,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 116,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 117,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 118,
-        [_Location_file]: null
-      });
-    },
-    get C50() {
-      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53], T._LocationL());
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[50] || CT.C50,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 115,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 125,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 126,
-        [_Location_file]: null
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 127,
-        [_Location_file]: null
-      });
-    },
-    get C55() {
-      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58], T._LocationL());
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[55] || CT.C55,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 124,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 134,
-        [_Location_file]: null
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 135,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 136,
-        [_Location_file]: null
-      });
-    },
-    get C60() {
-      return C[60] = dart.constList([C[61] || CT.C61, C[62] || CT.C62, C[63] || CT.C63], T._LocationL());
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[60] || CT.C60,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 133,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 143,
-        [_Location_file]: null
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 144,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 145,
-        [_Location_file]: null
-      });
-    },
-    get C65() {
-      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67, C[68] || CT.C68], T._LocationL());
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[65] || CT.C65,
-        [_Location_name]: null,
-        [_Location_column]: 46,
-        [_Location_line]: 142,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 152,
-        [_Location_file]: null
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 153,
-        [_Location_file]: null
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 154,
-        [_Location_file]: null
-      });
-    },
-    get C70() {
-      return C[70] = dart.constList([C[71] || CT.C71, C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[70] || CT.C70,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 151,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 161,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 162,
-        [_Location_file]: null
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 163,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.constList([C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78], T._LocationL());
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[75] || CT.C75,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 160,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 170,
-        [_Location_file]: null
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "angle",
-        [_Location_column]: 9,
-        [_Location_line]: 171,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 172,
-        [_Location_file]: null
-      });
-    },
-    get C80() {
-      return C[80] = dart.constList([C[81] || CT.C81, C[82] || CT.C82, C[83] || CT.C83], T._LocationL());
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[80] || CT.C80,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 169,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 184,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 185,
-        [_Location_file]: null
-      });
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 9,
-        [_Location_line]: 186,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "origin",
-        [_Location_column]: 9,
-        [_Location_line]: 187,
-        [_Location_file]: null
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 188,
-        [_Location_file]: null
-      });
-    },
-    get C85() {
-      return C[85] = dart.constList([C[86] || CT.C86, C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89, C[90] || CT.C90], T._LocationL());
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[85] || CT.C85,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 183,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 195,
-        [_Location_file]: null
-      });
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 196,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 197,
-        [_Location_file]: null
-      });
-    },
-    get C92() {
-      return C[92] = dart.constList([C[93] || CT.C93, C[94] || CT.C94, C[95] || CT.C95], T._LocationL());
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[92] || CT.C92,
-        [_Location_name]: null,
-        [_Location_column]: 42,
-        [_Location_line]: 194,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 204,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 205,
-        [_Location_file]: null
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 206,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99, C[100] || CT.C100], T._LocationL());
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[97] || CT.C97,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 203,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C103() {
-      return C[103] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 213,
-        [_Location_file]: null
-      });
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 214,
-        [_Location_file]: null
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 215,
-        [_Location_file]: null
-      });
-    },
-    get C102() {
-      return C[102] = dart.constList([C[103] || CT.C103, C[104] || CT.C104, C[105] || CT.C105], T._LocationL());
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[102] || CT.C102,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 212,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 222,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 223,
-        [_Location_file]: null
-      });
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 224,
-        [_Location_file]: null
-      });
-    },
-    get C107() {
-      return C[107] = dart.constList([C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110], T._LocationL());
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[107] || CT.C107,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 221,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C113() {
-      return C[113] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 231,
-        [_Location_file]: null
-      });
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 232,
-        [_Location_file]: null
-      });
-    },
-    get C115() {
-      return C[115] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 233,
-        [_Location_file]: null
-      });
-    },
-    get C112() {
-      return C[112] = dart.constList([C[113] || CT.C113, C[114] || CT.C114, C[115] || CT.C115], T._LocationL());
-    },
-    get C111() {
-      return C[111] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[112] || CT.C112,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 230,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 240,
-        [_Location_file]: null
-      });
-    },
-    get C119() {
-      return C[119] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 241,
-        [_Location_file]: null
-      });
-    },
-    get C120() {
-      return C[120] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 242,
-        [_Location_file]: null
-      });
-    },
-    get C117() {
-      return C[117] = dart.constList([C[118] || CT.C118, C[119] || CT.C119, C[120] || CT.C120], T._LocationL());
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[117] || CT.C117,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 239,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C123() {
-      return C[123] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 249,
-        [_Location_file]: null
-      });
-    },
-    get C124() {
-      return C[124] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 250,
-        [_Location_file]: null
-      });
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 251,
-        [_Location_file]: null
-      });
-    },
-    get C122() {
-      return C[122] = dart.constList([C[123] || CT.C123, C[124] || CT.C124, C[125] || CT.C125], T._LocationL());
-    },
-    get C121() {
-      return C[121] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[122] || CT.C122,
-        [_Location_name]: null,
-        [_Location_column]: 44,
+        [_Location_column]: 7,
         [_Location_line]: 248,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C128() {
-      return C[128] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 258,
         [_Location_file]: null
       });
     },
-    get C129() {
-      return C[129] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 259,
-        [_Location_file]: null
-      });
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
     },
-    get C130() {
-      return C[130] = dart.const({
+    get C17() {
+      return C[17] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 260,
-        [_Location_file]: null
-      });
-    },
-    get C127() {
-      return C[127] = dart.constList([C[128] || CT.C128, C[129] || CT.C129, C[130] || CT.C130], T._LocationL());
-    },
-    get C126() {
-      return C[126] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[127] || CT.C127,
+        [_Location_parameterLocations]: C[18] || CT.C18,
         [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 257,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C133() {
-      return C[133] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 267,
-        [_Location_file]: null
-      });
-    },
-    get C134() {
-      return C[134] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 268,
-        [_Location_file]: null
-      });
-    },
-    get C135() {
-      return C[135] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 269,
-        [_Location_file]: null
-      });
-    },
-    get C132() {
-      return C[132] = dart.constList([C[133] || CT.C133, C[134] || CT.C134, C[135] || CT.C135], T._LocationL());
-    },
-    get C131() {
-      return C[131] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[132] || CT.C132,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 266,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
-      });
-    },
-    get C138() {
-      return C[138] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 276,
-        [_Location_file]: null
-      });
-    },
-    get C139() {
-      return C[139] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 9,
-        [_Location_line]: 277,
-        [_Location_file]: null
-      });
-    },
-    get C140() {
-      return C[140] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 278,
-        [_Location_file]: null
-      });
-    },
-    get C137() {
-      return C[137] = dart.constList([C[138] || CT.C138, C[139] || CT.C139, C[140] || CT.C140], T._LocationL());
-    },
-    get C136() {
-      return C[136] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[137] || CT.C137,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 275,
-        [_Location_file]: "file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"
+        [_Location_column]: 12,
+        [_Location_line]: 219,
+        [_Location_file]: "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
       });
     }
   }, false);
-  var C = Array(141).fill(void 0);
-  var I = ["file:///C:/src/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/velocity_x-2.6.1/lib/src/flutter/transform.dart"];
+  var C = Array(24).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/flutter/packages/flutter/lib/src/material/circle_avatar.dart",
+    "package:flutter/src/material/circle_avatar.dart"
+  ];
+  var child$ = dart.privateName(circle_avatar, "CircleAvatar.child");
+  var backgroundColor$ = dart.privateName(circle_avatar, "CircleAvatar.backgroundColor");
+  var foregroundColor$ = dart.privateName(circle_avatar, "CircleAvatar.foregroundColor");
+  var backgroundImage$ = dart.privateName(circle_avatar, "CircleAvatar.backgroundImage");
+  var foregroundImage$ = dart.privateName(circle_avatar, "CircleAvatar.foregroundImage");
+  var onBackgroundImageError$ = dart.privateName(circle_avatar, "CircleAvatar.onBackgroundImageError");
+  var onForegroundImageError$ = dart.privateName(circle_avatar, "CircleAvatar.onForegroundImageError");
+  var radius$ = dart.privateName(circle_avatar, "CircleAvatar.radius");
+  var minRadius$ = dart.privateName(circle_avatar, "CircleAvatar.minRadius");
+  var maxRadius$ = dart.privateName(circle_avatar, "CircleAvatar.maxRadius");
+  var _minDiameter = dart.privateName(circle_avatar, "_minDiameter");
+  var _maxDiameter = dart.privateName(circle_avatar, "_maxDiameter");
+  var _name = dart.privateName(ui, "_name");
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
-  transform._degreeToRad = function _degreeToRad(degrees) {
-    if (degrees == null) dart.nullFailed(I[0], 19, 28, "degrees");
-    return dart.notNull(degrees) / 180.0 * 3.141592653589793;
+  circle_avatar.CircleAvatar = class CircleAvatar extends framework.StatelessWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get foregroundColor() {
+      return this[foregroundColor$];
+    }
+    set foregroundColor(value) {
+      super.foregroundColor = value;
+    }
+    get backgroundImage() {
+      return this[backgroundImage$];
+    }
+    set backgroundImage(value) {
+      super.backgroundImage = value;
+    }
+    get foregroundImage() {
+      return this[foregroundImage$];
+    }
+    set foregroundImage(value) {
+      super.foregroundImage = value;
+    }
+    get onBackgroundImageError() {
+      return this[onBackgroundImageError$];
+    }
+    set onBackgroundImageError(value) {
+      super.onBackgroundImageError = value;
+    }
+    get onForegroundImageError() {
+      return this[onForegroundImageError$];
+    }
+    set onForegroundImageError(value) {
+      super.onForegroundImageError = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get minRadius() {
+      return this[minRadius$];
+    }
+    set minRadius(value) {
+      super.minRadius = value;
+    }
+    get maxRadius() {
+      return this[maxRadius$];
+    }
+    set maxRadius(value) {
+      super.maxRadius = value;
+    }
+    get [_minDiameter]() {
+      let t0, t0$;
+      if (this.radius == null && this.minRadius == null && this.maxRadius == null) {
+        return 20 * 2.0;
+      }
+      return 2.0 * dart.notNull((t0$ = (t0 = this.radius, t0 == null ? this.minRadius : t0), t0$ == null ? 0 : t0$));
+    }
+    get [_maxDiameter]() {
+      let t0, t0$;
+      if (this.radius == null && this.minRadius == null && this.maxRadius == null) {
+        return 20 * 2.0;
+      }
+      return 2.0 * dart.notNull((t0$ = (t0 = this.radius, t0 == null ? this.maxRadius : t0), t0$ == null ? 1 / 0 : t0$));
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 193, 29, "context");
+      if (!dart.test(debug.debugCheckHasMediaQuery(context))) dart.assertFailed(null, I[0], 194, 12, "debugCheckHasMediaQuery(context)");
+      let theme = theme$.Theme.of(context);
+      let textStyle = dart.nullCheck(theme.primaryTextTheme.subtitle1).copyWith({color: this.foregroundColor});
+      let effectiveBackgroundColor = this.backgroundColor;
+      if (effectiveBackgroundColor == null) {
+        switch (theme_data.ThemeData.estimateBrightnessForColor(dart.nullCheck(textStyle.color))) {
+          case C[0] || CT.C0:
+          {
+            effectiveBackgroundColor = theme.primaryColorLight;
+            break;
+          }
+          case C[1] || CT.C1:
+          {
+            effectiveBackgroundColor = theme.primaryColorDark;
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
+        }
+      } else if (this.foregroundColor == null) {
+        switch (theme_data.ThemeData.estimateBrightnessForColor(dart.nullCheck(this.backgroundColor))) {
+          case C[0] || CT.C0:
+          {
+            textStyle = textStyle.copyWith({color: theme.primaryColorLight});
+            break;
+          }
+          case C[1] || CT.C1:
+          {
+            textStyle = textStyle.copyWith({color: theme.primaryColorDark});
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
+        }
+      }
+      let minDiameter = this[_minDiameter];
+      let maxDiameter = this[_maxDiameter];
+      return new implicit_animations.AnimatedContainer.new({constraints: new box.BoxConstraints.new({minHeight: minDiameter, minWidth: minDiameter, maxWidth: maxDiameter, maxHeight: maxDiameter}), duration: constants.kThemeChangeDuration, decoration: new box_decoration.BoxDecoration.new({color: effectiveBackgroundColor, image: this.backgroundImage != null ? new decoration_image.DecorationImage.new({image: dart.nullCheck(this.backgroundImage), onError: this.onBackgroundImageError, fit: box_fit.BoxFit.cover}) : null, shape: box_border.BoxShape.circle}), foregroundDecoration: this.foregroundImage != null ? new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: dart.nullCheck(this.foregroundImage), onError: this.onForegroundImageError, fit: box_fit.BoxFit.cover}), shape: box_border.BoxShape.circle}) : null, child: this.child == null ? null : new basic.Center.new({child: new media_query.MediaQuery.new({data: media_query.MediaQuery.of(context).copyWith({textScaleFactor: 1.0}), child: new icon_theme.IconTheme.new({data: theme.iconTheme.copyWith({color: textStyle.color}), child: new text.DefaultTextStyle.new({style: textStyle, child: dart.nullCheck(this.child), $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+    }
   };
-  transform['TransformExtension|perspective'] = function TransformExtension$124perspective($this, opts) {
-    let t1;
-    if ($this == null) dart.nullFailed(I[0], 28, 10, "#this");
+  (circle_avatar.CircleAvatar.new = function(opts) {
     let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.new({key: key, transform: (t1 = vector_math_64.Matrix4.identity(), (() => {
-        t1.setEntry(3, 2, 0.001);
-        return t1;
-      })()), child: $this, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
-  };
-  transform['TransformExtension|get#perspective'] = function TransformExtension$124get$35perspective($this) {
-    if ($this == null) dart.nullFailed(I[0], 28, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|perspective']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|offset'] = function TransformExtension$124offset($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 35, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let offset = opts && 'offset' in opts ? opts.offset : null;
-    if (offset == null) dart.nullFailed(I[0], 36, 34, "offset");
-    let transformHitTests = opts && 'transformHitTests' in opts ? opts.transformHitTests : true;
-    if (transformHitTests == null) dart.nullFailed(I[0], 36, 47, "transformHitTests");
-    return new basic.Transform.translate({key: key, transformHitTests: transformHitTests, offset: offset, child: $this, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
-  };
-  transform['TransformExtension|get#offset'] = function TransformExtension$124get$35offset($this) {
-    if ($this == null) dart.nullFailed(I[0], 35, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let offset = opts && 'offset' in opts ? opts.offset : null;
-      if (offset == null) dart.nullFailed(I[0], 36, 34, "offset");
-      let transformHitTests = opts && 'transformHitTests' in opts ? opts.transformHitTests : true;
-      if (transformHitTests == null) dart.nullFailed(I[0], 36, 47, "transformHitTests");
-      return transform['TransformExtension|offset']($this, {key: key, offset: offset, transformHitTests: transformHitTests});
-    }, T.__ToWidget$1());
-  };
-  transform['TransformExtension|flipHorizontal'] = function TransformExtension$124flipHorizontal($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 48, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.new({key: key, transform: vector_math_64.Matrix4.rotationY(3.141592653589793), child: $this, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11});
-  };
-  transform['TransformExtension|get#flipHorizontal'] = function TransformExtension$124get$35flipHorizontal($this) {
-    if ($this == null) dart.nullFailed(I[0], 48, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|flipHorizontal']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|flipY'] = function TransformExtension$124flipY($this, opts) {
-    let t7;
-    if ($this == null) dart.nullFailed(I[0], 57, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let radian = opts && 'radian' in opts ? opts.radian : null;
-    return new basic.Transform.new({key: key, transform: vector_math_64.Matrix4.rotationY((t7 = radian, t7 == null ? 90.0 : t7)), child: $this, $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
-  };
-  transform['TransformExtension|get#flipY'] = function TransformExtension$124get$35flipY($this) {
-    if ($this == null) dart.nullFailed(I[0], 57, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let radian = opts && 'radian' in opts ? opts.radian : null;
-      return transform['TransformExtension|flipY']($this, {key: key, radian: radian});
-    }, T.__ToWidget$2());
-  };
-  transform['TransformExtension|flipVertical'] = function TransformExtension$124flipVertical($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 66, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.new({key: key, transform: vector_math_64.Matrix4.rotationX(3.141592653589793), child: $this, $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
-  };
-  transform['TransformExtension|get#flipVertical'] = function TransformExtension$124get$35flipVertical($this) {
-    if ($this == null) dart.nullFailed(I[0], 66, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|flipVertical']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|flipX'] = function TransformExtension$124flipX($this, opts) {
-    let t11;
-    if ($this == null) dart.nullFailed(I[0], 75, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let radian = opts && 'radian' in opts ? opts.radian : null;
-    return new basic.Transform.new({key: key, transform: vector_math_64.Matrix4.rotationX((t11 = radian, t11 == null ? 90.0 : t11)), child: $this, $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
-  };
-  transform['TransformExtension|get#flipX'] = function TransformExtension$124get$35flipX($this) {
-    if ($this == null) dart.nullFailed(I[0], 75, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let radian = opts && 'radian' in opts ? opts.radian : null;
-      return transform['TransformExtension|flipX']($this, {key: key, radian: radian});
-    }, T.__ToWidget$2());
-  };
-  transform['TransformExtension|rotate0'] = function TransformExtension$124rotate0($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 84, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: 0.0, child: $this, $creationLocationd_0dea112b090073317d4: C[31] || CT.C31});
-  };
-  transform['TransformExtension|get#rotate0'] = function TransformExtension$124get$35rotate0($this) {
-    if ($this == null) dart.nullFailed(I[0], 84, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotate0']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotate'] = function TransformExtension$124rotate($this, degrees, opts) {
-    if ($this == null) dart.nullFailed(I[0], 93, 10, "#this");
-    if (degrees == null) dart.nullFailed(I[0], 93, 24, "degrees");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[36] || CT.C36;
-    if (alignment == null) dart.nullFailed(I[0], 94, 32, "alignment");
-    let origin = opts && 'origin' in opts ? opts.origin : null;
-    return new basic.Transform.rotate({key: key, angle: transform._degreeToRad(degrees), alignment: alignment, origin: origin, child: $this, $creationLocationd_0dea112b090073317d4: C[37] || CT.C37});
-  };
-  transform['TransformExtension|get#rotate'] = function TransformExtension$124get$35rotate($this) {
-    if ($this == null) dart.nullFailed(I[0], 93, 10, "#this");
-    return dart.fn((degrees, opts) => {
-      if (degrees == null) dart.nullFailed(I[0], 93, 24, "degrees");
-      let key = opts && 'key' in opts ? opts.key : null;
-      let alignment = opts && 'alignment' in opts ? opts.alignment : C[36] || CT.C36;
-      if (alignment == null) dart.nullFailed(I[0], 94, 32, "alignment");
-      let origin = opts && 'origin' in opts ? opts.origin : null;
-      return transform['TransformExtension|rotate']($this, degrees, {key: key, alignment: alignment, origin: origin});
-    }, T.double__ToWidget());
-  };
-  transform['TransformExtension|get#rotate45'] = function TransformExtension$124get$35rotate45($this) {
-    if ($this == null) dart.nullFailed(I[0], 106, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotate45']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotate45'] = function TransformExtension$124rotate45($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 106, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: 3.141592653589793 / 4, child: $this, $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
-  };
-  transform['TransformExtension|rotate60'] = function TransformExtension$124rotate60($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 115, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: 3.141592653589793 / 3, child: $this, $creationLocationd_0dea112b090073317d4: C[49] || CT.C49});
-  };
-  transform['TransformExtension|get#rotate60'] = function TransformExtension$124get$35rotate60($this) {
-    if ($this == null) dart.nullFailed(I[0], 115, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotate60']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotate90'] = function TransformExtension$124rotate90($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 124, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: 3.141592653589793 / 2, child: $this, $creationLocationd_0dea112b090073317d4: C[54] || CT.C54});
-  };
-  transform['TransformExtension|get#rotate90'] = function TransformExtension$124get$35rotate90($this) {
-    if ($this == null) dart.nullFailed(I[0], 124, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotate90']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotate180'] = function TransformExtension$124rotate180($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 133, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: 3.141592653589793, child: $this, $creationLocationd_0dea112b090073317d4: C[59] || CT.C59});
-  };
-  transform['TransformExtension|get#rotate180'] = function TransformExtension$124get$35rotate180($this) {
-    if ($this == null) dart.nullFailed(I[0], 133, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotate180']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotateN180'] = function TransformExtension$124rotateN180($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 142, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: -3.141592653589793, child: $this, $creationLocationd_0dea112b090073317d4: C[64] || CT.C64});
-  };
-  transform['TransformExtension|get#rotateN180'] = function TransformExtension$124get$35rotateN180($this) {
-    if ($this == null) dart.nullFailed(I[0], 142, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotateN180']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotateN90'] = function TransformExtension$124rotateN90($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 151, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: -3.141592653589793 / 2, child: $this, $creationLocationd_0dea112b090073317d4: C[69] || CT.C69});
-  };
-  transform['TransformExtension|get#rotateN90'] = function TransformExtension$124get$35rotateN90($this) {
-    if ($this == null) dart.nullFailed(I[0], 151, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotateN90']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotateN45'] = function TransformExtension$124rotateN45($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 160, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: -3.141592653589793 / 4, child: $this, $creationLocationd_0dea112b090073317d4: C[74] || CT.C74});
-  };
-  transform['TransformExtension|get#rotateN45'] = function TransformExtension$124get$35rotateN45($this) {
-    if ($this == null) dart.nullFailed(I[0], 160, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotateN45']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|rotateN60'] = function TransformExtension$124rotateN60($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 169, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.rotate({key: key, angle: -3.141592653589793 / 3, child: $this, $creationLocationd_0dea112b090073317d4: C[79] || CT.C79});
-  };
-  transform['TransformExtension|get#rotateN60'] = function TransformExtension$124get$35rotateN60($this) {
-    if ($this == null) dart.nullFailed(I[0], 169, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|rotateN60']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale'] = function TransformExtension$124scale($this, opts) {
-    let t33;
-    if ($this == null) dart.nullFailed(I[0], 178, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scaleValue = opts && 'scaleValue' in opts ? opts.scaleValue : null;
-    let origin = opts && 'origin' in opts ? opts.origin : null;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[36] || CT.C36;
-    if (alignment == null) dart.nullFailed(I[0], 182, 21, "alignment");
-    return new basic.Transform.scale({key: key, scale: (t33 = scaleValue, t33 == null ? 0.0 : t33), alignment: alignment, origin: origin, child: $this, $creationLocationd_0dea112b090073317d4: C[84] || CT.C84});
-  };
-  transform['TransformExtension|get#scale'] = function TransformExtension$124get$35scale($this) {
-    if ($this == null) dart.nullFailed(I[0], 178, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let scaleValue = opts && 'scaleValue' in opts ? opts.scaleValue : null;
-      let origin = opts && 'origin' in opts ? opts.origin : null;
-      let alignment = opts && 'alignment' in opts ? opts.alignment : C[36] || CT.C36;
-      if (alignment == null) dart.nullFailed(I[0], 182, 21, "alignment");
-      return transform['TransformExtension|scale']($this, {key: key, scaleValue: scaleValue, origin: origin, alignment: alignment});
-    }, T.__ToWidget$3());
-  };
-  transform['TransformExtension|scale0'] = function TransformExtension$124scale0($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 194, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 0.0, child: $this, $creationLocationd_0dea112b090073317d4: C[91] || CT.C91});
-  };
-  transform['TransformExtension|get#scale0'] = function TransformExtension$124get$35scale0($this) {
-    if ($this == null) dart.nullFailed(I[0], 194, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale0']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale50'] = function TransformExtension$124scale50($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 203, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 0.5, child: $this, $creationLocationd_0dea112b090073317d4: C[96] || CT.C96});
-  };
-  transform['TransformExtension|get#scale50'] = function TransformExtension$124get$35scale50($this) {
-    if ($this == null) dart.nullFailed(I[0], 203, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale50']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale75'] = function TransformExtension$124scale75($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 212, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 0.75, child: $this, $creationLocationd_0dea112b090073317d4: C[101] || CT.C101});
-  };
-  transform['TransformExtension|get#scale75'] = function TransformExtension$124get$35scale75($this) {
-    if ($this == null) dart.nullFailed(I[0], 212, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale75']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale90'] = function TransformExtension$124scale90($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 221, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 0.9, child: $this, $creationLocationd_0dea112b090073317d4: C[106] || CT.C106});
-  };
-  transform['TransformExtension|get#scale90'] = function TransformExtension$124get$35scale90($this) {
-    if ($this == null) dart.nullFailed(I[0], 221, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale90']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale95'] = function TransformExtension$124scale95($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 230, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 0.95, child: $this, $creationLocationd_0dea112b090073317d4: C[111] || CT.C111});
-  };
-  transform['TransformExtension|get#scale95'] = function TransformExtension$124get$35scale95($this) {
-    if ($this == null) dart.nullFailed(I[0], 230, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale95']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale100'] = function TransformExtension$124scale100($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 239, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 1.0, child: $this, $creationLocationd_0dea112b090073317d4: C[116] || CT.C116});
-  };
-  transform['TransformExtension|get#scale100'] = function TransformExtension$124get$35scale100($this) {
-    if ($this == null) dart.nullFailed(I[0], 239, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale100']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale105'] = function TransformExtension$124scale105($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 248, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 1.05, child: $this, $creationLocationd_0dea112b090073317d4: C[121] || CT.C121});
-  };
-  transform['TransformExtension|get#scale105'] = function TransformExtension$124get$35scale105($this) {
-    if ($this == null) dart.nullFailed(I[0], 248, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale105']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale110'] = function TransformExtension$124scale110($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 257, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 1.1, child: $this, $creationLocationd_0dea112b090073317d4: C[126] || CT.C126});
-  };
-  transform['TransformExtension|get#scale110'] = function TransformExtension$124get$35scale110($this) {
-    if ($this == null) dart.nullFailed(I[0], 257, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale110']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale150'] = function TransformExtension$124scale150($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 266, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 1.5, child: $this, $creationLocationd_0dea112b090073317d4: C[131] || CT.C131});
-  };
-  transform['TransformExtension|get#scale150'] = function TransformExtension$124get$35scale150($this) {
-    if ($this == null) dart.nullFailed(I[0], 266, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale150']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  transform['TransformExtension|scale200'] = function TransformExtension$124scale200($this, opts) {
-    if ($this == null) dart.nullFailed(I[0], 275, 10, "#this");
-    let key = opts && 'key' in opts ? opts.key : null;
-    return new basic.Transform.scale({key: key, scale: 2.0, child: $this, $creationLocationd_0dea112b090073317d4: C[136] || CT.C136});
-  };
-  transform['TransformExtension|get#scale200'] = function TransformExtension$124get$35scale200($this) {
-    if ($this == null) dart.nullFailed(I[0], 275, 10, "#this");
-    return dart.fn(opts => {
-      let key = opts && 'key' in opts ? opts.key : null;
-      return transform['TransformExtension|scale200']($this, {key: key});
-    }, T.__ToWidget());
-  };
-  dart.trackLibraries("packages/velocity_x/src/flutter/transform.dart", {
-    "package:velocity_x/src/flutter/transform.dart": transform
+    let child = opts && 'child' in opts ? opts.child : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let backgroundImage = opts && 'backgroundImage' in opts ? opts.backgroundImage : null;
+    let foregroundImage = opts && 'foregroundImage' in opts ? opts.foregroundImage : null;
+    let onBackgroundImageError = opts && 'onBackgroundImageError' in opts ? opts.onBackgroundImageError : null;
+    let onForegroundImageError = opts && 'onForegroundImageError' in opts ? opts.onForegroundImageError : null;
+    let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let minRadius = opts && 'minRadius' in opts ? opts.minRadius : null;
+    let maxRadius = opts && 'maxRadius' in opts ? opts.maxRadius : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[backgroundColor$] = backgroundColor;
+    this[backgroundImage$] = backgroundImage;
+    this[foregroundImage$] = foregroundImage;
+    this[onBackgroundImageError$] = onBackgroundImageError;
+    this[onForegroundImageError$] = onForegroundImageError;
+    this[foregroundColor$] = foregroundColor;
+    this[radius$] = radius;
+    this[minRadius$] = minRadius;
+    this[maxRadius$] = maxRadius;
+    if (!(radius == null || minRadius == null && maxRadius == null)) dart.assertFailed(null, I[0], 74, 15, "radius == null || (minRadius == null && maxRadius == null)");
+    if (!(backgroundImage != null || onBackgroundImageError == null)) dart.assertFailed(null, I[0], 75, 15, "backgroundImage != null || onBackgroundImageError == null");
+    if (!(foregroundImage != null || onForegroundImageError == null)) dart.assertFailed(null, I[0], 76, 15, "foregroundImage != null || onForegroundImageError== null");
+    circle_avatar.CircleAvatar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = circle_avatar.CircleAvatar.prototype;
+  dart.addTypeTests(circle_avatar.CircleAvatar);
+  dart.addTypeCaches(circle_avatar.CircleAvatar);
+  dart.setMethodSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getMethods(circle_avatar.CircleAvatar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getGetters(circle_avatar.CircleAvatar.__proto__),
+    [_minDiameter]: core.double,
+    [_maxDiameter]: core.double
+  }));
+  dart.setLibraryUri(circle_avatar.CircleAvatar, I[1]);
+  dart.setFieldSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getFields(circle_avatar.CircleAvatar.__proto__),
+    child: dart.finalFieldType(dart.nullable(framework.Widget)),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    foregroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    backgroundImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    foregroundImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onBackgroundImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    onForegroundImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    radius: dart.finalFieldType(dart.nullable(core.double)),
+    minRadius: dart.finalFieldType(dart.nullable(core.double)),
+    maxRadius: dart.finalFieldType(dart.nullable(core.double))
+  }));
+  dart.defineLazy(circle_avatar.CircleAvatar, {
+    /*circle_avatar.CircleAvatar._defaultRadius*/get _defaultRadius() {
+      return 20;
+    },
+    /*circle_avatar.CircleAvatar._defaultMinRadius*/get _defaultMinRadius() {
+      return 0;
+    },
+    /*circle_avatar.CircleAvatar._defaultMaxRadius*/get _defaultMaxRadius() {
+      return 1 / 0;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/circle_avatar.dart", {
+    "package:flutter/src/material/circle_avatar.dart": circle_avatar
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["transform.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;QAkB2B;AAAY,UAAQ,AAAQ,cAAhB,OAAO,IAAG;EAAe;;;;QASrC;AAAS,yCACvB,GAAG,sDACW;AAAY,oBAAS,GAAG,GAAG;;;EAE/C;;;AAJE;UAAkB;AAAlB,yEAAG;;EAIL;;;QAIK;QAAqB;;QAAa;;AAC1C,UAAiB,qCACV,GAAG,qBACW,iBAAiB,UAC5B,MAAM;EAGlB;;;AARO;UACG;UAAqB;;UAAa;;AADrC,oEAAG,UAAH,MAAM,qBAAN,iBACA;;EAOP;;;QAK4B;AAAS,yCAC1B,GAAG,aACW;EAEpB;;;AAJE;UAAqB;AAArB,4EAAG;;EAIL;;;;QAKc;QAAa;AAAY,yCACjC,GAAG,aACW,kCAAiB,KAAP,MAAM,EAAN,aAAU;EAExC;;;AAJE;UAAY;UAAa;AAAzB,mEAAG,UAAH,MAAM;;EAIR;;;QAKqB;AAAS,yCACxB,GAAG,aACW;EAEpB;;;AAJE;UAAmB;AAAnB,0EAAG;;EAIL;;;;QAKc;QAAa;AAAY,yCACjC,GAAG,aACW,kCAAiB,MAAP,MAAM,EAAN,cAAU;EAExC;;;AAJE;UAAY;UAAa;AAAzB,mEAAG,UAAH,MAAM;;EAIR;;;QAKgB;AAAS,UAAU,kCAC7B,GAAG,SACD;EAER;;;AAJE;UAAc;AAAd,qEAAG;;EAIL;wFAKgB;;;QACP;QAAe;;QAAsC;AAC/D,UAAU,kCACH,GAAG,SACD,uBAAa,OAAO,cAChB,SAAS,UACZ,MAAM;EAEf;;;AARE;UAAc;UACP;UAAe;;UAAsC;AAD5D,kEAAO,QAAP,GAAG,aAAH,SAAS,UAAT,MAAM;;EAQR;;;AAKE;UAAe;AAAf,sEAAG;;EAIL;;;QAJiB;AAAS,UAAU,kCAC9B,GAAG,SACO,oBAAE;EAElB;;;QAKiB;AAAS,UAAU,kCAC9B,GAAG,SACO,oBAAE;EAElB;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKiB;AAAS,UAAU,kCAC9B,GAAG,SACO,oBAAE;EAElB;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKkB;AAAS,UAAU,kCAC/B,GAAG;EAGT;;;AAJE;UAAgB;AAAhB,uEAAG;;EAIL;;;QAKmB;AAAS,UAAU,kCAChC,GAAG,SACD;EAER;;;AAJE;UAAiB;AAAjB,wEAAG;;EAIL;;;QAKkB;AAAS,UAAU,kCAC/B,GAAG,SACD,AAAS,qBAAE;EAEnB;;;AAJE;UAAgB;AAAhB,uEAAG;;EAIL;;;QAKkB;AAAS,UAAU,kCAC/B,GAAG,SACD,AAAS,qBAAE;EAEnB;;;AAJE;UAAgB;AAAhB,uEAAG;;EAIL;;;QAKkB;AAAS,UAAU,kCAC/B,GAAG,SACD,AAAS,qBAAE;EAEnB;;;AAJE;UAAgB;AAAhB,uEAAG;;EAIL;;;;QAMS;QACE;QACA;QACE;;AACd,UAAU,iCACH,GAAG,UACU,MAAX,UAAU,EAAV,cAAc,uBACV,SAAS,UACZ,MAAM;EAEf;;;AAXE;UACO;UACE;UACA;UACE;;AAJX,mEAAG,cAAH,UACN,UADM,MAAM,aAAN,SACP;;EAUK;;;QAKe;AAAS,UAAU,iCAC5B,GAAG,SACD;EAER;;;AAJE;UAAa;AAAb,oEAAG;;EAIL;;;QAKgB;AAAS,UAAU,iCAC7B,GAAG,SACD;EAER;;;AAJE;UAAc;AAAd,qEAAG;;EAIL;;;QAKgB;AAAS,UAAU,iCAC7B,GAAG,SACD;EAER;;;AAJE;UAAc;AAAd,qEAAG;;EAIL;;;QAKgB;AAAS,UAAU,iCAC7B,GAAG,SACD;EAER;;;AAJE;UAAc;AAAd,qEAAG;;EAIL;;;QAKgB;AAAS,UAAU,iCAC7B,GAAG,SACD;EAER;;;AAJE;UAAc;AAAd,qEAAG;;EAIL;;;QAKiB;AAAS,UAAU,iCAC9B,GAAG,SACD;EAER;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKiB;AAAS,UAAU,iCAC9B,GAAG,SACD;EAER;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKiB;AAAS,UAAU,iCAC9B,GAAG,SACD;EAER;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKiB;AAAS,UAAU,iCAC9B,GAAG,SACD;EAER;;;AAJE;UAAe;AAAf,sEAAG;;EAIL;;;QAKiB;AAAS,UAAU,iCAC9B,GAAG,SACD;EAER;;;AAJE;UAAe;AAAf,sEAAG;;EAIL","file":"../../../../../../../../../../../D:/packages/velocity_x/src/flutter/transform.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["circle_avatar.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkFgB;;;;;;IAQD;;;;;;IASA;;;;;;IAQQ;;;;;;IAKA;;;;;;IAIK;;;;;;IAIA;;;;;;IAcZ;;;;;;IAgBA;;;;;;IAgBA;;;;;;;;AAYZ,UAAI,AAAO,uBAAW,AAAU,0BAAW,AAAU;AACnD,cAAsB,MAAE;;AAE1B,YAAO,AAAI,qBAAuB,OAAb,kBAAP,aAAU,sBAAH;IACvB;;;AAGE,UAAI,AAAO,uBAAW,AAAU,0BAAW,AAAU;AACnD,cAAsB,MAAE;;AAE1B,YAAO,AAAI,qBAAuB,OAAb,kBAAP,aAAU,sBAAH;IACvB;;UAG0B;AACxB,qBAAO,8BAAwB,OAAO;AACtB,kBAAc,gBAAG,OAAO;AAC9B,sBAA4C,AAAE,eAAlC,AAAM,AAAiB,KAAlB,8CAA6C;AACjE,qCAA2B;AAClC,UAAI,AAAyB,wBAAD;AAC1B,gBAAkB,gDAA0C,eAAf,AAAU,SAAD;;;AAEA,YAAlD,2BAA2B,AAAM,KAAD;AAChC;;;;AAEiD,YAAjD,2BAA2B,AAAM,KAAD;AAChC;;;;AANJ;;;YAQK,KAAI,AAAgB;AACzB,gBAAkB,gDAA0C,eAAf;;;AAEqB,YAA9D,YAAY,AAAU,SAAD,kBAAiB,AAAM,KAAD;AAC3C;;;;AAE6D,YAA7D,YAAY,AAAU,SAAD,kBAAiB,AAAM,KAAD;AAC3C;;;;AANJ;;;;AASW,wBAAc;AACd,wBAAc;AAC3B,YAAO,6DACQ,uCACA,WAAW,YACZ,WAAW,YACX,WAAW,aACV,WAAW,cAEd,4CACE,6CACH,wBAAwB,SACxB,AAAgB,+BACnB,iDACwB,eAAf,gCACE,kCACG,yBAEd,aACY,oDAEI,AAAgB,+BAChC,6CACS,iDACiB,eAAf,gCACE,kCACG,+BAEE,+BAElB,aACC,AAAM,qBACP,OACA,6BACS,sCAGY,AAAY,0BAAT,OAAO,6BAA4B,cAChD,oCACC,AAAM,AAAU,KAAX,4BAA2B,AAAU,SAAD,iBACxC,sCACE,SAAS,SACJ,eAAL;IAMzB;;;QA1MO;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IATA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACK,AAAO,AAAQ,MAAT,YAAa,AAAU,SAAD,YAAY,AAAU,SAAD;UACjD,AAAwB,eAAT,YAAY,AAAuB,sBAAD;UACjD,AAAwB,eAAT,YAAY,AAAsB,sBAAA;AACxD,8DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;MA6FA,yCAAc;;;MAGd,4CAAiB;;;MAGjB,4CAAiB","file":"../../../../../../../../../D:/packages/flutter/src/material/circle_avatar.dart.lib.js"}');
   // Exports:
   return {
-    src__flutter__transform: transform
+    src__material__circle_avatar: circle_avatar
   };
 }));
 
-//# sourceMappingURL=transform.dart.lib.js.map
+//# sourceMappingURL=circle_avatar.dart.lib.js.map
